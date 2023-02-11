@@ -1,0 +1,10 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NodeBaseDevs – News About Testnet</title><link>https://github.com/nodebasewm/nodebasewm.github.io/blog/news/</link><description>Recent content in News About Testnet on NodeBaseDevs</description><generator>Hugo -- gohugo.io</generator><atom:link href="https://github.com/nodebasewm/nodebasewm.github.io/blog/news/index.xml" rel="self" type="application/rss+xml"/><item><title>Blog: Launch of TheNodeBase Devs</title><link>https://github.com/nodebasewm/nodebasewm.github.io/blog/2023/02/08/launch-of-thenodebase-devs/</link><pubDate>Wed, 08 Feb 2023 00:00:00 +0000</pubDate><guid>https://github.com/nodebasewm/nodebasewm.github.io/blog/2023/02/08/launch-of-thenodebase-devs/</guid><description>
+&lt;h2 id="nodebase-devs-site-is-born">NodeBase Devs site is born!&lt;/h2>
+&lt;p>Welcome to the &lt;strong>Nodebase developers&lt;/strong> site. A place where we can share useful resources for Earthnode Operators
+of the WorldMobile Chain.&lt;/p>
+&lt;p>Since ** (&lt;a href="https://twitter.com/earthnodechile">@earthnodechile&lt;/a>) **is part of the private testnet team of the WM Chain, I will share my unique insights on
+testnet development, publish material about Cosmos SDK and write step-by-step guides all things related to
+running an Earthnode.&lt;/p>
+&lt;p>Progress and opinion pieces on WM Testnet will be published to the blog section.&lt;/p>
+&lt;p>The documentation section will contain material about running an earthnode and in-house developed tools to
+assist Earthnode operators. More on that in the next blog.&lt;/p></description></item></channel></rss>

@@ -1,0 +1,301 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NodeBaseDevs – Configuration</title><link>https://github.com/nodebasewm/nodebasewm.github.io/categories/configuration/</link><description>Recent content in Configuration on NodeBaseDevs</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Wed, 08 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://github.com/nodebasewm/nodebasewm.github.io/categories/configuration/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Configuration</title><link>https://github.com/nodebasewm/nodebasewm.github.io/docs/configuration/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://github.com/nodebasewm/nodebasewm.github.io/docs/configuration/</guid><description/></item><item><title>Docs: Node Architecture Design</title><link>https://github.com/nodebasewm/nodebasewm.github.io/docs/configuration/architecture/</link><pubDate>Wed, 08 Feb 2023 00:00:00 +0000</pubDate><guid>https://github.com/nodebasewm/nodebasewm.github.io/docs/configuration/architecture/</guid><description>
+&lt;h1 id="validator-node-architecture-design">Validator Node Architecture Design&lt;/h1>
+&lt;p>Tendermint relies on the set of validators to secure the network. The role of the validators is to run a full-node and participate in consensus by broadcasting votes which contain cryptographic signatures signed by their private key. Validators are connected to each other through the &lt;strong>p2p&lt;/strong> connections.&lt;/p>
+&lt;p>Validators are &lt;strong>responsible&lt;/strong> for ensuring the that the network can sustain denial of service attacks.&lt;/p>
+&lt;h2 id="common-attacks">Common Attacks&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>Distributed Denial of Service (DDoS)&lt;/p>
+&lt;p>In the WM Chain, a validator node has a fixed IP address and RESRfule API port connected to the internet, which makes it vulnereable. DDoS attacks will halt the vote messages between validators and prevent blocks from being committed. If more than 1/3 of the network suffer from a DDoS attack it can halt the chain.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Compromise of keys&lt;/p>
+&lt;p>The most valuable asset of a validator are the keys it uses to sign blocks. An attacker who has control of the validator can get anything they want signed by the keys.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="single-node-validator-setup">Single Node Validator Setup&lt;/h2>
+&lt;p>This approach is deemed unsafe, though you could set firewall white listings to establish links to only trustful peers. If an IP address is discovered it becomes vulnerable, and it is problematic to change.&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Pro&lt;/strong>: easy to implement&lt;/li>
+&lt;li>&lt;strong>Con&lt;/strong>: not a flexible setup&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>=&amp;gt; This approach should be avoided, since it will still make your validator vulnerable.&lt;/p>
+&lt;/blockquote>
+&lt;figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 610px">
+&lt;img class="card-img-top" src="https://github.com/nodebasewm/nodebasewm.github.io/nodebasewm/nodebasewm.github.io/docs/configuration/architecture/single-node-validator_hu1c7b63cff321f846abdd83cfc6bbf6f4_41905_600x500_fit_catmullrom_3.png" width="600" height="280">
+&lt;figcaption class="card-body px-0 pt-2 pb-0">
+&lt;p class="card-text">
+&lt;small class="text-muted">&lt;br/>picture&lt;/small>&lt;/p>
+&lt;/figcaption>
+&lt;/figure>
+&lt;h2 id="single-layer-sentry-node-setup">Single Layer Sentry Node Setup&lt;/h2>
+&lt;p>In this setup, the validator node hides behind its two-layer sentry nodes. Only sentry nodes use public internet. The validator nodes do not need a public IP address, so discovery of IP addresses to target with DDos is much harder. Multiple Sentry Nodes can be connected to a a single validator to further mitigate the risk of DDoS Attacks.&lt;/p>
+&lt;h3 id="virtual-private-cloud-vpc">&lt;strong>Virtual Private Cloud (VPC)&lt;/strong>&lt;/h3>
+&lt;p>If you use a cloud solution, you can setup a Virtual Private Cloud (VPC) to host your relay and validator nodes. VPC networks provide a more secure connection between resources because the inaccessible from the public internet and other VPC networks. Traffic within a VP network doesn&amp;rsquo;t count against bandwidth usage.&lt;/p>
+&lt;blockquote>
+&lt;p>In this setup, the relay talks to the validator &amp;gt;node through a secure private connection. The &amp;gt;relay node will then also connect through an &amp;gt;&lt;strong>external_address&lt;/strong> with the p2p validator &amp;gt;network.&lt;/p>
+&lt;/blockquote>
+&lt;figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 610px">
+&lt;img class="card-img-top" src="https://github.com/nodebasewm/nodebasewm.github.io/nodebasewm/nodebasewm.github.io/docs/configuration/architecture/single-layer-sentry-setup_hu705b58fe2a16c6318323457c7558fd9f_53579_600x500_fit_catmullrom_3.png" width="600" height="383">
+&lt;figcaption class="card-body px-0 pt-2 pb-0">
+&lt;p class="card-text">
+&lt;small class="text-muted">&lt;br/>picture&lt;/small>&lt;/p>
+&lt;/figcaption>
+&lt;/figure>
+&lt;ul>
+&lt;li>&lt;strong>Pro&lt;/strong>: Efficient to mitigate DDos attacks&lt;/li>
+&lt;li>&lt;strong>Con&lt;/strong>: Attacker can only attack the validator node, if they gain access to the private network.&lt;/li>
+&lt;/ul>
+&lt;h3 id="public-cloud">Public Cloud&lt;/h3>
+&lt;p>In this setup, the relay and validator node are both connected to the internet. But the validator node is hidden behind the relay node. The relay node will prevent &lt;strong>gossipping&lt;/strong> the IP-address of the validator node.&lt;/p>
+&lt;blockquote>
+&lt;p>This is less secure than using a VPC network, &amp;gt;since the validator node, although unknown to the &amp;gt;rest of the peers, is still connected to the &amp;gt;public internet and could be discovered.&lt;/p>
+&lt;/blockquote></description></item><item><title>Docs: Validator Sentry Config.toml</title><link>https://github.com/nodebasewm/nodebasewm.github.io/docs/configuration/config/</link><pubDate>Wed, 08 Feb 2023 00:00:00 +0000</pubDate><guid>https://github.com/nodebasewm/nodebasewm.github.io/docs/configuration/config/</guid><description>
+&lt;h2 id="local-configuration-validator-sentry-setup">Local Configuration Validator-Sentry Setup&lt;/h2>
+&lt;p>The validator will only talk to the Sentry nodes that are provided. While sentry nodes have the ability to talk to the validator node on the private channel and talk to public nodes elsewhere on the internet. When initializing nodes there are six parameters in the config.toml which are important&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>pex&lt;/strong>: boolean value. It tursn the peer exchange reactor (gossip protocol) on or off in a node. When &lt;code>pex=false&lt;/code>, only the list of nodes in the &lt;code>persistent_peers&lt;/code> list are available for connection.&lt;/li>
+&lt;li>&lt;strong>persistent_peers&lt;/strong>: commma separated list of nodeid@ip:port values that define a list of peers that expected to be online at all times and the node is expected to be able to connect to them. If some nodes are not available, they will be skipped and later retried for a while, before completely dropping them. If no nodes are available from the list and pex=false,, then the node will not be able to join the network.&lt;/li>
+&lt;li>&lt;strong>private_peer_ids&lt;/strong>: comma-separated list of nodeid values, that should not be gossiped at all times. This setting tells which nodes should not be handed out to others&lt;/li>
+&lt;li>&lt;strong>add_book_strict&lt;/strong>: Turn this off if some of the nodes are on a LAN IP. If off, non routable IP address, like addressed on a private network can be added to the address book.&lt;/li>
+&lt;li>&lt;strong>unconditional_peer_ids&lt;/strong>: comma seperated list of nodeIDs. These nodes will be connected no matter the limit of inbound and outbound peers. This is useful when address_books of sentry nodes are full.&lt;/li>
+&lt;li>&lt;strong>seed_mode&lt;/strong>. This is used to jump start other nodes by providing a list of peers that the node can connect to.&lt;/li>
+&lt;/ul>
+&lt;h3 id="validator-node-configuration">Validator Node Configuration&lt;/h3>
+&lt;div class="table-responsive">
+&lt;table class="table-striped table-hover">
+&lt;thead class="table-dark">
+&lt;tr>
+&lt;th>Config Option&lt;/th>
+&lt;th>Setting&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>seed_mode&lt;/td>
+&lt;td>false&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>pex&lt;/td>
+&lt;td>false&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>persistent_peers&lt;/td>
+&lt;td>list of sentry nodes&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>private_peer_ids&lt;/td>
+&lt;td>none&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>uncondidional_peer_ids&lt;/td>
+&lt;td>optionally sentry node IDs&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>addr_book_strict&lt;/td>
+&lt;td>false&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;blockquote>
+&lt;p>The validator node should have &lt;code>pex=false&lt;/code> so it does not gossip to the entire network. The &lt;code>persistent_peers&lt;/code> will be your sentry nodes. &lt;code>private_peer_ids&lt;/code> can be left empty, as the validator is not trying to hide who it is communicating with. Setting &lt;code>unconditional_peer_ids&lt;/code> is optional for a validator since they will not have a full address book.
+Since the validator is on a private network and it will connect to the sentry nodes also on a private network, &lt;code>addr_book_strict=false&lt;/code> has to be set.&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;strong>Important&lt;/strong>: Sentry nodes in persistent_peers have the format nodeID@ip:port.&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>nodeID. The ID of your validator. This can be retrieved with the command&lt;/p>
+&lt;p>&lt;strong>ayad tendermint show-node-id &amp;ndash;home /opt/aya&lt;/strong>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>ip&lt;/strong> The IP-address of your relay node&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>port&lt;/strong>: The p2p port your relay node is listening on. By default it is 26656&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h3 id="sentry-node-configuration">Sentry Node Configuration&lt;/h3>
+&lt;div class="table-responsive">
+&lt;table class="table-striped table-hover">
+&lt;thead class="table-dark">
+&lt;tr>
+&lt;th>Config Option&lt;/th>
+&lt;th>Setting&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>seed_mode&lt;/td>
+&lt;td>false&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>pex&lt;/td>
+&lt;td>true&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>persistent_peers&lt;/td>
+&lt;td>validator node, optionally other sentry nodes&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>private_peer_ids&lt;/td>
+&lt;td>validator node ID&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>uncondidional_peer_ids&lt;/td>
+&lt;td>validator node ID, optionally other sentry node IDs&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>addr_book_strict&lt;/td>
+&lt;td>false&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;blockquote>
+&lt;p>The sentry nodes should be able to talk to the entire network hence why &lt;code>pex=true&lt;/code>. The &lt;code>persistent_peers&lt;/code> of a sentry node will be the validator, and optionally other sentry nodes. The sentry nodes should make sure they do not gossip the validator&amp;rsquo;s ip, to do this you must put the validator nodeID as a private peer. The unconditional peer IDs will be the validator node ID and optionally other sentry node IDs.&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;strong>IMPORTANT&lt;/strong> Do not forget to secure your node&amp;rsquo;s firewalls when setting them up.&lt;/p></description></item><item><title>Docs: Used Ports</title><link>https://github.com/nodebasewm/nodebasewm.github.io/docs/configuration/ports/ports/</link><pubDate>Wed, 08 Feb 2023 00:00:00 +0000</pubDate><guid>https://github.com/nodebasewm/nodebasewm.github.io/docs/configuration/ports/ports/</guid><description>
+&lt;p>By default the follow ports are used by &lt;strong>aya&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>26656&lt;/strong>
+&lt;ul>
+&lt;li>pnp networking port to connect to the tendermint network&lt;/li>
+&lt;li>On a validator this port needs to be exposed to sentry nodes&lt;/li>
+&lt;li>On a sentry node this port needs to be exposed to the open internet&lt;/li>
+&lt;li>This is the port validators and sentries use to communicate to each other&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;ul>
+&lt;li>&lt;strong>26657&lt;/strong>
+&lt;ul>
+&lt;li>Tendermint RPC port.&lt;/li>
+&lt;li>Some tools, example querying tools, use this port to query blockchain status.&lt;/li>
+&lt;li>You should not directly expose this port.&lt;/li>
+&lt;li>This should be shield from the open internet.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>26658&lt;/strong>
+&lt;ul>
+&lt;li>Out of process ABCI app&lt;/li>
+&lt;li>This should be shielded from the open internet&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>29090&lt;/strong>
+&lt;ul>
+&lt;li>the gRPC server port. This is used for gRPC server communication with&lt;/li>
+&lt;li>Cosmos SDK application layer. With this you can query banking, staking and - delegation information from Cosmos SDK.&lt;/li>
+&lt;li>Example, some monitoring services might use this communication mechanism&lt;/li>
+&lt;li>since its much faster than RESTful.&lt;/li>
+&lt;li>This should be shielded from the open internet&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>Some optional ports that might be used by &lt;strong>aya&lt;/strong> are as follows&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>26600&lt;/strong>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/tendermint/tendermint/blob/master/docs/nodes/metrics.md">Prometheus&lt;/a> stats server&lt;/li>
+&lt;li>System stats about the ayad process&lt;/li>
+&lt;li>Needs to be enabled in the config file&lt;/li>
+&lt;li>This should be shielded from the open internet&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>1317&lt;/strong>
+&lt;ul>
+&lt;li>The REST server&lt;/li>
+&lt;li>for automated management of anything you can do with the CLI&lt;/li>
+&lt;li>This should be shieled from the open internet.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>More &lt;a href="https://docs.cosmos.network/main/core/grpc_rest">here&lt;/a> on endpoints&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;p>&lt;strong>Note&lt;/strong>: Monitoring tools that are installed use additional port, ex Grafana uses port 3000&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;p>&lt;strong>IMPORTANT&lt;/strong>:
+For ports 1317 and 26657, you way want to use them as a RESTful endpoint by proxy-ing them to an external interface via an http proxy like Nginx or Coddy. The idea is to treat them like a web service for RESTful requests to the RPC ports done over https. You may configure rate limiting on the http proxy or make request with user authentication using a web app. This way you are not exposing the ports directly and your node is protected from receiving too many request suddenly.&lt;/p>
+&lt;/blockquote></description></item><item><title>Docs: Firewall Settings</title><link>https://github.com/nodebasewm/nodebasewm.github.io/docs/configuration/firewall/</link><pubDate>Wed, 08 Feb 2023 00:00:00 +0000</pubDate><guid>https://github.com/nodebasewm/nodebasewm.github.io/docs/configuration/firewall/</guid><description>
+&lt;p>These instructions assume a Validator-Sentry architecture.&lt;/p>
+&lt;h2 id="validator-node">Validator Node&lt;/h2>
+&lt;p>Apply these firewall settings on your validator node&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>sudo ufw &lt;span style="color:#ff79c6">default&lt;/span> deny incoming
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo ufw &lt;span style="color:#ff79c6">default&lt;/span> allow outgoing
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo ufw allow proto tcp from any to any port &lt;span style="color:#bd93f9">22&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo allow from &amp;lt;sentry&lt;span style="color:#ff79c6">-&lt;/span>ip&amp;gt; to any port &lt;span style="color:#bd93f9">26656&lt;/span> proto&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>
+&lt;p>This allows ssh login, you can change &lt;strong>any&lt;/strong> to an &lt;strong>IP-address&lt;/strong> for higher security,&lt;/p>
+&lt;p>Only the sentry nodes can talk to the validator.
+Repeat for each sentry node you have, the allow from sentry-ip to port 26656. If you have &lt;code>prometheus=true&lt;/code> metrics logging enabled in the &lt;strong>config.toml&lt;/strong>, you should allow the prometheus listen port as well.&lt;/p>
+&lt;p>When done&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>sudo ufw enable
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo ufw reload
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo systemctl restart ssh
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo ufw status&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>
+&lt;h2 id="sentry-node">Sentry Node&lt;/h2>
+&lt;p>Apply these firewall settings on your sentry node&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>sudo ufw &lt;span style="color:#ff79c6">default&lt;/span> deny incoming
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo ufw &lt;span style="color:#ff79c6">default&lt;/span> allow outgoing
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo ufw allow proto tcp from any to any port &lt;span style="color:#bd93f9">22&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo ufw allow from any to any port &lt;span style="color:#bd93f9">26656&lt;/span> proto tcp&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>
+&lt;p>Since the rentry node has pex enabled, connection on the p2p port (26656) needs to be allowed.
+Addtional services can be opened such as grafana as follows.
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>sudo ufw allow from any to any port &lt;span style="color:#bd93f9">3000&lt;/span> proto tcp&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/p>
+&lt;p>When done&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>sudo ufw enable
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo ufw reload
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo systemctl restart ssh
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo ufw status&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>
+&lt;p>&lt;strong>Note&lt;/strong>&lt;/p>
+&lt;p>If you enable prometheus metrics (port 26600) exporting or grafana (3000), additional ports need to be opened on the firewall. See section on ports.&lt;/p></description></item></channel></rss>
