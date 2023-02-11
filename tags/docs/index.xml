@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NodeBaseDevs – docs</title><link>./tags/docs/</link><description>Recent content in docs on NodeBaseDevs</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Wed, 08 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="./tags/docs/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Getting Started</title><link>./docs/getting-started/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>./docs/getting-started/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NodeBaseDevs – docs</title><link>/tags/docs/</link><description>Recent content in docs on NodeBaseDevs</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Wed, 08 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="/tags/docs/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Getting Started</title><link>/docs/getting-started/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/docs/getting-started/</guid><description>
 &lt;div class="pageinfo pageinfo-primary">
 &lt;p>This is a placeholder page that shows you how to use this template site.&lt;/p>
 &lt;/div>
@@ -19,7 +19,7 @@
 &lt;h2 id="setup">Setup&lt;/h2>
 &lt;p>Is there any initial setup users need to do after installation to try your project?&lt;/p>
 &lt;h2 id="try-it-out">Try it out!&lt;/h2>
-&lt;p>Can your users test their installation, for example by running a command or deploying a Hello World example?&lt;/p></description></item><item><title>Docs: Configuration</title><link>./docs/configuration/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>./docs/configuration/</guid><description/></item><item><title>Docs: Node Architecture Design</title><link>./docs/configuration/architecture/</link><pubDate>Wed, 08 Feb 2023 00:00:00 +0000</pubDate><guid>./docs/configuration/architecture/</guid><description>
+&lt;p>Can your users test their installation, for example by running a command or deploying a Hello World example?&lt;/p></description></item><item><title>Docs: Configuration</title><link>/docs/configuration/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/docs/configuration/</guid><description/></item><item><title>Docs: Node Architecture Design</title><link>/docs/configuration/architecture/</link><pubDate>Wed, 08 Feb 2023 00:00:00 +0000</pubDate><guid>/docs/configuration/architecture/</guid><description>
 &lt;h1 id="validator-node-architecture-design">Validator Node Architecture Design&lt;/h1>
 &lt;p>Tendermint relies on the set of validators to secure the network. The role of the validators is to run a full-node and participate in consensus by broadcasting votes which contain cryptographic signatures signed by their private key. Validators are connected to each other through the &lt;strong>p2p&lt;/strong> connections.&lt;/p>
 &lt;p>Validators are &lt;strong>responsible&lt;/strong> for ensuring the that the network can sustain denial of service attacks.&lt;/p>
@@ -44,7 +44,7 @@
 &lt;p>=&amp;gt; This approach should be avoided, since it will still make your validator vulnerable.&lt;/p>
 &lt;/blockquote>
 &lt;figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 610px">
-&lt;img class="card-img-top" src="./docs/configuration/architecture/single-node-validator_hu1c7b63cff321f846abdd83cfc6bbf6f4_41905_600x500_fit_catmullrom_3.png" width="600" height="280">
+&lt;img class="card-img-top" src="/docs/configuration/architecture/single-node-validator_hu1c7b63cff321f846abdd83cfc6bbf6f4_41905_600x500_fit_catmullrom_3.png" width="600" height="280">
 &lt;figcaption class="card-body px-0 pt-2 pb-0">
 &lt;p class="card-text">
 &lt;small class="text-muted">&lt;br/>picture&lt;/small>&lt;/p>
@@ -58,7 +58,7 @@
 &lt;p>In this setup, the relay talks to the validator &amp;gt;node through a secure private connection. The &amp;gt;relay node will then also connect through an &amp;gt;&lt;strong>external_address&lt;/strong> with the p2p validator &amp;gt;network.&lt;/p>
 &lt;/blockquote>
 &lt;figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 610px">
-&lt;img class="card-img-top" src="./docs/configuration/architecture/single-layer-sentry-setup_hu705b58fe2a16c6318323457c7558fd9f_53579_600x500_fit_catmullrom_3.png" width="600" height="383">
+&lt;img class="card-img-top" src="/docs/configuration/architecture/single-layer-sentry-setup_hu705b58fe2a16c6318323457c7558fd9f_53579_600x500_fit_catmullrom_3.png" width="600" height="383">
 &lt;figcaption class="card-body px-0 pt-2 pb-0">
 &lt;p class="card-text">
 &lt;small class="text-muted">&lt;br/>picture&lt;/small>&lt;/p>
@@ -72,7 +72,7 @@
 &lt;p>In this setup, the relay and validator node are both connected to the internet. But the validator node is hidden behind the relay node. The relay node will prevent &lt;strong>gossipping&lt;/strong> the IP-address of the validator node.&lt;/p>
 &lt;blockquote>
 &lt;p>This is less secure than using a VPC network, &amp;gt;since the validator node, although unknown to the &amp;gt;rest of the peers, is still connected to the &amp;gt;public internet and could be discovered.&lt;/p>
-&lt;/blockquote></description></item><item><title>Docs: Validator Sentry Config.toml</title><link>./docs/configuration/config/</link><pubDate>Wed, 08 Feb 2023 00:00:00 +0000</pubDate><guid>./docs/configuration/config/</guid><description>
+&lt;/blockquote></description></item><item><title>Docs: Validator Sentry Config.toml</title><link>/docs/configuration/config/</link><pubDate>Wed, 08 Feb 2023 00:00:00 +0000</pubDate><guid>/docs/configuration/config/</guid><description>
 &lt;h2 id="local-configuration-validator-sentry-setup">Local Configuration Validator-Sentry Setup&lt;/h2>
 &lt;p>The validator will only talk to the Sentry nodes that are provided. While sentry nodes have the ability to talk to the validator node on the private channel and talk to public nodes elsewhere on the internet. When initializing nodes there are six parameters in the config.toml which are important&lt;/p>
 &lt;ul>
@@ -177,7 +177,7 @@ Since the validator is on a private network and it will connect to the sentry no
 &lt;blockquote>
 &lt;p>The sentry nodes should be able to talk to the entire network hence why &lt;code>pex=true&lt;/code>. The &lt;code>persistent_peers&lt;/code> of a sentry node will be the validator, and optionally other sentry nodes. The sentry nodes should make sure they do not gossip the validator&amp;rsquo;s ip, to do this you must put the validator nodeID as a private peer. The unconditional peer IDs will be the validator node ID and optionally other sentry node IDs.&lt;/p>
 &lt;/blockquote>
-&lt;p>&lt;strong>IMPORTANT&lt;/strong> Do not forget to secure your node&amp;rsquo;s firewalls when setting them up.&lt;/p></description></item><item><title>Docs: Used Ports</title><link>./docs/configuration/ports/ports/</link><pubDate>Wed, 08 Feb 2023 00:00:00 +0000</pubDate><guid>./docs/configuration/ports/ports/</guid><description>
+&lt;p>&lt;strong>IMPORTANT&lt;/strong> Do not forget to secure your node&amp;rsquo;s firewalls when setting them up.&lt;/p></description></item><item><title>Docs: Used Ports</title><link>/docs/configuration/ports/ports/</link><pubDate>Wed, 08 Feb 2023 00:00:00 +0000</pubDate><guid>/docs/configuration/ports/ports/</guid><description>
 &lt;p>By default the follow ports are used by &lt;strong>aya&lt;/strong>&lt;/p>
 &lt;ul>
 &lt;li>&lt;strong>26656&lt;/strong>
@@ -241,7 +241,7 @@ Since the validator is on a private network and it will connect to the sentry no
 &lt;blockquote>
 &lt;p>&lt;strong>IMPORTANT&lt;/strong>:
 For ports 1317 and 26657, you way want to use them as a RESTful endpoint by proxy-ing them to an external interface via an http proxy like Nginx or Coddy. The idea is to treat them like a web service for RESTful requests to the RPC ports done over https. You may configure rate limiting on the http proxy or make request with user authentication using a web app. This way you are not exposing the ports directly and your node is protected from receiving too many request suddenly.&lt;/p>
-&lt;/blockquote></description></item><item><title>Docs: Firewall Settings</title><link>./docs/configuration/firewall/</link><pubDate>Wed, 08 Feb 2023 00:00:00 +0000</pubDate><guid>./docs/configuration/firewall/</guid><description>
+&lt;/blockquote></description></item><item><title>Docs: Firewall Settings</title><link>/docs/configuration/firewall/</link><pubDate>Wed, 08 Feb 2023 00:00:00 +0000</pubDate><guid>/docs/configuration/firewall/</guid><description>
 &lt;p>These instructions assume a Validator-Sentry architecture.&lt;/p>
 &lt;h2 id="validator-node">Validator Node&lt;/h2>
 &lt;p>Apply these firewall settings on your validator node&lt;/p>
@@ -319,7 +319,7 @@ Addtional services can be opened such as grafana as follows.
 &lt;/div>
 &lt;/div>
 &lt;p>&lt;strong>Note&lt;/strong>&lt;/p>
-&lt;p>If you enable prometheus metrics (port 26600) exporting or grafana (3000), additional ports need to be opened on the firewall. See section on ports.&lt;/p></description></item><item><title>Docs: Example Page</title><link>./docs/getting-started/example-page/</link><pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate><guid>./docs/getting-started/example-page/</guid><description>
+&lt;p>If you enable prometheus metrics (port 26600) exporting or grafana (3000), additional ports need to be opened on the firewall. See section on ports.&lt;/p></description></item><item><title>Docs: Example Page</title><link>/docs/getting-started/example-page/</link><pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate><guid>/docs/getting-started/example-page/</guid><description>
 &lt;div class="pageinfo pageinfo-primary">
 &lt;p>This is a placeholder page. Replace it with your own content.&lt;/p>
 &lt;/div>

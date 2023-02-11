@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NodeBaseDevs – Documentation</title><link>./docs/</link><description>Recent content in Documentation on NodeBaseDevs</description><generator>Hugo -- gohugo.io</generator><atom:link href="./docs/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Used Ports</title><link>./docs/configuration/ports/ports/</link><pubDate>Wed, 08 Feb 2023 00:00:00 +0000</pubDate><guid>./docs/configuration/ports/ports/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NodeBaseDevs – Documentation</title><link>/docs/</link><description>Recent content in Documentation on NodeBaseDevs</description><generator>Hugo -- gohugo.io</generator><atom:link href="/docs/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Used Ports</title><link>/docs/configuration/ports/ports/</link><pubDate>Wed, 08 Feb 2023 00:00:00 +0000</pubDate><guid>/docs/configuration/ports/ports/</guid><description>
 &lt;p>By default the follow ports are used by &lt;strong>aya&lt;/strong>&lt;/p>
 &lt;ul>
 &lt;li>&lt;strong>26656&lt;/strong>
@@ -62,7 +62,7 @@
 &lt;blockquote>
 &lt;p>&lt;strong>IMPORTANT&lt;/strong>:
 For ports 1317 and 26657, you way want to use them as a RESTful endpoint by proxy-ing them to an external interface via an http proxy like Nginx or Coddy. The idea is to treat them like a web service for RESTful requests to the RPC ports done over https. You may configure rate limiting on the http proxy or make request with user authentication using a web app. This way you are not exposing the ports directly and your node is protected from receiving too many request suddenly.&lt;/p>
-&lt;/blockquote></description></item><item><title>Docs: Example Page</title><link>./docs/getting-started/example-page/</link><pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate><guid>./docs/getting-started/example-page/</guid><description>
+&lt;/blockquote></description></item><item><title>Docs: Example Page</title><link>/docs/getting-started/example-page/</link><pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate><guid>/docs/getting-started/example-page/</guid><description>
 &lt;div class="pageinfo pageinfo-primary">
 &lt;p>This is a placeholder page. Replace it with your own content.&lt;/p>
 &lt;/div>
