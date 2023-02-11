@@ -23,7 +23,8 @@ jobs:
           node-version: '16'
       
       - name: Install dependencies
-        run: 
+        run: |
+          npm install postcss -D
           npm install -g postcss-cli
           npm install -g autoprofixer
           
