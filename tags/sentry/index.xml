@@ -51,7 +51,13 @@
 &lt;p>In this setup, the relay and validator node are both connected to the internet. But the validator node is hidden behind the relay node. The relay node will prevent &lt;strong>gossipping&lt;/strong> the IP-address of the validator node.&lt;/p>
 &lt;blockquote>
 &lt;p>This is less secure than using a VPC network, &amp;gt;since the validator node, although unknown to the &amp;gt;rest of the peers, is still connected to the &amp;gt;public internet and could be discovered.&lt;/p>
-&lt;/blockquote></description></item><item><title>Docs: Validator Sentry Config.toml</title><link>/docs/configuration/config/</link><pubDate>Wed, 08 Feb 2023 00:00:00 +0000</pubDate><guid>/docs/configuration/config/</guid><description>
+&lt;/blockquote></description></item><item><title>Docs: Sentry Node Installation</title><link>/docs/getting-started/sentrynode/</link><pubDate>Wed, 08 Feb 2023 00:00:00 +0000</pubDate><guid>/docs/getting-started/sentrynode/</guid><description>
+&lt;h1 id="sentry-node-installation">Sentry Node installation&lt;/h1>
+&lt;p>Sentry Nodes dont have operator keys, since they are not part of the consensus.
+The standard install_node.sh script on public testnet does not support sentry node installation&lt;/p>
+&lt;p>An install script can be downloaded from this location &lt;strong>&lt;a href="https://github.com/nodebasewm/download">download git&lt;/a>&lt;/strong>&lt;/p>
+&lt;p>You can follow the Sentry Validator configuration instructions to configure your nodes accordingly after
+installation completes.&lt;/p></description></item><item><title>Docs: Validator Sentry Config.toml</title><link>/docs/configuration/config/</link><pubDate>Wed, 08 Feb 2023 00:00:00 +0000</pubDate><guid>/docs/configuration/config/</guid><description>
 &lt;h2 id="local-configuration-validator-sentry-setup">Local Configuration Validator-Sentry Setup&lt;/h2>
 &lt;p>The validator will only talk to the Sentry nodes that are provided. While sentry nodes have the ability to talk to the validator node on the private channel and talk to public nodes elsewhere on the internet. When initializing nodes there are six parameters in the config.toml which are important&lt;/p>
 &lt;ul>

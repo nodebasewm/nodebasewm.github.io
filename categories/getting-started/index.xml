@@ -1,0 +1,7 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NodeBaseDevs – Getting Started</title><link>/categories/getting-started/</link><description>Recent content in Getting Started on NodeBaseDevs</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Wed, 08 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="/categories/getting-started/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Sentry Node Installation</title><link>/docs/getting-started/sentrynode/</link><pubDate>Wed, 08 Feb 2023 00:00:00 +0000</pubDate><guid>/docs/getting-started/sentrynode/</guid><description>
+&lt;h1 id="sentry-node-installation">Sentry Node installation&lt;/h1>
+&lt;p>Sentry Nodes dont have operator keys, since they are not part of the consensus.
+The standard install_node.sh script on public testnet does not support sentry node installation&lt;/p>
+&lt;p>An install script can be downloaded from this location &lt;strong>&lt;a href="https://github.com/nodebasewm/download">download git&lt;/a>&lt;/strong>&lt;/p>
+&lt;p>You can follow the Sentry Validator configuration instructions to configure your nodes accordingly after
+installation completes.&lt;/p></description></item></channel></rss>
