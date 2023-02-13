@@ -49,7 +49,10 @@ sudo ufw allow proto tcp from any to any port 22
 sudo ufw allow from any to any port 26656 proto tcp
 {{< /highlight>}}
 
-Since the rentry node has pex enabled, connection on the p2p port (26656) needs to be allowed.
+Since the sentry node has pex enabled, connections to the p2p port (26656) need to be allowed, so that
+other nodes can talk to the sentry.
+
+## Grafana
 Addtional services can be opened such as grafana as follows. 
 {{< highlight go "linenos=table,style=dracula" >}}
 sudo ufw allow from any to any port 3000 proto tcp
@@ -65,6 +68,7 @@ sudo ufw status
 {{< /highlight>}}
 
 
-**Note**
-
-If you enable prometheus metrics (port 26600) exporting or grafana (3000), additional ports need to be opened on the firewall.  See section on ports.
+## Prometheus
+If you use Prometheus metrics, you should consult with the metrics exporter tool which port it uses for exporting
+metrics. Prometheus specific setup recommendations and installation instructions  will be released shortly,
+when the nodebase releases its nodebase monitoring service.

@@ -1,6 +1,6 @@
 ---
 categories: ["Configuration"]
-tags: ["validator", "sentry", "docs"]
+tags: ["validator", "sentry","ports", "docs"]
 title: "Used Ports"
 linkTitle: "Used Ports"
 weight: 42
@@ -19,15 +19,14 @@ By default the follow ports are used by **aya**
   - Tendermint RPC port.
   - Some tools, example querying tools, use this port to query blockchain status.
   - You should not directly expose this port. 
-  - This should be shield from the open internet. 
+  - This should be shielded from the open internet. 
 - **26658**
   - Out of process ABCI app
   - This should be shielded from the open internet
 - **29090**
   - the gRPC server port. This is used for gRPC server communication with
   - Cosmos SDK application layer. With this you can query banking, staking and - delegation information from Cosmos SDK.
-  - Example, some monitoring services might use this communication mechanism
-  - since its much faster than RESTful. 
+  - Example, some monitoring services might use this communication mechanism since its much faster than RESTful. 
   - This should be shielded from the open internet
 
 Some optional ports that might be used by **aya** are as follows
@@ -40,7 +39,7 @@ Some optional ports that might be used by **aya** are as follows
   - **1317**
     - The REST server 
     - for automated management of anything you can do with the CLI
-    - This should be shieled from the open internet.
+    - This should be shielded from the open internet.
 
 >More [here](https://docs.cosmos.network/main/core/grpc_rest) on  endpoints
 
