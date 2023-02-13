@@ -1,0 +1,120 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NodeBaseDevs – config.toml</title><link>/tags/config.toml/</link><description>Recent content in config.toml on NodeBaseDevs</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Wed, 08 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="/tags/config.toml/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Validator Sentry config.toml</title><link>/docs/configuration/config/</link><pubDate>Wed, 08 Feb 2023 00:00:00 +0000</pubDate><guid>/docs/configuration/config/</guid><description>
+&lt;h2 id="local-configuration-validator-sentry-setup">Local Configuration Validator-Sentry Setup&lt;/h2>
+&lt;p>The validator will only talk to the Sentry nodes that are provided. While sentry nodes have the ability to talk to the validator node on the private channel and talk to public nodes elsewhere on the internet. When initializing nodes there are six parameters in the config.toml which are important&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>pex&lt;/strong>: boolean value. It tursn the peer exchange reactor (gossip protocol) on or off in a node. When &lt;strong>&lt;code>pex=false&lt;/code>&lt;/strong>, only the list of nodes in the &lt;code>persistent_peers&lt;/code> list are available for connection.&lt;/li>
+&lt;li>&lt;strong>persistent_peers&lt;/strong>: commma separated list of &lt;a href="#nodeids">&lt;strong>nodeid@ip:port&lt;/strong>&lt;/a> values that define a list of peers that expected to be online at all times and the node is expected to be able to connect to them. If some nodes are not available, they will be skipped and later retried for a while, before completely dropping them. If no nodes are available from the list and &lt;strong>&lt;code>pex=false&lt;/code>&lt;/strong>, then the node will not be able to join the network.&lt;/li>
+&lt;li>&lt;strong>private_peer_ids&lt;/strong>: comma-separated list of nodeid values, that should not be gossiped at all times. This setting tells which nodes should not be handed out to others&lt;/li>
+&lt;li>&lt;strong>add_book_strict&lt;/strong>: Turn this off if some of the nodes are on a LAN IP. If off, non routable IP address, like addressed on a private network can be added to the address book.&lt;/li>
+&lt;li>&lt;strong>unconditional_peer_ids&lt;/strong>: comma seperated list of nodeIDs. These nodes will be connected no matter the limit of inbound and outbound peers. This is useful when address_books of sentry nodes are full.&lt;/li>
+&lt;li>&lt;strong>seed_mode&lt;/strong>. This is used to jump start other nodes by providing a list of peers that the node can connect to.&lt;/li>
+&lt;/ul>
+&lt;h3 id="nodeids">NodeIDs&lt;/h3>
+&lt;p>&lt;strong>Important&lt;/strong>: Nodes in &lt;strong>&lt;code>persistent_peers&lt;/code>&lt;/strong> have the format nodeID@ip:port.&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>nodeID&lt;/strong>. The ID of your validator. This can be retrieved with the command&lt;/p>
+&lt;p>&lt;code>ayad tendermint show-node-id --home /opt/aya&lt;/code>&lt;/p>
+&lt;p>or use the nodebase showkeys script
+&lt;code>./showkeys.sh&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>ip&lt;/strong> The IP-address of your relay node&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>port&lt;/strong>: The p2p port your relay node is listening on. By default it is 26656&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>For the &lt;strong>&lt;code>private_peer_ids&lt;/code>&lt;/strong> and &lt;strong>&lt;code>unconditional_peer_ids&lt;/code>&lt;/strong>, only put the nodeID (without the @ip:port)&lt;/p>
+&lt;h3 id="validator-node-configuration">Validator Node Configuration&lt;/h3>
+&lt;div class="table-responsive">
+&lt;table class="table-striped table-hover">
+&lt;thead class="table-dark">
+&lt;tr>
+&lt;th>Config Option&lt;/th>
+&lt;th>Setting&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>seed_mode&lt;/td>
+&lt;td>false&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>pex&lt;/td>
+&lt;td>false&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>persistent_peers&lt;/td>
+&lt;td>list of sentry nodes&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>private_peer_ids&lt;/td>
+&lt;td>none&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>uncondidional_peer_ids&lt;/td>
+&lt;td>optionally sentry node IDs&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>addr_book_strict&lt;/td>
+&lt;td>false&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;blockquote>
+&lt;p>The validator node should have &lt;code>pex=false&lt;/code> so it does not gossip to the entire network. The &lt;code>persistent_peers&lt;/code> will be your sentry nodes. &lt;code>private_peer_ids&lt;/code> can be left empty, as the validator is not trying to hide who it is communicating with. Setting &lt;code>unconditional_peer_ids&lt;/code> is optional for a validator since they will not have a full address book.
+Since the validator is on a private network and it will connect to the sentry nodes also on a private network, &lt;code>addr_book_strict=false&lt;/code> has to be set.&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="sentry-node-configuration">Sentry Node Configuration&lt;/h3>
+&lt;div class="table-responsive">
+&lt;table class="table-striped table-hover">
+&lt;thead class="table-dark">
+&lt;tr>
+&lt;th>Config Option&lt;/th>
+&lt;th>Setting&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>seed_mode&lt;/td>
+&lt;td>false&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>pex&lt;/td>
+&lt;td>true&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>persistent_peers&lt;/td>
+&lt;td>validator node, optionally other sentry nodes&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>private_peer_ids&lt;/td>
+&lt;td>validator node ID&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>uncondidional_peer_ids&lt;/td>
+&lt;td>validator node ID, optionally other sentry node IDs&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>addr_book_strict&lt;/td>
+&lt;td>false&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;/div>
+&lt;blockquote>
+&lt;p>The sentry nodes should be able to talk to the entire network hence why &lt;strong>&lt;code>pex=true&lt;/code>&lt;/strong>.
+The &lt;strong>&lt;code>persistent_peers&lt;/code>&lt;/strong> of a sentry node will be the validator, and optionally other sentry nodes.
+The sentry nodes should make sure they do not gossip the validator&amp;rsquo;s ip,
+to do this you must put the validator nodeID as a &lt;strong>&lt;code>private_peer_ids&lt;/code>&lt;/strong>. The &lt;strong>&lt;code>unconditional peer IDs&lt;/code>&lt;/strong> will be the validator node ID and optionally other sentry node IDs.&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;strong>IMPORTANT&lt;/strong> Do not forget to secure your node&amp;rsquo;s firewalls when setting them up.&lt;/p>
+&lt;h3 id="about-gossipping">About Gossipping&lt;/h3>
+&lt;p>Nodes will gossip their known peers that are not marked as a private node to other nodes on the p2p network.&lt;br>
+will be gossipped.&lt;/p>
+&lt;p>If you plan to install sentry nodes, the recommendation is to setup the sentry first, then after that install the validator node and directly
+connect it to the relay. If your validator node was already installed, it&amp;rsquo;s already gossipped to other peers. And you want to prevent that.
+You can fix this by blocking the p2p ports to non-relays with a firewall, and the peers will eventually remove your validator.
+But ideally, the installation of a validator should be done with relay setup in mind to make it a complete private installation. This requires some handshaking.&lt;/p></description></item></channel></rss>

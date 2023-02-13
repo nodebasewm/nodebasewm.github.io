@@ -2,7 +2,7 @@
 &lt;h1 id="installation">Installation&lt;/h1>
 &lt;p>Installing a sentry node requires a different installation procedure than
 a validor node.&lt;/p>
-&lt;p>The install_node.sh script provided by the WM team only covers validator nodes, and does mot apply for sentry nodes. With some small adjustments
+&lt;p>The install_node.sh script provided by the WM team only covers validator nodes, and does not apply for sentry nodes. With some small adjustments
 this script can be adjusted to be used to install sentry nodes&lt;/p>
 &lt;p>Sentry nodes dont have operator keys, since they are not part of the consensus voting.&lt;/p>
 &lt;h2 id="nodebasetools">NodebaseTools&lt;/h2>
@@ -23,23 +23,26 @@ this script can be adjusted to be used to install sentry nodes&lt;/p>
 &lt;p>copy the install_sentry.sh to your earthnode_installation folder&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>make sure executable permissions are set on the script&lt;/p>
+&lt;p>The other scripts in the zip you can put wherever you want. Recommendation is to put them in /usr/local/bin&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>make sure executable permissions are set on the scripts&lt;/p>
 &lt;p>&lt;code>chmod +x install_relay.sh&lt;/code>&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>run the script with a moniker name for your sentry from within the earhtnode installation folder&lt;/p>
+&lt;p>run the script with a moniker name for your sentry from within the earthnode installation folder&lt;/p>
 &lt;p>&lt;code>./install_sentry.sh -m MONIKER_NAME&lt;/code>&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>Unlike a validator node, &lt;strong>no registration&lt;/strong> is needed for sentry nodes.&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>wait for the node to be synced to full height from the snapshot point. The installation script will terminate automatically when the node is synced to latest block height&lt;/p>
+&lt;p>wait for the node to be synced to full height from the snapshot point. &lt;strong>The installation script will terminate automatically when the node is synced to latest block height&lt;/strong>&lt;/p>
 &lt;/li>
 &lt;/ul>
 &lt;h2 id="configuration">Configuration&lt;/h2>
 &lt;blockquote>
-&lt;p>Please continue following the Sentry Validator configuration instructions in &lt;a href="/docs/configuration/config">Configuration&lt;/a> to configure your nodes accordingly after installation completes.&lt;/p>
+&lt;p>Please continue with following the Sentry-Validator configuration instructions in &lt;a href="/docs/configuration/config">Configuration&lt;/a> to configure your nodes accordingly after installation completes.&lt;/p>
 &lt;/blockquote>
 &lt;h2 id="step-by-step-example">Step-by-Step Example&lt;/h2>
 &lt;blockquote>
@@ -97,17 +100,34 @@ this script can be adjusted to be used to install sentry nodes&lt;/p>
 &lt;p>In this setup, the relay and validator node are both connected to the internet. But the validator node is hidden behind the relay node. The relay node will prevent &lt;strong>gossipping&lt;/strong> the IP-address of the validator node.&lt;/p>
 &lt;blockquote>
 &lt;p>This is less secure than using a VPC network, &amp;gt;since the validator node, although unknown to the &amp;gt;rest of the peers, is still connected to the &amp;gt;public internet and could be discovered.&lt;/p>
-&lt;/blockquote></description></item><item><title>Docs: Validator Sentry Config.toml</title><link>/docs/configuration/config/</link><pubDate>Wed, 08 Feb 2023 00:00:00 +0000</pubDate><guid>/docs/configuration/config/</guid><description>
+&lt;/blockquote></description></item><item><title>Docs: Validator Sentry config.toml</title><link>/docs/configuration/config/</link><pubDate>Wed, 08 Feb 2023 00:00:00 +0000</pubDate><guid>/docs/configuration/config/</guid><description>
 &lt;h2 id="local-configuration-validator-sentry-setup">Local Configuration Validator-Sentry Setup&lt;/h2>
 &lt;p>The validator will only talk to the Sentry nodes that are provided. While sentry nodes have the ability to talk to the validator node on the private channel and talk to public nodes elsewhere on the internet. When initializing nodes there are six parameters in the config.toml which are important&lt;/p>
 &lt;ul>
-&lt;li>&lt;strong>pex&lt;/strong>: boolean value. It tursn the peer exchange reactor (gossip protocol) on or off in a node. When &lt;code>pex=false&lt;/code>, only the list of nodes in the &lt;code>persistent_peers&lt;/code> list are available for connection.&lt;/li>
-&lt;li>&lt;strong>persistent_peers&lt;/strong>: commma separated list of nodeid@ip:port values that define a list of peers that expected to be online at all times and the node is expected to be able to connect to them. If some nodes are not available, they will be skipped and later retried for a while, before completely dropping them. If no nodes are available from the list and pex=false,, then the node will not be able to join the network.&lt;/li>
+&lt;li>&lt;strong>pex&lt;/strong>: boolean value. It tursn the peer exchange reactor (gossip protocol) on or off in a node. When &lt;strong>&lt;code>pex=false&lt;/code>&lt;/strong>, only the list of nodes in the &lt;code>persistent_peers&lt;/code> list are available for connection.&lt;/li>
+&lt;li>&lt;strong>persistent_peers&lt;/strong>: commma separated list of &lt;a href="#nodeids">&lt;strong>nodeid@ip:port&lt;/strong>&lt;/a> values that define a list of peers that expected to be online at all times and the node is expected to be able to connect to them. If some nodes are not available, they will be skipped and later retried for a while, before completely dropping them. If no nodes are available from the list and &lt;strong>&lt;code>pex=false&lt;/code>&lt;/strong>, then the node will not be able to join the network.&lt;/li>
 &lt;li>&lt;strong>private_peer_ids&lt;/strong>: comma-separated list of nodeid values, that should not be gossiped at all times. This setting tells which nodes should not be handed out to others&lt;/li>
 &lt;li>&lt;strong>add_book_strict&lt;/strong>: Turn this off if some of the nodes are on a LAN IP. If off, non routable IP address, like addressed on a private network can be added to the address book.&lt;/li>
 &lt;li>&lt;strong>unconditional_peer_ids&lt;/strong>: comma seperated list of nodeIDs. These nodes will be connected no matter the limit of inbound and outbound peers. This is useful when address_books of sentry nodes are full.&lt;/li>
 &lt;li>&lt;strong>seed_mode&lt;/strong>. This is used to jump start other nodes by providing a list of peers that the node can connect to.&lt;/li>
 &lt;/ul>
+&lt;h3 id="nodeids">NodeIDs&lt;/h3>
+&lt;p>&lt;strong>Important&lt;/strong>: Nodes in &lt;strong>&lt;code>persistent_peers&lt;/code>&lt;/strong> have the format nodeID@ip:port.&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>nodeID&lt;/strong>. The ID of your validator. This can be retrieved with the command&lt;/p>
+&lt;p>&lt;code>ayad tendermint show-node-id --home /opt/aya&lt;/code>&lt;/p>
+&lt;p>or use the nodebase showkeys script
+&lt;code>./showkeys.sh&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>ip&lt;/strong> The IP-address of your relay node&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>port&lt;/strong>: The p2p port your relay node is listening on. By default it is 26656&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>For the &lt;strong>&lt;code>private_peer_ids&lt;/code>&lt;/strong> and &lt;strong>&lt;code>unconditional_peer_ids&lt;/code>&lt;/strong>, only put the nodeID (without the @ip:port)&lt;/p>
 &lt;h3 id="validator-node-configuration">Validator Node Configuration&lt;/h3>
 &lt;div class="table-responsive">
 &lt;table class="table-striped table-hover">
@@ -149,19 +169,6 @@ this script can be adjusted to be used to install sentry nodes&lt;/p>
 &lt;p>The validator node should have &lt;code>pex=false&lt;/code> so it does not gossip to the entire network. The &lt;code>persistent_peers&lt;/code> will be your sentry nodes. &lt;code>private_peer_ids&lt;/code> can be left empty, as the validator is not trying to hide who it is communicating with. Setting &lt;code>unconditional_peer_ids&lt;/code> is optional for a validator since they will not have a full address book.
 Since the validator is on a private network and it will connect to the sentry nodes also on a private network, &lt;code>addr_book_strict=false&lt;/code> has to be set.&lt;/p>
 &lt;/blockquote>
-&lt;p>&lt;strong>Important&lt;/strong>: Sentry nodes in persistent_peers have the format nodeID@ip:port.&lt;/p>
-&lt;ul>
-&lt;li>
-&lt;p>nodeID. The ID of your validator. This can be retrieved with the command&lt;/p>
-&lt;p>&lt;strong>ayad tendermint show-node-id &amp;ndash;home /opt/aya&lt;/strong>&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;strong>ip&lt;/strong> The IP-address of your relay node&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>&lt;strong>port&lt;/strong>: The p2p port your relay node is listening on. By default it is 26656&lt;/p>
-&lt;/li>
-&lt;/ul>
 &lt;h3 id="sentry-node-configuration">Sentry Node Configuration&lt;/h3>
 &lt;div class="table-responsive">
 &lt;table class="table-striped table-hover">
@@ -200,9 +207,19 @@ Since the validator is on a private network and it will connect to the sentry no
 &lt;/table>
 &lt;/div>
 &lt;blockquote>
-&lt;p>The sentry nodes should be able to talk to the entire network hence why &lt;code>pex=true&lt;/code>. The &lt;code>persistent_peers&lt;/code> of a sentry node will be the validator, and optionally other sentry nodes. The sentry nodes should make sure they do not gossip the validator&amp;rsquo;s ip, to do this you must put the validator nodeID as a private peer. The unconditional peer IDs will be the validator node ID and optionally other sentry node IDs.&lt;/p>
+&lt;p>The sentry nodes should be able to talk to the entire network hence why &lt;strong>&lt;code>pex=true&lt;/code>&lt;/strong>.
+The &lt;strong>&lt;code>persistent_peers&lt;/code>&lt;/strong> of a sentry node will be the validator, and optionally other sentry nodes.
+The sentry nodes should make sure they do not gossip the validator&amp;rsquo;s ip,
+to do this you must put the validator nodeID as a &lt;strong>&lt;code>private_peer_ids&lt;/code>&lt;/strong>. The &lt;strong>&lt;code>unconditional peer IDs&lt;/code>&lt;/strong> will be the validator node ID and optionally other sentry node IDs.&lt;/p>
 &lt;/blockquote>
-&lt;p>&lt;strong>IMPORTANT&lt;/strong> Do not forget to secure your node&amp;rsquo;s firewalls when setting them up.&lt;/p></description></item><item><title>Docs: Used Ports</title><link>/docs/configuration/ports/ports/</link><pubDate>Wed, 08 Feb 2023 00:00:00 +0000</pubDate><guid>/docs/configuration/ports/ports/</guid><description>
+&lt;p>&lt;strong>IMPORTANT&lt;/strong> Do not forget to secure your node&amp;rsquo;s firewalls when setting them up.&lt;/p>
+&lt;h3 id="about-gossipping">About Gossipping&lt;/h3>
+&lt;p>Nodes will gossip their known peers that are not marked as a private node to other nodes on the p2p network.&lt;br>
+will be gossipped.&lt;/p>
+&lt;p>If you plan to install sentry nodes, the recommendation is to setup the sentry first, then after that install the validator node and directly
+connect it to the relay. If your validator node was already installed, it&amp;rsquo;s already gossipped to other peers. And you want to prevent that.
+You can fix this by blocking the p2p ports to non-relays with a firewall, and the peers will eventually remove your validator.
+But ideally, the installation of a validator should be done with relay setup in mind to make it a complete private installation. This requires some handshaking.&lt;/p></description></item><item><title>Docs: Used Ports</title><link>/docs/configuration/ports/ports/</link><pubDate>Wed, 08 Feb 2023 00:00:00 +0000</pubDate><guid>/docs/configuration/ports/ports/</guid><description>
 &lt;p>By default the follow ports are used by &lt;strong>aya&lt;/strong>&lt;/p>
 &lt;ul>
 &lt;li>&lt;strong>26656&lt;/strong>
@@ -220,7 +237,7 @@ Since the validator is on a private network and it will connect to the sentry no
 &lt;li>Tendermint RPC port.&lt;/li>
 &lt;li>Some tools, example querying tools, use this port to query blockchain status.&lt;/li>
 &lt;li>You should not directly expose this port.&lt;/li>
-&lt;li>This should be shield from the open internet.&lt;/li>
+&lt;li>This should be shielded from the open internet.&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;li>&lt;strong>26658&lt;/strong>
@@ -233,8 +250,7 @@ Since the validator is on a private network and it will connect to the sentry no
 &lt;ul>
 &lt;li>the gRPC server port. This is used for gRPC server communication with&lt;/li>
 &lt;li>Cosmos SDK application layer. With this you can query banking, staking and - delegation information from Cosmos SDK.&lt;/li>
-&lt;li>Example, some monitoring services might use this communication mechanism&lt;/li>
-&lt;li>since its much faster than RESTful.&lt;/li>
+&lt;li>Example, some monitoring services might use this communication mechanism since its much faster than RESTful.&lt;/li>
 &lt;li>This should be shielded from the open internet&lt;/li>
 &lt;/ul>
 &lt;/li>
@@ -253,7 +269,7 @@ Since the validator is on a private network and it will connect to the sentry no
 &lt;ul>
 &lt;li>The REST server&lt;/li>
 &lt;li>for automated management of anything you can do with the CLI&lt;/li>
-&lt;li>This should be shieled from the open internet.&lt;/li>
+&lt;li>This should be shielded from the open internet.&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
@@ -318,8 +334,10 @@ Repeat for each sentry node you have, the allow from sentry-ip to port 26656. If
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo ufw allow from any to any port &lt;span style="color:#bd93f9">26656&lt;/span> proto tcp&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>
-&lt;p>Since the rentry node has pex enabled, connection on the p2p port (26656) needs to be allowed.
-Addtional services can be opened such as grafana as follows.
+&lt;p>Since the sentry node has pex enabled, connections to the p2p port (26656) need to be allowed, so that
+other nodes can talk to the sentry.&lt;/p>
+&lt;h2 id="grafana">Grafana&lt;/h2>
+&lt;p>Addtional services can be opened such as grafana as follows.
 &lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -343,5 +361,7 @@ Addtional services can be opened such as grafana as follows.
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo ufw status&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>
-&lt;p>&lt;strong>Note&lt;/strong>&lt;/p>
-&lt;p>If you enable prometheus metrics (port 26600) exporting or grafana (3000), additional ports need to be opened on the firewall. See section on ports.&lt;/p></description></item></channel></rss>
+&lt;h2 id="prometheus">Prometheus&lt;/h2>
+&lt;p>If you use Prometheus metrics, you should consult with the metrics exporter tool which port it uses for exporting
+metrics. Prometheus specific setup recommendations and installation instructions will be released shortly,
+when the nodebase releases its nodebase monitoring service.&lt;/p></description></item></channel></rss>
