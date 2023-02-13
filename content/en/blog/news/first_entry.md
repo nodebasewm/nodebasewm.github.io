@@ -16,9 +16,9 @@ resources:
 Welcome to the **Nodebase developers** site. A place where we can share useful resources for Earthnode Operators
 of the WorldMobile Chain.
 
-Since ** ([@earthnodechile](https://twitter.com/earthnodechile)) **is part of the private testnet team of the WM Chain, I will share my unique insights on
-testnet development, publish material about Cosmos SDK and write step-by-step guides all things related to
-running an Earthnode.
+This page was started to share material with the EarthNode community.As a early tester of WM Testnet [@earthnodechile](https://twitter.com/earthnodechile) has early insights in how testnet is doing and came to the conclusion a lot of tooling is needed to help setup, run and monitor your EarthNode.
+
+On this site I will also publish material about Cosmos SDK and write step-by-step guides all things related to running an Earthnode.
 
 Progress and opinion pieces on WM Testnet will be published to the blog section.
 

@@ -5,13 +5,17 @@ linkTitle: "Tools"
 weight: 3
 date: 2017-01-05
 description: >
-  See your project in action!
+  NodeBaseDevs Tools
 ---
 
-{{% pageinfo %}}
-This is a placeholder page that shows you how to use this template site.
-{{% /pageinfo %}}
+The NodeBaseDevs team is continuously adding scripting and tooling to its [github release page](https://github.com/nodebasewm/download/releases/)
 
-Do you have any example **applications** or **code** for your users in your repo or elsewhere? Link to your examples here.
+You can download the entire tool package as follows.
+ 
+  `wget https://github.com/nodebasewm/download/archive/refs/tags/v0.1.0-alpha.zip`
 
 
+The package currently contains:
+- **install_sentry.sh** installation script
+- **addresses.sh** : shows all your node address, useful for setup
+- **validators.sh**: show all bonded validators by moniker/address and status

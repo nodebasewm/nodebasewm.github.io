@@ -5,33 +5,23 @@ title: "Getting Started"
 linkTitle: "Getting Started"
 weight: 2
 description: >
-  What does your user need to know to try your project?
+  Get started running your nodes!
 ---
 
 {{% pageinfo %}}
-This is a placeholder page that shows you how to use this template site.
+The Getting Started will guide you through thte site material
 {{% /pageinfo %}}
-
-Information in this section helps your user try your project themselves.
-
-* What do your users need to do to start using your project? This could include downloading/installation instructions, including any prerequisites or system requirements.
-
-* Introductory “Hello World” example, if appropriate. More complex tutorials should live in the Tutorials section.
-
-Consider using the headings below for your getting started page. You can delete any that are not applicable to your project.
 
 ## Prerequisites
 
-Are there any system requirements for using your project? What languages are supported (if any)? Do users need to already have any software or tools installed?
+You must be a WorldMobile Earthnode operator with access to the private or public tesnet. If you don't have access yet, contact
+a moderator in the WorldMobile telegram groups to request the access form.
+
 
 ## Installation
 
-Where can your user find your project code? How can they install it (binaries, installable package, build from source)? Are there multiple options/versions they can install and how should they choose the right one for them?
+You will need to have access to a linux server for installation of the WM Earthnode validator. Hardware requirements is minimal 2 cores, 4GB RAM without grafana and 8GB RAM with grafana and 40GB DISK space-
 
 ## Setup
 
-Is there any initial setup users need to do after installation to try your project?
-
-## Try it out!
-
-Can your users test their installation, for example by running a command or deploying a Hello World example?
+The earthnode installation package provided on testnet gives you everything you need to install a validator node. At the NodeBaseDevs site you will find addtional setup instructions for installing relay nodes and complete configuration guidelines.
