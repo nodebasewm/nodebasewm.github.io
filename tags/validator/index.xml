@@ -1,4 +1,50 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NodeBaseDevs – validator</title><link>/tags/validator/</link><description>Recent content in validator on NodeBaseDevs</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Wed, 08 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="/tags/validator/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Node Architecture Design</title><link>/docs/configuration/architecture/</link><pubDate>Wed, 08 Feb 2023 00:00:00 +0000</pubDate><guid>/docs/configuration/architecture/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NodeBaseDevs – validator</title><link>/tags/validator/</link><description>Recent content in validator on NodeBaseDevs</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Mon, 13 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="/tags/validator/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Sentry Node Installation</title><link>/docs/getting-started/sentrynode/</link><pubDate>Mon, 13 Feb 2023 00:00:00 +0000</pubDate><guid>/docs/getting-started/sentrynode/</guid><description>
+&lt;h1 id="installation">Installation&lt;/h1>
+&lt;p>Installing a sentry node requires a different installation procedure than
+a validor node.&lt;/p>
+&lt;p>The install_node.sh script provided by the WM team only covers validator nodes, and does mot apply for sentry nodes. With some small adjustments
+this script can be adjusted to be used to install sentry nodes&lt;/p>
+&lt;p>Sentry nodes dont have operator keys, since they are not part of the consensus voting.&lt;/p>
+&lt;h2 id="nodebasetools">NodebaseTools&lt;/h2>
+&lt;blockquote>
+&lt;p>The NodeBaseDevs team created an &lt;strong>install_sentry.sh&lt;/strong> installation script.&lt;/p>
+&lt;/blockquote>
+&lt;p>This script is part of the &lt;strong>bundled nodebase tools package&lt;/strong> release package that can be found in the &lt;a href="https://github.com/nodebasewm/download/releases/">github releases&lt;/a>&lt;/p>
+&lt;h2 id="instructions">Instructions&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>Download the nodebase tools zipfile&lt;/p>
+&lt;p>&lt;code>wget https://github.com/nodebasewm/download/archive/refs/tags/v0.1.0-alpha.zip&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>unzip this file, it will create the folder download-0.1.0-alpha.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>copy the install_sentry.sh to your earthnode_installation folder&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>make sure executable permissions are set on the script&lt;/p>
+&lt;p>&lt;code>chmod +x install_relay.sh&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>run the script with a moniker name for your sentry from within the earhtnode installation folder&lt;/p>
+&lt;p>&lt;code>./install_sentry.sh -m MONIKER_NAME&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Unlike a validator node, &lt;strong>no registration&lt;/strong> is needed for sentry nodes.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>wait for the node to be synced to full height from the snapshot point. The installation script will terminate automatically when the node is synced to latest block height&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="configuration">Configuration&lt;/h2>
+&lt;blockquote>
+&lt;p>Please continue following the Sentry Validator configuration instructions in &lt;a href="/docs/configuration/config">Configuration&lt;/a> to configure your nodes accordingly after installation completes.&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="step-by-step-example">Step-by-Step Example&lt;/h2>
+&lt;blockquote>
+&lt;p>A step-by-step guide with example will be added to the Tutorials.&lt;/p>
+&lt;/blockquote></description></item><item><title>Docs: Node Architecture Design</title><link>/docs/configuration/architecture/</link><pubDate>Wed, 08 Feb 2023 00:00:00 +0000</pubDate><guid>/docs/configuration/architecture/</guid><description>
 &lt;h1 id="validator-node-architecture-design">Validator Node Architecture Design&lt;/h1>
 &lt;p>Tendermint relies on the set of validators to secure the network. The role of the validators is to run a full-node and participate in consensus by broadcasting votes which contain cryptographic signatures signed by their private key. Validators are connected to each other through the &lt;strong>p2p&lt;/strong> connections.&lt;/p>
 &lt;p>Validators are &lt;strong>responsible&lt;/strong> for ensuring the that the network can sustain denial of service attacks.&lt;/p>
@@ -51,13 +97,7 @@
 &lt;p>In this setup, the relay and validator node are both connected to the internet. But the validator node is hidden behind the relay node. The relay node will prevent &lt;strong>gossipping&lt;/strong> the IP-address of the validator node.&lt;/p>
 &lt;blockquote>
 &lt;p>This is less secure than using a VPC network, &amp;gt;since the validator node, although unknown to the &amp;gt;rest of the peers, is still connected to the &amp;gt;public internet and could be discovered.&lt;/p>
-&lt;/blockquote></description></item><item><title>Docs: Sentry Node Installation</title><link>/docs/getting-started/sentrynode/</link><pubDate>Wed, 08 Feb 2023 00:00:00 +0000</pubDate><guid>/docs/getting-started/sentrynode/</guid><description>
-&lt;h1 id="sentry-node-installation">Sentry Node installation&lt;/h1>
-&lt;p>Sentry Nodes dont have operator keys, since they are not part of the consensus.
-The standard install_node.sh script on public testnet does not support sentry node installation&lt;/p>
-&lt;p>An install script can be downloaded from this location &lt;strong>&lt;a href="https://github.com/nodebasewm/download">download git&lt;/a>&lt;/strong>&lt;/p>
-&lt;p>You can follow the Sentry Validator configuration instructions to configure your nodes accordingly after
-installation completes.&lt;/p></description></item><item><title>Docs: Validator Sentry Config.toml</title><link>/docs/configuration/config/</link><pubDate>Wed, 08 Feb 2023 00:00:00 +0000</pubDate><guid>/docs/configuration/config/</guid><description>
+&lt;/blockquote></description></item><item><title>Docs: Validator Sentry Config.toml</title><link>/docs/configuration/config/</link><pubDate>Wed, 08 Feb 2023 00:00:00 +0000</pubDate><guid>/docs/configuration/config/</guid><description>
 &lt;h2 id="local-configuration-validator-sentry-setup">Local Configuration Validator-Sentry Setup&lt;/h2>
 &lt;p>The validator will only talk to the Sentry nodes that are provided. While sentry nodes have the ability to talk to the validator node on the private channel and talk to public nodes elsewhere on the internet. When initializing nodes there are six parameters in the config.toml which are important&lt;/p>
 &lt;ul>

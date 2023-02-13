@@ -2,9 +2,16 @@
 &lt;h2 id="nodebase-devs-site-is-born">NodeBase Devs site is born!&lt;/h2>
 &lt;p>Welcome to the &lt;strong>Nodebase developers&lt;/strong> site. A place where we can share useful resources for Earthnode Operators
 of the WorldMobile Chain.&lt;/p>
-&lt;p>Since ** (&lt;a href="https://twitter.com/earthnodechile">@earthnodechile&lt;/a>) **is part of the private testnet team of the WM Chain, I will share my unique insights on
-testnet development, publish material about Cosmos SDK and write step-by-step guides all things related to
-running an Earthnode.&lt;/p>
+&lt;p>This page was started to share material with the EarthNode community.As a early tester of WM Testnet &lt;a href="https://twitter.com/earthnodechile">@earthnodechile&lt;/a> has early insights in how testnet is doing and came to the conclusion a lot of tooling is needed to help setup, run and monitor your EarthNode.&lt;/p>
+&lt;p>On this site I will also publish material about Cosmos SDK and write step-by-step guides all things related to running an Earthnode.&lt;/p>
 &lt;p>Progress and opinion pieces on WM Testnet will be published to the blog section.&lt;/p>
 &lt;p>The documentation section will contain material about running an earthnode and in-house developed tools to
-assist Earthnode operators. More on that in the next blog.&lt;/p></description></item></channel></rss>
+assist Earthnode operators. More on that in the next blog.&lt;/p></description></item><item><title>Blog: Installation of Sentry Nodes"</title><link>/blog/2023/02/08/installation-of-sentry-nodes/</link><pubDate>Wed, 08 Feb 2023 00:00:00 +0000</pubDate><guid>/blog/2023/02/08/installation-of-sentry-nodes/</guid><description>
+&lt;h2 id="nodebase-devs-tools-released">NodeBase Devs tools released!&lt;/h2>
+&lt;p>I am releasing the initial nodebase tools package. You can learn more about it and how to download it in &lt;a href="/docs/tools">Tools&lt;/a>.
+This package contains the sentry node setup and a few useful
+scripts to assist in the setup.&lt;/p>
+&lt;p>If you are interested in setting up a relay node, have a look at &lt;a href="/docs/getting-started">Getting Started&lt;/a> with all details on setting this. Some of the scripts in the tools are helpful when setting up a sentry node.&lt;/p>
+&lt;p>Addtional info on validator setup will be added as well.&lt;/p>
+&lt;p>There will be an easy to follow step-by-step guide on setting up a relay available shortly in the &lt;a href="/docs/tuturial">Tutorial&lt;/a> section.&lt;/p>
+&lt;p>.TheNodeBaseDevs&lt;/p></description></item></channel></rss>
