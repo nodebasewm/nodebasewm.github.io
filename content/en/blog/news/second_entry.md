@@ -1,6 +1,6 @@
 ---
 date: 2023-02-08
-title: Installation of Sentry Nodes"
+title: "Installation of Sentry Nodes"
 linkTitle: "Sentry nodes"
 description: ""
 author: EarthNodeChile ([@earthnodechile](https://twitter.com/earthnodechile))
