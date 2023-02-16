@@ -1,16 +1,58 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NodeBaseDevs – Nodebase Blog</title><link>/blog/</link><description>Recent content in Nodebase Blog on NodeBaseDevs</description><generator>Hugo -- gohugo.io</generator><atom:link href="/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>Blog: Ayaview Demo</title><link>/blog/2023/02/15/ayaview-demo/</link><pubDate>Wed, 15 Feb 2023 00:00:00 +0000</pubDate><guid>/blog/2023/02/15/ayaview-demo/</guid><description>
 &lt;h2 id="nodebasedevs-is-introducing-ayaview">NodeBaseDevs is introducing &lt;strong>ayaview&lt;/strong>&lt;/h2>
-&lt;p>Ayaview is a console based app to monitor your node, showing on-chain activity and system metrics.
-This tool can be used from within a terminal.
-It&amp;rsquo;s light-weight on resource usage, since its not using any heavy database behind to store state or use monitoring services.
-It&amp;rsquo;s fully configurable to monitor the validator node you are interested, and works on any cosmos-sdk based blockchain.&lt;/p>
-&lt;p>Here&amp;rsquo;s a live demo of a Sentry Node spinning up and playing catch-up to get synced to the current blockheight.
-You can see its getting blocks it doesnt have stored yet.&lt;/p>
-&lt;p>Normal activity when its caught up, will be show thew new blocks
-which appear around every 5s.&lt;/p>
+&lt;p>Ayaview is a console based app to monitor your aya node, it will on-chain activity and system metrics.
+It&amp;rsquo;s very light-weight, doesn&amp;rsquo;t comsume any resources, since it is not dependent on backend storages, like databases
+to store blockchain history. Hence the application will only be monitoring the current blockchain state.
+It&amp;rsquo;s fully configurable to monitor any validator node on any cosmos chain you are interested in.## Ayaview Demo!&lt;/p>
+&lt;p>Here&amp;rsquo;s a live demo of a Sentry Node spinning up and playing catch-up to get synced to the current blockHeight.
+It&amp;rsquo;s very fast syncing all blocks it has missed since it went down. As soon as it is caught up, normal activity
+will assume with new blocks getting minted every 5s.&lt;/p>
 &lt;div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
 &lt;iframe src="https://www.youtube.com/embed/OE30hG7PC6A" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video">&lt;/iframe>
-&lt;/div></description></item><item><title>Blog: Launch of TheNodeBase Devs</title><link>/blog/2023/02/08/launch-of-thenodebase-devs/</link><pubDate>Wed, 08 Feb 2023 00:00:00 +0000</pubDate><guid>/blog/2023/02/08/launch-of-thenodebase-devs/</guid><description>
+&lt;/div></description></item><item><title>Blog: Forty41 meets Zac and Ryan!</title><link>/blog/2023/02/15/forty41-meets-zac-and-ryan/</link><pubDate>Wed, 15 Feb 2023 00:00:00 +0000</pubDate><guid>/blog/2023/02/15/forty41-meets-zac-and-ryan/</guid><description>
+&lt;p>This is write up of my chat with Zac. Obviously they can&amp;rsquo;t share anything that isn&amp;rsquo;t in the public domain.&lt;/p>
+&lt;p>Catching up with &lt;strong>Zac and Ryan&lt;/strong>, as you all know, the great and the good of crypto have been in Dubai in early Feb
+for the Satoshi Roundtable. I’ll just have to assume that my invitation got lost in the post!&lt;/p>
+&lt;figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 610px">
+&lt;img class="card-img-top" src="/blog/2023/02/15/forty41-meets-zac-and-ryan/meetupzac_hu14987f1ed738085801c3cb41eaf72d77_250022_600x500_fit_q75_catmullrom.jpg" width="600" height="450">
+&lt;figcaption class="card-body px-0 pt-2 pb-0">
+&lt;p class="card-text">
+&lt;/p>
+&lt;/figcaption>
+&lt;/figure>
+&lt;p>Undeterred, I jetted off to Dubai for some winter sun and golf but couldn’t resist reaching out to the World Mobile Team
+as I never like missing out on an opportunity to meet up.&lt;/p>
+&lt;h3 id="the-meetup">The Meetup&lt;/h3>
+&lt;p>Despite having a packed timetable, our very own Head of Tokens Zac and Ryan agreed to meet me over a coffee for a
+quick catch up. They were both fresh from attending the Roundtable the previous day so my first question was about
+the “through the roof” interest in World Mobile”. Naturally neither could talk to me about specifics but they spoke
+enthusiastically about the number of people wanting to speak to World Mobile about potential projects.
+When I consider the amount of influence gathered for this conference I can understand why the team would be excited.&lt;/p>
+&lt;p>Over the course of the next hour we chatted about a wide range of topics all of which various teams within World Mobile
+are working on. Obviously Zac and Ryan couldn’t provide me with anything that isn’t already in the public domain so
+some of the comments below are my take on things.&lt;/p>
+&lt;p>Saturation - the team have listened to the concerns of the community and recognise that the current saturation is
+probably on the high side. My expectation is that this will be reduced but nor is it going to be on the very low side.
+The focus is very much on having as many nodes as possible deployed delivering a quality service rather than a few highly
+saturated ones. To this end Zac mentioned a number of solutions he was looking into to make the setting up of nodes as simple
+as possible which was music to my ears.&lt;/p>
+&lt;h3 id="rewards-paper-2">Rewards Paper 2&lt;/h3>
+&lt;p>lots of work has been done in this area looking at different reward models. I have heard lots of speculation from the community
+on when this is likely to come out and what it will look like. Following my chat, my take on this is that it will be
+issued sooner rather than later.&lt;/p>
+&lt;h3 id="asia">Asia&lt;/h3>
+&lt;p>Asia - nothing really new here and as Mr T mentioned in Spaces, we are likely to hear soon. World Mobile have been
+approached by a number of countries in the region so it’s a case of sitting tight to hear more.&lt;/p>
+&lt;h3 id="balloons">Balloons&lt;/h3>
+&lt;p>Aerostat - do you really think I asked?&lt;/p>
+&lt;h3 id="testnet">Testnet&lt;/h3>
+&lt;p>Testnet Roll-out - we know the answer to that.&lt;/p>
+&lt;h3 id="final-words">Final Words&lt;/h3>
+&lt;p>My overall impression following the meeting remains unchanged and I’m as positive, if not more so that as ENOs we are
+part of something really exciting. World Mobile are working on a large number of tandem running projects being pulled together
+to create the ecosystem to make this a success.&lt;/p>
+&lt;p>The component parts are ever changing and evolving and the team are having to pivot quickly to meet the roadmap and demands of the World Mobile community.&lt;/p>
+&lt;p>There are inevitable bumps in the road and I know people will argue that some could have been foreseen but I think there are many that could never have been anticipated.&lt;/p></description></item><item><title>Blog: Launch of TheNodeBase Devs</title><link>/blog/2023/02/08/launch-of-thenodebase-devs/</link><pubDate>Wed, 08 Feb 2023 00:00:00 +0000</pubDate><guid>/blog/2023/02/08/launch-of-thenodebase-devs/</guid><description>
 &lt;h2 id="nodebase-devs-site-is-born">NodeBase Devs site is born!&lt;/h2>
 &lt;p>Welcome to the &lt;strong>Nodebase developers&lt;/strong> site. A place where we can share useful resources for Earthnode Operators
 of the WorldMobile Chain.&lt;/p>
