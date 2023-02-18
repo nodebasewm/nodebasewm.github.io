@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NodeBaseDevs – Documentation</title><link>/docs/</link><description>Recent content in Documentation on NodeBaseDevs</description><generator>Hugo -- gohugo.io</generator><atom:link href="/docs/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Jailing</title><link>/docs/testnet/jailing/</link><pubDate>Sat, 18 Feb 2023 00:00:00 +0000</pubDate><guid>/docs/testnet/jailing/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NodeBaseDevs – cosmovisor</title><link>/tags/cosmovisor/</link><description>Recent content in cosmovisor on NodeBaseDevs</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Sat, 18 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="/tags/cosmovisor/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Jailing</title><link>/docs/testnet/jailing/</link><pubDate>Sat, 18 Feb 2023 00:00:00 +0000</pubDate><guid>/docs/testnet/jailing/</guid><description>
 &lt;blockquote>
 &lt;p>TL;DR: If a validator looses sync with the blockchain, they are punished (slashed) and delegator rewards are reduced.
 This is an incentive for the validator to monitor and maintaining their nodes on good infrastructure.&lt;/p>
@@ -171,67 +171,4 @@ cosmovisor service you would need to configure manually.&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo systemctl daemon&lt;span style="color:#ffb8d1">-&lt;/span>reload
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo systemctl enable cosmovisor&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div></description></item><item><title>Docs: Used Ports</title><link>/docs/configuration/ports/ports/</link><pubDate>Wed, 08 Feb 2023 00:00:00 +0000</pubDate><guid>/docs/configuration/ports/ports/</guid><description>
-&lt;p>By default the follow ports are used by &lt;strong>aya&lt;/strong>&lt;/p>
-&lt;ul>
-&lt;li>&lt;strong>26656&lt;/strong>
-&lt;ul>
-&lt;li>pnp networking port to connect to the tendermint network&lt;/li>
-&lt;li>On a validator this port needs to be exposed to sentry nodes&lt;/li>
-&lt;li>On a sentry node this port needs to be exposed to the open internet&lt;/li>
-&lt;li>This is the port validators and sentries use to communicate to each other&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;ul>
-&lt;li>&lt;strong>26657&lt;/strong>
-&lt;ul>
-&lt;li>Tendermint RPC port.&lt;/li>
-&lt;li>Some tools, example querying tools, use this port to query blockchain status.&lt;/li>
-&lt;li>You should not directly expose this port.&lt;/li>
-&lt;li>This should be shielded from the open internet.&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>&lt;strong>26658&lt;/strong>
-&lt;ul>
-&lt;li>Out of process ABCI app&lt;/li>
-&lt;li>This should be shielded from the open internet&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>&lt;strong>29090&lt;/strong>
-&lt;ul>
-&lt;li>the gRPC server port. This is used for gRPC server communication with&lt;/li>
-&lt;li>Cosmos SDK application layer. With this you can query banking, staking and - delegation information from Cosmos SDK.&lt;/li>
-&lt;li>Example, some monitoring services might use this communication mechanism since its much faster than RESTful.&lt;/li>
-&lt;li>This should be shielded from the open internet&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;p>Some optional ports that might be used by &lt;strong>aya&lt;/strong> are as follows&lt;/p>
-&lt;ul>
-&lt;li>&lt;strong>26600&lt;/strong>
-&lt;ul>
-&lt;li>&lt;a href="https://github.com/tendermint/tendermint/blob/master/docs/nodes/metrics.md">Prometheus&lt;/a> stats server&lt;/li>
-&lt;li>System stats about the ayad process&lt;/li>
-&lt;li>Needs to be enabled in the config file&lt;/li>
-&lt;li>This should be shielded from the open internet&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>&lt;strong>1317&lt;/strong>
-&lt;ul>
-&lt;li>The REST server&lt;/li>
-&lt;li>for automated management of anything you can do with the CLI&lt;/li>
-&lt;li>This should be shielded from the open internet.&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;blockquote>
-&lt;p>More &lt;a href="https://docs.cosmos.network/main/core/grpc_rest">here&lt;/a> on endpoints&lt;/p>
-&lt;/blockquote>
-&lt;blockquote>
-&lt;p>&lt;strong>Note&lt;/strong>: Monitoring tools that are installed use additional port, ex Grafana uses port 3000&lt;/p>
-&lt;/blockquote>
-&lt;blockquote>
-&lt;p>&lt;strong>IMPORTANT&lt;/strong>:
-For ports 1317 and 26657, you way want to use them as a RESTful endpoint by proxy-ing them to an external interface via an http proxy like Nginx or Coddy. The idea is to treat them like a web service for RESTful requests to the RPC ports done over https. You may configure rate limiting on the http proxy or make request with user authentication using a web app. This way you are not exposing the ports directly and your node is protected from receiving too many request suddenly.&lt;/p>
-&lt;/blockquote></description></item></channel></rss>
+&lt;/div></description></item></channel></rss>
