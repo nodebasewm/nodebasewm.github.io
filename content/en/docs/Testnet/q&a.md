@@ -1,0 +1,62 @@
+
+---
+categories: ["Testnet"]
+tags: ["setup", "install", "cosmovisor", "ayad"]
+title: "Q&A"
+linkTitle: "Q&A"
+date: 2023-02-18
+weight: 40
+description: >
+  Questions and Answers all things Testnet
+---
+
+# I don't have a cosmovisor service? 
+The cosmovisor service is a daemon process to keep your node running. When the ayad process would exit, the service would automatically restart. So it has a vital function to keep your validator running healthy.
+
+The cosmovisor service is installed during the node installation (install_node.sh), after your registered your node with the ENNFT. If you failed to register the node, and stopped the installation script, the installation didnt complete.
+
+You can still register the ENNFT following the published instructions, but the
+cosmovisor service you would need to configure manually.
+
+ayafix.sh is also part of the nodebase [tools](/docs/tools/)
+
+Or you can install it manually from here as follows:
+
+1. copy the content below to a file ex. ayafix.sh 
+2. chmod +x ayafix.sh
+3. sudo ./ayafix.sh
+   
+{{< highlight go "linenos=table,style=witchhazel" >}}
+#!/usr/bin/env bash
+
+aya_home=/opt/aya
+
+echo -e "-- Configuring your node to start on server startup\n"
+sudo ln -s $aya_home/cosmovisor/current/bin/ayad /usr/local/bin/ayad >/dev/null 2>&1
+sudo ln -s $aya_home/cosmovisor/cosmovisor /usr/local/bin/cosmovisor >/dev/null 2>&1
+
+sudo tee /etc/systemd/system/cosmovisor.service > /dev/null <<EOF
+[Unit]
+Description=Aya Node
+After=network-online.target
+
+[Service]
+User=$USER
+ExecStart=$(which cosmovisor) run start --home "$aya_home" &>>"$aya_home"/logs/aya.log
+Restart=always
+RestartSec=3
+LimitNOFILE=4096
+
+Environment="/opt/aya"
+Environment="DAEMON_NAME=ayad"
+Environment="DAEMON_DATA_BACKUP_DIR=/opt/aya/backup"
+Environment="DAEMON_ALLOW_DOWNLOAD_BINARIES=true"
+Environment="DAEMON_RESTART_AFTER_UPGRADE=true"
+Environment="DAEMON_HOME=/opt/aya"
+[Install]
+WantedBy=multi-user.target
+EOF
+
+sudo systemctl daemon-reload
+sudo systemctl enable cosmovisor
+{{< /highlight>}}
