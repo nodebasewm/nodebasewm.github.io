@@ -20,7 +20,7 @@ Apply these firewall settings on your validator node
 sudo ufw default deny incoming
 sudo ufw default allow outgoing
 sudo ufw allow proto tcp from any to any port 22
-sudo allow from <sentry-ip> to any port 26656 proto
+sudo ufw allow from <sentry-ip> to any port 26656 proto tcp
 {{< /highlight>}}
 
 
