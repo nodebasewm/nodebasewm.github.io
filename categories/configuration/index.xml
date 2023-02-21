@@ -248,7 +248,7 @@ For ports 1317 and 26657, you way want to use them as a RESTful endpoint by prox
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>sudo ufw &lt;span style="color:#ff79c6">default&lt;/span> deny incoming
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo ufw &lt;span style="color:#ff79c6">default&lt;/span> allow outgoing
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo ufw allow proto tcp from any to any port &lt;span style="color:#bd93f9">22&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo allow from &amp;lt;sentry&lt;span style="color:#ff79c6">-&lt;/span>ip&amp;gt; to any port &lt;span style="color:#bd93f9">26656&lt;/span> proto&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo ufw allow from &amp;lt;sentry&lt;span style="color:#ff79c6">-&lt;/span>ip&amp;gt; to any port &lt;span style="color:#bd93f9">26656&lt;/span> proto tcp&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>
 &lt;p>This allows ssh login, you can change &lt;strong>any&lt;/strong> to an &lt;strong>IP-address&lt;/strong> for higher security,&lt;/p>
