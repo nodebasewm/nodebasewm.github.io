@@ -60,3 +60,54 @@ EOF
 sudo systemctl daemon-reload
 sudo systemctl enable cosmovisor
 {{< /highlight>}}
+
+# What is my validator address?
+
+The validator address is a function of the validator's public key, which is used to sign prevotes and precommits. 
+
+Cosmos uses a bech32 encoded validator address, which is a more human-readable version of the same public key.
+
+To retrieve your node's address you can use our script **addresses.sh** in [tools](/docs/tools/) or do it manually as follows.
+
+{{< highlight go "linenos=table,style=witchhazel" >}}
+ayad keys list --home /opt/aya
+Enter keyring passphrase:
+{{< /highlight>}}
+
+The output will look like:
+{{< highlight go "linenos=table,style=witchhazel" >}}
+
+- address: aya1fnxullwf0r72hlmjyyuhjca23pl09a7rf5f752
+  name: EarthNodeChile
+  pubkey: '{"@type":"/cosmos.crypto.secp256k1.PubKey","key":"A7tC1Yexx3ithv611VdPEySAffVP6nqTNvN9iKX1buMr"}'
+  type: local
+{{< /highlight >}}
+
+With the address get the HEX presentation of it 
+
+{{< highlight go "linenos=table,style=witchhazel" >}}
+ayad keys parse aya1fnxullwf0r72hlmjyyuhjca23pl09a7rf5f752 --home /opt/aya
+{{< /highlight >}}
+
+{{< highlight go "linenos=table,style=witchhazel" >}}
+bytes: 4CCDCFFDC978FCABFF7221397963AA887EF2F7C3
+human: aya
+{{< /highlight >}}
+
+Now parse the HEX address to get all bech32 representations
+
+{{< highlight go "linenos=table,style=witchhazel" >}}
+ayad keys parse 4CCDCFFDC978FCABFF7221397963AA887EF2F7C3 --home /opt/aya
+{{< /highlight >}}
+
+The third entry with prefix **ayavaloper** is your validator address
+
+{{< highlight go "linenos=table,style=witchhazel" >}}
+formats:
+- aya1fnxullwf0r72hlmjyyuhjca23pl09a7rf5f752
+- ayapub1fnxullwf0r72hlmjyyuhjca23pl09a7rklpry4
+- ayavaloper1fnxullwf0r72hlmjyyuhjca23pl09a7re7t8j5
+- ayavaloperpub1fnxullwf0r72hlmjyyuhjca23pl09a7rng04ad
+- ayavalcons1fnxullwf0r72hlmjyyuhjca23pl09a7rddcm74
+- ayavalconspub1fnxullwf0r72hlmjyyuhjca23pl09a7rzv5ahu
+{{< /highlight >}}
