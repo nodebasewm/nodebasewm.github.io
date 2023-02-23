@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NodeBaseDevs – docs</title><link>/tags/docs/</link><description>Recent content in docs on NodeBaseDevs</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Mon, 13 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="/tags/docs/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Getting Started</title><link>/docs/getting-started/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/docs/getting-started/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NodeBaseDevs – docs</title><link>/tags/docs/</link><description>Recent content in docs on NodeBaseDevs</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Thu, 23 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="/tags/docs/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Getting Started</title><link>/docs/getting-started/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/docs/getting-started/</guid><description>
 &lt;div class="pageinfo pageinfo-primary">
 &lt;p>The Getting Started will guide you through thte site material&lt;/p>
 &lt;/div>
@@ -8,7 +8,112 @@ a moderator in the WorldMobile telegram groups to request the access form.&lt;/p
 &lt;h2 id="installation">Installation&lt;/h2>
 &lt;p>You will need to have access to a linux server for installation of the WM Earthnode validator. Hardware requirements is minimal 2 cores, 4GB RAM without grafana and 8GB RAM with grafana and 40GB DISK space-&lt;/p>
 &lt;h2 id="setup">Setup&lt;/h2>
-&lt;p>The earthnode installation package provided on testnet gives you everything you need to install a validator node. At the NodeBaseDevs site you will find addtional setup instructions for installing relay nodes and complete configuration guidelines.&lt;/p></description></item><item><title>Docs: Configuration</title><link>/docs/configuration/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/docs/configuration/</guid><description/></item><item><title>Docs: Sentry Node Installation</title><link>/docs/getting-started/sentrynode/</link><pubDate>Mon, 13 Feb 2023 00:00:00 +0000</pubDate><guid>/docs/getting-started/sentrynode/</guid><description>
+&lt;p>The earthnode installation package provided on testnet gives you everything you need to install a validator node. At the NodeBaseDevs site you will find addtional setup instructions for installing relay nodes and complete configuration guidelines.&lt;/p></description></item><item><title>Docs: Configuration</title><link>/docs/configuration/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/docs/configuration/</guid><description/></item><item><title>Docs: Ayaview</title><link>/docs/tools/ayaview/</link><pubDate>Thu, 23 Feb 2023 00:00:00 +0000</pubDate><guid>/docs/tools/ayaview/</guid><description>
+&lt;h2 id="introduction">Introduction&lt;/h2>
+&lt;p>Ayaview is a local monitoring tool for your validator node.It can be used besides a setup
+based on Grafana-Prometheus for light-weight direct monitoring.&lt;/p>
+&lt;p>It has a very intuitive console view, written entirely in Golang for performance.
+Ayaview monitors your validator status and blocks produced on chain, as also system metrics and peer information.&lt;/p>
+&lt;p>It can be run entirely standalone, started/stopped as many times you want without affecting your node.&lt;/p>
+&lt;h2 id="overview">Overview&lt;/h2>
+&lt;figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 710px">
+&lt;img class="card-img-top" src="/docs/tools/ayaview/ayaview_hudaff0d3c8ef33e237fa68fd61cf29d88_68656_900x600_fit_q75_catmullrom.jpg" width="700" height="307">
+&lt;figcaption class="card-body px-0 pt-2 pb-0">
+&lt;p class="card-text">
+&lt;small class="text-muted">&lt;br/>picture&lt;/small>&lt;/p>
+&lt;/figcaption>
+&lt;/figure>
+&lt;h2 id="installation-instructions">Installation Instructions&lt;/h2>
+&lt;h2 id="configtoml">config.toml&lt;/h2>
+&lt;p>The configuration of ayaview is done through a c&lt;strong>config.toml&lt;/strong> configuration file.
+A default config file is delivered part of the installation&lt;/p>
+&lt;p>You start ayaview as follows.&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>.&lt;span style="color:#ffb8d1">/&lt;/span>ayaview &lt;span style="color:#ffb8d1">--&lt;/span>config config.toml&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>
+&lt;h2 id="validator-address">Validator Address&lt;/h2>
+&lt;blockquote>
+&lt;p>The only variable that you really need to to be filled in is your &lt;strong>validator address&lt;/strong>.&lt;/p>
+&lt;/blockquote>
+&lt;p>To retrieve your validator&amp;rsquo;s node address, take a look at the &lt;a href="/docs/testnet/qa/">Q&amp;amp;A in Testnet&lt;/a>&lt;/p>
+&lt;h2 id="grpcrpc-ports">GRPC/RPC Ports&lt;/h2>
+&lt;p>If you changed the default port of your node&amp;rsquo;s GRPC (29090) or RPC endpoint (26657), you will have
+to also change the grpc-address or rpc-address of the config.&lt;/p>
+&lt;p>Optionally, you can control the interval to update system metrics and node status. Block and consensus
+updates are updated real-time.&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010">#&lt;/span> Bech prefixes &lt;span style="color:#c2ffdf">for&lt;/span> network.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>bech&lt;span style="color:#ffb8d1">-&lt;/span>prefix = &lt;span style="color:#1bc5e0">&amp;#34;aya&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010">#&lt;/span>validator to watch FILL&lt;span style="color:#ffb8d1">-&lt;/span>IN
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>validator=&lt;span style="color:#1bc5e0">&amp;#34;ayavaloperxx&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010">#&lt;/span> If a network has specific bech prefixes &lt;span style="color:#c2ffdf">for&lt;/span> validator and &lt;span style="color:#c2ffdf">for&lt;/span> consensus node
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010">#&lt;/span> and their pubkeys, it&lt;span style="color:#960050;background-color:#1e0010">&amp;#39;&lt;/span>s possible to specify them separately.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>bech&lt;span style="color:#ffb8d1">-&lt;/span>validator&lt;span style="color:#ffb8d1">-&lt;/span>prefix = &lt;span style="color:#1bc5e0">&amp;#34;&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>bech&lt;span style="color:#ffb8d1">-&lt;/span>validator&lt;span style="color:#ffb8d1">-&lt;/span>pubkey&lt;span style="color:#ffb8d1">-&lt;/span>prefix = &lt;span style="color:#1bc5e0">&amp;#34;&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>bech&lt;span style="color:#ffb8d1">-&lt;/span>consensus&lt;span style="color:#ffb8d1">-&lt;/span>node&lt;span style="color:#ffb8d1">-&lt;/span>prefix = &lt;span style="color:#1bc5e0">&amp;#34;&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>bech&lt;span style="color:#ffb8d1">-&lt;/span>consensus&lt;span style="color:#ffb8d1">-&lt;/span>node&lt;span style="color:#ffb8d1">-&lt;/span>pubkey&lt;span style="color:#ffb8d1">-&lt;/span>prefix = &lt;span style="color:#1bc5e0">&amp;#34;&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010">#&lt;/span> system update interval, in seconds. Defaults to &lt;span style="color:#c5a3ff">3&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>interval = &lt;span style="color:#c5a3ff">3&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010">#&lt;/span> Node config.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>[node]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010">#&lt;/span> gRPC node address to get signing info and validators info from, defaults to localhost:&lt;span style="color:#c5a3ff">9090&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>grpc&lt;span style="color:#ffb8d1">-&lt;/span>address = &lt;span style="color:#1bc5e0">&amp;#34;localhost:29090&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010">#&lt;/span> Tendermint RPC node to get block info from. Defaults to http:&lt;span style="color:#b0bec5">//localhost:26657.
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#b0bec5">&lt;/span>rpc&lt;span style="color:#ffb8d1">-&lt;/span>address = &lt;span style="color:#1bc5e0">&amp;#34;localhost:26657&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010">#&lt;/span> Logging config.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>[log]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010">#&lt;/span> Log level. Defaults to &lt;span style="color:#960050;background-color:#1e0010">&amp;#39;&lt;/span>info&lt;span style="color:#960050;background-color:#1e0010">&amp;#39;&lt;/span>, you can set it to &lt;span style="color:#960050;background-color:#1e0010">&amp;#39;&lt;/span>debug&lt;span style="color:#960050;background-color:#1e0010">&amp;#39;&lt;/span> or even &lt;span style="color:#960050;background-color:#1e0010">&amp;#39;&lt;/span>trace&lt;span style="color:#960050;background-color:#1e0010">&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010">#&lt;/span> to make it more verbose.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>level = &lt;span style="color:#1bc5e0">&amp;#34;info&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010">#&lt;/span> Log all output in JSON except &lt;span style="color:#c2ffdf">for&lt;/span> fatal errors, useful &lt;span style="color:#c2ffdf">if&lt;/span> you are using
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010">#&lt;/span> logging aggregation solutions such as ELK stack.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>json = &lt;span style="color:#c2ffdf">true&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>Docs: Sentry Node Installation</title><link>/docs/getting-started/sentrynode/</link><pubDate>Mon, 13 Feb 2023 00:00:00 +0000</pubDate><guid>/docs/getting-started/sentrynode/</guid><description>
 &lt;h1 id="installation">Installation&lt;/h1>
 &lt;p>Installing a sentry node requires a different installation procedure than
 a validor node.&lt;/p>

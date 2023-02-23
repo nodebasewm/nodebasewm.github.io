@@ -171,6 +171,84 @@ cosmovisor service you would need to configure manually.&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo systemctl daemon&lt;span style="color:#ffb8d1">-&lt;/span>reload
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo systemctl enable cosmovisor&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
+&lt;/div>
+&lt;h1 id="what-is-my-validator-address">What is my validator address?&lt;/h1>
+&lt;p>The validator address is a function of the validator&amp;rsquo;s public key, which is used to sign prevotes and precommits.&lt;/p>
+&lt;p>Cosmos uses a bech32 encoded validator address, which is a more human-readable version of the same public key.&lt;/p>
+&lt;p>To retrieve your node&amp;rsquo;s address you can use our script &lt;strong>addresses.sh&lt;/strong> in &lt;a href="/docs/tools/">tools&lt;/a> or do it manually as follows.&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>ayad keys list &lt;span style="color:#ffb8d1">--&lt;/span>home &lt;span style="color:#ffb8d1">/&lt;/span>opt&lt;span style="color:#ffb8d1">/&lt;/span>aya
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Enter keyring passphrase:&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>
+&lt;p>The output will look like:
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ffb8d1">-&lt;/span> address: aya1fnxullwf0r72hlmjyyuhjca23pl09a7rf5f752
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> name: EarthNodeChile
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> pubkey: &lt;span style="color:#960050;background-color:#1e0010">&amp;#39;&lt;/span>{&lt;span style="color:#1bc5e0">&amp;#34;@type&amp;#34;&lt;/span>:&lt;span style="color:#1bc5e0">&amp;#34;/cosmos.crypto.secp256k1.PubKey&amp;#34;&lt;/span>,&lt;span style="color:#1bc5e0">&amp;#34;key&amp;#34;&lt;/span>:&lt;span style="color:#1bc5e0">&amp;#34;A7tC1Yexx3ithv611VdPEySAffVP6nqTNvN9iKX1buMr&amp;#34;&lt;/span>}&lt;span style="color:#960050;background-color:#1e0010">&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#c2ffdf">type&lt;/span>: local&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/p>
+&lt;p>With the address get the HEX presentation of it&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>ayad keys parse aya1fnxullwf0r72hlmjyyuhjca23pl09a7rf5f752 &lt;span style="color:#ffb8d1">--&lt;/span>home &lt;span style="color:#ffb8d1">/&lt;/span>opt&lt;span style="color:#ffb8d1">/&lt;/span>aya&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>bytes: &lt;span style="color:#c5a3ff">4&lt;/span>CCDCFFDC978FCABFF7221397963AA887EF2F7C3
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>human: aya&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>
+&lt;p>Now parse the HEX address to get all bech32 representations&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>ayad keys parse &lt;span style="color:#c5a3ff">4&lt;/span>CCDCFFDC978FCABFF7221397963AA887EF2F7C3 &lt;span style="color:#ffb8d1">--&lt;/span>home &lt;span style="color:#ffb8d1">/&lt;/span>opt&lt;span style="color:#ffb8d1">/&lt;/span>aya&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>
+&lt;p>The third entry with prefix &lt;strong>ayavaloper&lt;/strong> is your validator address&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>formats:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ffb8d1">-&lt;/span> aya1fnxullwf0r72hlmjyyuhjca23pl09a7rf5f752
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ffb8d1">-&lt;/span> ayapub1fnxullwf0r72hlmjyyuhjca23pl09a7rklpry4
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ffb8d1">-&lt;/span> ayavaloper1fnxullwf0r72hlmjyyuhjca23pl09a7re7t8j5
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ffb8d1">-&lt;/span> ayavaloperpub1fnxullwf0r72hlmjyyuhjca23pl09a7rng04ad
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ffb8d1">-&lt;/span> ayavalcons1fnxullwf0r72hlmjyyuhjca23pl09a7rddcm74
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ffb8d1">-&lt;/span> ayavalconspub1fnxullwf0r72hlmjyyuhjca23pl09a7rzv5ahu&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
 &lt;/div></description></item><item><title>Docs: Used Ports</title><link>/docs/configuration/ports/ports/</link><pubDate>Wed, 08 Feb 2023 00:00:00 +0000</pubDate><guid>/docs/configuration/ports/ports/</guid><description>
 &lt;p>By default the follow ports are used by &lt;strong>aya&lt;/strong>&lt;/p>
 &lt;ul>
