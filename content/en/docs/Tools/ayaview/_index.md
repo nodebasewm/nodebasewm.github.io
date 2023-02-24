@@ -31,23 +31,38 @@ It can be run entirely standalone, started/stopped as many times you want withou
 
 ## Installation Instructions
 
-## config.toml
-The configuration of ayaview is done through a c**config.toml** configuration file. 
-A default config file is delivered part of the installation
+Download ayaview from nodebasewm github and unzip as follows
 
-You start ayaview as follows.
+{{< highlight go "linenos=table,style=witchhazel" >}}
+wget https://github.com/nodebasewm/download/blob/main/ayaview.zip
+unzip ayaview.zip
+{{< /highlight >}}
 
+After configurating ayaview using the configuration instructions,
+you can start ayaview in any open terminal window
 {{< highlight go "linenos=table,style=witchhazel" >}}
 ./ayaview --config config.toml
 {{< /highlight >}}
 
-## Validator Address
-> The only variable that you really need to  to be filled in is your **validator address**. 
+
+## Configuration
+
+The configuration of ayaview is done through a **config.toml** configuration file. 
+A default config file is delivered part of the installation
+
+
+### Validator Address
+> You will have to replace the value of **validator** with the address of your validator node.
 
 To retrieve your validator's node address, take a look at the [Q&A in Testnet](/docs/testnet/qa/)
 
+Replace the entire value of between the two "" with the address of your validator, ex.
+{{< highlight go "linenos=table,style=witchhazel" >}}
+validator="ayavaloper1r5v6c2ps2qqytdu7zcawwng7d5p5xm5g64cr07"
+{{< /highlight >}}
 
-## GRPC/RPC Ports
+
+### GRPC/RPC Ports
 If you changed the default port of your node's GRPC (29090) or RPC endpoint (26657), you will have
 to also change the grpc-address or rpc-address of the config.
 
