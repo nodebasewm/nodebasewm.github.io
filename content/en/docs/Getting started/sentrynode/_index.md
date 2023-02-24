@@ -33,7 +33,7 @@ This script is part of the **bundled nodebase tools package** release package th
 - The other scripts in the zip you can put wherever you want. Recommendation is to put them in /usr/local/bin
 - make sure executable permissions are set on the scripts
 
-    `chmod +x install_relay.sh`
+    `chmod +x install_sentry.sh`
 - run the script with a moniker name for your sentry from within the earthnode installation folder
   
   `./install_sentry.sh -m MONIKER_NAME` 
