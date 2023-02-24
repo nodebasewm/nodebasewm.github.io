@@ -27,7 +27,7 @@ this script can be adjusted to be used to install sentry nodes&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>make sure executable permissions are set on the scripts&lt;/p>
-&lt;p>&lt;code>chmod +x install_relay.sh&lt;/code>&lt;/p>
+&lt;p>&lt;code>chmod +x install_sentry.sh&lt;/code>&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>run the script with a moniker name for your sentry from within the earthnode installation folder&lt;/p>
