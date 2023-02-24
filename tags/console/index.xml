@@ -14,10 +14,19 @@ Ayaview monitors your validator status and blocks produced on chain, as also sys
 &lt;/figcaption>
 &lt;/figure>
 &lt;h2 id="installation-instructions">Installation Instructions&lt;/h2>
-&lt;h2 id="configtoml">config.toml&lt;/h2>
-&lt;p>The configuration of ayaview is done through a c&lt;strong>config.toml&lt;/strong> configuration file.
-A default config file is delivered part of the installation&lt;/p>
-&lt;p>You start ayaview as follows.&lt;/p>
+&lt;p>Download ayaview from nodebasewm github and unzip as follows&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>wget https:&lt;span style="color:#b0bec5">//github.com/nodebasewm/download/blob/main/ayaview.zip
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#b0bec5">&lt;/span>unzip ayaview.zip&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>
+&lt;p>After configurating ayaview using the configuration instructions,
+you can start ayaview in any open terminal window
 &lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -25,13 +34,25 @@ A default config file is delivered part of the installation&lt;/p>
 &lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>.&lt;span style="color:#ffb8d1">/&lt;/span>ayaview &lt;span style="color:#ffb8d1">--&lt;/span>config config.toml&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>
-&lt;h2 id="validator-address">Validator Address&lt;/h2>
+&lt;/div>&lt;/p>
+&lt;h2 id="configuration">Configuration&lt;/h2>
+&lt;p>The configuration of ayaview is done through a &lt;strong>config.toml&lt;/strong> configuration file.
+A default config file is delivered part of the installation&lt;/p>
+&lt;h3 id="validator-address">Validator Address&lt;/h3>
 &lt;blockquote>
-&lt;p>The only variable that you really need to to be filled in is your &lt;strong>validator address&lt;/strong>.&lt;/p>
+&lt;p>You will have to replace the value of &lt;strong>validator&lt;/strong> with the address of your validator node.&lt;/p>
 &lt;/blockquote>
 &lt;p>To retrieve your validator&amp;rsquo;s node address, take a look at the &lt;a href="/docs/testnet/qa/">Q&amp;amp;A in Testnet&lt;/a>&lt;/p>
-&lt;h2 id="grpcrpc-ports">GRPC/RPC Ports&lt;/h2>
+&lt;p>Replace the entire value of between the two &amp;quot;&amp;quot; with the address of your validator, ex.
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>validator=&lt;span style="color:#1bc5e0">&amp;#34;ayavaloper1r5v6c2ps2qqytdu7zcawwng7d5p5xm5g64cr07&amp;#34;&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/p>
+&lt;h3 id="grpcrpc-ports">GRPC/RPC Ports&lt;/h3>
 &lt;p>If you changed the default port of your node&amp;rsquo;s GRPC (29090) or RPC endpoint (26657), you will have
 to also change the grpc-address or rpc-address of the config.&lt;/p>
 &lt;p>Optionally, you can control the interval to update system metrics and node status. Block and consensus
