@@ -291,7 +291,7 @@ this script can be adjusted to be used to install sentry nodes&lt;/p>
 &lt;td>none&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td>uncondidional_peer_ids&lt;/td>
+&lt;td>unconditional_peer_ids&lt;/td>
 &lt;td>optionally sentry node IDs&lt;/td>
 &lt;/tr>
 &lt;tr>
@@ -332,7 +332,7 @@ Since the validator is on a private network and it will connect to the sentry no
 &lt;td>validator node ID&lt;/td>
 &lt;/tr>
 &lt;tr>
-&lt;td>uncondidional_peer_ids&lt;/td>
+&lt;td>unconditional_peer_ids&lt;/td>
 &lt;td>validator node ID, optionally other sentry node IDs&lt;/td>
 &lt;/tr>
 &lt;tr>
