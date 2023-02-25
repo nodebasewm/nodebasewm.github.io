@@ -34,6 +34,7 @@ It can be run entirely standalone, started/stopped as many times you want withou
 Download ayaview from nodebasewm github and unzip as follows
 
 {{< highlight go "linenos=table,style=witchhazel" >}}
+wget -O ayaview.zip https://github.com/nodebasewm/download/blob/main/ayaview.zip?raw=true
 unzip ayaview.zip
 {{< /highlight >}}
 
