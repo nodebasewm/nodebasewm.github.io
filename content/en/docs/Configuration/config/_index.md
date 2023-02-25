@@ -42,7 +42,7 @@ For the **<code>private_peer_ids</code>** and **<code>unconditional_peer_ids</co
 | pex | false |
 |persistent_peers | list of sentry nodes |
 | private_peer_ids | none |
-| uncondidional_peer_ids | optionally sentry node IDs |
+| unconditional_peer_ids | optionally sentry node IDs |
 |addr_book_strict | false |
 {{</table>}}
 >The validator node should have <code>pex=false</code> so it does not gossip to the entire network. The <code>persistent_peers</code> will be your sentry nodes. <code>private_peer_ids</code> can be left empty, as the validator is not trying to hide who it is communicating with. Setting <code>unconditional_peer_ids</code> is optional for a validator since they will not have a full address book. 
@@ -57,7 +57,7 @@ For the **<code>private_peer_ids</code>** and **<code>unconditional_peer_ids</co
 | pex | true |
 |persistent_peers | validator node, optionally other sentry nodes |
 | private_peer_ids | validator node ID |
-| uncondidional_peer_ids | validator node ID, optionally other sentry node IDs |
+| unconditional_peer_ids | validator node ID, optionally other sentry node IDs |
 |addr_book_strict | false |
 {{</table>}}
 
