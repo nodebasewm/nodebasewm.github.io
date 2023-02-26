@@ -337,7 +337,11 @@ Since the validator is on a private network and it will connect to the sentry no
 &lt;/tr>
 &lt;tr>
 &lt;td>addr_book_strict&lt;/td>
-&lt;td>false&lt;/td>
+&lt;td>true&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>external_address&lt;/td>
+&lt;td>set this to &amp;ldquo;x.x.x.x:26656&amp;rdquo;, where x.x.x.x is the sentry&amp;rsquo;s node public IP-Address&lt;/td>
 &lt;/tr>
 &lt;/tbody>
 &lt;/table>
@@ -346,7 +350,7 @@ Since the validator is on a private network and it will connect to the sentry no
 &lt;p>The sentry nodes should be able to talk to the entire network hence why &lt;strong>&lt;code>pex=true&lt;/code>&lt;/strong>.
 The &lt;strong>&lt;code>persistent_peers&lt;/code>&lt;/strong> of a sentry node will be the validator, and optionally other sentry nodes.
 The sentry nodes should make sure they do not gossip the validator&amp;rsquo;s ip,
-to do this you must put the validator nodeID as a &lt;strong>&lt;code>private_peer_ids&lt;/code>&lt;/strong>. The &lt;strong>&lt;code>unconditional peer IDs&lt;/code>&lt;/strong> will be the validator node ID and optionally other sentry node IDs.&lt;/p>
+&amp;rsquo; to do this you must put the validator nodeID as a &lt;strong>&lt;code>private_peer_ids&lt;/code>&lt;/strong>. The &lt;strong>&lt;code>unconditional peer IDs&lt;/code>&lt;/strong> will be the validator node ID and optionally other sentry node IDs. Since the sentry nodea must be able to connect to other p2p peers, &lt;strong>&lt;code>addr_book_strict&lt;/code>&lt;/strong> must be set to &lt;strong>&lt;code>true&lt;/code>&lt;/strong>, otherwise no inbound connections are made. The &lt;strong>&lt;code>external_address&lt;/code>&lt;/strong> needs to be set to your sentry&amp;rsquo;s node public IP-address of the form &lt;strong>&lt;code>&amp;ldquo;x.x.x.x:26656&amp;rdquo;&lt;/code>&lt;/strong>. This is the connection address and port that will be gossipped to other nodes for connecting back to your sentry.&lt;/p>
 &lt;/blockquote>
 &lt;p>&lt;strong>IMPORTANT&lt;/strong> Do not forget to secure your node&amp;rsquo;s firewalls when setting them up.&lt;/p>
 &lt;h3 id="about-gossipping">About Gossipping&lt;/h3>
