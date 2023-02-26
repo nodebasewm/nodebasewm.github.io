@@ -58,13 +58,14 @@ For the **<code>private_peer_ids</code>** and **<code>unconditional_peer_ids</co
 |persistent_peers | validator node, optionally other sentry nodes |
 | private_peer_ids | validator node ID |
 | unconditional_peer_ids | validator node ID, optionally other sentry node IDs |
-|addr_book_strict | false |
+|addr_book_strict | true |
+|external_address | set this to "x.x.x.x:26656",  where x.x.x.x is the sentry's node public IP-Address |
 {{</table>}}
 
 >The sentry nodes should be able to talk to the entire network hence why **<code>pex=true</code>**.
  The **<code>persistent_peers</code>** of a sentry node will be the validator, and optionally other sentry nodes. 
  The sentry nodes should make sure they do not gossip the validator's ip,
-  to do this you must put the validator nodeID as a **<code>private_peer_ids</code>**. The **<code>unconditional peer IDs</code>** will be the validator node ID and optionally other sentry node IDs.
+'  to do this you must put the validator nodeID as a **<code>private_peer_ids</code>**. The **<code>unconditional peer IDs</code>** will be the validator node ID and optionally other sentry node IDs. Since the sentry nodea must be able to connect to other p2p peers, **<code>addr_book_strict</code>** must be set to **<code>true</code>**, otherwise no inbound connections are made. The **<code>external_address</code>** needs to be set to your sentry's node public IP-address of the form **<code>"x.x.x.x:26656"</code>**. This is the connection address and port that will be gossipped to other nodes for connecting back to your sentry.
 
 **IMPORTANT** Do not forget to secure your node's firewalls when setting them up.
 
