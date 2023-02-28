@@ -29,7 +29,7 @@ this script can be adjusted to be used to install sentry nodes&lt;/p>
 &lt;ul>
 &lt;li>
 &lt;p>Download the nodebase tools zipfile&lt;/p>
-&lt;p>&lt;code>wget https://github.com/nodebasewm/download/archive/refs/tags/v0.1.1-alpha.zip&lt;/code>&lt;/p>
+&lt;p>&lt;code>wget https://github.com/nodebasewm/download/archive/refs/tags/v0.1.3-alpha.zip&lt;/code>&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>unzip this file, it will create the folder download-0.1.0-alpha.&lt;/p>
