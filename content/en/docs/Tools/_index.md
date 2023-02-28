@@ -12,7 +12,7 @@ The NodeBaseDevs team is continuously adding scripting and tooling to its [githu
 
 You can download the entire tool package as follows.
  {{< highlight go "linenos=table,style=witchhazel" >}}
-wget https://github.com/nodebasewm/download/archive/refs/tags/v0.1.2-alpha.zip
+wget https://github.com/nodebasewm/download/archive/refs/tags/v0.1.3-alpha.zip
  {{< /highlight >}}
 
 The package currently contains:
