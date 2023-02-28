@@ -1,5 +1,6 @@
 
 ---
+toc: true
 categories: ["Testnet"]
 tags: ["setup", "install", "cosmovisor", "ayad"]
 title: "Q&A"
@@ -9,6 +10,8 @@ weight: 40
 description: >
   Questions and Answers all things Testnet
 ---
+
+{{< toc >}}
 
 # I don't have a cosmovisor service? 
 The cosmovisor service is a daemon process to keep your node running. When the ayad process would exit, the service would automatically restart. So it has a vital function to keep your validator running healthy.
@@ -111,3 +114,30 @@ formats:
 - ayavalcons1fnxullwf0r72hlmjyyuhjca23pl09a7rddcm74
 - ayavalconspub1fnxullwf0r72hlmjyyuhjca23pl09a7rzv5ahu
 {{< /highlight >}}
+
+
+# How to add a profile image to your validator for WM Explorer?
+
+**Written by Nodebase Team member [Gertjan](https://twitter.com/BKINDSPO)**
+
+1. Go to the website https://keybase.io
+2. Create an account. This can be done by going to "Login" and after that choosing for "Join Keybase"
+3. Test if your account is working properly
+4. Logout of your account. On the home page of Keybase click the button "Install"
+5. Select the correct operating system and install the software
+6. Start the Keybase client on you computer and login with the account you created in step 2
+7. Change your profile image. This is the image that will show up in WM Explorer as your validator image
+8. Create a PGP key by selecting "Add a PGP key"
+9. Choose "Get a new PGP key"
+10. Fill in the form and click "Let the math begin"
+11. Click on the button "Done" in the dialog after
+12. You can now see a 16 character PGP key
+13. On your validator run the following command:
+
+{{< highlight go "linenos=table,style=witchhazel" >}}
+ayad tx staking edit-validator --identity="16 character PGP key" --from <operator name> --home /opt/aya/
+{{< /highlight >}}
+
+14. A transaction hash (txhash) is returned. Check in WM Explorer if the transaction was successful. If not, run
+the command in step 13 again
+15. After a successful transaction, your profile image will appear in WM Explorer

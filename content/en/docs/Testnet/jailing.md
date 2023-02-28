@@ -10,6 +10,8 @@ description: >
   What is jailing and how can I unjail?
 ---
 
+{{< toc >}}
+
 >TL;DR: If a validator looses sync with the blockchain, they are punished (slashed) and delegator rewards are reduced.
  This is an incentive for the validator to monitor and maintaining their nodes on good infrastructure.
 

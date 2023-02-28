@@ -14,7 +14,9 @@ resources:
    byline: "picture"  
 ---
 
-## Introduction
+{{< toc >}}
+
+# Introduction
 
 Ayaview is a local monitoring tool for your validator node.It can be used besides a setup
 based on Grafana-Prometheus for light-weight direct monitoring.
@@ -24,12 +26,12 @@ Ayaview monitors your validator status and blocks produced on chain, as also sys
 
 It can be run entirely standalone, started/stopped as many times you want without affecting your node.
 
-## Overview
+# Overview
 
 {{< imgproc ayaview Fit "900x600" >}}
 {{< /imgproc >}}
 
-## Installation Instructions
+# Installation Instructions
 
 Download ayaview from nodebasewm github and unzip as follows
 
@@ -45,13 +47,13 @@ you can start ayaview in any open terminal window
 {{< /highlight >}}
 
 
-## Configuration
+# Configuration
 
 The configuration of ayaview is done through a **config.toml** configuration file. 
 A default config file is delivered part of the installation
 
 
-### Validator Address
+## Validator Address
 > You will have to replace the value of **validator** with the address of your validator node.
 
 To retrieve your validator's node address, take a look at the [Q&A in Testnet](/docs/testnet/qa/)
@@ -62,7 +64,7 @@ validator="ayavaloper1r5v6c2ps2qqytdu7zcawwng7d5p5xm5g64cr07"
 {{< /highlight >}}
 
 
-### GRPC/RPC Ports
+## GRPC/RPC Ports
 If you changed the default port of your node's GRPC (29090) or RPC endpoint (26657), you will have
 to also change the grpc-address or rpc-address of the config.
 

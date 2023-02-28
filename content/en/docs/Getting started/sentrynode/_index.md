@@ -9,6 +9,8 @@ description: >
   Installation Guide with script
 ---
 
+{{< toc >}}
+
 # Installation
 Installing a sentry node requires a different installation procedure than 
 a validor node.

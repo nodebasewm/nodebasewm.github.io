@@ -9,8 +9,9 @@ description: >
  How to setup your validator and sentry nodes
 ---
 
+{{< toc >}}
 
-## Local Configuration Validator-Sentry Setup
+# Local Configuration Validator-Sentry Setup
 
 The validator will only talk to the Sentry nodes that are provided. While sentry nodes have the ability to talk to the validator node on the private channel and talk to public nodes elsewhere on the internet. When initializing nodes there are six parameters in the config.toml which are important
 
@@ -21,7 +22,7 @@ The validator will only talk to the Sentry nodes that are provided. While sentry
 * **unconditional_peer_ids**: comma seperated list of nodeIDs. These nodes will be connected no matter the limit of inbound and outbound peers. This is useful when address_books of sentry nodes are full.
 * **seed_mode**. This is used to jump start other nodes by providing a list of peers that the node can connect to.
 
-### NodeIDs {#nodeids}
+## NodeIDs {#nodeids}
 **Important**: Nodes in **<code>persistent_peers</code>** have the format nodeID@ip:port.  
  - **nodeID**. The ID of your validator. This can be retrieved with the command
 
@@ -34,7 +35,7 @@ The validator will only talk to the Sentry nodes that are provided. While sentry
   
 For the **<code>private_peer_ids</code>** and **<code>unconditional_peer_ids</code>**, only put the nodeID (without the @ip:port)
 
-### Validator Node Configuration
+## Validator Node Configuration
 
 {{<table table_class="table-striped table-hover" thead_class="table-dark">}}| Config Option | Setting |
 |----|-----|
@@ -49,7 +50,7 @@ For the **<code>private_peer_ids</code>** and **<code>unconditional_peer_ids</co
 >Since the validator is on a private network and it will connect to the sentry nodes also on a private network, <code>addr_book_strict=false</code> has to be set.
 
 
-### Sentry Node Configuration
+## Sentry Node Configuration
 {{<table table_class="table-striped table-hover" thead_class="table-dark">}}
 | Config Option | Setting |
 |----|-----|
@@ -69,7 +70,7 @@ For the **<code>private_peer_ids</code>** and **<code>unconditional_peer_ids</co
 
 **IMPORTANT** Do not forget to secure your node's firewalls when setting them up.
 
-### About Gossipping
+## About Gossipping
 Nodes will gossip their known peers that  are not marked as a private node to other nodes on the p2p network.  
 will be gossipped.
 
