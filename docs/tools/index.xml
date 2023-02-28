@@ -1,11 +1,27 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NodeBaseDevs – Tools</title><link>/docs/tools/</link><description>Recent content in Tools on NodeBaseDevs</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Thu, 05 Jan 2017 00:00:00 +0000</lastBuildDate><atom:link href="/docs/tools/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Ayaview</title><link>/docs/tools/ayaview/</link><pubDate>Thu, 23 Feb 2023 00:00:00 +0000</pubDate><guid>/docs/tools/ayaview/</guid><description>
-&lt;h2 id="introduction">Introduction&lt;/h2>
+&lt;div class="toc">
+&lt;h2>Table Of Contents&lt;/h2>
+&lt;nav id="TableOfContents">
+&lt;ul>
+&lt;li>&lt;a href="#introduction">Introduction&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#overview">Overview&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#installation-instructions">Installation Instructions&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#configuration">Configuration&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="#validator-address">Validator Address&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#grpcrpc-ports">GRPC/RPC Ports&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/nav>
+&lt;/div>
+&lt;h1 id="introduction">Introduction&lt;/h1>
 &lt;p>Ayaview is a local monitoring tool for your validator node.It can be used besides a setup
 based on Grafana-Prometheus for light-weight direct monitoring.&lt;/p>
 &lt;p>It has a very intuitive console view, written entirely in Golang for performance.
 Ayaview monitors your validator status and blocks produced on chain, as also system metrics and peer information.&lt;/p>
 &lt;p>It can be run entirely standalone, started/stopped as many times you want without affecting your node.&lt;/p>
-&lt;h2 id="overview">Overview&lt;/h2>
+&lt;h1 id="overview">Overview&lt;/h1>
 &lt;figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 710px">
 &lt;img class="card-img-top" src="/docs/tools/ayaview/ayaview_hudaff0d3c8ef33e237fa68fd61cf29d88_68656_900x600_fit_q75_catmullrom.jpg" width="700" height="307">
 &lt;figcaption class="card-body px-0 pt-2 pb-0">
@@ -13,7 +29,7 @@ Ayaview monitors your validator status and blocks produced on chain, as also sys
 &lt;small class="text-muted">&lt;br/>picture&lt;/small>&lt;/p>
 &lt;/figcaption>
 &lt;/figure>
-&lt;h2 id="installation-instructions">Installation Instructions&lt;/h2>
+&lt;h1 id="installation-instructions">Installation Instructions&lt;/h1>
 &lt;p>Download ayaview from nodebasewm github and unzip as follows&lt;/p>
 &lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -35,10 +51,10 @@ you can start ayaview in any open terminal window
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>.&lt;span style="color:#ffb8d1">/&lt;/span>ayaview &lt;span style="color:#ffb8d1">--&lt;/span>config config.toml&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;/p>
-&lt;h2 id="configuration">Configuration&lt;/h2>
+&lt;h1 id="configuration">Configuration&lt;/h1>
 &lt;p>The configuration of ayaview is done through a &lt;strong>config.toml&lt;/strong> configuration file.
 A default config file is delivered part of the installation&lt;/p>
-&lt;h3 id="validator-address">Validator Address&lt;/h3>
+&lt;h2 id="validator-address">Validator Address&lt;/h2>
 &lt;blockquote>
 &lt;p>You will have to replace the value of &lt;strong>validator&lt;/strong> with the address of your validator node.&lt;/p>
 &lt;/blockquote>
@@ -52,7 +68,7 @@ A default config file is delivered part of the installation&lt;/p>
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>validator=&lt;span style="color:#1bc5e0">&amp;#34;ayavaloper1r5v6c2ps2qqytdu7zcawwng7d5p5xm5g64cr07&amp;#34;&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;/p>
-&lt;h3 id="grpcrpc-ports">GRPC/RPC Ports&lt;/h3>
+&lt;h2 id="grpcrpc-ports">GRPC/RPC Ports&lt;/h2>
 &lt;p>If you changed the default port of your node&amp;rsquo;s GRPC (29090) or RPC endpoint (26657), you will have
 to also change the grpc-address or rpc-address of the config.&lt;/p>
 &lt;p>Optionally, you can control the interval to update system metrics and node status. Block and consensus

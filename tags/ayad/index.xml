@@ -1,4 +1,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NodeBaseDevs – ayad</title><link>/tags/ayad/</link><description>Recent content in ayad on NodeBaseDevs</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Sat, 18 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="/tags/ayad/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Jailing</title><link>/docs/testnet/jailing/</link><pubDate>Sat, 18 Feb 2023 00:00:00 +0000</pubDate><guid>/docs/testnet/jailing/</guid><description>
+&lt;div class="toc">
+&lt;h2>Table Of Contents&lt;/h2>
+&lt;nav id="TableOfContents">
+&lt;ul>
+&lt;li>
+&lt;ul>
+&lt;li>&lt;a href="#what-is-jailing">What is Jailing?&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#when-am-i-jailed">When am I Jailed?&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#network-parameters">Network Parameters&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#network-parameters-aya">Network Parameters Aya&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#slashing-mechanism">Slashing Mechanism:&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="#liveness-faults">Liveness Faults&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#byzantine-faults">Byzantine Faults&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="#un-jailing">Un-jailing&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="#commands-to-unjail">Commands to unjail&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#source">Source&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/nav>
+&lt;/div>
 &lt;blockquote>
 &lt;p>TL;DR: If a validator looses sync with the blockchain, they are punished (slashed) and delegator rewards are reduced.
 This is an incentive for the validator to monitor and maintaining their nodes on good infrastructure.&lt;/p>
@@ -90,6 +117,16 @@ in last 100 blocks.
 &lt;h3 id="source">Source&lt;/h3>
 &lt;p>&lt;a href="https://crypto.org/docs/chain-details/module_slashing.html#overview">https://crypto.org/docs/chain-details/module_slashing.html#overview&lt;/a>
 slashing module | Crypto.org Chain&lt;/p></description></item><item><title>Docs: Q&amp;A</title><link>/docs/testnet/qa/</link><pubDate>Sat, 18 Feb 2023 00:00:00 +0000</pubDate><guid>/docs/testnet/qa/</guid><description>
+&lt;div class="toc">
+&lt;h2>Table Of Contents&lt;/h2>
+&lt;nav id="TableOfContents">
+&lt;ul>
+&lt;li>&lt;a href="#i-dont-have-a-cosmovisor-service">I don&amp;rsquo;t have a cosmovisor service?&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#what-is-my-validator-address">What is my validator address?&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#how-to-add-a-profile-image-to-your-validator-for-wm-explorer">How to add a profile image to your validator for WM Explorer?&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/nav>
+&lt;/div>
 &lt;h1 id="i-dont-have-a-cosmovisor-service">I don&amp;rsquo;t have a cosmovisor service?&lt;/h1>
 &lt;p>The cosmovisor service is a daemon process to keep your node running. When the ayad process would exit, the service would automatically restart. So it has a vital function to keep your validator running healthy.&lt;/p>
 &lt;p>The cosmovisor service is installed during the node installation (install_node.sh), after your registered your node with the ENNFT. If you failed to register the node, and stopped the installation script, the installation didnt complete.&lt;/p>
@@ -249,4 +286,34 @@ cosmovisor service you would need to configure manually.&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ffb8d1">-&lt;/span> ayavalcons1fnxullwf0r72hlmjyyuhjca23pl09a7rddcm74
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ffb8d1">-&lt;/span> ayavalconspub1fnxullwf0r72hlmjyyuhjca23pl09a7rzv5ahu&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div></description></item></channel></rss>
+&lt;/div>
+&lt;h1 id="how-to-add-a-profile-image-to-your-validator-for-wm-explorer">How to add a profile image to your validator for WM Explorer?&lt;/h1>
+&lt;p>&lt;strong>Written by Nodebase Team member &lt;a href="https://twitter.com/BKINDSPO">Gertjan&lt;/a>&lt;/strong>&lt;/p>
+&lt;ol>
+&lt;li>Go to the website &lt;a href="https://keybase.io">https://keybase.io&lt;/a>&lt;/li>
+&lt;li>Create an account. This can be done by going to &amp;ldquo;Login&amp;rdquo; and after that choosing for &amp;ldquo;Join Keybase&amp;rdquo;&lt;/li>
+&lt;li>Test if your account is working properly&lt;/li>
+&lt;li>Logout of your account. On the home page of Keybase click the button &amp;ldquo;Install&amp;rdquo;&lt;/li>
+&lt;li>Select the correct operating system and install the software&lt;/li>
+&lt;li>Start the Keybase client on you computer and login with the account you created in step 2&lt;/li>
+&lt;li>Change your profile image. This is the image that will show up in WM Explorer as your validator image&lt;/li>
+&lt;li>Create a PGP key by selecting &amp;ldquo;Add a PGP key&amp;rdquo;&lt;/li>
+&lt;li>Choose &amp;ldquo;Get a new PGP key&amp;rdquo;&lt;/li>
+&lt;li>Fill in the form and click &amp;ldquo;Let the math begin&amp;rdquo;&lt;/li>
+&lt;li>Click on the button &amp;ldquo;Done&amp;rdquo; in the dialog after&lt;/li>
+&lt;li>You can now see a 16 character PGP key&lt;/li>
+&lt;li>On your validator run the following command:&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>ayad tx staking edit&lt;span style="color:#ffb8d1">-&lt;/span>validator &lt;span style="color:#ffb8d1">--&lt;/span>identity=&lt;span style="color:#1bc5e0">&amp;#34;16 character PGP key&amp;#34;&lt;/span> &lt;span style="color:#ffb8d1">--&lt;/span>from &amp;lt;operator name&amp;gt; &lt;span style="color:#ffb8d1">--&lt;/span>home &lt;span style="color:#ffb8d1">/&lt;/span>opt&lt;span style="color:#ffb8d1">/&lt;/span>aya&lt;span style="color:#ffb8d1">/&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>
+&lt;ol start="14">
+&lt;li>A transaction hash (txhash) is returned. Check in WM Explorer if the transaction was successful. If not, run
+the command in step 13 again&lt;/li>
+&lt;li>After a successful transaction, your profile image will appear in WM Explorer&lt;/li>
+&lt;/ol></description></item></channel></rss>

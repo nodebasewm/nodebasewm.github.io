@@ -1,4 +1,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NodeBaseDevs – Getting Started</title><link>/categories/getting-started/</link><description>Recent content in Getting Started on NodeBaseDevs</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Mon, 13 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="/categories/getting-started/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Sentry Node Installation</title><link>/docs/getting-started/sentrynode/</link><pubDate>Mon, 13 Feb 2023 00:00:00 +0000</pubDate><guid>/docs/getting-started/sentrynode/</guid><description>
+&lt;div class="toc">
+&lt;h2>Table Of Contents&lt;/h2>
+&lt;nav id="TableOfContents">
+&lt;ul>
+&lt;li>&lt;a href="#installation">Installation&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="#nodebasetools">NodebaseTools&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#instructions">Instructions&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#configuration">Configuration&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#step-by-step-example">Step-by-Step Example&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/nav>
+&lt;/div>
 &lt;h1 id="installation">Installation&lt;/h1>
 &lt;p>Installing a sentry node requires a different installation procedure than
 a validor node.&lt;/p>

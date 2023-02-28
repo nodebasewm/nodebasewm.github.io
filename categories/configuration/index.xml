@@ -1,4 +1,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NodeBaseDevs – Configuration</title><link>/categories/configuration/</link><description>Recent content in Configuration on NodeBaseDevs</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Wed, 08 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="/categories/configuration/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Configuration</title><link>/docs/configuration/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/docs/configuration/</guid><description/></item><item><title>Docs: Node Architecture Design</title><link>/docs/configuration/architecture/</link><pubDate>Wed, 08 Feb 2023 00:00:00 +0000</pubDate><guid>/docs/configuration/architecture/</guid><description>
+&lt;div class="toc">
+&lt;h2>Table Of Contents&lt;/h2>
+&lt;nav id="TableOfContents">
+&lt;ul>
+&lt;li>&lt;a href="#validator-node-architecture-design">Validator Node Architecture Design&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="#common-attacks">Common Attacks&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="#single-node-validator-setup">Single Node Validator Setup&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#single-layer-sentry-node-setup">Single Layer Sentry Node Setup&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#virtual-private-cloud-vpc">&lt;strong>Virtual Private Cloud (VPC)&lt;/strong>&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#public-cloud">Public Cloud&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/nav>
+&lt;/div>
 &lt;h1 id="validator-node-architecture-design">Validator Node Architecture Design&lt;/h1>
 &lt;p>Tendermint relies on the set of validators to secure the network. The role of the validators is to run a full-node and participate in consensus by broadcasting votes which contain cryptographic signatures signed by their private key. Validators are connected to each other through the &lt;strong>p2p&lt;/strong> connections.&lt;/p>
 &lt;p>Validators are &lt;strong>responsible&lt;/strong> for ensuring the that the network can sustain denial of service attacks.&lt;/p>
@@ -13,7 +29,7 @@
 &lt;p>The most valuable asset of a validator are the keys it uses to sign blocks. An attacker who has control of the validator can get anything they want signed by the keys.&lt;/p>
 &lt;/li>
 &lt;/ul>
-&lt;h2 id="single-node-validator-setup">Single Node Validator Setup&lt;/h2>
+&lt;h1 id="single-node-validator-setup">Single Node Validator Setup&lt;/h1>
 &lt;p>This approach is deemed unsafe, though you could set firewall white listings to establish links to only trustful peers. If an IP address is discovered it becomes vulnerable, and it is problematic to change.&lt;/p>
 &lt;ul>
 &lt;li>&lt;strong>Pro&lt;/strong>: easy to implement&lt;/li>
@@ -29,9 +45,9 @@
 &lt;small class="text-muted">&lt;br/>picture&lt;/small>&lt;/p>
 &lt;/figcaption>
 &lt;/figure>
-&lt;h2 id="single-layer-sentry-node-setup">Single Layer Sentry Node Setup&lt;/h2>
+&lt;h1 id="single-layer-sentry-node-setup">Single Layer Sentry Node Setup&lt;/h1>
 &lt;p>In this setup, the validator node hides behind its two-layer sentry nodes. Only sentry nodes use public internet. The validator nodes do not need a public IP address, so discovery of IP addresses to target with DDos is much harder. Multiple Sentry Nodes can be connected to a a single validator to further mitigate the risk of DDoS Attacks.&lt;/p>
-&lt;h3 id="virtual-private-cloud-vpc">&lt;strong>Virtual Private Cloud (VPC)&lt;/strong>&lt;/h3>
+&lt;h1 id="virtual-private-cloud-vpc">&lt;strong>Virtual Private Cloud (VPC)&lt;/strong>&lt;/h1>
 &lt;p>If you use a cloud solution, you can setup a Virtual Private Cloud (VPC) to host your relay and validator nodes. VPC networks provide a more secure connection between resources because the inaccessible from the public internet and other VPC networks. Traffic within a VP network doesn&amp;rsquo;t count against bandwidth usage.&lt;/p>
 &lt;blockquote>
 &lt;p>In this setup, the relay talks to the validator &amp;gt;node through a secure private connection. The &amp;gt;relay node will then also connect through an &amp;gt;&lt;strong>external_address&lt;/strong> with the p2p validator &amp;gt;network.&lt;/p>
@@ -47,12 +63,27 @@
 &lt;li>&lt;strong>Pro&lt;/strong>: Efficient to mitigate DDos attacks&lt;/li>
 &lt;li>&lt;strong>Con&lt;/strong>: Attacker can only attack the validator node, if they gain access to the private network.&lt;/li>
 &lt;/ul>
-&lt;h3 id="public-cloud">Public Cloud&lt;/h3>
+&lt;h1 id="public-cloud">Public Cloud&lt;/h1>
 &lt;p>In this setup, the relay and validator node are both connected to the internet. But the validator node is hidden behind the relay node. The relay node will prevent &lt;strong>gossipping&lt;/strong> the IP-address of the validator node.&lt;/p>
 &lt;blockquote>
 &lt;p>This is less secure than using a VPC network, &amp;gt;since the validator node, although unknown to the &amp;gt;rest of the peers, is still connected to the &amp;gt;public internet and could be discovered.&lt;/p>
 &lt;/blockquote></description></item><item><title>Docs: Validator Sentry config.toml</title><link>/docs/configuration/config/</link><pubDate>Wed, 08 Feb 2023 00:00:00 +0000</pubDate><guid>/docs/configuration/config/</guid><description>
-&lt;h2 id="local-configuration-validator-sentry-setup">Local Configuration Validator-Sentry Setup&lt;/h2>
+&lt;div class="toc">
+&lt;h2>Table Of Contents&lt;/h2>
+&lt;nav id="TableOfContents">
+&lt;ul>
+&lt;li>&lt;a href="#local-configuration-validator-sentry-setup">Local Configuration Validator-Sentry Setup&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="#nodeids">NodeIDs&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#validator-node-configuration">Validator Node Configuration&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#sentry-node-configuration">Sentry Node Configuration&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#about-gossipping">About Gossipping&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/nav>
+&lt;/div>
+&lt;h1 id="local-configuration-validator-sentry-setup">Local Configuration Validator-Sentry Setup&lt;/h1>
 &lt;p>The validator will only talk to the Sentry nodes that are provided. While sentry nodes have the ability to talk to the validator node on the private channel and talk to public nodes elsewhere on the internet. When initializing nodes there are six parameters in the config.toml which are important&lt;/p>
 &lt;ul>
 &lt;li>&lt;strong>pex&lt;/strong>: boolean value. It tursn the peer exchange reactor (gossip protocol) on or off in a node. When &lt;strong>&lt;code>pex=false&lt;/code>&lt;/strong>, only the list of nodes in the &lt;code>persistent_peers&lt;/code> list are available for connection.&lt;/li>
@@ -62,7 +93,7 @@
 &lt;li>&lt;strong>unconditional_peer_ids&lt;/strong>: comma seperated list of nodeIDs. These nodes will be connected no matter the limit of inbound and outbound peers. This is useful when address_books of sentry nodes are full.&lt;/li>
 &lt;li>&lt;strong>seed_mode&lt;/strong>. This is used to jump start other nodes by providing a list of peers that the node can connect to.&lt;/li>
 &lt;/ul>
-&lt;h3 id="nodeids">NodeIDs&lt;/h3>
+&lt;h2 id="nodeids">NodeIDs&lt;/h2>
 &lt;p>&lt;strong>Important&lt;/strong>: Nodes in &lt;strong>&lt;code>persistent_peers&lt;/code>&lt;/strong> have the format nodeID@ip:port.&lt;/p>
 &lt;ul>
 &lt;li>
@@ -79,7 +110,7 @@
 &lt;/li>
 &lt;/ul>
 &lt;p>For the &lt;strong>&lt;code>private_peer_ids&lt;/code>&lt;/strong> and &lt;strong>&lt;code>unconditional_peer_ids&lt;/code>&lt;/strong>, only put the nodeID (without the @ip:port)&lt;/p>
-&lt;h3 id="validator-node-configuration">Validator Node Configuration&lt;/h3>
+&lt;h2 id="validator-node-configuration">Validator Node Configuration&lt;/h2>
 &lt;div class="table-responsive">
 &lt;table class="table-striped table-hover">
 &lt;thead class="table-dark">
@@ -120,7 +151,7 @@
 &lt;p>The validator node should have &lt;code>pex=false&lt;/code> so it does not gossip to the entire network. The &lt;code>persistent_peers&lt;/code> will be your sentry nodes. &lt;code>private_peer_ids&lt;/code> can be left empty, as the validator is not trying to hide who it is communicating with. Setting &lt;code>unconditional_peer_ids&lt;/code> is optional for a validator since they will not have a full address book.
 Since the validator is on a private network and it will connect to the sentry nodes also on a private network, &lt;code>addr_book_strict=false&lt;/code> has to be set.&lt;/p>
 &lt;/blockquote>
-&lt;h3 id="sentry-node-configuration">Sentry Node Configuration&lt;/h3>
+&lt;h2 id="sentry-node-configuration">Sentry Node Configuration&lt;/h2>
 &lt;div class="table-responsive">
 &lt;table class="table-striped table-hover">
 &lt;thead class="table-dark">
@@ -168,7 +199,7 @@ The sentry nodes should make sure they do not gossip the validator&amp;rsquo;s i
 &amp;rsquo; to do this you must put the validator nodeID as a &lt;strong>&lt;code>private_peer_ids&lt;/code>&lt;/strong>. The &lt;strong>&lt;code>unconditional peer IDs&lt;/code>&lt;/strong> will be the validator node ID and optionally other sentry node IDs. Since the sentry nodea must be able to connect to other p2p peers, &lt;strong>&lt;code>addr_book_strict&lt;/code>&lt;/strong> must be set to &lt;strong>&lt;code>true&lt;/code>&lt;/strong>, otherwise no inbound connections are made. The &lt;strong>&lt;code>external_address&lt;/code>&lt;/strong> needs to be set to your sentry&amp;rsquo;s node public IP-address of the form &lt;strong>&lt;code>&amp;ldquo;x.x.x.x:26656&amp;rdquo;&lt;/code>&lt;/strong>. This is the connection address and port that will be gossipped to other nodes for connecting back to your sentry.&lt;/p>
 &lt;/blockquote>
 &lt;p>&lt;strong>IMPORTANT&lt;/strong> Do not forget to secure your node&amp;rsquo;s firewalls when setting them up.&lt;/p>
-&lt;h3 id="about-gossipping">About Gossipping&lt;/h3>
+&lt;h2 id="about-gossipping">About Gossipping&lt;/h2>
 &lt;p>Nodes will gossip their known peers that are not marked as a private node to other nodes on the p2p network.&lt;br>
 will be gossipped.&lt;/p>
 &lt;p>If you plan to install sentry nodes, the recommendation is to setup the sentry first, then after that install the validator node and directly
