@@ -52,6 +52,15 @@ sudo ufw allow from any to any port 26656 proto tcp
 Since the sentry node has pex enabled, connections to the p2p port (26656) need to be allowed, so that
 other nodes can talk to the sentry.
 
+When done
+
+{{< highlight go "linenos=table,style=dracula" >}}
+sudo ufw enable
+sudo ufw reload
+sudo systemctl restart ssh
+sudo ufw status
+{{< /highlight>}}
+
 ## Grafana
 Addtional services can be opened such as grafana as follows. 
 {{< highlight go "linenos=table,style=dracula" >}}
