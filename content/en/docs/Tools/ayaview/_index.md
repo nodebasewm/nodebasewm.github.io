@@ -41,42 +41,73 @@ unzip ayaview.zip
 {{< /highlight >}}
 
 After configurating ayaview using the configuration instructions,
-you can start ayaview in any open terminal window
+you can start ayaview in any open terminal window.
+
+{{< highlight go "linenos=table,style=witchhazel" >}}
+./ayaview 
+{{< /highlight >}}
+
+A configuration file is provided, which must be used in the following conditions:
+* You run ayaview on a sentry but want to see node status of your validator. 
+* You changed the default ports of grpc (29090) or rpc (25567).
+* You want the change the default update interval for system metrics
+
+Then call ayaview as follows
+
 {{< highlight go "linenos=table,style=witchhazel" >}}
 ./ayaview --config config.toml
 {{< /highlight >}}
 
-
 # Configuration
 
 The configuration of ayaview is done through a **config.toml** configuration file. 
-A default config file is delivered part of the installation
+A default config file is delivered part of the installation.
+> Note: This is **NOT** the same config.toml as the *aya config.toml*. Ayaview has its own config.toml file, which is part of the zip package.
 
+## Ayaview on Sentry Node
 
-## Validator Address
-> You will have to replace the value of **validator** with the address of your validator node.
+If your run ayaview on a sentry node, you will only see chain activity such as blocks and chai n events. 
 
-To retrieve your validator's node address, take a look at the [Q&A in Testnet](/docs/testnet/qa/)
+If you want to see the validator node status information this sentry is pointing to, 
+you will have to pass a config.toml file to ayaview.
 
-Replace the entire value of between the two "" with the address of your validator, ex.
+You can use the config.toml delivered as part of ayaview.zip.
+Edit the value of **validator** in the config.toml with the address of your validator node.
+
+This address is the **ayavalop** BECH32 notation of your validator node. 
+It must start with the ayavalop prefix, any other BECH32 notation will **NOT** work.
+
+To retrieve your validators operator address, take a look at the [Q&A in Testnet](/docs/testnet/qa/)
+
+ex.
+
 {{< highlight go "linenos=table,style=witchhazel" >}}
 validator="ayavaloper1r5v6c2ps2qqytdu7zcawwng7d5p5xm5g64cr07"
 {{< /highlight >}}
 
+## Ayaview on Validator Node
+
+When running ayaview on a validator node, it will now detect  that your node is a validator,
+and configure itself automatically without the need of a config file.
+
+So no configuration file is needed, unless off course you intent to observe a different node, 
+or changed ports.
 
 ## GRPC/RPC Ports
-If you changed the default port of your node's GRPC (29090) or RPC endpoint (26657), you will have
-to also change the grpc-address or rpc-address of the config.
+If you changed the default port of your node's GRPC (29090) or RPC endpoint (26657), you will have to also change the grpc-address or rpc-address in the config file and pass the config file to ayaview.
+
+## System update Interval
 
 Optionally, you can control the interval to update system metrics and node status. Block and consensus
 updates are updated real-time.
 
+## Config-File
 {{< highlight go "linenos=table,style=witchhazel" >}}
 # Bech prefixes for network.
 bech-prefix = "aya"
 
 #validator to watch FILL-IN 
-validator="ayavaloperxx"
+validator=""
 
 # If a network has specific bech prefixes for validator and for consensus node
 # and their pubkeys, it's possible to specify them separately.
