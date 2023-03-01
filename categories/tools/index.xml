@@ -8,8 +8,11 @@
 &lt;li>&lt;a href="#installation-instructions">Installation Instructions&lt;/a>&lt;/li>
 &lt;li>&lt;a href="#configuration">Configuration&lt;/a>
 &lt;ul>
-&lt;li>&lt;a href="#validator-address">Validator Address&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#ayaview-on-sentry-node">Ayaview on Sentry Node&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#ayaview-on-validator-node">Ayaview on Validator Node&lt;/a>&lt;/li>
 &lt;li>&lt;a href="#grpcrpc-ports">GRPC/RPC Ports&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#system-update-interval">System update Interval&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#config-file">Config-File&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
@@ -22,8 +25,8 @@ based on Grafana-Prometheus for light-weight direct monitoring.&lt;/p>
 Ayaview monitors your validator status and blocks produced on chain, as also system metrics and peer information.&lt;/p>
 &lt;p>It can be run entirely standalone, started/stopped as many times you want without affecting your node.&lt;/p>
 &lt;h1 id="overview">Overview&lt;/h1>
-&lt;figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 710px">
-&lt;img class="card-img-top" src="/docs/tools/ayaview/ayaview_hudaff0d3c8ef33e237fa68fd61cf29d88_68656_900x600_fit_q75_catmullrom.jpg" width="700" height="307">
+&lt;figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 910px">
+&lt;img class="card-img-top" src="/docs/tools/ayaview/ayaview_hu502f9c6c3a010f118f86187ccf5f8d2a_84429_900x600_fit_catmullrom_3.png" width="900" height="368">
 &lt;figcaption class="card-body px-0 pt-2 pb-0">
 &lt;p class="card-text">
 &lt;small class="text-muted">&lt;br/>picture&lt;/small>&lt;/p>
@@ -42,7 +45,23 @@ Ayaview monitors your validator status and blocks produced on chain, as also sys
 &lt;/div>
 &lt;/div>
 &lt;p>After configurating ayaview using the configuration instructions,
-you can start ayaview in any open terminal window
+you can start ayaview in any open terminal window.&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>.&lt;span style="color:#ffb8d1">/&lt;/span>ayaview
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>
+&lt;p>A configuration file is provided, which must be used in the following conditions:&lt;/p>
+&lt;ul>
+&lt;li>You run ayaview on a sentry but want to see node status of your validator.&lt;/li>
+&lt;li>You changed the default ports of grpc (29090) or rpc (25567).&lt;/li>
+&lt;li>You want the change the default update interval for system metrics&lt;/li>
+&lt;/ul>
+&lt;p>Then call ayaview as follows&lt;/p>
 &lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -50,16 +69,23 @@ you can start ayaview in any open terminal window
 &lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>.&lt;span style="color:#ffb8d1">/&lt;/span>ayaview &lt;span style="color:#ffb8d1">--&lt;/span>config config.toml&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;/p>
+&lt;/div>
 &lt;h1 id="configuration">Configuration&lt;/h1>
 &lt;p>The configuration of ayaview is done through a &lt;strong>config.toml&lt;/strong> configuration file.
-A default config file is delivered part of the installation&lt;/p>
-&lt;h2 id="validator-address">Validator Address&lt;/h2>
+A default config file is delivered part of the installation.&lt;/p>
 &lt;blockquote>
-&lt;p>You will have to replace the value of &lt;strong>validator&lt;/strong> with the address of your validator node.&lt;/p>
+&lt;p>Note: This is &lt;strong>NOT&lt;/strong> the same config.toml as the &lt;em>aya config.toml&lt;/em>. Ayaview has its own config.toml file, which is part of the zip package.&lt;/p>
 &lt;/blockquote>
-&lt;p>To retrieve your validator&amp;rsquo;s node address, take a look at the &lt;a href="/docs/testnet/qa/">Q&amp;amp;A in Testnet&lt;/a>&lt;/p>
-&lt;p>Replace the entire value of between the two &amp;quot;&amp;quot; with the address of your validator, ex.
+&lt;h2 id="ayaview-on-sentry-node">Ayaview on Sentry Node&lt;/h2>
+&lt;p>If your run ayaview on a sentry node, you will only see chain activity such as blocks and chai n events.&lt;/p>
+&lt;p>If you want to see the validator node status information this sentry is pointing to,
+you will have to pass a config.toml file to ayaview.&lt;/p>
+&lt;p>You can use the config.toml delivered as part of ayaview.zip.
+Edit the value of &lt;strong>validator&lt;/strong> in the config.toml with the address of your validator node.&lt;/p>
+&lt;p>This address is the &lt;strong>ayavalop&lt;/strong> BECH32 notation of your validator node.
+It must start with the ayavalop prefix, any other BECH32 notation will &lt;strong>NOT&lt;/strong> work.&lt;/p>
+&lt;p>To retrieve your validators operator address, take a look at the &lt;a href="/docs/testnet/qa/">Q&amp;amp;A in Testnet&lt;/a>&lt;/p>
+&lt;p>ex.&lt;/p>
 &lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -67,12 +93,18 @@ A default config file is delivered part of the installation&lt;/p>
 &lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>validator=&lt;span style="color:#1bc5e0">&amp;#34;ayavaloper1r5v6c2ps2qqytdu7zcawwng7d5p5xm5g64cr07&amp;#34;&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;/p>
+&lt;/div>
+&lt;h2 id="ayaview-on-validator-node">Ayaview on Validator Node&lt;/h2>
+&lt;p>When running ayaview on a validator node, it will now detect that your node is a validator,
+and configure itself automatically without the need of a config file.&lt;/p>
+&lt;p>So no configuration file is needed, unless off course you intent to observe a different node,
+or changed ports.&lt;/p>
 &lt;h2 id="grpcrpc-ports">GRPC/RPC Ports&lt;/h2>
-&lt;p>If you changed the default port of your node&amp;rsquo;s GRPC (29090) or RPC endpoint (26657), you will have
-to also change the grpc-address or rpc-address of the config.&lt;/p>
+&lt;p>If you changed the default port of your node&amp;rsquo;s GRPC (29090) or RPC endpoint (26657), you will have to also change the grpc-address or rpc-address in the config file and pass the config file to ayaview.&lt;/p>
+&lt;h2 id="system-update-interval">System update Interval&lt;/h2>
 &lt;p>Optionally, you can control the interval to update system metrics and node status. Block and consensus
 updates are updated real-time.&lt;/p>
+&lt;h2 id="config-file">Config-File&lt;/h2>
 &lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
@@ -112,7 +144,7 @@ updates are updated real-time.&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>bech&lt;span style="color:#ffb8d1">-&lt;/span>prefix = &lt;span style="color:#1bc5e0">&amp;#34;aya&amp;#34;&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010">#&lt;/span>validator to watch FILL&lt;span style="color:#ffb8d1">-&lt;/span>IN
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>validator=&lt;span style="color:#1bc5e0">&amp;#34;ayavaloperxx&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>validator=&lt;span style="color:#1bc5e0">&amp;#34;&amp;#34;&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010">#&lt;/span> If a network has specific bech prefixes &lt;span style="color:#c2ffdf">for&lt;/span> validator and &lt;span style="color:#c2ffdf">for&lt;/span> consensus node
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010">#&lt;/span> and their pubkeys, it&lt;span style="color:#960050;background-color:#1e0010">&amp;#39;&lt;/span>s possible to specify them separately.
