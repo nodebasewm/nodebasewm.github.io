@@ -554,7 +554,7 @@ a moderator in the WorldMobile telegram groups to request the access form.&lt;/p
 &lt;/li>
 &lt;li>
 &lt;p>At present, our Node should be running along nicely in the background and keeping up to date with the current state of the Chain, but we still have to complete some more steps before we have fully completed our Sentry Node&amp;rsquo;s initial set up.&lt;/p>
-&lt;p>First we to ensure that we have saved all of our Node&amp;rsquo;s important data, needed for future reference both by tools and by us.&lt;/p>
+&lt;p>First we need to ensure that we have saved all of our Node&amp;rsquo;s important data, needed for future reference both by tools and by us.&lt;/p>
 &lt;p>We do this by entering the following group of commands
 &lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
