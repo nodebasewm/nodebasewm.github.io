@@ -26,7 +26,6 @@ Now, with that warning out of the way, we shall proceed with the guide!
 1. Logged in as user wmt we first start by making the base directory structure for World Mobile's ayad and Cosmovisor binaries that are to be installed on our Node.
 
     We do this by entering the following group of commands
-
     {{< highlight bash "linenos=table,style=witchhazel" >}}
     sudo mkdir -p /opt/aya
     sudo chown "${USER}:${USER}" /opt/aya
@@ -39,7 +38,6 @@ Now, with that warning out of the way, we shall proceed with the guide!
 2. Next we set some environment variables so that further installation steps can be simplified.
 
     We do this by entering the following group of commands
-
     {{< highlight bash "linenos=table,style=witchhazel" >}}
     CHAIN_ID="aya_preview_501"
     aya_home=/opt/aya
@@ -50,8 +48,7 @@ Now, with that warning out of the way, we shall proceed with the guide!
 
 3. Now we set up our Node's Moniker (a friendly name for our Node to help identify it) 
 
-    We do this by entering the following command
-    
+    We do this by entering the following command    
     {{< highlight bash "linenos=table,style=witchhazel" >}}
     moniker='<moniker>'
     {{< /highlight>}}
@@ -68,7 +65,6 @@ Now, with that warning out of the way, we shall proceed with the guide!
 5. Now we create an installation directory for the EarthNode installation files, navigate to it, download the installer zip file, install the unzip command (if not already installed to our OS), and extract the earthnode_installer archive.
 
     We do this by entering the following group of commands
-
     {{< highlight bash "linenos=table,style=witchhazel" >}}
     mkdir ~/earthnode_installer
     cd ~/earthnode_installer
@@ -106,7 +102,6 @@ Now, with that warning out of the way, we shall proceed with the guide!
 9. Next we copy across the genesis.json file used to kickstart the aya_preview_501 Blockchain Connection.
 
     We do this by entering the following command
-
     {{< highlight bash "linenos=table,style=witchhazel" >}}
     cp ~/earthnode_installer/genesis.json "${aya_home}"/config/genesis.json
     {{< /highlight>}}
@@ -116,7 +111,6 @@ Now, with that warning out of the way, we shall proceed with the guide!
     So now we navigate to the aya config folder and open the config.toml file for our Sentry Node to make these changes.
 
     We do this by entering the following group of commands
-
     {{< highlight bash "linenos=table,style=witchhazel" >}}
     cd /opt/aya/config
     nano config.toml 
@@ -234,15 +228,15 @@ Now, with that warning out of the way, we shall proceed with the guide!
 
 13. With these prerequisites installed we can now download and extract the monitoring software to a good location to use it in future.
 
-We do this by entering the following group of commands
-{{< highlight bash "linenos=table,style=witchhazel" >}}
-cd ~/
-mkdir nodebase-tools 
-cd nodebase-tools
-wget -O ayaview.zip https://github.com/nodebasewm/download/blob/main/ayaview.zip?raw=true
-unzip ayaview.zip
-rm ayaview.zip
-{{< /highlight>}}
+    We do this by entering the following group of commands
+    {{< highlight bash "linenos=table,style=witchhazel" >}}
+    cd ~/
+    mkdir nodebase-tools 
+    cd nodebase-tools
+    wget -O ayaview.zip https://github.com/nodebasewm/download/blob/main/ayaview.zip?raw=true
+    unzip ayaview.zip
+    rm ayaview.zip
+    {{< /highlight>}}
 
 14. We will also quickly add a new Firewall Rule to our Server to allow Incoming connections to come into our Node once it has started. 
 
@@ -294,7 +288,6 @@ rm ayaview.zip
 16. Now we shall proceed to monitoring it.
 
     We do this by entering the following group of commands
-
     {{< highlight bash "linenos=table,style=witchhazel" >}}
     cd ~/nodebase-tools 
     ./ayaview
@@ -307,7 +300,6 @@ rm ayaview.zip
     Once we are up to date with the current tip of the Chain we need to do some tidy up work on both the config.toml and app.toml files that we edited before the first run of our Node. 
 
     We can do this by first pressing q on the ayaview console to quit out of it and then by entering the following group of commands
-
     {{< highlight bash "linenos=table,style=witchhazel" >}}
     cd /opt/aya/config/
     nano config.toml
