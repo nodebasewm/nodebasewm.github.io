@@ -351,7 +351,7 @@ Now, with that warning out of the way, we shall proceed with the guide!
 
 18. At present, our Node should be running along nicely in the background and keeping up to date with the current state of the Chain, but we still have to complete some more steps before we have fully completed our Sentry Node's initial set up. 
 
-    First we to ensure that we have saved all of our Node's important data, needed for future reference both by tools and by us.
+    First we need to ensure that we have saved all of our Node's important data, needed for future reference both by tools and by us.
 
     We do this by entering the following group of commands
     {{< highlight bash "linenos=table,style=witchhazel" >}}
