@@ -11,7 +11,7 @@
 &lt;ol>
 &lt;li>
 &lt;p>Logged in as user wmt we first start by making the base directory structure for World Mobile&amp;rsquo;s ayad and Cosmovisor binaries that are to be installed on our Node.&lt;/p>
-&lt;p>We do this by entering the following group of commands&lt;/p>
+&lt;p>We do this by entering the following group of commands
 &lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -29,11 +29,11 @@
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>mkdir -p /opt/aya/logs
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>mkdir -p /opt/aya/config&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>
+&lt;/div>&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>Next we set some environment variables so that further installation steps can be simplified.&lt;/p>
-&lt;p>We do this by entering the following group of commands&lt;/p>
+&lt;p>We do this by entering the following group of commands
 &lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -49,11 +49,11 @@
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sentry_setup_json&lt;span style="color:#ffb8d1">=&lt;/span>&lt;span style="color:#1bc5e0">${&lt;/span>aya_home&lt;span style="color:#1bc5e0">}&lt;/span>/sentry.json
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>bootstrap_node&lt;span style="color:#ffb8d1">=&lt;/span>true&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>
+&lt;/div>&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>Now we set up our Node&amp;rsquo;s Moniker (a friendly name for our Node to help identify it)&lt;/p>
-&lt;p>We do this by entering the following command&lt;/p>
+&lt;p>We do this by entering the following command &lt;br>
 &lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -61,7 +61,7 @@
 &lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>moniker&lt;span style="color:#ffb8d1">=&lt;/span>&lt;span style="color:#1bc5e0">&amp;#39;&amp;lt;moniker&amp;gt;&amp;#39;&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>
+&lt;/div>&lt;/p>
 &lt;blockquote>
 &lt;p>Note: We replace &lt;code>&amp;lt;moniker&amp;gt;&lt;/code> with our own chosen name at this point, removing the surrounding &amp;lt;&amp;gt;&lt;/p>
 &lt;/blockquote>
@@ -80,7 +80,7 @@
 &lt;/li>
 &lt;li>
 &lt;p>Now we create an installation directory for the EarthNode installation files, navigate to it, download the installer zip file, install the unzip command (if not already installed to our OS), and extract the earthnode_installer archive.&lt;/p>
-&lt;p>We do this by entering the following group of commands&lt;/p>
+&lt;p>We do this by entering the following group of commands
 &lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -98,7 +98,7 @@
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>unzip aya_preview_501_installer.zip
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>rm aya_preview_501_installer.zip&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>
+&lt;/div>&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>Now we confirm that the included binaries for ayad and cosmovisor match their release_checksums values as provided by World Mobile. Check that the output of both commands match one another.&lt;/p>
@@ -143,7 +143,7 @@
 &lt;/li>
 &lt;li>
 &lt;p>Next we copy across the genesis.json file used to kickstart the aya_preview_501 Blockchain Connection.&lt;/p>
-&lt;p>We do this by entering the following command&lt;/p>
+&lt;p>We do this by entering the following command
 &lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -151,12 +151,12 @@
 &lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>cp ~/earthnode_installer/genesis.json &lt;span style="color:#1bc5e0">&amp;#34;&lt;/span>&lt;span style="color:#1bc5e0">${&lt;/span>aya_home&lt;span style="color:#1bc5e0">}&lt;/span>&lt;span style="color:#1bc5e0">&amp;#34;&lt;/span>/config/genesis.json&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>
+&lt;/div>&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>Before running our Sentry Node for the first time there are some initial configuration changes that need to be made to allow for smooth operation and connection the to aya_preview_501 Blockchain.&lt;/p>
 &lt;p>So now we navigate to the aya config folder and open the config.toml file for our Sentry Node to make these changes.&lt;/p>
-&lt;p>We do this by entering the following group of commands&lt;/p>
+&lt;p>We do this by entering the following group of commands
 &lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -166,7 +166,7 @@
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>cd /opt/aya/config
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>nano config.toml &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>
+&lt;/div>&lt;/p>
 &lt;p>We are now in the nano text editor, looking at the config.toml file contents for our Sentry Node.&lt;/p>
 &lt;blockquote>
 &lt;p>Note: It is possible to search for the fields we need to edit more quickly by copying them from the below steps, pressing ctrl+w inside of nano in our terminal window, right clicking on the window, pasting the names of the values we need to edit, and pressing enter to jump to them.&lt;/p>
@@ -357,8 +357,6 @@
 &lt;/li>
 &lt;li>
 &lt;p>With these prerequisites installed we can now download and extract the monitoring software to a good location to use it in future.&lt;/p>
-&lt;/li>
-&lt;/ol>
 &lt;p>We do this by entering the following group of commands
 &lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -378,7 +376,7 @@
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>rm ayaview.zip&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;/p>
-&lt;ol start="14">
+&lt;/li>
 &lt;li>
 &lt;p>We will also quickly add a new Firewall Rule to our Server to allow Incoming connections to come into our Node once it has started.&lt;/p>
 &lt;p>What command we need to enter to do this will depend on how our Server is set up to handle Firewall Rules.&lt;/p>
@@ -455,7 +453,7 @@
 &lt;/li>
 &lt;li>
 &lt;p>Now we shall proceed to monitoring it.&lt;/p>
-&lt;p>We do this by entering the following group of commands&lt;/p>
+&lt;p>We do this by entering the following group of commands
 &lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -465,11 +463,11 @@
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>cd ~/nodebase-tools
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>./ayaview&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>
+&lt;/div>&lt;/p>
 &lt;p>The ayaview software will start up and visually show us the Blockchain data being downloaded to bring us up to date with the current tip of the chain.&lt;/p>
 &lt;p>We will know it has caught up to the current state of the Chain once the Block Height column stops counting up so quickly, and starts adding just 1 new Block Height to left hand table only around every 5-6 seconds.&lt;/p>
 &lt;p>Once we are up to date with the current tip of the Chain we need to do some tidy up work on both the config.toml and app.toml files that we edited before the first run of our Node.&lt;/p>
-&lt;p>We can do this by first pressing q on the ayaview console to quit out of it and then by entering the following group of commands&lt;/p>
+&lt;p>We can do this by first pressing q on the ayaview console to quit out of it and then by entering the following group of commands
 &lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -479,7 +477,7 @@
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>cd /opt/aya/config/
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>nano config.toml&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>
+&lt;/div>&lt;/p>
 &lt;p>We are now back in the nano text editor, looking at the config.toml file contents for our Sentry Node.&lt;/p>
 &lt;p>We now make the necessary changes to this file as follows&lt;/p>
 &lt;ul>
