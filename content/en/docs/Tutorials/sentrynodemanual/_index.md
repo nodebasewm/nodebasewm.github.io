@@ -276,6 +276,10 @@ rm ayaview.zip
     BLOCK_HEIGHT=$((($((LATEST_HEIGHT / INTERVAL)) - 1) * INTERVAL + $((INTERVAL / 2))))
     TRUST_HASH=$(curl -s "http://peer1-501.worldmobilelabs.com:36657/block?height=${BLOCK_HEIGHT}" | jq -r .result.block_id.hash)
 
+    # Enable StateSync module, to speed up node initial bootstrap
+    sed -i -E "s|^(enable[[:space:]]+=[[:space:]]+).*$|\1true|" "${aya_home}"/config/config.toml
+    # Set available RPC servers (at least two) required for light client snapshot verification
+    sed -i -E "s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"http://peer1-501.worldmobilelabs.com:36657,http://peer2-501.worldmobilelabs.com:36658\"|" "${aya_home}"/config/config.toml
     # Set "safe" trusted block height
     sed -i -E "s|^(trust_height[[:space:]]+=[[:space:]]+).*$|\1$BLOCK_HEIGHT|" "${aya_home}"/config/config.toml
     # Set "qsafe" trusted block hash
