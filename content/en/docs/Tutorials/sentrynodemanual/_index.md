@@ -119,11 +119,11 @@ Now, with that warning out of the way, we shall proceed with the guide!
     We are now in the nano text editor, looking at the config.toml file contents for our Sentry Node. 
 
     >Note: It is possible to search for the fields we need to edit more quickly by copying them from the below steps, pressing ctrl+w inside of nano in our terminal window, right clicking on the window, pasting the names of the values we need to edit, and pressing enter to jump to them. 
-
+    >
     > We can also remove text blocks from a document that we wish to replace with new text blocks by holding down shift, selecting the existing rows we wish to remove, and then pressing ctrl+k to remove them. 
-
+    >
     >We can then select and copy the replacement text from the steps shown in this guide below, and right click and paste the new settings into the terminal window. 
-
+    >
     >We can undo any mistakes we've made while working inside nano by pressing alt+u
 
     We now make the necessary changes to this file as follows
@@ -520,12 +520,12 @@ Now, with that warning out of the way, we shall proceed with the guide!
 
 **And that's it!!!**
 
-**Congratulations!** We have now successfully completed setting up a Sentry Node! 
+**Congratulations! We have now successfully completed setting up a Sentry Node!**
 
 > Note: At the moment though, our Sentry Node does not yet have a Validator that it connects to for protecting it, and passing on its Block Votes. 
-
-Which means it hasn't yet got to fulfil its true purpose in life just yet (much like many of us).
-
-So, to fix this, we will tackle connecting our newly set up Sentry Node to our EarthNode Validator, as well as any other running Sentry Nodes in our Infrastructure, in a separate guide. 
-
-For now though, we can simply bask in the glory of setting up a well running Sentry Node! 
+>
+>Which means it hasn't yet got to fulfil its true purpose in life just yet (much like many of us).
+>
+>So, to fix this, we will tackle connecting our newly set up Sentry Node to our EarthNode Validator, as well as any other running Sentry Nodes in our Infrastructure, in a separate guide. 
+>
+>For now though, we can simply bask in the glory of setting up a well running Sentry Node! 
