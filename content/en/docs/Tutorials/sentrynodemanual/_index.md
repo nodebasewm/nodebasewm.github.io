@@ -1,5 +1,5 @@
 ---
-categories: ["Tuturial"]
+categories: ["Tutorial"]
 tags: ["step-by-step", "sentry", "docs"]
 title: "Sentry Node Manual Installation"
 linkTitle: "Sentry Node Manual Installation"
@@ -9,7 +9,7 @@ description: >
   Full Installation Guide for installing a sentry node 
 ---
 
-**Written by Nodebase Team member [Johnny](https://twitter.com/intertreeJK)**
+**Written by Nodebase Team member [intertree (Johnny Kelly)](https://twitter.com/intertreeJK)**
 
 # Introduction
 
