@@ -48,6 +48,7 @@ This script is part of the **bundled nodebase tools package** release package th
  
 >Please continue with following the Sentry-Validator configuration instructions in [Configuration](/docs/configuration/config)  to configure your nodes accordingly after installation completes.
 
-## Step-by-Step Example
+## Step-by-Step Manual Installation
 
->A step-by-step guide with example will be added to the Tutorials.
+Alternatively, you can follow our step-by-step sentry node installation guide for manual installation.
+You can find this in our [Tutorial Section](/docs/tutorials/sentrynodemanual/)
