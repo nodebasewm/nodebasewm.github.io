@@ -468,7 +468,7 @@ Now, with that warning out of the way, we shall proceed with the guide!
     Once we have this number we can now use it to turn off our first run Node that has served us so well to get our Blockchain sync up to date with the current tip of the Chain. 
 
     We do this by entering the following command
-    Note: We replace ```<number>```   with our noted number from above at this point, removing the surrounding <>
+    >Note: We replace ```<number>```   with our noted number from above at this point, removing the surrounding <>
 
     {{< highlight bash "linenos=table,style=witchhazel" >}}
     sudo kill <number>
