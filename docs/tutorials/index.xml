@@ -272,7 +272,8 @@
 &lt;/div>
 &lt;p>We now make the necessary changes to this file as follows&lt;/p>
 &lt;ul>
-&lt;li>Replace GRPC port to not overlap with standard Prometheus port, replacing 9090 with 29090
+&lt;li>
+&lt;p>Replace GRPC port to not overlap with standard Prometheus port, replacing 9090 with 29090
 &lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -282,8 +283,10 @@
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#b0bec5"># Address defines the gRPC server address to bind to.&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>address &lt;span style="color:#ffb8d1">=&lt;/span> &lt;span style="color:#1bc5e0">&amp;#34;0.0.0.0:29090&amp;#34;&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;/li>
-&lt;li>Change gas price units for our network to be 0uswmt instead of 0stake
+&lt;/div>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Change gas price units for our network to be 0uswmt instead of 0stake
 &lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -297,9 +300,10 @@
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#b0bec5"># specified in this config (e.g. 0.25token1;0.0001token2).&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>minimum-gas-prices &lt;span style="color:#ffb8d1">=&lt;/span> &lt;span style="color:#1bc5e0">&amp;#34;0uswmt&amp;#34;&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;/li>
-&lt;li>Set snapshot interval to 999999999999 instead of 0 to activate the snapshot manager&lt;/li>
-&lt;/ul>
+&lt;/div>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Set snapshot interval to 999999999999 instead of 0 to activate the snapshot manager&lt;/p>
 &lt;blockquote>
 &lt;p>Note: At time of writing this guide this is step that needs completed as a &lt;em>temporary&lt;/em> fix for &lt;a href="https://github.com/cosmos/cosmos-sdk/issues/13766">https://github.com/cosmos/cosmos-sdk/issues/13766&lt;/a>, this change will not be needed after newer versions of the cosmos sdk become available. It will be removed from this guide once it is no longer required.
 &lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
@@ -315,6 +319,8 @@
 &lt;/div>
 &lt;/div>&lt;/p>
 &lt;/blockquote>
+&lt;/li>
+&lt;/ul>
 &lt;p>At this point the initial editing work to our &lt;strong>app.toml&lt;/strong> file is done, and it can now be saved with these changes.&lt;/p>
 &lt;p>To save the app.toml file within nano editor we press &lt;strong>ctrl+x&lt;/strong> and then &lt;strong>press y&lt;/strong>, followed by &lt;strong>enter&lt;/strong>. This will save the file with the same filename as before.&lt;/p>
 &lt;/li>
