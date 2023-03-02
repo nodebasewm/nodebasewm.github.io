@@ -193,12 +193,12 @@ Now, with that warning out of the way, we shall proceed with the guide!
     {{< /highlight>}}
     * Set snapshot interval to 999999999999 instead of 0 to activate the snapshot manager
 
-      > Note: At time of writing this guide this is step that needs completed as a *temporary* fix for https://github.com/cosmos/cosmos-sdk/issues/13766, this change will not be needed after newer versions of the cosmos sdk become available. It will be removed from this guide once it is no longer required. 
-      {{< highlight bash "linenos=table,style=witchhazel" >}}
-      # snapshot-interval specifies the block interval at which local state sync snapshots are
-      # taken (0 to disable).
-      snapshot-interval = 999999999999
-      {{< /highlight>}}
+     > Note: At time of writing this guide this is step that needs completed as a *temporary* fix for https://github.com/cosmos/cosmos-sdk/issues/13766, this change will not be needed after newer versions of the cosmos sdk become available. It will be removed from this guide once it is no longer required. 
+     {{< highlight bash "linenos=table,style=witchhazel" >}}
+     # snapshot-interval specifies the block interval at which local state sync snapshots are
+     # taken (0 to disable).
+     snapshot-interval = 999999999999
+     {{< /highlight>}}
 
     At this point the initial editing work to our **app.toml** file is done, and it can now be saved with these changes. 
 
