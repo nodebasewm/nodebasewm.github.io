@@ -8,7 +8,7 @@
 &lt;li>&lt;a href="#nodebasetools">NodebaseTools&lt;/a>&lt;/li>
 &lt;li>&lt;a href="#instructions">Instructions&lt;/a>&lt;/li>
 &lt;li>&lt;a href="#configuration">Configuration&lt;/a>&lt;/li>
-&lt;li>&lt;a href="#step-by-step-example">Step-by-Step Example&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#step-by-step-manual-installation">Step-by-Step Manual Installation&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
@@ -59,10 +59,9 @@ this script can be adjusted to be used to install sentry nodes&lt;/p>
 &lt;blockquote>
 &lt;p>Please continue with following the Sentry-Validator configuration instructions in &lt;a href="/docs/configuration/config">Configuration&lt;/a> to configure your nodes accordingly after installation completes.&lt;/p>
 &lt;/blockquote>
-&lt;h2 id="step-by-step-example">Step-by-Step Example&lt;/h2>
-&lt;blockquote>
-&lt;p>A step-by-step guide with example will be added to the Tutorials.&lt;/p>
-&lt;/blockquote></description></item><item><title>Docs: Node Architecture Design</title><link>/docs/configuration/architecture/</link><pubDate>Wed, 08 Feb 2023 00:00:00 +0000</pubDate><guid>/docs/configuration/architecture/</guid><description>
+&lt;h2 id="step-by-step-manual-installation">Step-by-Step Manual Installation&lt;/h2>
+&lt;p>Alternatively, you can follow our step-by-step sentry node installation guide for manual installation.
+You can find this in our &lt;a href="/docs/tutorials/sentrynodemanual/">Tutorial Section&lt;/a>&lt;/p></description></item><item><title>Docs: Node Architecture Design</title><link>/docs/configuration/architecture/</link><pubDate>Wed, 08 Feb 2023 00:00:00 +0000</pubDate><guid>/docs/configuration/architecture/</guid><description>
 &lt;div class="toc">
 &lt;h2>Table Of Contents&lt;/h2>
 &lt;nav id="TableOfContents">
