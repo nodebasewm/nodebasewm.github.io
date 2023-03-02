@@ -727,8 +727,10 @@
 &lt;p>In the above example, this number is 33619.&lt;/p>
 &lt;p>Our number will be different, and we need to take a note of it for the next step.&lt;/p>
 &lt;p>Once we have this number we can now use it to turn off our first run Node that has served us so well to get our Blockchain sync up to date with the current tip of the Chain.&lt;/p>
-&lt;p>We do this by entering the following command
-Note: We replace &lt;code>&amp;lt;number&amp;gt;&lt;/code> with our noted number from above at this point, removing the surrounding &amp;lt;&amp;gt;&lt;/p>
+&lt;p>We do this by entering the following command&lt;/p>
+&lt;blockquote>
+&lt;p>Note: We replace &lt;code>&amp;lt;number&amp;gt;&lt;/code> with our noted number from above at this point, removing the surrounding &amp;lt;&amp;gt;&lt;/p>
+&lt;/blockquote>
 &lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
