@@ -335,12 +335,14 @@ Now, with that warning out of the way, we shall proceed with the guide!
     nano app.toml
     {{< /highlight>}}
 
-    And we edit the following section of the file to the below setting, changing it from being 999999999999 to being 0. 
+    And we edit the following section of the file to the below setting, changing it from being 999999999999 to being 100. 
+
+    >Note: Setting the snapshot-interval to 100 will ensure that we can use our Sentry Node to kickstart our Validator later on. Which will allow us to set up our Validator without ever exposing its external IP to the rest of the Network.
 
     {{< highlight bash "linenos=table,style=witchhazel" >}}
     # snapshot-interval specifies the block interval at which local state sync snapshots are
     # taken (0 to disable).
-    snapshot-interval = 0
+    snapshot-interval = 100
     {{< /highlight>}}
 
     At this point the tidy up editing work to our app.toml file is done, and it can now be saved with these changes. 
