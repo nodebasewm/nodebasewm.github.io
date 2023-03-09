@@ -523,7 +523,10 @@
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>nano app.toml&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;/p>
-&lt;p>And we edit the following section of the file to the below setting, changing it from being 999999999999 to being 0.&lt;/p>
+&lt;p>And we edit the following section of the file to the below setting, changing it from being 999999999999 to being 100.&lt;/p>
+&lt;blockquote>
+&lt;p>Note: Setting the snapshot-interval to 100 will ensure that we can use our Sentry Node to kickstart our Validator later on. Which will allow us to set up our Validator without ever exposing its external IP to the rest of the Network.&lt;/p>
+&lt;/blockquote>
 &lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -533,7 +536,7 @@
 &lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#b0bec5"># snapshot-interval specifies the block interval at which local state sync snapshots are&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#b0bec5"># taken (0 to disable).&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>snapshot-interval &lt;span style="color:#ffb8d1">=&lt;/span> &lt;span style="color:#c5a3ff">0&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>snapshot-interval &lt;span style="color:#ffb8d1">=&lt;/span> &lt;span style="color:#c5a3ff">100&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>
 &lt;p>At this point the tidy up editing work to our app.toml file is done, and it can now be saved with these changes.&lt;/p>
