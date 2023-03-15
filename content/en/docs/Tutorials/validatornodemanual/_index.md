@@ -317,14 +317,13 @@ Now we need to prepare our **Sentry Nodes** for connection from our Validator.
     Mar 15 16:27:02 wmt-sentry1 systemd[1]: Started Aya Node.
     Mar 15 16:27:02 wmt-sentry1 cosmovisor[122758]: 4:27PM INF running app args=["start","--home","/opt/aya","\u0026\u003e\u003e/opt/aya/logs/aya.log"] module=cosmovisor path=/opt/aya/cosmovisor/genesis/bin/ayad
     Mar 15 16:27:08 wmt-sentry1 cosmovisor[122764]: 4:27PM ERR Error dialing peer err="dial tcp <Validator.Node.Private.IP>:26656: connect: connection refused" module=p2p
-
+    {{< /highlight>}}
+    
     > Note: Even though we see a *connect: connection refused* error at this point this is only due to the fact that we haven't yet started up our Validator for the first time. Seeing this error simply means our configuration has been laoded into our already configured **Sentry Node** successfully. Because we entered our Validator Node's ID into the *unconditional_peers* section of the config.toml file, this should not pose an issue.
 
-    {{< /highlight>}}
+We have now concluded our required edits to our already configured **Sentry Node's** set up. We need to make sure that we have completed the above steps to **both** of our Sentry Nodes. 
 
-    > Note we have now concluded our required edits to our already configured **Sentry Node's** set up. We need to make sure that we have completed the above steps to **both** of our Sentry Nodes. 
-
-    We can now to return to our Valdiator Node to complete the rest of its set up. 
+We can now to return to our Valdiator Node to complete the rest of its set up. 
 
 18. Before running our **Validator Node** for the first time there are some initial configuration changes that need to be made to allow for smooth operation and connection the to aya_preview_501 Blockchain. 
 
@@ -493,9 +492,11 @@ Now we need to prepare our **Sentry Nodes** for connection from our Validator.
     
     > Note: There is a lot of automated scripting shown below that has to be run before first boot of Node to ensure that it will start to sync the chain. It will not be needed again for future start ups.
     >
-    > This scripting has within it both <Sentry.Node1.Private.IP> and <Sentry.Node1.Private.IP> sections that we need to change to be each of our respective already configured Sentry Nodes' IPs. 
+    > This scripting has within it both **<Sentry.Node1.Private.IP>** and **<Sentry.Node1.Private.IP>** sections that we **need to change** to be each of our respective already configured Sentry Nodes' IPs. 
     >
-    > We need to **make sure** we have replaced  <Sentry.Node1.Private.IP> and <Sentry.Node1.Private.IP> with those IPs, removing the surrounding <>, before entering this group of commands. 
+    > We need to **make sure** we have replaced  **<Sentry.Node1.Private.IP>** and **<Sentry.Node1.Private.IP>** with those IPs, removing the surrounding <>, before entering this group of commands. 
+    > 
+    > We can do this by copying the group of commands below into a separate, temporary, text file and making any required edits before finally copying and pasting them into our Validator Node's terminal window.  
     >
     > Failure to replace **all** instances will cause the first run of our Validator to fail.
 
@@ -764,7 +765,7 @@ So, we shall now proceed to doing this.
 
 > Note: Before proceeding, we press q to leave ayaview. 
 
-32. First we need to obtain the details needed for our ENNFT Registeration on the Cardano Blockchain side of the equation. We have actually already been shown them earlier, but let's just get them again.
+32. First we need to obtain the details needed for our ENNFT Registration on the Cardano Blockchain side of the equation. We have actually already been shown them earlier, but let's just get them again.
 
     We do this by entering the following command
 
