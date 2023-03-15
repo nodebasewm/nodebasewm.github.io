@@ -13,13 +13,21 @@ description: >
 
 # Introduction
 
-The following guide will take you through all manual steps to be taken to have a fully running Validator Node. Taking you through how attach it to your prevously installed Sentry Nodes, and how to register your EarthNode Stake Pool via both an On-Chain **ENNFT** Registration Transaction on the Cardano Network as well as an On-Chain **Vailidator** Registration Transaction on the Aya Network. 
+The following guide will take you through all manual steps to be taken to have a fully running Validator Node. Taking you through how attach it to your prevously installed Sentry Nodes, and how to register your EarthNode Stake Pool via both an On-Chain **ENNFT** Registration Transaction on the Cardano Network as well as an On-Chain **Validator** Registration Transaction on the Aya Network. 
 
-A number of elements of the set up process are very similiar to that of setting up a Sentry Node. However additional steps will be required to ensure that the Validator only ever connects to other Nodes under *your own* control, so that your Validator Node's ID and IP adddress are never publicised to the rest of the Blockchain Network. This will require changing settings on **both** your existing Sentry Nodes and your newly set up Validator, to ensure proper cross connections are in place. Details of what changes need to be made, on both sides, will appear in this guide.
+A number of elements of the set up process are very similiar to that of setting up a Sentry Node. 
 
-This guide assumes you have already set up the Sentry Nodes that will be used to connect to this Validator using the steps laid out over at [Sentry Node Manual Installation](/docs/Tutorials/sentrynodemanual/). 
+However additional steps will be required to ensure that the Validator only ever connects to other Nodes under *your own* control, so that your Validator Node's ID and IP adddress are never publicised to the rest of the Blockchain Network. 
 
-> Note: In order for full Validator set-up to work without **ever** connecting to a World Mobile supplied Node, you will need to have **two** working Sentry Nodes in your Infrastructure. As they will be acting as the **two** required RPC Servers to help kickstart your Validator syncing to the tip of the Chain.
+This will require changing settings on **both** your existing Sentry Nodes and your newly set up Validator, to ensure proper cross connections are in place. 
+
+Details of what changes need to be made, on both sides, will appear in this guide.
+
+This guide assumes you have already set up the Sentry Nodes that will be used to connect to this Validator using the steps laid out over at [Sentry Node Manual Installation](/docs/tutorials/sentrynodemanual/). 
+
+> Note: In order for full Validator set-up to work without **ever** connecting to a World Mobile supplied Node, you will need to have **two** working Sentry Nodes in your Infrastructure. 
+>
+> As they will be acting as the **two** required RPC Servers to help kickstart your Validator syncing to the tip of the Chain.
 
 This guide also assumes that all IP addresses being used to established cross connections between your Sentry Nodes and your Validator will be **Private** IP addresses, and that each will be visable to one another.
 
@@ -27,7 +35,9 @@ This guide also assumes that all IP addresses being used to established cross co
 >
 > Setting up of such a VPN Service is outside the scope of this guide, but it is **highly** recommended that a VPN Service be used in any set up where Nodes do not *already* have Private IPs, on the same local subnet, that can be utilised for the task. 
 >
-> If all of your Nodes are running on the **same** Cloud Provider it is highly likely that they will *already* be running on the same Private IP subnet, and that that your Cloud Provider will make thse Private IPs available to you, but it must be highlighted that relying on a single Cloud Provider for **all** of your Node Infrastructure also creates a single point of failure for your EarthNode Stake Pool. The level of acceptance you have for this single point of failure risk, is up to you.
+> If all of your Nodes are running on the **same** Cloud Provider it is highly likely that they will *already* be running on the same Private IP subnet, and that that your Cloud Provider will make thse Private IPs available to you, but it must be highlighted that relying on a single Cloud Provider for **all** of your Node Infrastructure also creates a single point of failure for your EarthNode Stake Pool. 
+>
+> The level of acceptance you have for this single point of failure risk, is up to you.
 
 And finally, this guide assumes you have already followed steps to set up a new user named wmt to run the Sentry Node software, and that you have taken proper steps to secure this username from being logged into from external machines. 
 
@@ -133,7 +143,7 @@ Now, with this introduction, and its various warnings, out of the way, we shall 
 
     We do this by entering the following group of commands
 
-> Note: During this step you will be asked to set up a spending password for your Account, this password will be needed when sending your On-Chain Validator Registration Transaction in a later step. Enter in a secure password to be used for this.
+    > Note: During this step you will be asked to set up a spending password for your Account, this password will be needed when sending your On-Chain Validator Registration Transaction in a later step. Enter in a secure password to be used for this.
 
     {{< highlight bash "linenos=table,style=witchhazel" >}}
     # Create a new operator account and store the JSON output in the 'operator_json' variable
@@ -147,7 +157,7 @@ Now, with this introduction, and its various warnings, out of the way, we shall 
     echo "$operator_json" | jq -M
     {{< /highlight>}}
 
-> Note: This Operator Account is similar to a Cardano Wallet, and as such it will have along with it a Seed Phrase to allow for its future recovery. It is **vitally** important that we keep this Seed Phrase in a safe and secure location in case we ever need to recover our Account on a different machine in the future. The Operator Account is what controls our EarthNode Stake Pool's Registration and Pool settings, so if we lose access to this Account we will lose access to our EarthNode Stake Pool altogether. 
+    > Note: This Operator Account is similar to a Cardano Wallet, and as such it will have along with it a Seed Phrase to allow for its future recovery. It is **vitally** important that we keep this Seed Phrase in a safe and secure location in case we ever need to recover our Account on a different machine in the future. The Operator Account is what controls our EarthNode Stake Pool's Registration and Pool settings, so if we lose access to this Account we will lose access to our EarthNode Stake Pool altogether. 
 
 11. Next we are going to need the obtain our Validator Node's Node ID in order to complete some work over on our already configured Sentry Nodes in the next section of the guide.
 
@@ -189,11 +199,11 @@ Now we need to prepare our **Sentry Nodes** for connection from our Validator.
     We are now in the nano text editor, looking at the config.toml file contents for our already configured **Sentry Node**. 
 
     > Note: It is possible to search for the fields we need to edit more quickly by copying them from the below steps, pressing ctrl+w inside of nano in our terminal window, right clicking on the window, pasting the names of the values we need to edit, and pressing enter to jump to them. 
-
+    >
     > We can also remove text blocks from a document that we wish to replace with new text blocks by holding down shift, selecting the existing rows we wish to remove, and then pressing ctrl+k to remove them. 
-
+    >
     > We can then select and copy the replacement text from the steps shown in this guide below, and right click and paste the new settings into the terminal window. 
-
+    >
     > We can undo any mistakes we've made while working inside nano by pressing alt+u
 
     We now make the necessary changes to this file as follows
@@ -355,14 +365,12 @@ Now we need to prepare our **Sentry Nodes** for connection from our Validator.
     {{< /highlight>}}
 
     * Change the **pex** option to be **pex = false** instead of **true**
-   
     {{< highlight bash "linenos=table,style=witchhazel" >}}
     # Set true to enable the peer-exchange reactor
     pex = false
     {{< /highlight>}}
 
     * Change the **addr_boot_strict** option to be **addr_book_strict = false** instead of **true**
-   
     {{< highlight bash "linenos=table,style=witchhazel" >}}
     # Set true for strict address routability rules
     # Set false for private or local networks
@@ -379,16 +387,13 @@ Now we need to prepare our **Sentry Nodes** for connection from our Validator.
     # Comma separated list of nodes to keep persistent connections to
     persistent_peers = "<Sentry Node 1 Node ID>@<Sentry.Node1.Private.IP>:26656,<Sentry Node2 Node ID>@<Sentry.Node2.Private.IP>:26656"
     {{< /highlight>}}
-
     > Note: We replace ```<Sentry Node 1 ID>``` and ```<Sentry Node 2 ID>``` with our separately copied Sentry Node IDs from above, as well as ```<Sentry.Node1.Private.IP>``` and ```<Sentry.Node2.Private.IP>``` with each of our already configured Sentry Node's IPs, at this point, removing the surrounding <>
 
-    * Add our alreay configured Sentry Node IDs to **unconditional_peer_ids**
-  
+    * Add our alreay configured Sentry Node IDs to **unconditional_peer_ids**  
     {{< highlight bash "linenos=table,style=witchhazel" >}}
     # List of node IDs, to which a connection will be (re)established ignoring any existing limits
     unconditional_peer_ids = "<Sentry Node 1 ID>,<Sentry Node 2 ID>"
     {{< /highlight>}}
-
     > Note: We replace ```<Sentry Node 1 ID>``` and ```<Sentry Node 2 ID>``` with our separately copied Sentry Node IDs from above at this point, removing the surrounding <>
 
     At this point the initial editing work to our **config.toml** file is done, and it can now be saved with these changes. 
@@ -770,36 +775,36 @@ So, we shall now proceed to doing this.
 
 32. First we need to obtain the details needed for our ENNFT Registeration on the Cardano Blockchain side of the equation. We have actually already been shown them earlier, but let's just get them again.
 
-We do this by entering the following command
+    We do this by entering the following command
 
-{{< highlight bash "linenos=table,style=witchhazel" >}}
-cat /opt/aya/registration.json
-{{< /highlight>}}
+    {{< highlight bash "linenos=table,style=witchhazel" >}}
+    cat /opt/aya/registration.json
+    {{< /highlight>}}
 
-The output of this command should look something like this
+    The output of this command should look something like this
 
-{{< highlight bash "linenos=table,style=witchhazel" >}}
-{
-  "moniker": "<our Validator Node Moniker>",
-  "operator_address": "<our Operator Address beginning aya1, followed by a random string of letters and numbers>",
-  "validator_address": "<our Validator Address beginning ayavalcons1, followed by a random string of letters and numbers>"
-}
-{{< /highlight>}}
+    {{< highlight bash "linenos=table,style=witchhazel" >}}
+    {
+      "moniker": "<our Validator Node Moniker>",
+      "operator_address": "<our Operator Address beginning aya1, followed by a random string of letters and numbers>",
+      "validator_address": "<our Validator Address beginning ayavalcons1, followed by a random string of letters and numbers>"
+    }
+    {{< /highlight>}}
 
-> Note: At this point we want to copy and paste the output of this command, including its surrounding {}s, to a separate, temporary, text file on our machine. 
+    > Note: At this point we want to copy and paste the output of this command, including its surrounding {}s, to a separate, temporary, text file on our machine. 
 
 33. Now we need to open a web browser and navigate to https://enregelm-pub-drasil.apps.testnet.drasil.org/index.html and click on the **EarthNode Registration** tab at the top of the page.
 
 34. Next we need to connect our Cardano Preview Testnet Wallet that contains our Testnet EarthNode NFT to be Registered to this EarthNode Registration site.
 
-We do this by 
+    We do this by 
 
-a) Ensuring the Wallet containing our Testnet EarthNode NFT is the one currently selected for dApp connections in our Cardano Wallet Browser Extension
-b) Esnuring that it has enough collateral set to enable sumbission of Smart Contract Transactions (5 ADA should be enough)
-and then
-c) By clicking on the Connect Wallet Button on the site EarthNode Registration site 
+    a) Ensuring the Wallet containing our Testnet EarthNode NFT is the one currently selected for dApp connections in our Cardano Wallet Browser Extension
+    b) Esnuring that it has enough collateral set to enable sumbission of Smart Contract Transactions (5 ADA should be enough)
+    and then
+    c) By clicking on the Connect Wallet Button on the site EarthNode Registration site 
 
-> Note: Once our Preview Testnet Wallet is connected the **EarthNode NFTs in your Wallet:** section of the EarthNode Registration site should populate with the EarthNodeNFT# numbers that you hold in your Preview Testnet Wallet.
+    > Note: Once our Preview Testnet Wallet is connected the **EarthNode NFTs in your Wallet:** section of the EarthNode Registration site should populate with the EarthNodeNFT# numbers that you hold in your Preview Testnet Wallet.
 
 35. Now we need to click on the EarthNodeNFT# number we wish to associate with our newly set up Validator Node.
 
@@ -807,69 +812,69 @@ c) By clicking on the Connect Wallet Button on the site EarthNode Registration s
 
 37. And now we need to paste in the previously copied information, obtained during step 32 above, into the **Paste Installation Script Output:** Box and press the **Build Transaction** Button.
 
-> Note: We will now be asked for our Preview Testnet Wallet's Spending Password at this point in order to Authorise the Registration Transaction to be Posted On-Chain on the Cardano Preview Testnet Newtork.
+    > Note: We will now be asked for our Preview Testnet Wallet's Spending Password at this point in order to Authorise the Registration Transaction to be Posted On-Chain on the Cardano Preview Testnet Newtork.
 
 38. We need to enter our Spending Password and click Sign. 
 
-This should then show us a **Transaction Successful!** message on the EarthNode Registration Page along with a Transaction Hash that corresponds to the Transaction ID that will appear on the Cardano Blockchain. 
+    This should then show us a **Transaction Successful!** message on the EarthNode Registration Page along with a Transaction Hash that corresponds to the Transaction ID that will appear on the Cardano Blockchain. 
 
-Note: Whilst the Transaction itself has now been successfully submitted, it may still take a little bit of time for it to appear On the Cardano Blockchain. There will be a link at the bottom of the EarthNode Registration site that will take us to an external page to reload until we see the Transcation finally go through. Once we see this Transaction appear on that page. We can proceed to the next step.
+    > Note: Whilst the Transaction itself has now been successfully submitted, it may still take a little bit of time for it to appear On the Cardano Blockchain. There will be a link at the bottom of the EarthNode Registration site that will take us to an external page to reload until we see the Transcation finally go through. Once we see this Transaction appear on that page. We can proceed to the next step.
 
 39. Now we return to our Validator Node's Terminal Window as before, and complete the final steps to get our EarthNode Stake Pool online. The first thing we will do is make sure that our Operator Address received 5 uswmt Tokens to be able to complete the Aya Network side of our Stake Pool Registration. 
 
-We do this by entering the following command
+    We do this by entering the following command
 
-{{< highlight bash "linenos=table,style=witchhazel" >}}
-ayad query bank balances <our Operator Address> --home $aya_home
-{{< /highlight>}}
+    {{< highlight bash "linenos=table,style=witchhazel" >}}
+    ayad query bank balances <our Operator Address> --home $aya_home
+    {{< /highlight>}}
 
-> Note: We replace ```<our Operator Address>``` with the full operator_address detail that begins with *aya1* from the information we obtained for EarthNode Registration in step 32, removing the surrounding <>
+    > Note: We replace ```<our Operator Address>``` with the full operator_address detail that begins with *aya1* from the information we obtained for EarthNode Registration in step 32, removing the surrounding <>
 
-If Registration on the Cardano Blockchain side has been successful, this command should give us the following output
+    If Registration on the Cardano Blockchain side has been successful, this command should give us the following output
 
-{{< highlight bash "linenos=table,style=witchhazel" >}}
-balances:
-- amount: "5"
-  denom: uswmt
-pagination:
-  next_key: null
-  total: "0"
-{{< /highlight>}}
+    {{< highlight bash "linenos=table,style=witchhazel" >}}
+    balances:
+    - amount: "5"
+      denom: uswmt
+    pagination:
+      next_key: null
+      total: "0"
+    {{< /highlight>}}
 
-> Note: A balance amount of "5" appearing in this output means that The Cardano Transaction triggered our Operator Address being topped up with 5 uswmt to be used to set up our EarthNode Stake Pool on the Aya Blockchain side. The side we are now working with. 
+    > Note: A balance amount of "5" appearing in this output means that The Cardano Transaction triggered our Operator Address being topped up with 5 uswmt to be used to set up our EarthNode Stake Pool on the Aya Blockchain side. The side we are now working with. 
 
 40. Now we need to Register our EarthNode Stake Pool to the Aya Blockchain Network. 
 
-We do this by entering the following group of commands
+    We do this by entering the following group of commands
 
-{{< highlight bash "linenos=table,style=witchhazel" >}}
-ayad tx staking create-validator \
-  --amount=1uswmt \
-  --pubkey="$(ayad tendermint show-validator --home ${aya_home})" \
-  --moniker="$moniker" \
-  --chain-id="$CHAIN_ID" \
-  --commission-rate="0.10" \
-  --commission-max-rate="0.20" \
-  --commission-max-change-rate="0.01" \
-  --min-self-delegation="1" \
-  --from="$account" \
-  --home ${aya_home} \
-  --output json \
-  --yes 
-{{< /highlight>}}
+    {{< highlight bash "linenos=table,style=witchhazel" >}}
+    ayad tx staking create-validator \
+      --amount=1uswmt \
+      --pubkey="$(ayad tendermint show-validator --home ${aya_home})" \
+      --moniker="$moniker" \
+      --chain-id="$CHAIN_ID" \
+      --commission-rate="0.10" \
+      --commission-max-rate="0.20" \
+      --commission-max-change-rate="0.01" \
+      --min-self-delegation="1" \
+      --from="$account" \
+      --home ${aya_home} \
+      --output json \
+      --yes 
+    {{< /highlight>}}
 
-> Note: After entering this group of commands we will be asked to enter the Spending Password we set up earlier in the guide specifically for our Validator Account. We must enter it now.
+    > Note: After entering this group of commands we will be asked to enter the Spending Password we set up earlier in the guide specifically for our Validator Account. We must enter it now.
 
-If the Transcation has been successful we should see an output that contains a txhash value that consists of a string of capital letters and numbers, along with a lot of other information in JSON format, that looks something like this
+    If the Transcation has been successful we should see an output that contains a txhash value that consists of a string of capital letters and numbers, along with a lot of other information in JSON format, that looks something like this
 
-{{< highlight bash "linenos=table,style=witchhazel" >}}
-{"height":"0","txhash":"<Transaction Hash containing capital letters and numbers>","codespace":"","code":0,"data":"","raw_log":"[]","logs":[],"info":"","gas_wanted":"0","gas_used":"0","tx":null,"timestamp":"","events":[]}
-{{< /highlight>}}
+    {{< highlight bash "linenos=table,style=witchhazel" >}}
+    {"height":"0","txhash":"<Transaction Hash containing capital letters and numbers>","codespace":"","code":0,"data":"","raw_log":"[]","logs":[],"info":"","gas_wanted":"0","gas_used":"0","tx":null,"timestamp":"","events":[]}
+    {{< /highlight>}}
 
 41. Finally, we now need to go and see if our Validator has been successfully Registered on the Aya Blockchain Network by opening our browser and going to https://wmexplorer.info/validators 
 
-Once there we need to click on the 'All Validators' tab and scroll down until we see the Monkier we gave our EarthNode Stake Pool appear in the list. 
+    Once there we need to click on the 'All Validators' tab and scroll down until we see the Monkier we gave our EarthNode Stake Pool appear in the list. 
 
-If all of our work above has been successful we should not **only** see our Moniker appear on this list, but it should **also** have Voting Power of **100** in the green 'Voting Power' Column on the table and have a status of **Active** *(shown in blue)* in the 'Status' Column. 
+    If all of our work above has been successful we should not **only** see our Moniker appear on this list, but it should **also** have Voting Power of **100** in the green 'Voting Power' Column on the table and have a status of **Active** *(shown in blue)* in the 'Status' Column. 
 
 If both of these conditions are true, **Congratulations!** We have now successfully completed setting up both our Validator Node **AND** our EarthNode Stake Pool!
