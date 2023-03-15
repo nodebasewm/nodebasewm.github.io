@@ -209,34 +209,27 @@ Now we need to prepare our **Sentry Nodes** for connection from our Validator.
     We now make the necessary changes to this file as follows
 
     * Add our Validator's Node ID, Private IP address, and Port number to receive connections from our Sentry Node to **persistent_peers**. Making sure **not** to remove the existing World Mobile peers.
-
     {{< highlight bash "linenos=table,style=witchhazel" >}}
     # Comma separated list of nodes to keep persistent connections to
     persistent_peers = "692f6bb765ed3170db4fb5f5dfd27c54503d52d3@peer1-501.worldmobilelabs.com:26656,d1da4b1ad17ea35cf8c1713959b430a95743afcd@peer2-501.worldmobilelabs.com:36656,e1f9c6bd4f701e8233729ceadbd1690bd782fced@10.106.0.2:26656,<Validator Node ID>@<Validator.Node.Private.IP>:26656"
     {{< /highlight>}}
-
     > Note: We replace ```<Validator Node ID>``` with our separately copied Validator Node ID from above and ```<Validator.Node.Private.IP>``` with our Validator Node's IP at this point, removing the surrounding <>
 
-    * Add our Validator's Node ID to **unconditional_peer_ids**
-  
+    * Add our Validator's Node ID to **unconditional_peer_ids**  
     {{< highlight bash "linenos=table,style=witchhazel" >}}
     # List of node IDs, to which a connection will be (re)established ignoring any existing limits
     unconditional_peer_ids = "<Validator Node ID>"
     {{< /highlight>}}
-
     > Note: We replace ```<Validator Node ID>``` with our separately copied Validator Node ID from above at this point, removing the surrounding <>
 
-    * Add our Validator's Node ID to **private_peer_ids**
-  
+    * Add our Validator's Node ID to **private_peer_ids**  
     {{< highlight bash "linenos=table,style=witchhazel" >}}
     # Comma separated list of peer IDs to keep private (will not be gossiped to other peers)
     private_peer_ids = "<Validator Node ID>"
     {{< /highlight>}}
-
     > Note: We replace ```<Validator Node ID>``` with our separately copied Validator Node ID from above at this point, removing the surrounding <>
 
     * Set the **laddr = "tcp://127.0.0.1:26657"** field to be **laddr = "tcp://0.0.0.0:26657"** in the **RPC Server Configuration Options** section of the file. 
-
     {{< highlight bash "linenos=table,style=witchhazel" >}}
     # TCP or UNIX socket address for the RPC server to listen on
     laddr = "tcp://0.0.0.0:26657"
@@ -259,9 +252,7 @@ Now we need to prepare our **Sentry Nodes** for connection from our Validator.
     We now make the necessary change to this file as follows
 
     * Set snapshot interval to 100 instead of 0 to activate the snapshot manager
-
     > Note: It is quite possible that our already configured **Sentry Node's** snapshot-interval is already set to be 100. If this is the case, no further changes are neccessary. 
-
     {{< highlight bash "linenos=table,style=witchhazel" >}}
     # snapshot-interval specifies the block interval at which local state sync snapshots are
     # taken (0 to disable).
