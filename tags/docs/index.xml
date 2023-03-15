@@ -446,8 +446,6 @@ They &lt;strong>can&lt;/strong> be the same name.&lt;/p>
 &lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
 &lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
 &lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>● cosmovisor.service - Aya Node
@@ -463,16 +461,17 @@ They &lt;strong>can&lt;/strong> be the same name.&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Mar &lt;span style="color:#c5a3ff">15&lt;/span> 16:27:02 wmt-sentry1 systemd&lt;span style="color:#ffb8d1">[&lt;/span>1&lt;span style="color:#ffb8d1">]&lt;/span>: Started Aya Node.
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Mar &lt;span style="color:#c5a3ff">15&lt;/span> 16:27:02 wmt-sentry1 cosmovisor&lt;span style="color:#ffb8d1">[&lt;/span>122758&lt;span style="color:#ffb8d1">]&lt;/span>: 4:27PM INF running app args&lt;span style="color:#ffb8d1">=[&lt;/span>&lt;span style="color:#1bc5e0">&amp;#34;start&amp;#34;&lt;/span>,&lt;span style="color:#1bc5e0">&amp;#34;--home&amp;#34;&lt;/span>,&lt;span style="color:#1bc5e0">&amp;#34;/opt/aya&amp;#34;&lt;/span>,&lt;span style="color:#1bc5e0">&amp;#34;\u0026\u003e\u003e/opt/aya/logs/aya.log&amp;#34;&lt;/span>&lt;span style="color:#ffb8d1">]&lt;/span> module&lt;span style="color:#ffb8d1">=&lt;/span>cosmovisor path&lt;span style="color:#ffb8d1">=&lt;/span>/opt/aya/cosmovisor/genesis/bin/ayad
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Mar &lt;span style="color:#c5a3ff">15&lt;/span> 16:27:08 wmt-sentry1 cosmovisor&lt;span style="color:#ffb8d1">[&lt;/span>122764&lt;span style="color:#ffb8d1">]&lt;/span>: 4:27PM ERR Error dialing peer err&lt;span style="color:#ffb8d1">=&lt;/span>&lt;span style="color:#1bc5e0">&amp;#34;dial tcp &amp;lt;Validator.Node.Private.IP&amp;gt;:26656: connect: connection refused&amp;#34;&lt;/span> module&lt;span style="color:#ffb8d1">=&lt;/span>p2p
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;gt; Note: Even though we see a *connect: connection refused* error at this point this is only due to the fact that we haven&lt;span style="color:#1bc5e0">&amp;#39;t yet started up our Validator for the first time. Seeing this error simply means our configuration has been laoded into our already configured **Sentry Node** successfully. Because we entered our Validator Node&amp;#39;&lt;/span>s ID into the *unconditional_peers* section of the config.toml file, this should not pose an issue.&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Mar &lt;span style="color:#c5a3ff">15&lt;/span> 16:27:08 wmt-sentry1 cosmovisor&lt;span style="color:#ffb8d1">[&lt;/span>122764&lt;span style="color:#ffb8d1">]&lt;/span>: 4:27PM ERR Error dialing peer err&lt;span style="color:#ffb8d1">=&lt;/span>&lt;span style="color:#1bc5e0">&amp;#34;dial tcp &amp;lt;Validator.Node.Private.IP&amp;gt;:26656: connect: connection refused&amp;#34;&lt;/span> module&lt;span style="color:#ffb8d1">=&lt;/span>p2p&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>
 &lt;blockquote>
-&lt;p>Note we have now concluded our required edits to our already configured &lt;strong>Sentry Node&amp;rsquo;s&lt;/strong> set up. We need to make sure that we have completed the above steps to &lt;strong>both&lt;/strong> of our Sentry Nodes.&lt;/p>
+&lt;p>Note: Even though we see a &lt;em>connect: connection refused&lt;/em> error at this point this is only due to the fact that we haven&amp;rsquo;t yet started up our Validator for the first time. Seeing this error simply means our configuration has been laoded into our already configured &lt;strong>Sentry Node&lt;/strong> successfully. Because we entered our Validator Node&amp;rsquo;s ID into the &lt;em>unconditional_peers&lt;/em> section of the config.toml file, this should not pose an issue.&lt;/p>
 &lt;/blockquote>
-&lt;p>We can now to return to our Valdiator Node to complete the rest of its set up.&lt;/p>
 &lt;/li>
+&lt;/ol>
+&lt;p>We have now concluded our required edits to our already configured &lt;strong>Sentry Node&amp;rsquo;s&lt;/strong> set up. We need to make sure that we have completed the above steps to &lt;strong>both&lt;/strong> of our Sentry Nodes.&lt;/p>
+&lt;p>We can now to return to our Valdiator Node to complete the rest of its set up.&lt;/p>
+&lt;ol start="18">
 &lt;li>
 &lt;p>Before running our &lt;strong>Validator Node&lt;/strong> for the first time there are some initial configuration changes that need to be made to allow for smooth operation and connection the to aya_preview_501 Blockchain.&lt;/p>
 &lt;p>So now we navigate to the aya config folder and open the config.toml file for our Validator Node to make these changes.&lt;/p>
@@ -746,8 +745,9 @@ They &lt;strong>can&lt;/strong> be the same name.&lt;/p>
 &lt;p>We do this by entering the following group of commands&lt;/p>
 &lt;blockquote>
 &lt;p>Note: There is a lot of automated scripting shown below that has to be run before first boot of Node to ensure that it will start to sync the chain. It will not be needed again for future start ups.&lt;/p>
-&lt;p>This scripting has within it both &amp;lt;Sentry.Node1.Private.IP&amp;gt; and &amp;lt;Sentry.Node1.Private.IP&amp;gt; sections that we need to change to be each of our respective already configured Sentry Nodes&amp;rsquo; IPs.&lt;/p>
-&lt;p>We need to &lt;strong>make sure&lt;/strong> we have replaced &amp;lt;Sentry.Node1.Private.IP&amp;gt; and &amp;lt;Sentry.Node1.Private.IP&amp;gt; with those IPs, removing the surrounding &amp;lt;&amp;gt;, before entering this group of commands.&lt;/p>
+&lt;p>This scripting has within it both &lt;strong>&amp;lt;Sentry.Node1.Private.IP&amp;gt;&lt;/strong> and &lt;strong>&amp;lt;Sentry.Node1.Private.IP&amp;gt;&lt;/strong> sections that we &lt;strong>need to change&lt;/strong> to be each of our respective already configured Sentry Nodes&amp;rsquo; IPs.&lt;/p>
+&lt;p>We need to &lt;strong>make sure&lt;/strong> we have replaced &lt;strong>&amp;lt;Sentry.Node1.Private.IP&amp;gt;&lt;/strong> and &lt;strong>&amp;lt;Sentry.Node1.Private.IP&amp;gt;&lt;/strong> with those IPs, removing the surrounding &amp;lt;&amp;gt;, before entering this group of commands.&lt;/p>
+&lt;p>We can do this by copying the group of commands below into a separate, temporary, text file and making any required edits before finally copying and pasting them into our Validator Node&amp;rsquo;s terminal window.&lt;/p>
 &lt;p>Failure to replace &lt;strong>all&lt;/strong> instances will cause the first run of our Validator to fail.&lt;/p>
 &lt;/blockquote>
 &lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
@@ -1162,7 +1162,7 @@ Note: We replace &lt;code>&amp;lt;number&amp;gt;&lt;/code> with our noted number
 &lt;/blockquote>
 &lt;ol start="32">
 &lt;li>
-&lt;p>First we need to obtain the details needed for our ENNFT Registeration on the Cardano Blockchain side of the equation. We have actually already been shown them earlier, but let&amp;rsquo;s just get them again.&lt;/p>
+&lt;p>First we need to obtain the details needed for our ENNFT Registration on the Cardano Blockchain side of the equation. We have actually already been shown them earlier, but let&amp;rsquo;s just get them again.&lt;/p>
 &lt;p>We do this by entering the following command&lt;/p>
 &lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
