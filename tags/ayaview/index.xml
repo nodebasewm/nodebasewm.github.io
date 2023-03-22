@@ -25,8 +25,25 @@ based on Grafana-Prometheus for light-weight direct monitoring.&lt;/p>
 Ayaview monitors your validator status and blocks produced on chain, as also system metrics and peer information.&lt;/p>
 &lt;p>It can be run entirely standalone, started/stopped as many times you want without affecting your node.&lt;/p>
 &lt;h1 id="overview">Overview&lt;/h1>
+&lt;p>Ayaview provides node status display of your node. Uptime / peers / blocks proposed and system metrics.&lt;/p>
 &lt;figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 910px">
-&lt;img class="card-img-top" src="/docs/tools/ayaview/ayaview_hu502f9c6c3a010f118f86187ccf5f8d2a_84429_900x600_fit_catmullrom_3.png" width="900" height="368">
+&lt;img class="card-img-top" src="/docs/tools/ayaview/ayaview_hu82d75ec0e1b6a4be34b0a16311ef1d97_51770_900x600_fit_catmullrom_3.png" width="900" height="393">
+&lt;figcaption class="card-body px-0 pt-2 pb-0">
+&lt;p class="card-text">
+&lt;small class="text-muted">&lt;br/>picture&lt;/small>&lt;/p>
+&lt;/figcaption>
+&lt;/figure>
+&lt;p>You can also view validator information by pressing the key &amp;lsquo;v&amp;rsquo;. This gives you an overview of all active/non-active validators with their voting power.&lt;/p>
+&lt;figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 910px">
+&lt;img class="card-img-top" src="/docs/tools/ayaview/validators_hu9ab4178bc710c2298be65d6b1b228517_56860_900x600_fit_catmullrom_3.png" width="900" height="518">
+&lt;figcaption class="card-body px-0 pt-2 pb-0">
+&lt;p class="card-text">
+&lt;small class="text-muted">&lt;br/>picture&lt;/small>&lt;/p>
+&lt;/figcaption>
+&lt;/figure>
+&lt;p>A powerful feature of ayaview is to show peer connections by pressing the key &amp;lsquo;p&amp;rsquo;. This will show you all peer connections with their latency and location. Also a live view of the P2P connection details are shown when selecting a peer, like transaction speed/s.&lt;/p>
+&lt;figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 901px">
+&lt;img class="card-img-top" src="/docs/tools/ayaview/peers_hu67dec3207b1db01beabd77dfa98c52a9_109310_900x600_fit_catmullrom_3.png" width="891" height="600">
 &lt;figcaption class="card-body px-0 pt-2 pb-0">
 &lt;p class="card-text">
 &lt;small class="text-muted">&lt;br/>picture&lt;/small>&lt;/p>
@@ -57,11 +74,11 @@ you can start ayaview in any open terminal window.&lt;/p>
 &lt;/div>
 &lt;p>A configuration file is provided, which must be used in the following conditions:&lt;/p>
 &lt;ul>
-&lt;li>You run ayaview on a sentry but want to see node status of your validator.&lt;/li>
+&lt;li>You run ayaview on a sentry but want to see node status of your validator. (blocks signed/proposed )&lt;/li>
 &lt;li>You changed the default ports of grpc (29090) or rpc (25567).&lt;/li>
 &lt;li>You want the change the default update interval for system metrics&lt;/li>
 &lt;/ul>
-&lt;p>Then call ayaview as follows&lt;/p>
+&lt;p>Call ayaview as follows&lt;/p>
 &lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -70,6 +87,8 @@ you can start ayaview in any open terminal window.&lt;/p>
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>.&lt;span style="color:#ffb8d1">/&lt;/span>ayaview &lt;span style="color:#ffb8d1">--&lt;/span>config config.toml&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>
+&lt;p>If you run ayaview on your validator, it will automatically discover your validator node and connect to
+it.&lt;/p>
 &lt;h1 id="configuration">Configuration&lt;/h1>
 &lt;p>The configuration of ayaview is done through a &lt;strong>config.toml&lt;/strong> configuration file.
 A default config file is delivered part of the installation.&lt;/p>
