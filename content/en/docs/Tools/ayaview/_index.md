@@ -28,7 +28,19 @@ It can be run entirely standalone, started/stopped as many times you want withou
 
 # Overview
 
+Ayaview provides node status display of your node. Uptime / peers / blocks proposed  and system metrics.
+
 {{< imgproc ayaview Fit "900x600" >}}
+{{< /imgproc >}}
+
+You can also view validator information by pressing the key 'v'. This gives you an overview of all active/non-active validators with their voting power.
+
+{{< imgproc validators Fit "900x600" >}}
+{{< /imgproc >}}
+
+A powerful feature of ayaview is to show peer connections by pressing the key 'p'. This will show you all peer connections with their latency and location. Also a live view of the P2P connection details are shown when selecting a peer, like  transaction speed/s.
+
+{{< imgproc peers Fit "900x600" >}}
 {{< /imgproc >}}
 
 # Installation Instructions
@@ -48,15 +60,18 @@ you can start ayaview in any open terminal window.
 {{< /highlight >}}
 
 A configuration file is provided, which must be used in the following conditions:
-* You run ayaview on a sentry but want to see node status of your validator. 
+* You run ayaview on a sentry but want to see node status of your validator. (blocks signed/proposed ) 
 * You changed the default ports of grpc (29090) or rpc (25567).
 * You want the change the default update interval for system metrics
 
-Then call ayaview as follows
+Call ayaview as follows
 
 {{< highlight go "linenos=table,style=witchhazel" >}}
 ./ayaview --config config.toml
 {{< /highlight >}}
+
+If you run ayaview on your validator, it will automatically discover your validator node and connect to
+it. 
 
 # Configuration
 
