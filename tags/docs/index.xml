@@ -8,7 +8,8 @@ a moderator in the WorldMobile telegram groups to request the access form.&lt;/p
 &lt;h2 id="installation">Installation&lt;/h2>
 &lt;p>You will need to have access to a linux server for installation of the WM Earthnode validator. Hardware requirements is minimal 2 cores, 4GB RAM without grafana and 8GB RAM with grafana and 40GB DISK space-&lt;/p>
 &lt;h2 id="setup">Setup&lt;/h2>
-&lt;p>The earthnode installation package provided on testnet gives you everything you need to install a validator node. At the NodeBaseDevs site you will find addtional setup instructions for installing relay nodes and complete configuration guidelines.&lt;/p></description></item><item><title>Docs: Configuration</title><link>/docs/configuration/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/docs/configuration/</guid><description/></item><item><title>Docs: Validator Node Manual Installation</title><link>/docs/tutorials/validatornodemanual/</link><pubDate>Wed, 15 Mar 2023 00:00:00 +0000</pubDate><guid>/docs/tutorials/validatornodemanual/</guid><description>
+&lt;p>The earthnode installation package provided on testnet gives you everything you need to install a validator node. At the NodeBaseDevs site you will find addtional setup instructions for installing relay nodes and complete configuration guidelines.&lt;/p></description></item><item><title>Docs: Configuration</title><link>/docs/configuration/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/docs/configuration/</guid><description>
+&lt;p>&lt;strong>Written by Nodebase Team member &lt;a href="https://twitter.com/EarthNodeChile">EarthNodeChile (Nico Verboven)&lt;/a>&lt;/strong>&lt;/p></description></item><item><title>Docs: Validator Node Manual Installation</title><link>/docs/tutorials/validatornodemanual/</link><pubDate>Wed, 15 Mar 2023 00:00:00 +0000</pubDate><guid>/docs/tutorials/validatornodemanual/</guid><description>
 &lt;p>&lt;strong>Written by Nodebase Team member &lt;a href="https://twitter.com/intertreeJK">intertree (Johnny Kelly)&lt;/a>&lt;/strong>&lt;/p>
 &lt;h1 id="introduction">Introduction&lt;/h1>
 &lt;p>The following guide will take you through all manual steps to be taken to have a fully running Validator Node. Taking you through how attach it to your prevously installed Sentry Nodes, and how to register your EarthNode Stake Pool via both an On-Chain &lt;strong>ENNFT&lt;/strong> Registration Transaction on the Cardano Network as well as an On-Chain &lt;strong>Validator&lt;/strong> Registration Transaction on the Aya Network.&lt;/p>
@@ -2140,6 +2141,7 @@ c) By clicking on the Connect Wallet Button on the site EarthNode Registration s
 &lt;p>So, to fix this, we will tackle connecting our newly set up Sentry Node to our EarthNode Validator, as well as any other running Sentry Nodes in our Infrastructure, in a separate guide.&lt;/p>
 &lt;p>For now though, we can simply bask in the glory of setting up a well running Sentry Node!&lt;/p>
 &lt;/blockquote></description></item><item><title>Docs: Ayaview</title><link>/docs/tools/ayaview/</link><pubDate>Thu, 23 Feb 2023 00:00:00 +0000</pubDate><guid>/docs/tools/ayaview/</guid><description>
+&lt;p>&lt;strong>Developed by Nodebase Team member &lt;a href="https://twitter.com/EarthNodeChile">EarthNodeChile (Nico Verboven)&lt;/a>&lt;/strong>&lt;/p>
 &lt;div class="toc">
 &lt;h2>Table Of Contents&lt;/h2>
 &lt;nav id="TableOfContents">
@@ -2233,9 +2235,10 @@ it.&lt;/p>
 &lt;h1 id="configuration">Configuration&lt;/h1>
 &lt;p>The configuration of ayaview is done through a &lt;strong>config.toml&lt;/strong> configuration file.
 A default config file is delivered part of the installation.&lt;/p>
-&lt;blockquote>
-&lt;p>Note: This is &lt;strong>NOT&lt;/strong> the same config.toml as the &lt;em>aya config.toml&lt;/em>. Ayaview has its own config.toml file, which is part of the zip package.&lt;/p>
-&lt;/blockquote>
+&lt;div class="alert alert-primary" role="alert">
+&lt;h4 class="alert-heading">Note&lt;/h4>
+This is &lt;strong>NOT&lt;/strong> the same config.toml as the &lt;em>aya config.toml&lt;/em>. Ayaview has its own config.toml file, which is part of the zip package.
+&lt;/div>
 &lt;h2 id="ayaview-on-sentry-node">Ayaview on Sentry Node&lt;/h2>
 &lt;p>If your run ayaview on a sentry node, you will only see chain activity such as blocks and chai n events.&lt;/p>
 &lt;p>If you want to see the validator node status information this sentry is pointing to,
