@@ -14,6 +14,8 @@ resources:
    byline: "picture"  
 ---
 
+**Developed by Nodebase Team member [EarthNodeChile (Nico Verboven)](https://twitter.com/EarthNodeChile)**
+
 {{< toc >}}
 
 # Introduction
@@ -77,7 +79,11 @@ it.
 
 The configuration of ayaview is done through a **config.toml** configuration file. 
 A default config file is delivered part of the installation.
-> Note: This is **NOT** the same config.toml as the *aya config.toml*. Ayaview has its own config.toml file, which is part of the zip package.
+
+{{% alert title ="Note" %}}
+
+ This is **NOT** the same config.toml as the *aya config.toml*. Ayaview has its own config.toml file, which is part of the zip package.
+{{% /alert %}}
 
 ## Ayaview on Sentry Node
 

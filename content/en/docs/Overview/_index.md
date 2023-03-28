@@ -6,6 +6,8 @@ description: >
  Overview
 ---
 
+**Written by Nodebase Team member [EarthNodeChile (Nico Verboven)](https://twitter.com/EarthNodeChile)**
+
 In the documentation section, you will find resources to setup and configure your Earthnode successfully.
 Detailed technical guides and step-by-step tuturial will be available to help those with less technical knowledge.
 

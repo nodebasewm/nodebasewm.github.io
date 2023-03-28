@@ -12,3 +12,5 @@ resources:
   params:
    byline: "picture"
 ---
+
+**Written by Nodebase Team member [EarthNodeChile (Nico Verboven)](https://twitter.com/EarthNodeChile)**
