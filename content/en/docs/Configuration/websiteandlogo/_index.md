@@ -11,7 +11,7 @@ description: >
 
 **Written by Community Contributer [Cardano SHAMROCK](https://twitter.com/PoolShamrock)**
 
-## Update Website And Description
+# Update Website And Description
 
 1. On your Validator Node run
 
@@ -21,7 +21,7 @@ description: >
 
     > Note: Ensure to replace **ACCOUNT** with your own ENO's Account name, replace **https://www.example.com** with your own site address, replace **ENO Description** with your own preferred details.
 
-## Update Logo
+# Update Logo
 
 1. Create Account on Keybase: https://keybase.io
 
