@@ -1,0 +1,45 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NodeBaseDevs – website</title><link>/tags/website/</link><description>Recent content in website on NodeBaseDevs</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Tue, 04 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="/tags/website/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Update Website and Logo</title><link>/docs/configuration/websiteandlogo/</link><pubDate>Tue, 04 Apr 2023 00:00:00 +0000</pubDate><guid>/docs/configuration/websiteandlogo/</guid><description>
+&lt;p>&lt;strong>Written by Community Contributer &lt;a href="https://twitter.com/PoolShamrock">Cardano SHAMROCK&lt;/a>&lt;/strong>&lt;/p>
+&lt;h2 id="update-website-and-description">Update Website And Description&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>On your Validator Node run&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>ayad tx staking edit-validator --website &lt;span style="color:#1bc5e0">&amp;#34;https://www.example.com&amp;#34;&lt;/span> --details &lt;span style="color:#1bc5e0">&amp;#34;ENO Description&amp;#34;&lt;/span> --from ACCOUNT --home /opt/aya&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>
+&lt;blockquote>
+&lt;p>Note: Ensure to replace &lt;strong>ACCOUNT&lt;/strong> with your own ENO&amp;rsquo;s Account name, replace &lt;strong>&lt;a href="https://www.example.com">https://www.example.com&lt;/a>&lt;/strong> with your own site address, replace &lt;strong>ENO Description&lt;/strong> with your own preferred details.&lt;/p>
+&lt;/blockquote>
+&lt;/li>
+&lt;/ol>
+&lt;h2 id="update-logo">Update Logo&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>Create Account on Keybase: &lt;a href="https://keybase.io">https://keybase.io&lt;/a>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Add logo to Keybase&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Copy Key from Keybase dashboard&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>On your Validator Node run&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>ayad tx staking edit-validator --identity&lt;span style="color:#ffb8d1">=&lt;/span>KEYBASEKEY --from ACCOUNT --home /opt/aya&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>
+&lt;blockquote>
+&lt;p>Note: Ensure to replace &lt;strong>ACCOUNT&lt;/strong> with your own ENO&amp;rsquo;s Account name, replace &lt;strong>KEYBASEKEY&lt;/strong> with the key you obtained while signing up for Keybase&lt;/p>
+&lt;/blockquote>
+&lt;/li>
+&lt;/ol></description></item></channel></rss>
