@@ -1,6 +1,6 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NodeBaseDevs – website</title><link>/tags/website/</link><description>Recent content in website on NodeBaseDevs</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Tue, 04 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="/tags/website/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Update Website and Logo</title><link>/docs/configuration/websiteandlogo/</link><pubDate>Tue, 04 Apr 2023 00:00:00 +0000</pubDate><guid>/docs/configuration/websiteandlogo/</guid><description>
 &lt;p>&lt;strong>Written by Community Contributer &lt;a href="https://twitter.com/PoolShamrock">Cardano SHAMROCK&lt;/a>&lt;/strong>&lt;/p>
-&lt;h2 id="update-website-and-description">Update Website And Description&lt;/h2>
+&lt;h1 id="update-website-and-description">Update Website And Description&lt;/h1>
 &lt;ol>
 &lt;li>
 &lt;p>On your Validator Node run&lt;/p>
@@ -17,7 +17,7 @@
 &lt;/blockquote>
 &lt;/li>
 &lt;/ol>
-&lt;h2 id="update-logo">Update Logo&lt;/h2>
+&lt;h1 id="update-logo">Update Logo&lt;/h1>
 &lt;ol>
 &lt;li>
 &lt;p>Create Account on Keybase: &lt;a href="https://keybase.io">https://keybase.io&lt;/a>&lt;/p>
