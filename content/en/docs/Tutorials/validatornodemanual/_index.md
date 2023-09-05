@@ -1,8 +1,8 @@
 ---
 categories: ["Tutorial"]
 tags: ["step-by-step", "validator", "docs"]
-title: "Validator Node Manual Installation"
-linkTitle: "Validator Node Manual Installation"
+title: "2. Validator Node Manual Installation"
+linkTitle: "2. Validator Node Manual Installation"
 date: 2023-03-15
 weight: 40
 description: >
