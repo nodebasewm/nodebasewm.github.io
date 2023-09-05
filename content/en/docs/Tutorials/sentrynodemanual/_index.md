@@ -69,6 +69,7 @@ Now, with that warning out of the way, we shall proceed with the guide!
     mkdir ~/earthnode_installer
     cd ~/earthnode_installer
     wget https://github.com/max-hontar/aya-preview-binaries/releases/download/v0.4.1/aya_preview_501_installer_2023_09_04.zip
+    sudo apt-get -q install unzip -y
     unzip aya_preview_501_installer_2023_09_04.zip
     rm aya_preview_501_installer_2023_09_04.zip
     {{< /highlight>}}
