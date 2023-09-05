@@ -1408,11 +1408,13 @@ c) By clicking on the Connect Wallet Button on the site EarthNode Registration s
 &lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
 &lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
 &lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>mkdir ~/earthnode_installer
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cd ~/earthnode_installer
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>wget https://github.com/max-hontar/aya-preview-binaries/releases/download/v0.4.1/aya_preview_501_installer_2023_09_04.zip
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo apt-get -q install unzip -y
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>unzip aya_preview_501_installer_2023_09_04.zip
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>rm aya_preview_501_installer_2023_09_04.zip&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
