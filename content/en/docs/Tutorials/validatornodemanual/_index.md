@@ -785,7 +785,7 @@ So, we shall now proceed to doing this.
 
     > Note: At this point we want to copy and paste the output of this command, including its surrounding {}s, to a separate, temporary, text file on our machine. 
 
-33. Now we need to open a web browser and navigate to https://enregelm-pub-drasil.apps.testnet.drasil.org/index.html and click on the **EarthNode Registration** tab at the top of the page.
+33. Now we need to open a web browser and navigate to https://tinyurl.com/wmeno and click on the **EarthNode Registration** tab at the top of the page.
 
 34. Next we need to connect our Cardano Preview Testnet Wallet that contains our Testnet EarthNode NFT to be Registered to this EarthNode Registration site.
 
