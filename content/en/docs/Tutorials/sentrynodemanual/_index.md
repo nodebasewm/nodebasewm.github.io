@@ -68,10 +68,9 @@ Now, with that warning out of the way, we shall proceed with the guide!
     {{< highlight bash "linenos=table,style=witchhazel" >}}
     mkdir ~/earthnode_installer
     cd ~/earthnode_installer
-    wget https://cdn.discordapp.com/attachments/1072502970027081749/1072551234340392970/aya_preview_501_installer.zip
-    sudo apt-get -q install unzip -y
-    unzip aya_preview_501_installer.zip 
-    rm aya_preview_501_installer.zip
+    wget https://github.com/max-hontar/aya-preview-binaries/releases/download/v0.4.1/aya_preview_501_installer_2023_09_04.zip
+    unzip aya_preview_501_installer_2023_09_04.zip
+    rm aya_preview_501_installer_2023_09_04.zip
     {{< /highlight>}}
  
 6. Now we confirm that the included binaries for ayad and cosmovisor match their release_checksums values as provided by World Mobile. Check that the output of both commands match one another. 
@@ -271,7 +270,7 @@ Now, with that warning out of the way, we shall proceed with the guide!
     TRUST_HASH=$(curl -s "http://peer1-501.worldmobilelabs.com:36657/block?height=${BLOCK_HEIGHT}" | jq -r .result.block_id.hash)
 
     # Set available RPC servers (at least two) required for light client snapshot verification
-    sed -i -E "s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"http://peer1-501.worldmobilelabs.com:36657,http://peer2-501.worldmobilelabs.com:36658\"|" "${aya_home}"/config/config.toml
+    sed -i -E "s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"http://peer1-501.worldmobilelabs.com:36657,http://peer2-501.worldmobilelabs.com:26657\"|" "${aya_home}"/config/config.toml
     # Set "safe" trusted block height
     sed -i -E "s|^(trust_height[[:space:]]+=[[:space:]]+).*$|\1$BLOCK_HEIGHT|" "${aya_home}"/config/config.toml
     # Set "qsafe" trusted block hash
