@@ -100,10 +100,10 @@ Now, with this introduction, and its various warnings, out of the way, we shall 
     {{< highlight bash "linenos=table,style=witchhazel" >}}
     mkdir ~/earthnode_installer
     cd ~/earthnode_installer
-    wget https://cdn.discordapp.com/attachments/1072502970027081749/1072551234340392970/aya_preview_501_installer.zip
+    wget https://github.com/max-hontar/aya-preview-binaries/releases/download/v0.4.1/aya_preview_501_installer_2023_09_04.zip
     sudo apt-get -q install unzip -y
-    unzip aya_preview_501_installer.zip 
-    rm aya_preview_501_installer.zip
+    unzip aya_preview_501_installer_2023_09_04.zip
+    rm aya_preview_501_installer_2023_09_04.zip
     {{< /highlight>}}
  
 6. Now we confirm that the included binaries for ayad and cosmovisor match their release_checksums values as provided by World Mobile. Check that the output of both commands match one another. 
