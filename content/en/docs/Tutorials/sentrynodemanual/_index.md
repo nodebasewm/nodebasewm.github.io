@@ -1,7 +1,7 @@
 ---
 categories: ["Tutorial"]
 tags: ["step-by-step", "sentry", "docs"]
-title: "Sentry Node Manual Installation"
+title: "1. Sentry Node Manual Installation"
 linkTitle: "1. Sentry Node Manual Installation"
 date: 2023-03-02
 weight: 40
