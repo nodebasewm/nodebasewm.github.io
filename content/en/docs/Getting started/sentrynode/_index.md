@@ -13,7 +13,7 @@ description: >
 
 # Installation
 Installing a sentry node requires a different installation procedure than 
-a validor node.
+a validator node.
 
 The install_node.sh script provided by the WM team only covers validator nodes, and does not apply for sentry nodes. With some small adjustments
 this script can be adjusted to be used to install sentry nodes
