@@ -1269,7 +1269,7 @@ They &lt;strong>can&lt;/strong> be the same name.&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>nano config.toml&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>
-&lt;p>We are now back in the nano text editor, looking at the config.toml file contents for our Sentry Node.&lt;/p>
+&lt;p>We are now back in the nano text editor, looking at the config.toml file contents for our Validator Node.&lt;/p>
 &lt;p>We now make the necessary changes to this file as follows&lt;/p>
 &lt;ul>
 &lt;li>change the &lt;strong>statesync&lt;/strong> option to be &lt;strong>enable = false&lt;/strong> instead of &lt;strong>true&lt;/strong>&lt;/li>
