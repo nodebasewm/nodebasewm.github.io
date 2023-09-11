@@ -534,7 +534,7 @@ We can now to return to our Valdiator Node to complete the rest of its set up.
     nano config.toml
     {{< /highlight>}}
 
-    We are now back in the nano text editor, looking at the config.toml file contents for our Sentry Node. 
+    We are now back in the nano text editor, looking at the config.toml file contents for our Validator Node. 
 
     We now make the necessary changes to this file as follows
 
