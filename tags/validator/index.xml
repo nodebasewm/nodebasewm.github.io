@@ -1084,7 +1084,7 @@ They &lt;strong>can&lt;/strong> be the same name.&lt;/p>
 &lt;/div>
 &lt;/div>&lt;/li>
 &lt;/ul>
-&lt;p>At this point the initial editing work to our &lt;strong>app.toml&lt;/strong> file is done, and it can now be saved with these changes.&lt;/p>
+&lt;p>At this point the editing work to our &lt;strong>app.toml&lt;/strong> file is done, and it can now be saved with these changes.&lt;/p>
 &lt;p>To save the app.toml file within nano editor we press &lt;strong>ctrl+x&lt;/strong> and then &lt;strong>press y&lt;/strong>, followed by &lt;strong>enter&lt;/strong>. This will save the file with the same filename as before.&lt;/p>
 &lt;/li>
 &lt;li>
