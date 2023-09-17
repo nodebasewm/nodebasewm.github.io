@@ -285,12 +285,12 @@ So, we shall now proceed to doing this.
     ayad query chainfollower list-root | grep $operator_address
     {{< /highlight>}}
    
-    If entering this command returns back a result that looks like the following, with the ayavalcons1 part of the response appearing fully in red. 
+    We are now checking to see if entering this command returns back a result that looks like the following, with the **ayavalcons1** part of the response appearing fully in red. 
 
     {{< highlight bash "linenos=table,style=witchhazel" >}}
     val_addr: ayavalcons1<various lowercase letters and numbers>
     {{< /highlight>}}
 
-**Congratulations!** We have now successfully completed setting up our Validator to be a full Chain Follwer Committee!
+If it does, **Congratulations!** We have now successfully completed setting up our Validator to be a full Chain Follwer Committee!
 
 
