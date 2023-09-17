@@ -1068,7 +1068,7 @@ They &lt;strong>can&lt;/strong> be the same name.&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>address &lt;span style="color:#ffb8d1">=&lt;/span> &lt;span style="color:#1bc5e0">&amp;#34;0.0.0.0:29090&amp;#34;&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;/li>
-&lt;li>Change gas price units for our network to be 0uswmt instead of 0stake
+&lt;li>Make sure that the gas price units for our network are set to be 0uswmt
 &lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -1083,23 +1083,7 @@ They &lt;strong>can&lt;/strong> be the same name.&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>minimum-gas-prices &lt;span style="color:#ffb8d1">=&lt;/span> &lt;span style="color:#1bc5e0">&amp;#34;0uswmt&amp;#34;&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;/li>
-&lt;li>Set snapshot interval to 999999999999 instead of 0 to activate the snapshot manager&lt;/li>
 &lt;/ul>
-&lt;blockquote>
-&lt;p>Note: At time of writing this guide this is step that needs completed as a &lt;em>temporary&lt;/em> fix for &lt;a href="https://github.com/cosmos/cosmos-sdk/issues/13766">https://github.com/cosmos/cosmos-sdk/issues/13766&lt;/a>, this change will not be needed after newer versions of the cosmos sdk become available. It will be removed from this guide once it is no longer required.
-&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#b0bec5"># snapshot-interval specifies the block interval at which local state sync snapshots are&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#b0bec5"># taken (0 to disable).&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>snapshot-interval &lt;span style="color:#ffb8d1">=&lt;/span> &lt;span style="color:#c5a3ff">999999999999&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;/p>
-&lt;/blockquote>
 &lt;p>At this point the initial editing work to our &lt;strong>app.toml&lt;/strong> file is done, and it can now be saved with these changes.&lt;/p>
 &lt;p>To save the app.toml file within nano editor we press &lt;strong>ctrl+x&lt;/strong> and then &lt;strong>press y&lt;/strong>, followed by &lt;strong>enter&lt;/strong>. This will save the file with the same filename as before.&lt;/p>
 &lt;/li>
@@ -1128,18 +1112,6 @@ They &lt;strong>can&lt;/strong> be the same name.&lt;/p>
 &lt;li>
 &lt;p>Before proceeding to start up our Valdiator Node for the first time we will need to install some monitoring software to see what it is doing once active.&lt;/p>
 &lt;p>So we are first going to install some prerequisites for the monitoring software, and then install the software itself.&lt;/p>
-&lt;p>We do this by entering the following group of commands&lt;/p>
-&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo apt-get -q install golang -y&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>
-&lt;/li>
-&lt;li>
-&lt;p>With these prerequisites installed we can now download and extract the monitoring software to a good location to use it in future.&lt;/p>
 &lt;p>We do this by entering the following group of commands&lt;/p>
 &lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -1190,17 +1162,32 @@ They &lt;strong>can&lt;/strong> be the same name.&lt;/p>
 &lt;p>If we haven&amp;rsquo;t yet set up our Firewall Rules at all, we can follow the steps laid out over at &lt;a href="/docs/configuration/firewall/">Firewall Configuration&lt;/a> to do this.&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>With the Firewall Rules added we are now going to start up our Valdiator Node for the first time, manually.&lt;/p>
+&lt;p>Now we shall set up some variables that will be used in the next step to allow us to quickly manually start up our Validator, and let it begin its statesync process.&lt;/p>
+&lt;p>We do this by entering the following group of commands&lt;/p>
+&lt;blockquote>
+&lt;p>Note: We need to &lt;strong>make sure&lt;/strong> we have replaced &lt;strong>&amp;lt;Sentry.Node1.Private.IP&amp;gt;&lt;/strong> and &lt;strong>&amp;lt;Sentry.Node1.Private.IP&amp;gt;&lt;/strong> below with the &lt;em>Private IP addresses&lt;/em> that come from each of our Sentry Nodes, removing the surrounding **&amp;lt;&amp;gt;&lt;em>s&lt;/em>, before entering this group of commands.&lt;/p>
+&lt;p>We can do this by copying the above group of commands below into a separate, temporary, text file and making any required edits before finally copying and pasting them into our Validator Node&amp;rsquo;s terminal window.&lt;/p>
+&lt;/blockquote>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>RPC_PEER_1&lt;span style="color:#ffb8d1">=&lt;/span>&lt;span style="color:#1bc5e0">&amp;#34;**&amp;lt;Sentry.Node1.Private.IP&amp;gt;**&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>RPC_PEER_1&lt;span style="color:#ffb8d1">=&lt;/span>&lt;span style="color:#1bc5e0">&amp;#34;**&amp;lt;Sentry.Node1.Private.IP&amp;gt;**&amp;#34;&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>
+&lt;/li>
+&lt;li>
+&lt;p>With the Firewall Rules, and our Sentry Nodes&amp;rsquo; Private IP addresses set, added we are now going to start up our Valdiator Node for the first time, manually.&lt;/p>
 &lt;blockquote>
 &lt;p>Note: Later we will be setting up a service file to have our Node automatically restart on Server reboot, or following a crash. For now though we will proceed manually.&lt;/p>
 &lt;/blockquote>
 &lt;p>We do this by entering the following group of commands&lt;/p>
 &lt;blockquote>
 &lt;p>Note: There is a lot of automated scripting shown below that has to be run before first boot of Node to ensure that it will start to sync the chain. It will not be needed again for future start ups.&lt;/p>
-&lt;p>This scripting has within it both &lt;strong>&amp;lt;Sentry.Node1.Private.IP&amp;gt;&lt;/strong> and &lt;strong>&amp;lt;Sentry.Node1.Private.IP&amp;gt;&lt;/strong> sections that we &lt;strong>need to change&lt;/strong> to be each of our respective already configured Sentry Nodes&amp;rsquo; IPs.&lt;/p>
-&lt;p>We need to &lt;strong>make sure&lt;/strong> we have replaced &lt;strong>&amp;lt;Sentry.Node1.Private.IP&amp;gt;&lt;/strong> and &lt;strong>&amp;lt;Sentry.Node1.Private.IP&amp;gt;&lt;/strong> with those IPs, removing the surrounding &amp;lt;&amp;gt;, before entering this group of commands.&lt;/p>
-&lt;p>We can do this by copying the group of commands below into a separate, temporary, text file and making any required edits before finally copying and pasting them into our Validator Node&amp;rsquo;s terminal window.&lt;/p>
-&lt;p>Failure to replace &lt;strong>all&lt;/strong> instances will cause the first run of our Validator to fail.&lt;/p>
+&lt;p>We need to &lt;strong>make sure&lt;/strong> that this whole set of commands is copied and pasted into our Terminal window as a single, whole, blob of commands, and is not entered piecemeal, for the blob to work properly.&lt;/p>
 &lt;/blockquote>
 &lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -1223,12 +1210,12 @@ They &lt;strong>can&lt;/strong> be the same name.&lt;/p>
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>INTERVAL&lt;span style="color:#ffb8d1">=&lt;/span>&lt;span style="color:#c5a3ff">100&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>LATEST_HEIGHT&lt;span style="color:#ffb8d1">=&lt;/span>&lt;span style="color:#c2ffdf">$(&lt;/span>curl -s &lt;span style="color:#1bc5e0">&amp;#34;&amp;lt;Sentry.Node1.Private.IP&amp;gt;:26657/block&amp;#34;&lt;/span> | jq -r .result.block.header.height&lt;span style="color:#c2ffdf">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>LATEST_HEIGHT&lt;span style="color:#ffb8d1">=&lt;/span>&lt;span style="color:#c2ffdf">$(&lt;/span>curl -s &lt;span style="color:#1bc5e0">&amp;#34;&lt;/span>&lt;span style="color:#1bc5e0">${&lt;/span>RPC_PEER_1&lt;span style="color:#1bc5e0">}&lt;/span>&lt;span style="color:#1bc5e0">:26657/block&amp;#34;&lt;/span> | jq -r .result.block.header.height&lt;span style="color:#c2ffdf">)&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>BLOCK_HEIGHT&lt;span style="color:#ffb8d1">=&lt;/span>&lt;span style="color:#c2ffdf">$((&lt;/span>&lt;span style="color:#ffb8d1">(&lt;/span>&lt;span style="color:#c2ffdf">$((&lt;/span>LATEST_HEIGHT &lt;span style="color:#ffb8d1">/&lt;/span> INTERVAL&lt;span style="color:#c2ffdf">))&lt;/span> &lt;span style="color:#ffb8d1">-&lt;/span> &lt;span style="color:#c5a3ff">1&lt;/span>&lt;span style="color:#ffb8d1">)&lt;/span> &lt;span style="color:#ffb8d1">*&lt;/span> INTERVAL &lt;span style="color:#ffb8d1">+&lt;/span> &lt;span style="color:#c2ffdf">$((&lt;/span>INTERVAL &lt;span style="color:#ffb8d1">/&lt;/span> &lt;span style="color:#c5a3ff">2&lt;/span>&lt;span style="color:#c2ffdf">))))&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>TRUST_HASH&lt;span style="color:#ffb8d1">=&lt;/span>&lt;span style="color:#c2ffdf">$(&lt;/span>curl -s &lt;span style="color:#1bc5e0">&amp;#34;&amp;lt;Sentry.Node1.Private.IP&amp;gt;:26657/block?height=&lt;/span>&lt;span style="color:#1bc5e0">${&lt;/span>BLOCK_HEIGHT&lt;span style="color:#1bc5e0">}&lt;/span>&lt;span style="color:#1bc5e0">&amp;#34;&lt;/span> | jq -r .result.block_id.hash&lt;span style="color:#c2ffdf">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>TRUST_HASH&lt;span style="color:#ffb8d1">=&lt;/span>&lt;span style="color:#c2ffdf">$(&lt;/span>curl -s &lt;span style="color:#1bc5e0">&amp;#34;&lt;/span>&lt;span style="color:#1bc5e0">${&lt;/span>RPC_PEER_1&lt;span style="color:#1bc5e0">}&lt;/span>&lt;span style="color:#1bc5e0">:26657/block?height=&lt;/span>&lt;span style="color:#1bc5e0">${&lt;/span>BLOCK_HEIGHT&lt;span style="color:#1bc5e0">}&lt;/span>&lt;span style="color:#1bc5e0">&amp;#34;&lt;/span> | jq -r .result.block_id.hash&lt;span style="color:#c2ffdf">)&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#b0bec5"># Set available RPC servers (at least two) required for light client snapshot verification&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sed -i -E &lt;span style="color:#1bc5e0">&amp;#34;s|^(rpc_servers[[:space:]]+=[[:space:]]+).*&lt;/span>$&lt;span style="color:#1bc5e0">|\1\&amp;#34;&amp;lt;Sentry.Node1.Private.IP&amp;gt;:26657,&amp;lt;Sentry.Node2.Private.IP&amp;gt;:26657\&amp;#34;|&amp;#34;&lt;/span> &lt;span style="color:#1bc5e0">&amp;#34;&lt;/span>&lt;span style="color:#1bc5e0">${&lt;/span>aya_home&lt;span style="color:#1bc5e0">}&lt;/span>&lt;span style="color:#1bc5e0">&amp;#34;&lt;/span>/config/config.toml
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sed -i -E &lt;span style="color:#1bc5e0">&amp;#34;s|^(rpc_servers[[:space:]]+=[[:space:]]+).*&lt;/span>$&lt;span style="color:#1bc5e0">|\1\&amp;#34;&lt;/span>&lt;span style="color:#1bc5e0">${&lt;/span>RPC_PEER_1&lt;span style="color:#1bc5e0">}&lt;/span>&lt;span style="color:#1bc5e0">:26657,&lt;/span>&lt;span style="color:#1bc5e0">${&lt;/span>RPC_PEER_2&lt;span style="color:#1bc5e0">}&lt;/span>&lt;span style="color:#1bc5e0">:26657\&amp;#34;|&amp;#34;&lt;/span> &lt;span style="color:#1bc5e0">&amp;#34;&lt;/span>&lt;span style="color:#1bc5e0">${&lt;/span>aya_home&lt;span style="color:#1bc5e0">}&lt;/span>&lt;span style="color:#1bc5e0">&amp;#34;&lt;/span>/config/config.toml
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#b0bec5"># Set &amp;#34;safe&amp;#34; trusted block height&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sed -i -E &lt;span style="color:#1bc5e0">&amp;#34;s|^(trust_height[[:space:]]+=[[:space:]]+).*&lt;/span>$&lt;span style="color:#1bc5e0">|\1&lt;/span>$BLOCK_HEIGHT&lt;span style="color:#1bc5e0">|&amp;#34;&lt;/span> &lt;span style="color:#1bc5e0">&amp;#34;&lt;/span>&lt;span style="color:#1bc5e0">${&lt;/span>aya_home&lt;span style="color:#1bc5e0">}&lt;/span>&lt;span style="color:#1bc5e0">&amp;#34;&lt;/span>/config/config.toml
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#b0bec5"># Set &amp;#34;qsafe&amp;#34; trusted block hash&lt;/span>
@@ -1302,35 +1289,8 @@ They &lt;strong>can&lt;/strong> be the same name.&lt;/p>
 &lt;/div>
 &lt;p>At this point the tidy up editing work to our config.toml file is done, and it can now be saved with these changes.&lt;/p>
 &lt;p>To save the config.toml file within nano editor we press ctrl+x and then press y, followed by enter. This will save the file with the same filename as before.&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>Next we need to make a change to the app.toml file contents for our Sentry Node.&lt;/p>
-&lt;p>We do this by entering the following command
-&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>nano app.toml&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;/p>
-&lt;p>And we edit the following section of the file to the below setting, changing it from being 999999999999 to being 0.&lt;/p>
-&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#b0bec5"># snapshot-interval specifies the block interval at which local state sync snapshots are&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#b0bec5"># taken (0 to disable).&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>snapshot-interval &lt;span style="color:#ffb8d1">=&lt;/span> &lt;span style="color:#c5a3ff">0&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>
-&lt;p>At this point the tidy up editing work to our app.toml file is done, and it can now be saved with these changes.&lt;/p>
-&lt;p>To save the app.toml file within nano editor we press ctrl+x and then press y, followed by enter. This will save the file with the same filename as before.&lt;/p>
 &lt;blockquote>
-&lt;p>Note: These &lt;strong>config.toml&lt;/strong> and &lt;strong>app.toml&lt;/strong> file edits above should only be completed once we are SURE that our Node is up to date with the current state of the Chain. We DO NOT make this edit before our Node has fully synced to the current Block Height ayaview, and is adding a new Block around every 5-6 seconds.&lt;/p>
+&lt;p>Note: This &lt;strong>config.toml&lt;/strong> file edit above should only be completed once we are SURE that our Node is up to date with the current state of the Chain. We DO NOT make this edit before our Node has fully synced to the current Block Height ayaview, and is adding a new Block around every 5-6 seconds.&lt;/p>
 &lt;/blockquote>
 &lt;/li>
 &lt;li>
@@ -1612,7 +1572,7 @@ Note: We replace &lt;code>&amp;lt;number&amp;gt;&lt;/code> with our noted number
 &lt;blockquote>
 &lt;p>Note: Before proceeding, we press q to leave ayaview.&lt;/p>
 &lt;/blockquote>
-&lt;ol start="31">
+&lt;ol start="30">
 &lt;li>
 &lt;p>First we need to obtain the details needed for our ENNFT Registration on the Cardano Blockchain side of the equation. We have actually already been shown them earlier, but let&amp;rsquo;s just get them again.&lt;/p>
 &lt;p>We do this by entering the following command&lt;/p>
@@ -1764,9 +1724,22 @@ c) By clicking on the Connect Wallet Button on the site EarthNode Registration s
 &lt;/div>
 &lt;/li>
 &lt;li>
-&lt;p>Finally, we now need to go and see if our Validator has been successfully Registered on the Aya Blockchain Network by opening our browser and going to &lt;a href="https://wmexplorer.info/validators">https://wmexplorer.info/validators&lt;/a>&lt;/p>
-&lt;p>Once there we need to click on the &amp;lsquo;All Validators&amp;rsquo; tab and scroll down until we see the Monkier we gave our EarthNode Stake Pool appear in the list.&lt;/p>
-&lt;p>If all of our work above has been successful we should not &lt;strong>only&lt;/strong> see our Moniker appear on this list, but it should &lt;strong>also&lt;/strong> have Voting Power of &lt;strong>100&lt;/strong> in the green &amp;lsquo;Voting Power&amp;rsquo; Column on the table and have a status of &lt;strong>Active&lt;/strong> &lt;em>(shown in blue)&lt;/em> in the &amp;lsquo;Status&amp;rsquo; Column.&lt;/p>
+&lt;p>Now we now need to go and see if our Validator has been successfully Registered on the Aya Blockchain Network by opening our browser and going to &lt;a href="https://wmt-explorer.com/Testnet">https://wmt-explorer.com/Testnet&lt;/a>&lt;/p>
+&lt;p>Once there we need to look at the &amp;lsquo;New joined EarthNode Validators&amp;rsquo; section and check to see if the Monkier we gave our EarthNode Stake Pool has appeared in the list.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Finally, we need to go back to ayaview and make sure the status of our Node has been updated to say that the Validator is now BONDED and Active On-Chain. Which should be visable in the upper left box of the ayaview console.&lt;/p>
+&lt;p>We do this by entering the following group of commands
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>cd ~/nodebase-tools
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>./ayaview&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;p>If both of these conditions are true, &lt;strong>Congratulations!&lt;/strong> We have now successfully completed setting up both our Validator Node &lt;strong>AND&lt;/strong> our EarthNode Stake Pool!&lt;/p></description></item></channel></rss>
+&lt;p>If the Moniker appears, and ayaview reports what we are expecting to see, &lt;strong>Congratulations!&lt;/strong> We have now successfully completed setting up both our Validator Node &lt;strong>AND&lt;/strong> our EarthNode Stake Pool!&lt;/p></description></item></channel></rss>
