@@ -2032,7 +2032,7 @@ Which Registered Cardano Chain Folllower Validators get to become a part of the 
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>ayad tx cce set-val-acc --home /opt/aya --from **&amp;lt;account&amp;gt;** --chain-id aya_preview_501 -y&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>ayad tx cce set-val-acc --home /opt/aya --from &amp;lt;account&amp;gt; --chain-id aya_preview_501 -y&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>
 &lt;blockquote>
@@ -2075,7 +2075,7 @@ Which Registered Cardano Chain Folllower Validators get to become a part of the 
 &lt;/li>
 &lt;li>
 &lt;p>Before proceeding to the next step, we need to wait long enough so that the 1st Registration step fully completed as expected. We are waiting for the Transaction that was just posted to the Aya Blockchain to make its way to a fully Minted Block, and to form a part of that Block&amp;rsquo;s list of Transactions.&lt;/p>
-&lt;p>We can look to see if and when this Transaction has made it to the Aya Blockchain by going to &lt;a href="https://wmt-exploer.com/Testnet">https://wmt-exploer.com/Testnet&lt;/a>.&lt;/p>
+&lt;p>We can look to see if and when this Transaction has made it to the Aya Blockchain by going to &lt;a href="https://wmt-explorer.com/Testnet">https://wmt-explorer.com/Testnet&lt;/a>.&lt;/p>
 &lt;p>Once there we need to look at the ‘Latest Transactions’ section and check to see if the &amp;lsquo;MsgSetValAcc&amp;rsquo; Transaction we just sent has appeared on the Blockchain History.&lt;/p>
 &lt;p>When we see it appear, we can then move on to the next step.&lt;/p>
 &lt;/li>
@@ -2130,7 +2130,7 @@ Which Registered Cardano Chain Folllower Validators get to become a part of the 
 &lt;/li>
 &lt;li>
 &lt;p>Before proceeding to the next step, we need to wait long enough so that the 2nd Registration step fully completed as expected. We are waiting for the Transaction that was just posted to the Aya Blockchain to make its way to a fully Minted Block, and to form a part of that Block&amp;rsquo;s list of Transactions.&lt;/p>
-&lt;p>We can look to see if and when this Transaction has made it to the Aya Blockchain by going to &lt;a href="https://wmt-exploer.com/Testnet">https://wmt-exploer.com/Testnet&lt;/a>.&lt;/p>
+&lt;p>We can look to see if and when this Transaction has made it to the Aya Blockchain by going to &lt;a href="https://wmt-explorer.com/Testnet">https://wmt-explorer.com/Testnet&lt;/a>.&lt;/p>
 &lt;p>Once there we need to look at the ‘Latest Transactions’ section and check to see if the &amp;lsquo;MsgSendRoot&amp;rsquo; Transaction we just sent has appeared on the Blockchain History.&lt;/p>
 &lt;/li>
 &lt;li>
