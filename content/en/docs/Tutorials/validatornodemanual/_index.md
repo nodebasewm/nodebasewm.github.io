@@ -423,9 +423,7 @@ We can now to return to our Valdiator Node to complete the rest of its set up.
     ulimit -Sn 4096
     {{< /highlight>}}
 
-19. Before proceeding to start up our Valdiator Node for the first time we will need to install some monitoring software to see what it is doing once active. 
-
-    So we are first going to install some prerequisites for the monitoring software, and then install the software itself.
+19. Before proceeding to start up our Valdiator Node for the first time we will need to install some live monitoring software to see what it is doing once active. 
 
     We do this by entering the following group of commands
     
@@ -485,12 +483,12 @@ We can now to return to our Valdiator Node to complete the rest of its set up.
 
     {{< highlight bash "linenos=table,style=witchhazel" >}}
     INTERVAL=100
-    LATEST_HEIGHT=$(curl -s "${RPC_PEER_1}:26657/block" | jq -r .result.block.header.height)
+    LATEST_HEIGHT=$(curl -s ""${RPC_PEER_1}":26657/block" | jq -r .result.block.header.height)
     BLOCK_HEIGHT=$((($((LATEST_HEIGHT / INTERVAL)) - 1) * INTERVAL + $((INTERVAL / 2))))
-    TRUST_HASH=$(curl -s "${RPC_PEER_1}:26657/block?height=${BLOCK_HEIGHT}" | jq -r .result.block_id.hash)
+    TRUST_HASH=$(curl -s ""${RPC_PEER_1}":26657/block?height=${BLOCK_HEIGHT}" | jq -r .result.block_id.hash)
 
     # Set available RPC servers (at least two) required for light client snapshot verification
-    sed -i -E "s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"${RPC_PEER_1}:26657,${RPC_PEER_2}:26657\"|" "${aya_home}"/config/config.toml
+    sed -i -E "s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\""${RPC_PEER_1}":26657,"${RPC_PEER_2}":26657\"|" "${aya_home}"/config/config.toml
     # Set "safe" trusted block height
     sed -i -E "s|^(trust_height[[:space:]]+=[[:space:]]+).*$|\1$BLOCK_HEIGHT|" "${aya_home}"/config/config.toml
     # Set "qsafe" trusted block hash
