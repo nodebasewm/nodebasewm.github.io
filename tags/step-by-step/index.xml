@@ -1527,7 +1527,7 @@ They &lt;strong>can&lt;/strong> be the same name.&lt;/p>
 &lt;/div>
 &lt;/li>
 &lt;li>
-&lt;p>With the Firewall Rules, and our Sentry Nodes&amp;rsquo; Private IP addresses set, added we are now going to start up our Valdiator Node for the first time, manually.&lt;/p>
+&lt;p>With the Firewall Rules added, and our Sentry Nodes&amp;rsquo; Private IP addresses set, we are now going to start up our Valdiator Node for the first time, manually.&lt;/p>
 &lt;blockquote>
 &lt;p>Note: Later we will be setting up a service file to have our Node automatically restart on Server reboot, or following a crash. For now though we will proceed manually.&lt;/p>
 &lt;/blockquote>
