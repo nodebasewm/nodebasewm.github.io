@@ -189,8 +189,10 @@ So, we shall now proceed to doing this.
 
 11. Now we need submit our 1st of 2 Transactions to complete formal Registration to be a part of the Cardano Chain Follower Committee **Root list**.
 
-    > Note: The Root list is a list of viable Registered Cardano Chain Follwer Validators that can be selected from to become a part of the Committee Leader set in a given Epoch. 
-    > Which Registered Cardano Chain Folllower Validators get to become a part of the *current* Leader set is determined by the Aya Chain itself.
+    > Note: The Root list is a list of **all** viable Registered Cardano Chain Follwer Validators that can be selected from to become a part of the Committee **Leader set** in any given Epoch. 
+    > The Leader set are the smaller, rotating, sub-group of Validators from the overall Committee of Registered Validators that have the job of monitoring for specific Transaction information on the Cardano Blockchain, interpreting that information, and carrying out any actions that need to be taken on the Aya Network Blockchain as a result it.
+    >
+    > **Which** Registered Cardano Chain Folllower Validators get to become a part of the *current* Leader set is determined by the Aya Chain itself, on a rotational basis.
 
     We do this by entering the following command
 
@@ -228,7 +230,7 @@ So, we shall now proceed to doing this.
 
     When we see it appear, we can then move on to the next step.
 
-13. Now we need submit our 2nd of 2 Transactions to complete formal Registration to be a part of the Cardano Chain Follower Committee Leader Pool.
+13. Now we need submit our 2nd of 2 Transactions to complete formal Registration to be a part of the Cardano Chain Follower Committee Root list.
 
     We do this by entering the following command
 
