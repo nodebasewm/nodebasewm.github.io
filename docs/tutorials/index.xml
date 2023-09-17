@@ -2038,7 +2038,7 @@ c) By clicking on the Connect Wallet Button on the site EarthNode Registration s
 &lt;p>Once there we need to look at the &amp;lsquo;New joined EarthNode Validators&amp;rsquo; section and check to see if the Monkier we gave our EarthNode Stake Pool has appeared in the list.&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>Finally, we need to go back to ayaview and make sure the status of our Node has been updated to say that the Validator is now BONDED and Active On-Chain. Which should be visable in the upper left box of the ayaview console.&lt;/p>
+&lt;p>Finally, we need to go back to ayaview and make sure the status of our Node has been updated to say that the Validator reports &lt;strong>Status: BONDED&lt;/strong> and &lt;strong>Signing: Active&lt;/strong>. Which should be visable in the upper left box of the ayaview console.&lt;/p>
 &lt;p>We do this by entering the following group of commands
 &lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -2052,4 +2052,4 @@ c) By clicking on the Connect Wallet Button on the site EarthNode Registration s
 &lt;/div>&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;p>If the Moniker appears, and ayaview reports what we are expecting to see, &lt;strong>Congratulations!&lt;/strong> We have now successfully completed setting up both our Validator Node &lt;strong>AND&lt;/strong> our EarthNode Stake Pool!&lt;/p></description></item></channel></rss>
+&lt;p>If the Moniker appears om the wmt-exploer website, and ayaview reports what we are expecting to see above, &lt;strong>Congratulations!&lt;/strong> We have now successfully completed setting up both our Validator Node &lt;strong>AND&lt;/strong> our EarthNode Stake Pool!&lt;/p></description></item></channel></rss>
