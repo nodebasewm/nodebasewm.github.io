@@ -463,14 +463,14 @@ We can now to return to our Valdiator Node to complete the rest of its set up.
 
     We do this by entering the following group of commands
 
-    > Note: We need to **make sure** we have replaced  **<Sentry.Node1.Private.IP>** and **<Sentry.Node1.Private.IP>** below with the *Private IP addresses* that come from each of our Sentry Nodes, removing the surrounding **<>*s*, before entering this group of commands.
+    > Note: We need to **make sure** we have replaced  **<Sentry.Node1.Private.IP>** and **<Sentry.Node2.Private.IP>** below with the **Private IP addresses** that come from each of our Sentry Nodes, removing the surrounding **<>s**, before entering this group of commands.
     >
     > We can do this by copying the above group of commands below into a separate, temporary, text file and making any required edits before finally copying and pasting them into our Validator Node's terminal window.  
 
     
     {{< highlight bash "linenos=table,style=witchhazel" >}}
     RPC_PEER_1="<Sentry.Node1.Private.IP>"
-    RPC_PEER_1="<Sentry.Node1.Private.IP>"
+    RPC_PEER_1="<Sentry.Node2.Private.IP>"
     {{< /highlight>}}
 
 22. With the Firewall Rules, and our Sentry Nodes' Private IP addresses set, added we are now going to start up our Valdiator Node for the first time, manually. 
