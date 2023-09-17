@@ -481,7 +481,7 @@ We can now to return to our Valdiator Node to complete the rest of its set up.
     
     > Note: There is a lot of automated scripting shown below that has to be run before first boot of Node to ensure that it will start to sync the chain. It will not be needed again for future start ups.
     >
-    > We need to **make sure** that this whole set of commands is copied and pasted into our Terminal window as a single, whole, blob of commands, and is not entered piecemeal, for the blob to work properly.
+    > We need to **make sure** that this **whole set** of commands below is copied and pasted into our Terminal window as a **single, whole, blob**, and is **not** entered piecemeal, in order for the blob to work properly.
 
     {{< highlight bash "linenos=table,style=witchhazel" >}}
     INTERVAL=100
