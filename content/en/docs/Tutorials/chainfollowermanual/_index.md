@@ -191,7 +191,7 @@ So, we shall now proceed to doing this.
 
     > Note: The Root list is a list of **all** viable Registered Cardano Chain Follwer Validators that can be selected from to become a part of the Committee **Leader set** in any given Epoch. 
     >
-    > The Leader set are the smaller, rotating, sub-group of Validators from the overall Committee of Registered Validators that have the job of monitoring for specific Transaction information on the Cardano Blockchain, interpreting that information, and carrying out any actions that need to be taken on the Aya Network Blockchain as a result it.
+    > The Leader set are the smaller, rotating, sub-group of Validators from the overall Committee of Registered Validators that have the job of monitoring for specific Transaction information on the Cardano Blockchain, interpreting that information, and carrying out any actions that need to be taken on the Aya Network Blockchain as a result of that information.
     >
     > **Which** Registered Cardano Chain Folllower Validators get to become a part of the *current* Leader set is determined by the Aya Chain itself, on a rotational basis.
 
