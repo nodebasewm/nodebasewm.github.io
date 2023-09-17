@@ -1187,7 +1187,7 @@ They &lt;strong>can&lt;/strong> be the same name.&lt;/p>
 &lt;p>We do this by entering the following group of commands&lt;/p>
 &lt;blockquote>
 &lt;p>Note: There is a lot of automated scripting shown below that has to be run before first boot of Node to ensure that it will start to sync the chain. It will not be needed again for future start ups.&lt;/p>
-&lt;p>We need to &lt;strong>make sure&lt;/strong> that this whole set of commands is copied and pasted into our Terminal window as a single, whole, blob of commands, and is not entered piecemeal, for the blob to work properly.&lt;/p>
+&lt;p>We need to &lt;strong>make sure&lt;/strong> that this &lt;strong>whole set&lt;/strong> of commands below is copied and pasted into our Terminal window as a &lt;strong>single, whole, blob&lt;/strong>, and is &lt;strong>not&lt;/strong> entered piecemeal, in order for the blob to work properly.&lt;/p>
 &lt;/blockquote>
 &lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
