@@ -471,7 +471,7 @@ We can now to return to our Valdiator Node to complete the rest of its set up.
     RPC_PEER_2="<Sentry.Node2.Private.IP>"
     {{< /highlight>}}
 
-22. With the Firewall Rules, and our Sentry Nodes' Private IP addresses set, added we are now going to start up our Valdiator Node for the first time, manually. 
+22. With the Firewall Rules added, and our Sentry Nodes' Private IP addresses set, we are now going to start up our Valdiator Node for the first time, manually. 
 
     > Note: Later we will be setting up a service file to have our Node automatically restart on Server reboot, or following a crash. For now though we will proceed manually.
 
