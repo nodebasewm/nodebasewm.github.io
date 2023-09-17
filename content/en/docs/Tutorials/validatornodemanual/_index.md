@@ -398,20 +398,12 @@ We can now to return to our Valdiator Node to complete the rest of its set up.
     # Address defines the gRPC server address to bind to.
     address = "0.0.0.0:29090"
     {{< /highlight>}}
-    * Change gas price units for our network to be 0uswmt instead of 0stake
+    * Make sure that the gas price units for our network are set to be 0uswmt
     {{< highlight bash "linenos=table,style=witchhazel" >}}
     # The minimum gas prices a validator is willing to accept for processing a
     # transaction. A transaction's fees must meet the minimum of any denomination
     # specified in this config (e.g. 0.25token1;0.0001token2).
     minimum-gas-prices = "0uswmt"
-    {{< /highlight>}}
-    * Set snapshot interval to 999999999999 instead of 0 to activate the snapshot manager
-
-    > Note: At time of writing this guide this is step that needs completed as a *temporary* fix for https://github.com/cosmos/cosmos-sdk/issues/13766, this change will not be needed after newer versions of the cosmos sdk become available. It will be removed from this guide once it is no longer required. 
-    {{< highlight bash "linenos=table,style=witchhazel" >}}
-    # snapshot-interval specifies the block interval at which local state sync snapshots are
-    # taken (0 to disable).
-    snapshot-interval = 999999999999
     {{< /highlight>}}
 
     At this point the initial editing work to our **app.toml** file is done, and it can now be saved with these changes. 
@@ -435,14 +427,6 @@ We can now to return to our Valdiator Node to complete the rest of its set up.
 
     So we are first going to install some prerequisites for the monitoring software, and then install the software itself.
 
-    We do this by entering the following group of commands 
-    
-    {{< highlight bash "linenos=table,style=witchhazel" >}}
-    sudo apt-get -q install golang -y
-    {{< /highlight>}}
-
-20. With these prerequisites installed we can now download and extract the monitoring software to a good location to use it in future.
-
     We do this by entering the following group of commands
     
     {{< highlight bash "linenos=table,style=witchhazel" >}}
@@ -454,7 +438,7 @@ We can now to return to our Valdiator Node to complete the rest of its set up.
     rm ayaview.zip
     {{< /highlight>}}
 
-21. We will also quickly add some new Firewall Rules to our Server to **only** allow Incoming connections from our already configured Sentry Node's to come into our Validator Node once it has started. 
+20. We will also quickly add some new Firewall Rules to our Server to **only** allow Incoming connections from our already configured Sentry Node's to come into our Validator Node once it has started. 
 
     What command we need to enter to do this will depend on how our Server is set up to handle Firewall Rules. 
 
@@ -475,7 +459,21 @@ We can now to return to our Valdiator Node to complete the rest of its set up.
 
     If we haven't yet set up our Firewall Rules at all, we can follow the steps laid out over at [Firewall Configuration](/docs/configuration/firewall/) to do this.
 
-22. With the Firewall Rules added we are now going to start up our Valdiator Node for the first time, manually. 
+21. Now we shall set up some variables that will be used in the next step to allow us to quickly manually start up our Validator, and let it begin its statesync process.
+
+    We do this by entering the following group of commands
+
+    > Note: We need to **make sure** we have replaced  **<Sentry.Node1.Private.IP>** and **<Sentry.Node1.Private.IP>** below with the *Private IP addresses* that come from each of our Sentry Nodes, removing the surrounding **<>*s*, before entering this group of commands.
+    >
+    > We can do this by copying the above group of commands below into a separate, temporary, text file and making any required edits before finally copying and pasting them into our Validator Node's terminal window.  
+
+    
+    {{< highlight bash "linenos=table,style=witchhazel" >}}
+    RPC_PEER_1="**<Sentry.Node1.Private.IP>**"
+    RPC_PEER_1="**<Sentry.Node1.Private.IP>**"
+    {{< /highlight>}}
+
+22. With the Firewall Rules, and our Sentry Nodes' Private IP addresses set, added we are now going to start up our Valdiator Node for the first time, manually. 
 
     > Note: Later we will be setting up a service file to have our Node automatically restart on Server reboot, or following a crash. For now though we will proceed manually.
 
@@ -483,22 +481,16 @@ We can now to return to our Valdiator Node to complete the rest of its set up.
     
     > Note: There is a lot of automated scripting shown below that has to be run before first boot of Node to ensure that it will start to sync the chain. It will not be needed again for future start ups.
     >
-    > This scripting has within it both **<Sentry.Node1.Private.IP>** and **<Sentry.Node1.Private.IP>** sections that we **need to change** to be each of our respective already configured Sentry Nodes' IPs. 
-    >
-    > We need to **make sure** we have replaced  **<Sentry.Node1.Private.IP>** and **<Sentry.Node1.Private.IP>** with those IPs, removing the surrounding <>, before entering this group of commands. 
-    > 
-    > We can do this by copying the group of commands below into a separate, temporary, text file and making any required edits before finally copying and pasting them into our Validator Node's terminal window.  
-    >
-    > Failure to replace **all** instances will cause the first run of our Validator to fail.
+    > We need to **make sure** that this whole set of commands is copied and pasted into our Terminal window as a single, whole, blob of commands, and is not entered piecemeal, for the blob to work properly.
 
     {{< highlight bash "linenos=table,style=witchhazel" >}}
     INTERVAL=100
-    LATEST_HEIGHT=$(curl -s "<Sentry.Node1.Private.IP>:26657/block" | jq -r .result.block.header.height)
+    LATEST_HEIGHT=$(curl -s "${RPC_PEER_1}:26657/block" | jq -r .result.block.header.height)
     BLOCK_HEIGHT=$((($((LATEST_HEIGHT / INTERVAL)) - 1) * INTERVAL + $((INTERVAL / 2))))
-    TRUST_HASH=$(curl -s "<Sentry.Node1.Private.IP>:26657/block?height=${BLOCK_HEIGHT}" | jq -r .result.block_id.hash)
+    TRUST_HASH=$(curl -s "${RPC_PEER_1}:26657/block?height=${BLOCK_HEIGHT}" | jq -r .result.block_id.hash)
 
     # Set available RPC servers (at least two) required for light client snapshot verification
-    sed -i -E "s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"<Sentry.Node1.Private.IP>:26657,<Sentry.Node2.Private.IP>:26657\"|" "${aya_home}"/config/config.toml
+    sed -i -E "s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"${RPC_PEER_1}:26657,${RPC_PEER_2}:26657\"|" "${aya_home}"/config/config.toml
     # Set "safe" trusted block height
     sed -i -E "s|^(trust_height[[:space:]]+=[[:space:]]+).*$|\1$BLOCK_HEIGHT|" "${aya_home}"/config/config.toml
     # Set "qsafe" trusted block hash
@@ -557,28 +549,9 @@ We can now to return to our Valdiator Node to complete the rest of its set up.
 
     To save the config.toml file within nano editor we press ctrl+x and then press y, followed by enter. This will save the file with the same filename as before.
 
-24. Next we need to make a change to the app.toml file contents for our Sentry Node. 
+    >Note: This **config.toml** file edit above should only be completed once we are SURE that our Node is up to date with the current state of the Chain. We DO NOT make this edit before our Node has fully synced to the current Block Height ayaview, and is adding a new Block around every 5-6 seconds. 
 
-    We do this by entering the following command
-    {{< highlight bash "linenos=table,style=witchhazel" >}}
-    nano app.toml
-    {{< /highlight>}}
-
-    And we edit the following section of the file to the below setting, changing it from being 999999999999 to being 0. 
-
-    {{< highlight bash "linenos=table,style=witchhazel" >}}
-    # snapshot-interval specifies the block interval at which local state sync snapshots are
-    # taken (0 to disable).
-    snapshot-interval = 0
-    {{< /highlight>}}
-
-    At this point the tidy up editing work to our app.toml file is done, and it can now be saved with these changes. 
-
-    To save the app.toml file within nano editor we press ctrl+x and then press y, followed by enter. This will save the file with the same filename as before.
-
-    >Note: These **config.toml** and **app.toml** file edits above should only be completed once we are SURE that our Node is up to date with the current state of the Chain. We DO NOT make this edit before our Node has fully synced to the current Block Height ayaview, and is adding a new Block around every 5-6 seconds. 
-
-25. At present, our Node should be running along nicely in the background and keeping up to date with the current state of the Chain, but we still have to complete some more steps before we have fully completed our Valdiator Node's initial set up. 
+24. At present, our Node should be running along nicely in the background and keeping up to date with the current state of the Chain, but we still have to complete some more steps before we have fully completed our Valdiator Node's initial set up. 
 
     First we to ensure that we have saved all of our Node's important data, needed for future reference both by tools and by us.
 
@@ -601,7 +574,7 @@ We can now to return to our Valdiator Node to complete the rest of its set up.
 
     This will save our Validator Node's data to the filename registration.json in the **/opt/aya** directory.
   
-26. Next we want to set up some symbolic links for the 'ayad' and 'cosmovisor' binaries so that their specific commands can be called from anywhere on our Node's filesystem.
+25. Next we want to set up some symbolic links for the 'ayad' and 'cosmovisor' binaries so that their specific commands can be called from anywhere on our Node's filesystem.
 
     We do this by entering the following group of commands
     {{< highlight bash "linenos=table,style=witchhazel" >}}
@@ -609,7 +582,7 @@ We can now to return to our Valdiator Node to complete the rest of its set up.
     sudo ln -s $aya_home/cosmovisor/cosmovisor /usr/local/bin/cosmovisor >/dev/null 2>&1
     {{< /highlight>}}
 
-27. And finally, we want to create a systemd service file that will allow our Node to automatically start on a reboot of our Server and to automatically attempt to restart itself on any crashes.
+26. And finally, we want to create a systemd service file that will allow our Node to automatically start on a reboot of our Server and to automatically attempt to restart itself on any crashes.
 
     We do this by entering the following group of commands
 
@@ -647,7 +620,7 @@ We can now to return to our Valdiator Node to complete the rest of its set up.
 
     This will have added a new service file to our Server under the path /etc/systemd/system named cosmovisor.service. This service file is what will be called when the Server reboots, or if our Node crashes.
 
-28. With the service now created, we now need to enable it for future use.
+27. With the service now created, we now need to enable it for future use.
 
     We do this by entering the following group of commands
 
@@ -674,7 +647,7 @@ We can now to return to our Valdiator Node to complete the rest of its set up.
 
     If we see this, we know we have successfully installed our Aya Node Service. 
 
-29. All that remains now, is to close down our first run of our Node and to restart it using this newly installed Service instead of manually launching our Node as before.
+28. All that remains now, is to close down our first run of our Node and to restart it using this newly installed Service instead of manually launching our Node as before.
 
     To do this, we need to identify what the current process number of our still running first run Node is. 
 
@@ -740,7 +713,7 @@ We can now to return to our Valdiator Node to complete the rest of its set up.
 
     Some details will be different to the above example, but this should be the general layout. The important point is that it should say 'active (running)' in green.
 
-30. We can now confirm everything is continuing to sync from the Blockchain by going back to our ayaview console and watching to see if the Block Height is still slowly ticking upwards as before.
+29. We can now confirm everything is continuing to sync from the Blockchain by going back to our ayaview console and watching to see if the Block Height is still slowly ticking upwards as before.
 
     We do this by entering the following group of commands
     {{< highlight bash "linenos=table,style=witchhazel" >}}
@@ -756,7 +729,7 @@ So, we shall now proceed to doing this.
 
 > Note: Before proceeding, we press q to leave ayaview. 
 
-31. First we need to obtain the details needed for our ENNFT Registration on the Cardano Blockchain side of the equation. We have actually already been shown them earlier, but let's just get them again.
+30. First we need to obtain the details needed for our ENNFT Registration on the Cardano Blockchain side of the equation. We have actually already been shown them earlier, but let's just get them again.
 
     We do this by entering the following command
 
@@ -776,9 +749,9 @@ So, we shall now proceed to doing this.
 
     > Note: At this point we want to copy and paste the output of this command, including its surrounding {}s, to a separate, temporary, text file on our machine. 
 
-32. Now we need to open a web browser and navigate to https://tinyurl.com/wmeno and click on the **EarthNode Registration** tab at the top of the page.
+31. Now we need to open a web browser and navigate to https://tinyurl.com/wmeno and click on the **EarthNode Registration** tab at the top of the page.
 
-33. Next we need to connect our Cardano Preview Testnet Wallet that contains our Testnet EarthNode NFT to be Registered to this EarthNode Registration site.
+32. Next we need to connect our Cardano Preview Testnet Wallet that contains our Testnet EarthNode NFT to be Registered to this EarthNode Registration site.
 
     We do this by 
 
@@ -789,21 +762,21 @@ So, we shall now proceed to doing this.
 
     > Note: Once our Preview Testnet Wallet is connected the **EarthNode NFTs in your Wallet:** section of the EarthNode Registration site should populate with the EarthNodeNFT# numbers that you hold in your Preview Testnet Wallet.
 
-34. Now we need to click on the EarthNodeNFT# number we wish to associate with our newly set up Validator Node.
+33. Now we need to click on the EarthNodeNFT# number we wish to associate with our newly set up Validator Node.
 
-35. Next we make sure we have RegisterEarthNode selected under the **Select Transaction Type:** Dropdown Menu. 
+34. Next we make sure we have RegisterEarthNode selected under the **Select Transaction Type:** Dropdown Menu. 
 
-36. And now we need to paste in the previously copied information, obtained during step 32 above, into the **Paste Installation Script Output:** Box and press the **Build Transaction** Button.
+35. And now we need to paste in the previously copied information, obtained during step 32 above, into the **Paste Installation Script Output:** Box and press the **Build Transaction** Button.
 
     > Note: We will now be asked for our Preview Testnet Wallet's Spending Password at this point in order to Authorise the Registration Transaction to be Posted On-Chain on the Cardano Preview Testnet Newtork.
 
-37. We need to enter our Spending Password and click Sign. 
+36. We need to enter our Spending Password and click Sign. 
 
     This should then show us a **Transaction Successful!** message on the EarthNode Registration Page along with a Transaction Hash that corresponds to the Transaction ID that will appear on the Cardano Blockchain. 
 
     > Note: Whilst the Transaction itself has now been successfully submitted, it may still take a little bit of time for it to appear On the Cardano Blockchain. There will be a link at the bottom of the EarthNode Registration site that will take us to an external page to reload until we see the Transcation finally go through. Once we see this Transaction appear on that page. We can proceed to the next step.
 
-38. Now we return to our Validator Node's Terminal Window as before, and complete the final steps to get our EarthNode Stake Pool online. The first thing we will do is make sure that our Operator Address received 5 uswmt Tokens to be able to complete the Aya Network side of our Stake Pool Registration. 
+37. Now we return to our Validator Node's Terminal Window as before, and complete the final steps to get our EarthNode Stake Pool online. The first thing we will do is make sure that our Operator Address received 5 uswmt Tokens to be able to complete the Aya Network side of our Stake Pool Registration. 
 
     We do this by entering the following command
 
@@ -826,7 +799,7 @@ So, we shall now proceed to doing this.
 
     > Note: A balance amount of "5" appearing in this output means that The Cardano Transaction triggered our Operator Address being topped up with 5 uswmt to be used to set up our EarthNode Stake Pool on the Aya Blockchain side. The side we are now working with. 
 
-39. Now we need to Register our EarthNode Stake Pool to the Aya Blockchain Network. 
+38. Now we need to Register our EarthNode Stake Pool to the Aya Blockchain Network. 
 
     We do this by entering the following group of commands
 
@@ -854,10 +827,19 @@ So, we shall now proceed to doing this.
     {"height":"0","txhash":"<Transaction Hash containing capital letters and numbers>","codespace":"","code":0,"data":"","raw_log":"[]","logs":[],"info":"","gas_wanted":"0","gas_used":"0","tx":null,"timestamp":"","events":[]}
     {{< /highlight>}}
 
-40. Finally, we now need to go and see if our Validator has been successfully Registered on the Aya Blockchain Network by opening our browser and going to https://wmexplorer.info/validators 
+29. Now we now need to go and see if our Validator has been successfully Registered on the Aya Blockchain Network by opening our browser and going to https://wmt-explorer.com/Testnet
 
-    Once there we need to click on the 'All Validators' tab and scroll down until we see the Monkier we gave our EarthNode Stake Pool appear in the list. 
+    Once there we need to look at the 'New joined EarthNode Validators' section and check to see if the Monkier we gave our EarthNode Stake Pool has appeared in the list. 
 
-    If all of our work above has been successful we should not **only** see our Moniker appear on this list, but it should **also** have Voting Power of **100** in the green 'Voting Power' Column on the table and have a status of **Active** *(shown in blue)* in the 'Status' Column. 
 
-If both of these conditions are true, **Congratulations!** We have now successfully completed setting up both our Validator Node **AND** our EarthNode Stake Pool!
+40. Finally, we need to go back to ayaview and make sure the status of our Node has been updated to say that the Validator is now BONDED and Active On-Chain. Which should be visable in the upper left box of the ayaview console. 
+
+    We do this by entering the following group of commands
+    {{< highlight bash "linenos=table,style=witchhazel" >}}
+    cd ~/nodebase-tools
+    ./ayaview
+    {{< /highlight>}}
+
+
+
+If the Moniker appears, and ayaview reports what we are expecting to see, **Congratulations!** We have now successfully completed setting up both our Validator Node **AND** our EarthNode Stake Pool!
