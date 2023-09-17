@@ -830,7 +830,7 @@ So, we shall now proceed to doing this.
     Once there we need to look at the 'New joined EarthNode Validators' section and check to see if the Monkier we gave our EarthNode Stake Pool has appeared in the list. 
 
 
-40. Finally, we need to go back to ayaview and make sure the status of our Node has been updated to say that the Validator is now BONDED and Active On-Chain. Which should be visable in the upper left box of the ayaview console. 
+40. Finally, we need to go back to ayaview and make sure the status of our Node has been updated to say that the Validator reports **Status: BONDED** and **Signing: Active**. Which should be visable in the upper left box of the ayaview console. 
 
     We do this by entering the following group of commands
     {{< highlight bash "linenos=table,style=witchhazel" >}}
@@ -840,4 +840,4 @@ So, we shall now proceed to doing this.
 
 
 
-If the Moniker appears, and ayaview reports what we are expecting to see, **Congratulations!** We have now successfully completed setting up both our Validator Node **AND** our EarthNode Stake Pool!
+If the Moniker appears om the wmt-exploer website, and ayaview reports what we are expecting to see above, **Congratulations!** We have now successfully completed setting up both our Validator Node **AND** our EarthNode Stake Pool!
