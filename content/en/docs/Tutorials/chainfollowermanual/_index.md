@@ -171,7 +171,7 @@ Now, with this introduction out of the way, we shall proceed with the guide!
 
     Some details will be different to the above example, but this should be the general layout. The important point is that it should say 'active (running)' in green and there should be a list of '/api/' items.
 
-At this stage in the guide, we have successfully completed setting up a Cardano Chain Follower Service that is able to **publically** call the IOG Provided Cardano Testnet API Server (a privacy concern which *may* be addressed later by World Mobile in their guidance on how to set up these Services), but we have **not** yet used it to Register our EarthNode to the Cardano Chain Follower Committee. 
+At this stage in the guide, we have successfully completed setting up a Cardano Chain Follower Service that is able to **publically** call the IOG Provided Cardano Testnet API Server *(a potential privacy concern which *may* be addressed later by World Mobile in their guidance on how to set up these Services)*, but we have **not** yet used it to Register our EarthNode to the Cardano Chain Follower Committee. 
 
 So, we shall now proceed to doing this. 
 
