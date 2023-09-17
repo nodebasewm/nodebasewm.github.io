@@ -288,7 +288,7 @@ So, we shall now proceed to doing this.
     If entering this command returns back a result that looks like the following, with the ayavalcons1 part of the response appearing fully in red. 
 
     {{< highlight bash "linenos=table,style=witchhazel" >}}
-    val_addr: **ayavalcons1<various lowercase letters and numbers>**
+    val_addr: ayavalcons1<various lowercase letters and numbers>
     {{< /highlight>}}
 
 **Congratulations!** We have now successfully completed setting up our Validator to be a full Chain Follwer Committee!
