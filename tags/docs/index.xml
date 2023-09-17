@@ -3015,7 +3015,7 @@ c) By clicking on the Connect Wallet Button on the site EarthNode Registration s
 &lt;p>Now we need submit our 1st of 2 Transactions to complete formal Registration to be a part of the Cardano Chain Follower Committee &lt;strong>Root list&lt;/strong>.&lt;/p>
 &lt;blockquote>
 &lt;p>Note: The Root list is a list of &lt;strong>all&lt;/strong> viable Registered Cardano Chain Follwer Validators that can be selected from to become a part of the Committee &lt;strong>Leader set&lt;/strong> in any given Epoch.&lt;/p>
-&lt;p>The Leader set are the smaller, rotating, sub-group of Validators from the overall Committee of Registered Validators that have the job of monitoring for specific Transaction information on the Cardano Blockchain, interpreting that information, and carrying out any actions that need to be taken on the Aya Network Blockchain as a result it.&lt;/p>
+&lt;p>The Leader set are the smaller, rotating, sub-group of Validators from the overall Committee of Registered Validators that have the job of monitoring for specific Transaction information on the Cardano Blockchain, interpreting that information, and carrying out any actions that need to be taken on the Aya Network Blockchain as a result of that information.&lt;/p>
 &lt;p>&lt;strong>Which&lt;/strong> Registered Cardano Chain Folllower Validators get to become a part of the &lt;em>current&lt;/em> Leader set is determined by the Aya Chain itself, on a rotational basis.&lt;/p>
 &lt;/blockquote>
 &lt;p>We do this by entering the following command&lt;/p>
