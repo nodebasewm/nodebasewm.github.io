@@ -3149,7 +3149,7 @@ c) By clicking on the Connect Wallet Button on the site EarthNode Registration s
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>ayad query chainfollower list-root | grep $operator_address&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>
-&lt;p>If entering this command returns back a result that looks like the following, with the ayavalcons1 part of the response appearing fully in red.&lt;/p>
+&lt;p>We are now checking to see if entering this command returns back a result that looks like the following, with the &lt;strong>ayavalcons1&lt;/strong> part of the response appearing fully in red.&lt;/p>
 &lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -3160,4 +3160,4 @@ c) By clicking on the Connect Wallet Button on the site EarthNode Registration s
 &lt;/div>
 &lt;/li>
 &lt;/ol>
-&lt;p>&lt;strong>Congratulations!&lt;/strong> We have now successfully completed setting up our Validator to be a full Chain Follwer Committee!&lt;/p></description></item></channel></rss>
+&lt;p>If it does, &lt;strong>Congratulations!&lt;/strong> We have now successfully completed setting up our Validator to be a full Chain Follwer Committee!&lt;/p></description></item></channel></rss>
