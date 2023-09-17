@@ -1999,7 +1999,7 @@ c) By clicking on the Connect Wallet Button on the site EarthNode Registration s
 &lt;p>Some details will be different to the above example, but this should be the general layout. The important point is that it should say &amp;lsquo;active (running)&amp;rsquo; in green and there should be a list of &amp;lsquo;/api/&amp;rsquo; items.&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;p>At this stage in the guide, we have successfully completed setting up a Cardano Chain Follower Service that is able to &lt;strong>publically&lt;/strong> call the IOG Provided Cardano Testnet API Server (a privacy concern which &lt;em>may&lt;/em> be addressed later by World Mobile in their guidance on how to set up these Services), but we have &lt;strong>not&lt;/strong> yet used it to Register our EarthNode to the Cardano Chain Follower Committee.&lt;/p>
+&lt;p>At this stage in the guide, we have successfully completed setting up a Cardano Chain Follower Service that is able to &lt;strong>publically&lt;/strong> call the IOG Provided Cardano Testnet API Server &lt;em>(a potential privacy concern which &lt;em>may&lt;/em> be addressed later by World Mobile in their guidance on how to set up these Services)&lt;/em>, but we have &lt;strong>not&lt;/strong> yet used it to Register our EarthNode to the Cardano Chain Follower Committee.&lt;/p>
 &lt;p>So, we shall now proceed to doing this.&lt;/p>
 &lt;blockquote>
 &lt;p>Note: Before proceeding, we press ctrl+c to leave the Service status view.&lt;/p>
