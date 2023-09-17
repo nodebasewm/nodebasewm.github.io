@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NodeBaseDevs – validator</title><link>/tags/validator/</link><description>Recent content in validator on NodeBaseDevs</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Tue, 04 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="/tags/validator/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Sentry Node Installation</title><link>/docs/getting-started/sentrynode/</link><pubDate>Mon, 13 Feb 2023 00:00:00 +0000</pubDate><guid>/docs/getting-started/sentrynode/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NodeBaseDevs – validator</title><link>/tags/validator/</link><description>Recent content in validator on NodeBaseDevs</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Sun, 17 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="/tags/validator/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Sentry Node Installation</title><link>/docs/getting-started/sentrynode/</link><pubDate>Mon, 13 Feb 2023 00:00:00 +0000</pubDate><guid>/docs/getting-started/sentrynode/</guid><description>
 &lt;div class="toc">
 &lt;h2>Table Of Contents&lt;/h2>
 &lt;nav id="TableOfContents">
@@ -1741,4 +1741,431 @@ c) By clicking on the Connect Wallet Button on the site EarthNode Registration s
 &lt;/div>&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;p>If the Moniker appears om the wmt-exploer website, and ayaview reports what we are expecting to see above, &lt;strong>Congratulations!&lt;/strong> We have now successfully completed setting up both our Validator Node &lt;strong>AND&lt;/strong> our EarthNode Stake Pool!&lt;/p></description></item></channel></rss>
+&lt;p>If the Moniker appears om the wmt-exploer website, and ayaview reports what we are expecting to see above, &lt;strong>Congratulations!&lt;/strong> We have now successfully completed setting up both our Validator Node &lt;strong>AND&lt;/strong> our EarthNode Stake Pool!&lt;/p></description></item><item><title>Docs: 3. Cardano Chain Follower Installation, and Committee Registration</title><link>/docs/tutorials/chainfollowermanual/</link><pubDate>Sun, 17 Sep 2023 00:00:00 +0000</pubDate><guid>/docs/tutorials/chainfollowermanual/</guid><description>
+&lt;p>&lt;strong>Written by Nodebase Team member &lt;a href="https://twitter.com/intertreeJK">intertree (Johnny Kelly)&lt;/a>&lt;/strong>&lt;/p>
+&lt;h1 id="introduction">Introduction&lt;/h1>
+&lt;p>The following guide will take you through all manual steps to be taken to have a fully running Cardano Chain Follower. Taking you through how attach it to an existing public Cardano API Server, as well as how to register your EarthNode to the Cardano Chain Follower Committee via 2 On-Chain Registration Transactions on the Aya Network.&lt;/p>
+&lt;p>At the moment, this installation &lt;strong>only&lt;/strong> requires set up through an existing On-Chain Registered &lt;strong>Validator&lt;/strong> Node. In the future proxy connection methods may be introduced, but, for now, connections are directly made from your EarthNode Validator to a pre-configured Cardano API Server Endpoint.&lt;/p>
+&lt;p>This guide assumes you have already set up both of your Sentry Nodes and your EarthNode Validator, and have Registered your Validator to the Chain, using the steps laid out over at &lt;a href="/docs/tutorials/sentrynodemanual/">Sentry Node Manual Installation&lt;/a> and &lt;a href="/docs/tutorials/validatornodemanual/">Validator Node Manual Installation&lt;/a>, respectively.&lt;/p>
+&lt;p>Now, with this introduction out of the way, we shall proceed with the guide!&lt;/p>
+&lt;h1 id="step-by-step-installation-guide">Step-By-Step Installation Guide&lt;/h1>
+&lt;ol>
+&lt;li>
+&lt;p>Logged in as user wmt we first start by making the base directory for the Cardano Chain Follower files that are to be installed on our Node.&lt;/p>
+&lt;p>We do this by entering the following group of commands&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo mkdir -p /opt/aya/ccf
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo chown &lt;span style="color:#1bc5e0">&amp;#34;&lt;/span>&lt;span style="color:#1bc5e0">${&lt;/span>USER&lt;span style="color:#1bc5e0">}&lt;/span>&lt;span style="color:#1bc5e0">:&lt;/span>&lt;span style="color:#1bc5e0">${&lt;/span>USER&lt;span style="color:#1bc5e0">}&lt;/span>&lt;span style="color:#1bc5e0">&amp;#34;&lt;/span> /opt/aya/ccf&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>
+&lt;/li>
+&lt;li>
+&lt;p>Next we set the aya_home environment variable so that further installation steps can be simplified.&lt;/p>
+&lt;p>We do this by entering the following group of commands&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>aya_home&lt;span style="color:#ffb8d1">=&lt;/span>/opt/aya&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>
+&lt;/li>
+&lt;li>
+&lt;p>Now we install a required prerequisite package (libpq-dev) for the successful completion of installation steps.&lt;/p>
+&lt;p>We do this by entering the following command
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo apt-get update
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo apt install libpq-dev -y&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Now we create an installation directory for the Cardano Chain Follower installation files, navigate to it, download the installer zip file, install the unzip command (if not already installed to our OS), and extract the Cardano Chain Follower archive.&lt;/p>
+&lt;p>We do this by entering the following group of commands&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>mkdir ~/earthnode_installer/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>mkdir ~/earthnode_installer/ccf
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cd ~/earthnode_installer/ccf
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>wget https://cdn.discordapp.com/attachments/1072502970027081749/1144181313583186002/wm_230824_ccf_rev2.zip
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo apt-get -q install unzip -y
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>unzip wm_230824_ccf_rev2.zip
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>rm wm_230824_ccf_rev2.zip&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>
+&lt;/li>
+&lt;li>
+&lt;p>Now we copy the aya_chain_follower binary and daemon_wm.toml configuration files to their home locations for use in future operations.&lt;/p>
+&lt;p>We do this by entering the following group of commands&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>cp ~/earthnode_installer/ccf/aya_chain_follower &lt;span style="color:#1bc5e0">&amp;#34;&lt;/span>&lt;span style="color:#1bc5e0">${&lt;/span>aya_home&lt;span style="color:#1bc5e0">}&lt;/span>&lt;span style="color:#1bc5e0">&amp;#34;&lt;/span>/ccf
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cp ~/earthnode_installer/ccf/daemon_wm.toml &lt;span style="color:#1bc5e0">&amp;#34;&lt;/span>&lt;span style="color:#1bc5e0">${&lt;/span>aya_home&lt;span style="color:#1bc5e0">}&lt;/span>&lt;span style="color:#1bc5e0">&amp;#34;&lt;/span>/ccf&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>
+&lt;/li>
+&lt;li>
+&lt;p>Next we want to create a systemd service file that will allow our Cardano Chain Follower to automatically start on a reboot of our Server and to automatically attempt to restart itself on any crashes.&lt;/p>
+&lt;p>We do this by entering the following group of commands&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo tee /etc/systemd/system/chain_follower.service &amp;gt; /dev/null &lt;span style="color:#1bc5e0">&amp;lt;&amp;lt;EOF
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0"># Create systemd service file that describes the background service running the &amp;#39;aya_chain_follower&amp;#39; daemon.
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0">[Unit]
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0">Description=Cardano Chain Follower
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0">After=network-online.target
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0">[Service]
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0"># Execute daemon from user account
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0">User=$USER
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0"># Set working directory
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0">WorkingDirectory=${aya_home}/ccf/
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0"># Start the &amp;#39;aya_chain_follower&amp;#39; daemon with providing configuration file path
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0">ExecStart=${aya_home}/ccf/aya_chain_follower daemon --config ${aya_home}/ccf/daemon_wm.toml
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0"># Restart the service if it fails
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0">Restart=always
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0"># Restart the service after 3 seconds if it fails
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0">RestartSec=3
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0">[Install]
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0"># Start the service on system boot
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0">WantedBy=multi-user.target
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0">EOF&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>
+&lt;p>This will have added a new service file to our Server under the path /etc/systemd/system named chain_follower.service. This service file is what will be called when the Server reboots, or if our Service crashes.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>With the service now created, we now need to enable it for future use.&lt;/p>
+&lt;p>We do this by entering the following group of commands&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#b0bec5"># Reload the Systemd daemon&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo systemctl daemon-reload
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#b0bec5"># Enable the &amp;#39;chain_follower&amp;#39; service to start on system boot&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo systemctl enable chain_follower&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>
+&lt;/li>
+&lt;li>
+&lt;p>We can now confirm that our service is ready to be started by entering the following command.&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo systemctl status chain_follower&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>
+&lt;p>This should show us the following&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>○ chain_follower.service - Cardano Chain Follower
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Loaded: loaded &lt;span style="color:#ffb8d1">(&lt;/span>/etc/systemd/system/chain_follower.service; enabled; vendor preset: enabled&lt;span style="color:#ffb8d1">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Active: inactive &lt;span style="color:#ffb8d1">(&lt;/span>dead&lt;span style="color:#ffb8d1">)&lt;/span> &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>
+&lt;p>If we see this, we know we have successfully installed our Cardano Chain Follower Service.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Now we start the Cardano Chain Follower Service.&lt;/p>
+&lt;p>To do this we enter the following command
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo systemctl start chain_follower.service&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Now we need to check that chain_follower.service has started properly.&lt;/p>
+&lt;p>We do this by entering the following command&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo systemctl status chain_follower.service&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>
+&lt;p>When we ran this command previously it said our Cardano Chain Follower Service was inactive (dead), this time it should say something like the following
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>● chain_follower.service - Cardano Chain Follower
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Loaded: loaded &lt;span style="color:#ffb8d1">(&lt;/span>/etc/systemd/system/chain_follower.service; enabled; vendor preset: enabled&lt;span style="color:#ffb8d1">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Active: active &lt;span style="color:#ffb8d1">(&lt;/span>running&lt;span style="color:#ffb8d1">)&lt;/span> since Fri 2023-09-08 14:52:46 UTC; 3s ago
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Main PID: &lt;span style="color:#c5a3ff">105986&lt;/span> &lt;span style="color:#ffb8d1">(&lt;/span>aya_chain_follo&lt;span style="color:#ffb8d1">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Tasks: &lt;span style="color:#c5a3ff">15&lt;/span> &lt;span style="color:#ffb8d1">(&lt;/span>limit: 38243&lt;span style="color:#ffb8d1">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Memory: 4.7M
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> CPU: 96ms
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> CGroup: /system.slice/chain_follower.service
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> └─105986 /opt/aya/ccf/aya_chain_follower daemon --config /opt/aya/ccf/daemon_wm.toml
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Sep &lt;span style="color:#c5a3ff">08&lt;/span> 14:52:46 eno318-validator aya_chain_follower&lt;span style="color:#ffb8d1">[&lt;/span>105986&lt;span style="color:#ffb8d1">]&lt;/span>: /api/info/asset/metadata/&lt;span style="color:#ffb8d1">{&lt;/span>fingerprint&lt;span style="color:#ffb8d1">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Sep &lt;span style="color:#c5a3ff">08&lt;/span> 14:52:46 eno318-validator aya_chain_follower&lt;span style="color:#ffb8d1">[&lt;/span>105986&lt;span style="color:#ffb8d1">]&lt;/span>: /api/info/history/discover/&lt;span style="color:#ffb8d1">{&lt;/span>hash&lt;span style="color:#ffb8d1">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Sep &lt;span style="color:#c5a3ff">08&lt;/span> 14:52:46 eno318-validator aya_chain_follower&lt;span style="color:#ffb8d1">[&lt;/span>105986&lt;span style="color:#ffb8d1">]&lt;/span>: /api/info/history/address/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Sep &lt;span style="color:#c5a3ff">08&lt;/span> 14:52:46 eno318-validator aya_chain_follower&lt;span style="color:#ffb8d1">[&lt;/span>105986&lt;span style="color:#ffb8d1">]&lt;/span>: /api/info/address/stake/assets/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Sep &lt;span style="color:#c5a3ff">08&lt;/span> 14:52:46 eno318-validator aya_chain_follower&lt;span style="color:#ffb8d1">[&lt;/span>105986&lt;span style="color:#ffb8d1">]&lt;/span>: /api/info/addresses/assets/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Sep &lt;span style="color:#c5a3ff">08&lt;/span> 14:52:46 eno318-validator aya_chain_follower&lt;span style="color:#ffb8d1">[&lt;/span>105986&lt;span style="color:#ffb8d1">]&lt;/span>: /api/info/pools/&lt;span style="color:#ffb8d1">{&lt;/span>page&lt;span style="color:#ffb8d1">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Sep &lt;span style="color:#c5a3ff">08&lt;/span> 14:52:46 eno318-validator aya_chain_follower&lt;span style="color:#ffb8d1">[&lt;/span>105986&lt;span style="color:#ffb8d1">]&lt;/span>: /api/info/tokens/isNft/
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Sep &lt;span style="color:#c5a3ff">08&lt;/span> 14:52:46 eno318-validator aya_chain_follower&lt;span style="color:#ffb8d1">[&lt;/span>105986&lt;span style="color:#ffb8d1">]&lt;/span>: /api/aya/epoch/change/from/&lt;span style="color:#ffb8d1">{&lt;/span>epoch1&lt;span style="color:#ffb8d1">}&lt;/span>/&lt;span style="color:#ffb8d1">{&lt;/span>epoch2&lt;span style="color:#ffb8d1">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Sep &lt;span style="color:#c5a3ff">08&lt;/span> 14:52:46 eno318-validator aya_chain_follower&lt;span style="color:#ffb8d1">[&lt;/span>105986&lt;span style="color:#ffb8d1">]&lt;/span>: /api/aya/epoch/change/latest
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Sep &lt;span style="color:#c5a3ff">08&lt;/span> 14:52:46 eno318-validator aya_chain_follower&lt;span style="color:#ffb8d1">[&lt;/span>105986&lt;span style="color:#ffb8d1">]&lt;/span>: /api/aya/epoch/current/&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/p>
+&lt;p>Some details will be different to the above example, but this should be the general layout. The important point is that it should say &amp;lsquo;active (running)&amp;rsquo; in green and there should be a list of &amp;lsquo;/api/&amp;rsquo; items.&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;p>At this stage in the guide, we have successfully completed setting up a Cardano Chain Follower Service that is able to &lt;strong>publically&lt;/strong> call the IOG Provided Cardano Testnet API Server (a privacy concern which &lt;em>may&lt;/em> be addressed later by World Mobile in their guidance on how to set up these Services), but we have &lt;strong>not&lt;/strong> yet used it to Register our EarthNode to the Cardano Chain Follower Committee.&lt;/p>
+&lt;p>So, we shall now proceed to doing this.&lt;/p>
+&lt;blockquote>
+&lt;p>Note: Before proceeding, we press ctrl+c to leave the Service status view.&lt;/p>
+&lt;/blockquote>
+&lt;ol start="10">
+&lt;li>
+&lt;p>First we need to obtain our account name that was previously saved during out Validator&amp;rsquo;s set up process.&lt;/p>
+&lt;p>We do this by entering the following command&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>cat /opt/aya/account&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>
+&lt;blockquote>
+&lt;p>Note: The output of this command will be the name to replace the word &lt;code>&amp;lt;account&amp;gt;&lt;/code> with in the next step.&lt;/p>
+&lt;/blockquote>
+&lt;/li>
+&lt;li>
+&lt;p>Now we need submit our 1st of 2 Transactions to complete formal Registration to be a part of the Cardano Chain Follower Committee &lt;strong>Root list&lt;/strong>.&lt;/p>
+&lt;blockquote>
+&lt;p>Note: The Root list is a list of viable Registered Cardano Chain Follwer Validators that can be selected from to become a part of the Committee Leader set in a given Epoch.
+Which Registered Cardano Chain Folllower Validators get to become a part of the &lt;em>current&lt;/em> Leader set is determined by the Aya Chain itself.&lt;/p>
+&lt;/blockquote>
+&lt;p>We do this by entering the following command&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>ayad tx cce set-val-acc --home /opt/aya --from **&amp;lt;account&amp;gt;** --chain-id aya_preview_501 -y&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>
+&lt;blockquote>
+&lt;p>Note: After entering this command we will be asked to enter the Spending Password we set up earlierin the previous guide used specifically to set up our Validator Account. We must enter it now.&lt;/p>
+&lt;p>Also, remember to replace &lt;account> with the output of the previously completed cat command used to get this information. Also ensure to remove the &lt;strong>&amp;lt;&amp;gt;s&lt;/strong> from the placeholder text above.&lt;/p>
+&lt;/blockquote>
+&lt;p>If the Transcation has been successful we should see an output that contains a txhash value that consists of a string of capital letters and numbers, along with a lot of other information, that looks something like this&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>code: &lt;span style="color:#c5a3ff">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>codespace: &lt;span style="color:#1bc5e0">&amp;#34;&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>data: &lt;span style="color:#1bc5e0">&amp;#34;&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>events: &lt;span style="color:#ffb8d1">[]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>gas_used: &lt;span style="color:#1bc5e0">&amp;#34;0&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>gas_wanted: &lt;span style="color:#1bc5e0">&amp;#34;0&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>height: &lt;span style="color:#1bc5e0">&amp;#34;0&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>info: &lt;span style="color:#1bc5e0">&amp;#34;&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>logs: &lt;span style="color:#ffb8d1">[]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>raw_log: &lt;span style="color:#1bc5e0">&amp;#39;[]&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>timestamp: &lt;span style="color:#1bc5e0">&amp;#34;&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>tx: null
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>txhash: &amp;lt;Transaction Hash containing capital letters and numbers&amp;gt;&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>
+&lt;/li>
+&lt;li>
+&lt;p>Before proceeding to the next step, we need to wait long enough so that the 1st Registration step fully completed as expected. We are waiting for the Transaction that was just posted to the Aya Blockchain to make its way to a fully Minted Block, and to form a part of that Block&amp;rsquo;s list of Transactions.&lt;/p>
+&lt;p>We can look to see if and when this Transaction has made it to the Aya Blockchain by going to &lt;a href="https://wmt-exploer.com/Testnet">https://wmt-exploer.com/Testnet&lt;/a>.&lt;/p>
+&lt;p>Once there we need to look at the ‘Latest Transactions’ section and check to see if the &amp;lsquo;MsgSetValAcc&amp;rsquo; Transaction we just sent has appeared on the Blockchain History.&lt;/p>
+&lt;p>When we see it appear, we can then move on to the next step.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Now we need submit our 2nd of 2 Transactions to complete formal Registration to be a part of the Cardano Chain Follower Committee Leader Pool.&lt;/p>
+&lt;p>We do this by entering the following command&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>ayad tx chainfollower send-root --home /opt/aya --from &amp;lt;account&amp;gt; --chain-id aya_preview_501 -y&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>
+&lt;blockquote>
+&lt;p>Note: After entering this command we will once again be asked to enter the Spending Password we set up earlier in the previous guide used specifically to set up our Validator Account. We must enter it now.&lt;/p>
+&lt;p>Also, remember to replace &lt;account> with the output of the previously completed cat command used to get this information. Also ensure to remove the &lt;strong>&amp;lt;&amp;gt;s&lt;/strong> from the placeholder text above.&lt;/p>
+&lt;/blockquote>
+&lt;p>If the Transcation has been successful we should see an output that contains a txhash value that consists of a string of capital letters and numbers, along with a lot of other information, that looks something like this&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>code: &lt;span style="color:#c5a3ff">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>codespace: &lt;span style="color:#1bc5e0">&amp;#34;&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>data: &lt;span style="color:#1bc5e0">&amp;#34;&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>events: &lt;span style="color:#ffb8d1">[]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>gas_used: &lt;span style="color:#1bc5e0">&amp;#34;0&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>gas_wanted: &lt;span style="color:#1bc5e0">&amp;#34;0&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>height: &lt;span style="color:#1bc5e0">&amp;#34;0&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>info: &lt;span style="color:#1bc5e0">&amp;#34;&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>logs: &lt;span style="color:#ffb8d1">[]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>raw_log: &lt;span style="color:#1bc5e0">&amp;#39;[]&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>timestamp: &lt;span style="color:#1bc5e0">&amp;#34;&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>tx: null
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>txhash: &amp;lt;Transaction Hash containing capital letters and numbers&amp;gt;&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>
+&lt;/li>
+&lt;li>
+&lt;p>Before proceeding to the next step, we need to wait long enough so that the 2nd Registration step fully completed as expected. We are waiting for the Transaction that was just posted to the Aya Blockchain to make its way to a fully Minted Block, and to form a part of that Block&amp;rsquo;s list of Transactions.&lt;/p>
+&lt;p>We can look to see if and when this Transaction has made it to the Aya Blockchain by going to &lt;a href="https://wmt-exploer.com/Testnet">https://wmt-exploer.com/Testnet&lt;/a>.&lt;/p>
+&lt;p>Once there we need to look at the ‘Latest Transactions’ section and check to see if the &amp;lsquo;MsgSendRoot&amp;rsquo; Transaction we just sent has appeared on the Blockchain History.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Now we are going to complete the neccesary steps to ensure that our Validator is now actually a part of the Registered list of Cardano Chain Followers.&lt;/p>
+&lt;p>We will start by setting up our Validator&amp;rsquo;s operator address as a variable for future steps.&lt;/p>
+&lt;p>We do this by entering the following command&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>operator_address&lt;span style="color:#ffb8d1">=&lt;/span>&lt;span style="color:#c2ffdf">$(&lt;/span>ayad tendermint show-address --home /opt/aya&lt;span style="color:#c2ffdf">)&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>
+&lt;/li>
+&lt;li>
+&lt;p>Next we use that created variable to check to see if our newly Registered Chain Follwer is in the list of chainfollower roots.&lt;/p>
+&lt;p>We do this by entering the following command&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>ayad query chainfollower list-root | grep $operator_address&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>
+&lt;p>If entering this command returns back a result that looks like the following, with the ayavalcons1 part of the response appearing fully in red.&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>val_addr: **ayavalcons1&amp;lt;various lowercase letters and numbers&amp;gt;**&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>
+&lt;/li>
+&lt;/ol>
+&lt;p>&lt;strong>Congratulations!&lt;/strong> We have now successfully completed setting up our Validator to be a full Chain Follwer Committee!&lt;/p></description></item></channel></rss>
