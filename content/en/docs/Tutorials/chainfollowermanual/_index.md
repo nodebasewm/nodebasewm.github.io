@@ -1,12 +1,12 @@
 ---
 categories: ["Tutorial"]
 tags: ["step-by-step", "validator", "docs"]
-title: "3. Cardano Chain Follower Installation, and Committee Registration"
-linkTitle: "3. Cardano Chain Follower Installation, and Committee Registration"
+title: "3. Cardano Chain Follower Manual Installation and Committee Registration"
+linkTitle: "3. Cardano Chain Follower Manual Installation and Committee Registration"
 date: 2023-09-17
 weight: 60
 description: >
-  Full Installation Guide for installing a Cardano Chain Follower, and registering it to the Cardano Chain Follower Committeee. 
+  Full Installation Guide for installing a Cardano Chain Follower Service and registering it to the Cardano Chain Follower Committeee. 
 ---
 
 **Written by Nodebase Team member [intertree (Johnny Kelly)](https://twitter.com/intertreeJK)**
