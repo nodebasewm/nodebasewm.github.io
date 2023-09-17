@@ -469,8 +469,8 @@ We can now to return to our Valdiator Node to complete the rest of its set up.
 
     
     {{< highlight bash "linenos=table,style=witchhazel" >}}
-    RPC_PEER_1="**<Sentry.Node1.Private.IP>**"
-    RPC_PEER_1="**<Sentry.Node1.Private.IP>**"
+    RPC_PEER_1="<Sentry.Node1.Private.IP>"
+    RPC_PEER_1="<Sentry.Node1.Private.IP>"
     {{< /highlight>}}
 
 22. With the Firewall Rules, and our Sentry Nodes' Private IP addresses set, added we are now going to start up our Valdiator Node for the first time, manually. 
