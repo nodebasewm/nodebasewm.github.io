@@ -406,7 +406,7 @@ We can now to return to our Valdiator Node to complete the rest of its set up.
     minimum-gas-prices = "0uswmt"
     {{< /highlight>}}
 
-    At this point the initial editing work to our **app.toml** file is done, and it can now be saved with these changes. 
+    At this point the editing work to our **app.toml** file is done, and it can now be saved with these changes. 
 
     To save the app.toml file within nano editor we press **ctrl+x** and then **press y**, followed by **enter**. This will save the file with the same filename as before.
 
