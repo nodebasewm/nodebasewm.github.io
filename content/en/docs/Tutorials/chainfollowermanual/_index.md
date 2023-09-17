@@ -1,6 +1,6 @@
 ---
 categories: ["Tutorial"]
-tags: ["step-by-step", "validator", "docs"]
+tags: ["step-by-step", "validator", "cardano", " "chain-follower", "docs"]
 title: "3. Cardano Chain Follower Manual Installation and Committee Registration"
 linkTitle: "3. Cardano Chain Follower Manual Installation and Committee Registration"
 date: 2023-09-17
