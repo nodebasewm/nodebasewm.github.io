@@ -154,7 +154,7 @@
 &lt;/div>&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>Before running our Sentry Node for the first time there are some initial configuration changes that need to be made to allow for smooth operation and connection the to aya_preview_501 Blockchain.&lt;/p>
+&lt;p>Before running our Sentry Node for the first time there are some initial configuration changes that need to be made to allow for smooth operation and connection the to aya_preview_501 Blockchain, and to ensure that connections between our own ENO Infrastructure&amp;rsquo;s Nodes remain robust.&lt;/p>
 &lt;p>So now we navigate to the aya config folder and open the config.toml file for our Sentry Node to make these changes.&lt;/p>
 &lt;p>We do this by entering the following group of commands
 &lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
@@ -202,6 +202,21 @@
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#b0bec5"># has any local state (LastBlockHeight &amp;gt; 0). The node will have a truncated block history,&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#b0bec5"># starting from the height of the snapshot.&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>enable &lt;span style="color:#ffb8d1">=&lt;/span> true &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Change the &lt;strong>addr_book_strict&lt;/strong> option to be &lt;strong>addr_book_strict = false&lt;/strong> instead of &lt;strong>true&lt;/strong>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#b0bec5"># Set true for strict address routability rules&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#b0bec5"># Set false for private or local networks&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>addr_book_strict &lt;span style="color:#ffb8d1">=&lt;/span> false&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;/p>
 &lt;/li>
@@ -1236,7 +1251,7 @@ They &lt;strong>can&lt;/strong> be the same name.&lt;/p>
 &lt;p>We can now to return to our Valdiator Node to complete the rest of its set up.&lt;/p>
 &lt;ol start="17">
 &lt;li>
-&lt;p>Before running our &lt;strong>Validator Node&lt;/strong> for the first time there are some initial configuration changes that need to be made to allow for smooth operation and connection the to aya_preview_501 Blockchain.&lt;/p>
+&lt;p>Before running our &lt;strong>Validator Node&lt;/strong> for the first time there are some initial configuration changes that need to be made to allow for smooth operation and connection the to aya_preview_501 Blockchain, and to ensure that connections between our own ENO Infrastructure&amp;rsquo;s Nodes remain robust.&lt;/p>
 &lt;p>So now we navigate to the aya config folder and open the config.toml file for our Validator Node to make these changes.&lt;/p>
 &lt;p>We do this by entering the following group of commands&lt;/p>
 &lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
@@ -1306,6 +1321,19 @@ They &lt;strong>can&lt;/strong> be the same name.&lt;/p>
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#b0bec5"># Set true for strict address routability rules&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#b0bec5"># Set false for private or local networks&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>addr_book_strict &lt;span style="color:#ffb8d1">=&lt;/span> false&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Change the &lt;strong>persistent_peers_max_dial_period&lt;/strong> option to be &lt;strong>persistent_peers_max_dial_period = &amp;ldquo;30s&amp;rdquo;&lt;/strong> instead of &lt;strong>&amp;ldquo;0s&amp;rdquo;&lt;/strong>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#b0bec5"># Maximum pause when redialing a persistent peer (if zero, exponential backoff is used)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>persistent_peers_max_dial_period &lt;span style="color:#ffb8d1">=&lt;/span> &lt;span style="color:#1bc5e0">&amp;#34;30s&amp;#34;&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;/p>
 &lt;/li>
