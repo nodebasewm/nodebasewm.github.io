@@ -106,7 +106,7 @@ Now, with that warning out of the way, we shall proceed with the guide!
     cp ~/earthnode_installer/genesis.json "${aya_home}"/config/genesis.json
     {{< /highlight>}}
 
-10. Before running our Sentry Node for the first time there are some initial configuration changes that need to be made to allow for smooth operation and connection the to aya_preview_501 Blockchain. 
+10. Before running our Sentry Node for the first time there are some initial configuration changes that need to be made to allow for smooth operation and connection the to aya_preview_501 Blockchain, and to ensure that connections between our own ENO Infrastructure's Nodes remain robust. 
 
     So now we navigate to the aya config folder and open the config.toml file for our Sentry Node to make these changes.
 
@@ -140,6 +140,13 @@ Now, with that warning out of the way, we shall proceed with the guide!
     # has any local state (LastBlockHeight > 0). The node will have a truncated block history,
     # starting from the height of the snapshot.
     enable = true 
+    {{< /highlight>}}
+
+    * Change the **addr_book_strict** option to be **addr_book_strict = false** instead of **true**
+    {{< highlight bash "linenos=table,style=witchhazel" >}}
+    # Set true for strict address routability rules
+    # Set false for private or local networks
+    addr_book_strict = false
     {{< /highlight>}}
 
     * Set the **log_level** to **"error"** instead of **"info"** 
