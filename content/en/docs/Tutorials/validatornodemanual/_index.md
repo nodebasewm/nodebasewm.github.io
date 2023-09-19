@@ -316,7 +316,7 @@ We have now concluded our required edits to our already configured **Sentry Node
 
 We can now to return to our Valdiator Node to complete the rest of its set up. 
 
-17. Before running our **Validator Node** for the first time there are some initial configuration changes that need to be made to allow for smooth operation and connection the to aya_preview_501 Blockchain. 
+17. Before running our **Validator Node** for the first time there are some initial configuration changes that need to be made to allow for smooth operation and connection the to aya_preview_501 Blockchain, and to ensure that connections between our own ENO Infrastructure's Nodes remain robust. 
 
     So now we navigate to the aya config folder and open the config.toml file for our Validator Node to make these changes.
 
@@ -356,6 +356,12 @@ We can now to return to our Valdiator Node to complete the rest of its set up.
     # Set true for strict address routability rules
     # Set false for private or local networks
     addr_book_strict = false
+    {{< /highlight>}}
+
+    * Change the **persistent_peers_max_dial_period** option to be **persistent_peers_max_dial_period = "30s"** instead of **"0s"**
+    {{< highlight bash "linenos=table,style=witchhazel" >}}
+    # Maximum pause when redialing a persistent peer (if zero, exponential backoff is used)
+    persistent_peers_max_dial_period = "30s"
     {{< /highlight>}}
 
     * Set the **log_level** to **"error"** instead of **"info"** 
