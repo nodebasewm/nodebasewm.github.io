@@ -519,4 +519,4 @@ Now, with that warning out of the way, we shall proceed with the guide!
 >
 >So, to fix this, we will tackle connecting our newly set up Sentry Node to our EarthNode Validator, as well as any other running Sentry Nodes in our Infrastructure, in a separate guide. 
 >
->For now though, we can simply bask in the glory of setting up a well running Sentry Node! 
+>For now though,  we can simply bask in the glory of setting up a well running Sentry Node! 
