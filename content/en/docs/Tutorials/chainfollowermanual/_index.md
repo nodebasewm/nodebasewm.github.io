@@ -1,19 +1,19 @@
 ---
 categories: ["Tutorial"]
 tags: ["step-by-step", "validator", "cardano", "chain-follower", "docs"]
-title: "3. Cardano Chain Follower Manual Installation and Committee Registration"
-linkTitle: "3. Cardano Chain Follower Manual Installation and Committee Registration"
+title: "3. Cardano Chain Follower Manual Installation and root-list Registration"
+linkTitle: "3. Cardano Chain Follower Manual Installation and root-list Registration"
 date: 2023-09-17
 weight: 60
 description: >
-  Full Installation Guide for installing a Cardano Chain Follower Service and registering it to the Cardano Chain Follower Committeee. 
+  Full Installation Guide for installing a Cardano Chain Follower Service and registering it to the Cardano Chain Follower root-list. 
 ---
 
 **Written by Nodebase Team member [intertree (Johnny Kelly)](https://twitter.com/intertreeJK)**
 
 # Introduction
 
-The following guide will take you through all manual steps to be taken to have a fully running Cardano Chain Follower. Taking you through how attach it to an existing public Cardano API Server, as well as how to register your EarthNode to the Cardano Chain Follower Committee via 2 On-Chain Registration Transactions on the Aya Network. 
+The following guide will take you through all manual steps to be taken to have a fully running Cardano Chain Follower. Taking you through how attach it to an existing public Cardano API Server, as well as how to register your EarthNode to the Cardano Chain Follower root-list via 2 On-Chain Registration Transactions on the Aya Network. 
 
 At the moment, this installation **only** requires set up through an existing On-Chain Registered **Validator** Node. In the future proxy connection methods may be introduced, but, for now, connections are directly made from your EarthNode Validator to a pre-configured Cardano API Server Endpoint. 
 
@@ -42,7 +42,7 @@ Now, with this introduction out of the way, we shall proceed with the guide!
 
 3. Now we install a required prerequisite package (libpq-dev) for the successful completion of installation steps.
 
-    We do this by entering the following command
+    We do this by entering the following group of commands
     {{< highlight bash "linenos=table,style=witchhazel" >}}
     sudo apt-get update
     sudo apt install libpq-dev -y
@@ -114,7 +114,9 @@ Now, with this introduction out of the way, we shall proceed with the guide!
     sudo systemctl enable chain_follower
     {{< /highlight>}}
 
-8.  We can now confirm that our service is ready to be started by entering the following command. 
+8.  We can now confirm that our service is ready to be started.
+
+    We do this by entering the following command
 
     {{< highlight bash "linenos=table,style=witchhazel" >}}
     sudo systemctl status chain_follower
@@ -132,7 +134,7 @@ Now, with this introduction out of the way, we shall proceed with the guide!
 
 9.  Now we start the Cardano Chain Follower Service.
 
-    To do this we enter the following command
+    We do this by entering the following command
     {{< highlight bash "linenos=table,style=witchhazel" >}}
     sudo systemctl start chain_follower.service
     {{< /highlight>}}
@@ -171,7 +173,7 @@ Now, with this introduction out of the way, we shall proceed with the guide!
 
     Some details will be different to the above example, but this should be the general layout. The important point is that it should say 'active (running)' in green and there should be a list of '/api/' items.
 
-At this stage in the guide, we have successfully completed setting up a Cardano Chain Follower Service that is able to **publically** call the IOG Provided Cardano Testnet API Server *(a potential privacy concern which *may* be addressed later by World Mobile in their guidance on how to set up these Services)*, but we have **not** yet used it to Register our EarthNode to the Cardano Chain Follower Committee. 
+At this stage in the guide, we have successfully completed setting up a Cardano Chain Follower Service that is able to **publically** call the IOG Provided Cardano Testnet API Server *(a potential privacy concern which *may* be addressed later by World Mobile in their guidance on how to set up these Services)*, but we have **not** yet used it to Register our EarthNode to the Cardano Chain Follower root-list. 
 
 So, we shall now proceed to doing this. 
 
@@ -187,11 +189,11 @@ So, we shall now proceed to doing this.
 
     > Note: The output of this command will be the name to replace the word ```<account>``` with in the next step.
 
-11. Now we need submit our 1st of 2 Transactions to complete formal Registration to be a part of the Cardano Chain Follower Committee **Root list**.
+11. Now we need submit our 1st of 2 Transactions to complete formal Registration to be a part of the Cardano Chain Follower **Root list**.
 
-    > Note: The Root list is a list of **all** viable Registered Cardano Chain Follwer Validators that can be selected from to become a part of the Committee **Leader set** in any given Epoch. 
+    > Note: The Root list is a list of **all** viable Registered Cardano Chain Follwer Validators that can be selected from to become a part of the **Leader set** in any given Epoch. 
     >
-    > The Leader set are the smaller, rotating, sub-group of Validators from the overall Committee of Registered Validators that have the job of monitoring for specific Transaction information on the Cardano Blockchain, interpreting that information, and carrying out any actions that need to be taken on the Aya Network Blockchain as a result of that information.
+    > The Leader set are the smaller, rotating, sub-group of Validators from the overall root-list of Registered Validators that have the job of monitoring for specific Transaction information on the Cardano Blockchain, interpreting that information, and carrying out any actions that need to be taken on the Aya Network Blockchain as a result of that information.
     >
     > **Which** Registered Cardano Chain Folllower Validators get to become a part of the *current* Leader set is determined by the Aya Chain itself, on a rotational basis.
 
@@ -231,7 +233,7 @@ So, we shall now proceed to doing this.
 
     When we see it appear, we can then move on to the next step.
 
-13. Now we need submit our 2nd of 2 Transactions to complete formal Registration to be a part of the Cardano Chain Follower Committee Root list.
+13. Now we need submit our 2nd of 2 Transactions to complete formal Registration to be a part of the Cardano Chain Follower root-list.
 
     We do this by entering the following command
 
@@ -277,7 +279,7 @@ So, we shall now proceed to doing this.
     operator_address=$(ayad tendermint show-address --home /opt/aya)
     {{< /highlight>}}
 
-16. Next we use that created variable to check to see if our newly Registered Chain Follwer is in the list of chainfollower roots.
+16. Next we use that created variable to check to see if our newly Registered Chain Follower is in the list of Chain Follower roots.
 
     We do this by entering the following command
     
@@ -291,6 +293,6 @@ So, we shall now proceed to doing this.
     val_addr: ayavalcons1<various lowercase letters and numbers>
     {{< /highlight>}}
 
-If it does, **Congratulations!** We have now successfully completed setting up our Validator to be a full Chain Follwer Committee!
+If it does, **Congratulations!** We have now successfully completed setting up our Validator to be a full Chain Follwer root-list!
 
 

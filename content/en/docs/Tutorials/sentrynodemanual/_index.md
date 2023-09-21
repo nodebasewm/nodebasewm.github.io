@@ -33,7 +33,7 @@ Now, with that warning out of the way, we shall proceed with the guide!
     mkdir -p /opt/aya/backup
     mkdir -p /opt/aya/logs
     mkdir -p /opt/aya/config
-    {{< /highlight>}}
+    {{< /highlight>}} 
 
 2. Next we set some environment variables so that further installation steps can be simplified.
 
