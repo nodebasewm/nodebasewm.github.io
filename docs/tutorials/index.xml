@@ -2080,10 +2080,10 @@ c) By clicking on the Connect Wallet Button on the site EarthNode Registration s
 &lt;/div>&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;p>If the Moniker appears om the wmt-exploer website, and ayaview reports what we are expecting to see above, &lt;strong>Congratulations!&lt;/strong> We have now successfully completed setting up both our Validator Node &lt;strong>AND&lt;/strong> our EarthNode Stake Pool!&lt;/p></description></item><item><title>Docs: 3. Cardano Chain Follower Manual Installation and Committee Registration</title><link>/docs/tutorials/chainfollowermanual/</link><pubDate>Sun, 17 Sep 2023 00:00:00 +0000</pubDate><guid>/docs/tutorials/chainfollowermanual/</guid><description>
+&lt;p>If the Moniker appears om the wmt-exploer website, and ayaview reports what we are expecting to see above, &lt;strong>Congratulations!&lt;/strong> We have now successfully completed setting up both our Validator Node &lt;strong>AND&lt;/strong> our EarthNode Stake Pool!&lt;/p></description></item><item><title>Docs: 3. Cardano Chain Follower Manual Installation and root-list Registration</title><link>/docs/tutorials/chainfollowermanual/</link><pubDate>Sun, 17 Sep 2023 00:00:00 +0000</pubDate><guid>/docs/tutorials/chainfollowermanual/</guid><description>
 &lt;p>&lt;strong>Written by Nodebase Team member &lt;a href="https://twitter.com/intertreeJK">intertree (Johnny Kelly)&lt;/a>&lt;/strong>&lt;/p>
 &lt;h1 id="introduction">Introduction&lt;/h1>
-&lt;p>The following guide will take you through all manual steps to be taken to have a fully running Cardano Chain Follower. Taking you through how attach it to an existing public Cardano API Server, as well as how to register your EarthNode to the Cardano Chain Follower Committee via 2 On-Chain Registration Transactions on the Aya Network.&lt;/p>
+&lt;p>The following guide will take you through all manual steps to be taken to have a fully running Cardano Chain Follower. Taking you through how attach it to an existing public Cardano API Server, as well as how to register your EarthNode to the Cardano Chain Follower root-list via 2 On-Chain Registration Transactions on the Aya Network.&lt;/p>
 &lt;p>At the moment, this installation &lt;strong>only&lt;/strong> requires set up through an existing On-Chain Registered &lt;strong>Validator&lt;/strong> Node. In the future proxy connection methods may be introduced, but, for now, connections are directly made from your EarthNode Validator to a pre-configured Cardano API Server Endpoint.&lt;/p>
 &lt;p>This guide assumes you have already set up both of your Sentry Nodes and your EarthNode Validator, and have Registered your Validator to the Chain, using the steps laid out over at &lt;a href="/docs/tutorials/sentrynodemanual/">Sentry Node Manual Installation&lt;/a> and &lt;a href="/docs/tutorials/validatornodemanual/">Validator Node Manual Installation&lt;/a>, respectively.&lt;/p>
 &lt;p>Now, with this introduction out of the way, we shall proceed with the guide!&lt;/p>
@@ -2117,7 +2117,7 @@ c) By clicking on the Connect Wallet Button on the site EarthNode Registration s
 &lt;/li>
 &lt;li>
 &lt;p>Now we install a required prerequisite package (libpq-dev) for the successful completion of installation steps.&lt;/p>
-&lt;p>We do this by entering the following command
+&lt;p>We do this by entering the following group of commands
 &lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -2241,7 +2241,8 @@ c) By clicking on the Connect Wallet Button on the site EarthNode Registration s
 &lt;/div>
 &lt;/li>
 &lt;li>
-&lt;p>We can now confirm that our service is ready to be started by entering the following command.&lt;/p>
+&lt;p>We can now confirm that our service is ready to be started.&lt;/p>
+&lt;p>We do this by entering the following command&lt;/p>
 &lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -2267,7 +2268,7 @@ c) By clicking on the Connect Wallet Button on the site EarthNode Registration s
 &lt;/li>
 &lt;li>
 &lt;p>Now we start the Cardano Chain Follower Service.&lt;/p>
-&lt;p>To do this we enter the following command
+&lt;p>We do this by entering the following command
 &lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -2338,7 +2339,7 @@ c) By clicking on the Connect Wallet Button on the site EarthNode Registration s
 &lt;p>Some details will be different to the above example, but this should be the general layout. The important point is that it should say &amp;lsquo;active (running)&amp;rsquo; in green and there should be a list of &amp;lsquo;/api/&amp;rsquo; items.&lt;/p>
 &lt;/li>
 &lt;/ol>
-&lt;p>At this stage in the guide, we have successfully completed setting up a Cardano Chain Follower Service that is able to &lt;strong>publically&lt;/strong> call the IOG Provided Cardano Testnet API Server &lt;em>(a potential privacy concern which &lt;em>may&lt;/em> be addressed later by World Mobile in their guidance on how to set up these Services)&lt;/em>, but we have &lt;strong>not&lt;/strong> yet used it to Register our EarthNode to the Cardano Chain Follower Committee.&lt;/p>
+&lt;p>At this stage in the guide, we have successfully completed setting up a Cardano Chain Follower Service that is able to &lt;strong>publically&lt;/strong> call the IOG Provided Cardano Testnet API Server &lt;em>(a potential privacy concern which &lt;em>may&lt;/em> be addressed later by World Mobile in their guidance on how to set up these Services)&lt;/em>, but we have &lt;strong>not&lt;/strong> yet used it to Register our EarthNode to the Cardano Chain Follower root-list.&lt;/p>
 &lt;p>So, we shall now proceed to doing this.&lt;/p>
 &lt;blockquote>
 &lt;p>Note: Before proceeding, we press ctrl+c to leave the Service status view.&lt;/p>
@@ -2360,10 +2361,10 @@ c) By clicking on the Connect Wallet Button on the site EarthNode Registration s
 &lt;/blockquote>
 &lt;/li>
 &lt;li>
-&lt;p>Now we need submit our 1st of 2 Transactions to complete formal Registration to be a part of the Cardano Chain Follower Committee &lt;strong>Root list&lt;/strong>.&lt;/p>
+&lt;p>Now we need submit our 1st of 2 Transactions to complete formal Registration to be a part of the Cardano Chain Follower &lt;strong>Root list&lt;/strong>.&lt;/p>
 &lt;blockquote>
-&lt;p>Note: The Root list is a list of &lt;strong>all&lt;/strong> viable Registered Cardano Chain Follwer Validators that can be selected from to become a part of the Committee &lt;strong>Leader set&lt;/strong> in any given Epoch.&lt;/p>
-&lt;p>The Leader set are the smaller, rotating, sub-group of Validators from the overall Committee of Registered Validators that have the job of monitoring for specific Transaction information on the Cardano Blockchain, interpreting that information, and carrying out any actions that need to be taken on the Aya Network Blockchain as a result of that information.&lt;/p>
+&lt;p>Note: The Root list is a list of &lt;strong>all&lt;/strong> viable Registered Cardano Chain Follwer Validators that can be selected from to become a part of the &lt;strong>Leader set&lt;/strong> in any given Epoch.&lt;/p>
+&lt;p>The Leader set are the smaller, rotating, sub-group of Validators from the overall root-list of Registered Validators that have the job of monitoring for specific Transaction information on the Cardano Blockchain, interpreting that information, and carrying out any actions that need to be taken on the Aya Network Blockchain as a result of that information.&lt;/p>
 &lt;p>&lt;strong>Which&lt;/strong> Registered Cardano Chain Folllower Validators get to become a part of the &lt;em>current&lt;/em> Leader set is determined by the Aya Chain itself, on a rotational basis.&lt;/p>
 &lt;/blockquote>
 &lt;p>We do this by entering the following command&lt;/p>
@@ -2420,7 +2421,7 @@ c) By clicking on the Connect Wallet Button on the site EarthNode Registration s
 &lt;p>When we see it appear, we can then move on to the next step.&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>Now we need submit our 2nd of 2 Transactions to complete formal Registration to be a part of the Cardano Chain Follower Committee Root list.&lt;/p>
+&lt;p>Now we need submit our 2nd of 2 Transactions to complete formal Registration to be a part of the Cardano Chain Follower root-list.&lt;/p>
 &lt;p>We do this by entering the following command&lt;/p>
 &lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -2487,7 +2488,7 @@ c) By clicking on the Connect Wallet Button on the site EarthNode Registration s
 &lt;/div>
 &lt;/li>
 &lt;li>
-&lt;p>Next we use that created variable to check to see if our newly Registered Chain Follwer is in the list of chainfollower roots.&lt;/p>
+&lt;p>Next we use that created variable to check to see if our newly Registered Chain Follower is in the list of Chain Follower roots.&lt;/p>
 &lt;p>We do this by entering the following command&lt;/p>
 &lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -2508,4 +2509,4 @@ c) By clicking on the Connect Wallet Button on the site EarthNode Registration s
 &lt;/div>
 &lt;/li>
 &lt;/ol>
-&lt;p>If it does, &lt;strong>Congratulations!&lt;/strong> We have now successfully completed setting up our Validator to be a full Chain Follwer Committee!&lt;/p></description></item></channel></rss>
+&lt;p>If it does, &lt;strong>Congratulations!&lt;/strong> We have now successfully completed setting up our Validator to be a full Chain Follwer root-list!&lt;/p></description></item></channel></rss>
