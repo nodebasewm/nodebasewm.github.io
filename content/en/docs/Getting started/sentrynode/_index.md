@@ -28,7 +28,7 @@ This script is part of the **bundled nodebase tools package** release package th
 ## Instructions
 - Download the nodebase tools zipfile
 
-  `wget https://github.com/nodebasewm/download/archive/refs/tags/v0.1.4-alpha.zip`
+  `wget https://github.com/nodebasewm/download/archive/refs/tags/v0.3.zip`
 
 - unzip this file, it will create the folder download-0.1.3-alpha.
 - copy the install_sentry.sh to your earthnode_installation folder
