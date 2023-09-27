@@ -198,12 +198,25 @@ Now, with that warning out of the way, we shall proceed with the guide!
     # specified in this config (e.g. 0.25token1;0.0001token2).
     minimum-gas-prices = "0uswmt"
     {{< /highlight>}}
+    * Change the API Configuration section **enable** option to be **enable = true** instead of **false**
+    {{< highlight bash "linenos=table,style=witchhazel" >}}
+    [api]
+
+    # Enable defines if the API server should be enabled.
+    enable = true
+    {{< /highlight>}}
+    * Change the API Configuration section **address** option to be **"tcp://127.0.0.1:1317"** instead of **"tcp://0.0.0.0:1317"**
+    {{< highlight bash "linenos=table,style=witchhazel" >}}
+    # Address defines the API server to listen on.
+    address = "tcp://127.0.0.1:1317"
+    {{< /highlight>}}
+
 
     At this point the initial editing work to our **app.toml** file is done, and it can now be saved with these changes. 
 
     To save the app.toml file within nano editor we press **ctrl+x** and then **press y**, followed by **enter**. This will save the file with the same filename as before.
 
-11. Now we need to export some environment variables to get our system ready to run our Sentry Node for the first time. 
+12. Now we need to export some environment variables to get our system ready to run our Sentry Node for the first time. 
 
     We do this by entering the following group of commands
     {{< highlight bash "linenos=table,style=witchhazel" >}}
@@ -215,7 +228,7 @@ Now, with that warning out of the way, we shall proceed with the guide!
     ulimit -Sn 4096
     {{< /highlight>}}
 
-12. Before proceeding to start up our Sentry Node for the first time we will need to install some live monitoring software to see what it is doing once active. 
+13. Before proceeding to start up our Sentry Node for the first time we will need to install some live monitoring software to see what it is doing once active. 
 
     We do this by entering the following group of commands
     {{< highlight bash "linenos=table,style=witchhazel" >}}
@@ -227,7 +240,7 @@ Now, with that warning out of the way, we shall proceed with the guide!
     rm ayaview.zip
     {{< /highlight>}}
 
-13. We will also quickly add a new Firewall Rule to our Server to allow Incoming connections to come into our Node once it has started. 
+14. We will also quickly add a new Firewall Rule to our Server to allow Incoming connections to come into our Node once it has started. 
 
     What command we need to enter to do this will depend on how our Server is set up to handle Firewall Rules. 
 
@@ -246,7 +259,7 @@ Now, with that warning out of the way, we shall proceed with the guide!
 
     If we haven't yet set up our Firewall Rules at all, we can follow the steps laid out over at [Firewall Configuration](/docs/configuration/firewall/)  to do this.
 
-14. With the Firewall Rule added we are now going to start up our Sentry Node for the first time, manually. 
+15. With the Firewall Rule added we are now going to start up our Sentry Node for the first time, manually. 
 
     >Note: Later we will be setting up a service file to have our Node automatically restart on Server reboot, or following a crash. For now though we will proceed manually.
 
@@ -274,7 +287,7 @@ Now, with that warning out of the way, we shall proceed with the guide!
 
     We have now started our Node software for the first time!
 
-15. Now we shall proceed to monitoring it.
+16. Now we shall proceed to monitoring it.
 
     We do this by entering the following group of commands
     {{< highlight bash "linenos=table,style=witchhazel" >}}
@@ -317,7 +330,7 @@ Now, with that warning out of the way, we shall proceed with the guide!
 
     To save the config.toml file within nano editor we press ctrl+x and then press y, followed by enter. This will save the file with the same filename as before.
 
-16. Next we need to make a change to the app.toml file contents for our Sentry Node. 
+17. Next we need to make a change to the app.toml file contents for our Sentry Node. 
 
     We do this by entering the following command
     {{< highlight bash "linenos=table,style=witchhazel" >}}
@@ -340,7 +353,7 @@ Now, with that warning out of the way, we shall proceed with the guide!
 
     >Note: These **config.toml** and **app.toml** file edits above should only be completed once we are SURE that our Node is up to date with the current state of the Chain. We DO NOT make this edit before our Node has fully synced to the current Block Height ayaview, and is adding a new Block around every 5-6 seconds. 
 
-17. At present, our Node should be running along nicely in the background and keeping up to date with the current state of the Chain, but we still have to complete some more steps before we have fully completed our Sentry Node's initial set up. 
+18. At present, our Node should be running along nicely in the background and keeping up to date with the current state of the Chain, but we still have to complete some more steps before we have fully completed our Sentry Node's initial set up. 
 
     First we need to ensure that we have saved all of our Node's important data, needed for future reference both by tools and by us.
 
@@ -360,7 +373,7 @@ Now, with that warning out of the way, we shall proceed with the guide!
 
     This will save our Sentry Node's data to the filename sentry.json in the **/opt/aya** directory.
   
-18. Next we want to set up some symbolic links for the 'ayad' and 'cosmovisor' binaries so that their specific commands can be called from anywhere on our Node's filesystem.
+19. Next we want to set up some symbolic links for the 'ayad' and 'cosmovisor' binaries so that their specific commands can be called from anywhere on our Node's filesystem.
 
     We do this by entering the following group of commands
     {{< highlight bash "linenos=table,style=witchhazel" >}}
@@ -368,7 +381,7 @@ Now, with that warning out of the way, we shall proceed with the guide!
     sudo ln -s $aya_home/cosmovisor/cosmovisor /usr/local/bin/cosmovisor >/dev/null 2>&1
     {{< /highlight>}}
 
-19. And finally, we want to create a systemd service file that will allow our Node to automatically start on a reboot of our Server and to automatically attempt to restart itself on any crashes.
+20. And finally, we want to create a systemd service file that will allow our Node to automatically start on a reboot of our Server and to automatically attempt to restart itself on any crashes.
 
     We do this by entering the following group of commands
     {{< highlight bash "linenos=table,style=witchhazel" >}}
@@ -405,7 +418,7 @@ Now, with that warning out of the way, we shall proceed with the guide!
 
     This will have added a new service file to our Server under the path /etc/systemd/system named cosmovisor.service. This service file is what will be called when the Server reboots, or if our Node crashes.
 
-20. With the service now created, we now need to enable it for future use.
+21. With the service now created, we now need to enable it for future use.
 
     We do this by entering the following group of commands
 
@@ -432,7 +445,7 @@ Now, with that warning out of the way, we shall proceed with the guide!
 
     If we see this, we know we have successfully installed our Aya Node Service. 
 
-21. All that remains now, is to close down our first run of our Node and to restart it using this newly installed Service instead of manually launching our Node as before.
+22. All that remains now, is to close down our first run of our Node and to restart it using this newly installed Service instead of manually launching our Node as before.
 
     To do this, we need to identify what the current process number of our still running first run Node is. 
 
@@ -498,7 +511,7 @@ Now, with that warning out of the way, we shall proceed with the guide!
 
     Some details will be different to the above example, but this should be the general layout. The important point is that it should say 'active (running)' in green.
 
-22. We can now confirm everything is continuing to sync from the Blockchain by going back to our ayaview console and watching to see if the Block Height is still slowly ticking upwards as before.
+23. We can now confirm everything is continuing to sync from the Blockchain by going back to our ayaview console and watching to see if the Block Height is still slowly ticking upwards as before.
 
     We do this by entering the following group of commands
     {{< highlight bash "linenos=table,style=witchhazel" >}}
