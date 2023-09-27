@@ -211,7 +211,7 @@ Now we need to prepare our **Sentry Nodes** for connection from our Validator.
     * Add our Validator's Node ID, Private IP address, and Port number to receive connections from our Sentry Node to **persistent_peers**. Making sure **not** to remove the existing World Mobile peers.
     {{< highlight bash "linenos=table,style=witchhazel" >}}
     # Comma separated list of nodes to keep persistent connections to
-    persistent_peers = "692f6bb765ed3170db4fb5f5dfd27c54503d52d3@peer1-501.worldmobilelabs.com:26656,d1da4b1ad17ea35cf8c1713959b430a95743afcd@peer2-501.worldmobilelabs.com:26656,<Validator Node ID>@<Validator.Node.Private.IP>:26656"
+    persistent_peers = "d7e64a6fc57019d04c989f59c2c643ee1133d99c@peer1-501.worldmobilelabs.com:26656,d1da4b1ad17ea35cf8c1713959b430a95743afcd@peer2-501.worldmobilelabs.com:26656,<Validator Node ID>@<Validator.Node.Private.IP>:26656"
     {{< /highlight>}}
     > Note: We replace ```<Validator Node ID>``` with our separately copied Validator Node ID from above and ```<Validator.Node.Private.IP>``` with our Validator Node's IP at this point, removing the surrounding <>
 
