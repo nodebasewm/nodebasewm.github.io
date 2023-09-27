@@ -393,7 +393,7 @@ Now, with that warning out of the way, we shall proceed with the guide!
     We do this by entering the following group of commands
     {{< highlight bash "linenos=table,style=witchhazel" >}}
     sudo tee /etc/systemd/system/cosmovisor.service > /dev/null <<EOF
-    # Start the 'cosmovisor' daemon and append any output to the 'aya.log' file
+    # Start the 'cosmovisor' daemon
     # Create a Systemd service file for the 'cosmovisor' daemon
     [Unit]
     Description=Aya Node
@@ -401,8 +401,8 @@ Now, with that warning out of the way, we shall proceed with the guide!
 
     [Service]
     User=$USER
-    # Start the 'cosmovisor' daemon with the 'run start' command and write output to 'aya.log' file
-    ExecStart=$(which cosmovisor) run start --home "${aya_home}" &>>"${aya_home}/logs/aya.log"
+    # Start the 'cosmovisor' daemon with the 'run start' command and write output to journalctl
+    ExecStart=$(which cosmovisor) run start --home "${aya_home}"
     # Restart the service if it fails
     Restart=always
     # Restart the service after 3 seconds if it fails
