@@ -154,11 +154,18 @@ Now, with that warning out of the way, we shall proceed with the guide!
     log_level = "error"
     {{< /highlight>}}
 
-    * Set the seed nodes supplied by World Mobile, that seed the historical Blockchain Data to our new Sentry Node, as persistent_peers
+    * Set the public nodes supplied by World Mobile, that provide a statesync of historical Blockchain Data to our new Sentry Node, as persistent_peers
     {{< highlight bash "linenos=table,style=witchhazel" >}}
     # Comma separated list of nodes to keep persistent connections to
     persistent_peers = "692f6bb765ed3170db4fb5f5dfd27c54503d52d3@peer1-501.worldmobilelabs.com:26656,d1da4b1ad17ea35cf8c1713959b430a95743afcd@peer2-501.worldmobilelabs.com:26656"
     {{< /highlight>}}
+
+    * Set the public seed node supplied by World Mobile, that helps keep your Sentry Node's P2P address book file up to date, as a seed in **seeds**
+    {{< highlight bash "linenos=table,style=witchhazel" >}}
+    # Comma separated list of seed nodes to connect to
+    seeds = "7836955a4d42ed85a6adb13ae4f96806ab2fd9b2@peer3-501.worldmobilelabs.com:26656"    
+    {{< /highlight>}}
+
 
     * Set the **external_address = ""** field to have our own Node's Public IP address followed by our Node's local connection Port (default 26656), so that it can broadcast this information to other nodes over P2P (replace x.x.x.x with our Node's Public IP). 
     {{< highlight bash "linenos=table,style=witchhazel" >}}
