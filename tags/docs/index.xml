@@ -243,7 +243,7 @@ a moderator in the WorldMobile telegram groups to request the access form.&lt;/p
 &lt;/div>&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>Set the seed nodes supplied by World Mobile, that seed the historical Blockchain Data to our new Sentry Node, as persistent_peers
+&lt;p>Set the public nodes supplied by World Mobile, that provide a statesync of historical Blockchain Data to our new Sentry Node, as persistent_peers
 &lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -252,6 +252,19 @@ a moderator in the WorldMobile telegram groups to request the access form.&lt;/p
 &lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#b0bec5"># Comma separated list of nodes to keep persistent connections to&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>persistent_peers &lt;span style="color:#ffb8d1">=&lt;/span> &lt;span style="color:#1bc5e0">&amp;#34;692f6bb765ed3170db4fb5f5dfd27c54503d52d3@peer1-501.worldmobilelabs.com:26656,d1da4b1ad17ea35cf8c1713959b430a95743afcd@peer2-501.worldmobilelabs.com:26656&amp;#34;&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Set the public seed node supplied by World Mobile, that helps keep your Sentry Node&amp;rsquo;s P2P address book file up to date, as a seed in &lt;strong>seeds&lt;/strong>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#b0bec5"># Comma separated list of seed nodes to connect to&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>seeds &lt;span style="color:#ffb8d1">=&lt;/span> &lt;span style="color:#1bc5e0">&amp;#34;7836955a4d42ed85a6adb13ae4f96806ab2fd9b2@peer3-501.worldmobilelabs.com:26656&amp;#34;&lt;/span> &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;/p>
 &lt;/li>
