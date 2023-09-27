@@ -252,7 +252,7 @@
 </span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">28
 </span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">29
 </span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>sudo tee /etc/systemd/system/cosmovisor.service &gt; /dev/null <span style=color:#1bc5e0>&lt;&lt;EOF
-</span></span></span><span style=display:flex><span><span style=color:#1bc5e0># Start the &#39;cosmovisor&#39; daemon and append any output to the &#39;aya.log&#39; file
+</span></span></span><span style=display:flex><span><span style=color:#1bc5e0># Start the &#39;cosmovisor&#39; daemon
 </span></span></span><span style=display:flex><span><span style=color:#1bc5e0># Create a Systemd service file for the &#39;cosmovisor&#39; daemon
 </span></span></span><span style=display:flex><span><span style=color:#1bc5e0>[Unit]
 </span></span></span><span style=display:flex><span><span style=color:#1bc5e0>Description=Aya Node
@@ -260,8 +260,8 @@
 </span></span></span><span style=display:flex><span><span style=color:#1bc5e0>
 </span></span></span><span style=display:flex><span><span style=color:#1bc5e0>[Service]
 </span></span></span><span style=display:flex><span><span style=color:#1bc5e0>User=$USER
-</span></span></span><span style=display:flex><span><span style=color:#1bc5e0># Start the &#39;cosmovisor&#39; daemon with the &#39;run start&#39; command and write output to &#39;aya.log&#39; file
-</span></span></span><span style=display:flex><span><span style=color:#1bc5e0>ExecStart=$(which cosmovisor) run start --home &#34;${aya_home}&#34; &amp;&gt;&gt;&#34;${aya_home}/logs/aya.log&#34;
+</span></span></span><span style=display:flex><span><span style=color:#1bc5e0># Start the &#39;cosmovisor&#39; daemon with the &#39;run start&#39; command and write output to journalctl
+</span></span></span><span style=display:flex><span><span style=color:#1bc5e0>ExecStart=$(which cosmovisor) run start --home &#34;${aya_home}&#34;
 </span></span></span><span style=display:flex><span><span style=color:#1bc5e0># Restart the service if it fails
 </span></span></span><span style=display:flex><span><span style=color:#1bc5e0>Restart=always
 </span></span></span><span style=display:flex><span><span style=color:#1bc5e0># Restart the service after 3 seconds if it fails
