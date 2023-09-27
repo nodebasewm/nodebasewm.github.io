@@ -908,11 +908,11 @@ They &lt;strong>can&lt;/strong> be the same name.&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Memory: 568.5M
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> CPU: 9.121s
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> CGroup: /system.slice/cosmovisor.service
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ├─122758 /usr/local/bin/cosmovisor run start --home /opt/aya &lt;span style="color:#1bc5e0">&amp;#34;&amp;amp;&amp;gt;&amp;gt;/opt/aya/logs/aya.log&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> └─122764 /opt/aya/cosmovisor/genesis/bin/ayad start --home /opt/aya &lt;span style="color:#1bc5e0">&amp;#34;&amp;amp;&amp;gt;&amp;gt;/opt/aya/logs/aya.log&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ├─122758 /usr/local/bin/cosmovisor run start --home /opt/aya
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> └─122764 /opt/aya/cosmovisor/genesis/bin/ayad start --home /opt/aya
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Mar &lt;span style="color:#c5a3ff">15&lt;/span> 16:27:02 wmt-sentry1 systemd&lt;span style="color:#ffb8d1">[&lt;/span>1&lt;span style="color:#ffb8d1">]&lt;/span>: Started Aya Node.
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Mar &lt;span style="color:#c5a3ff">15&lt;/span> 16:27:02 wmt-sentry1 cosmovisor&lt;span style="color:#ffb8d1">[&lt;/span>122758&lt;span style="color:#ffb8d1">]&lt;/span>: 4:27PM INF running app args&lt;span style="color:#ffb8d1">=[&lt;/span>&lt;span style="color:#1bc5e0">&amp;#34;start&amp;#34;&lt;/span>,&lt;span style="color:#1bc5e0">&amp;#34;--home&amp;#34;&lt;/span>,&lt;span style="color:#1bc5e0">&amp;#34;/opt/aya&amp;#34;&lt;/span>,&lt;span style="color:#1bc5e0">&amp;#34;\u0026\u003e\u003e/opt/aya/logs/aya.log&amp;#34;&lt;/span>&lt;span style="color:#ffb8d1">]&lt;/span> module&lt;span style="color:#ffb8d1">=&lt;/span>cosmovisor path&lt;span style="color:#ffb8d1">=&lt;/span>/opt/aya/cosmovisor/genesis/bin/ayad
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Mar &lt;span style="color:#c5a3ff">15&lt;/span> 16:27:02 wmt-sentry1 cosmovisor&lt;span style="color:#ffb8d1">[&lt;/span>122758&lt;span style="color:#ffb8d1">]&lt;/span>: 4:27PM INF running app args&lt;span style="color:#ffb8d1">=[&lt;/span>&lt;span style="color:#1bc5e0">&amp;#34;start&amp;#34;&lt;/span>,&lt;span style="color:#1bc5e0">&amp;#34;--home&amp;#34;&lt;/span>,&lt;span style="color:#1bc5e0">&amp;#34;/opt/aya&amp;#34;&lt;/span>&lt;span style="color:#ffb8d1">]&lt;/span> module&lt;span style="color:#ffb8d1">=&lt;/span>cosmovisor path&lt;span style="color:#ffb8d1">=&lt;/span>/opt/aya/cosmovisor/genesis/bin/ayad
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Mar &lt;span style="color:#c5a3ff">15&lt;/span> 16:27:08 wmt-sentry1 cosmovisor&lt;span style="color:#ffb8d1">[&lt;/span>122764&lt;span style="color:#ffb8d1">]&lt;/span>: 4:27PM ERR Error dialing peer err&lt;span style="color:#ffb8d1">=&lt;/span>&lt;span style="color:#1bc5e0">&amp;#34;dial tcp &amp;lt;Validator.Node.Private.IP&amp;gt;:26656: connect: connection refused&amp;#34;&lt;/span> module&lt;span style="color:#ffb8d1">=&lt;/span>p2p&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>
@@ -1422,7 +1422,7 @@ They &lt;strong>can&lt;/strong> be the same name.&lt;/p>
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo tee /etc/systemd/system/cosmovisor.service &amp;gt; /dev/null &lt;span style="color:#1bc5e0">&amp;lt;&amp;lt;EOF
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0"># Start the &amp;#39;cosmovisor&amp;#39; daemon and append any output to the &amp;#39;aya.log&amp;#39; file
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0"># Start the &amp;#39;cosmovisor&amp;#39; daemon
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0"># Create a Systemd service file for the &amp;#39;cosmovisor&amp;#39; daemon
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0">[Unit]
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0">Description=Aya Node
@@ -1430,8 +1430,8 @@ They &lt;strong>can&lt;/strong> be the same name.&lt;/p>
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0">[Service]
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0">User=$USER
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0"># Start the &amp;#39;cosmovisor&amp;#39; daemon with the &amp;#39;run start&amp;#39; command and write output to &amp;#39;aya.log&amp;#39; file
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0">ExecStart=$(which cosmovisor) run start --home &amp;#34;${aya_home}&amp;#34; &amp;amp;&amp;gt;&amp;gt;&amp;#34;${aya_home}/logs/aya.log&amp;#34;
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0"># Start the &amp;#39;cosmovisor&amp;#39; daemon with the &amp;#39;run start&amp;#39; command and write output to journalctl
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0">ExecStart=$(which cosmovisor) run start --home &amp;#34;${aya_home}&amp;#34;
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0"># Restart the service if it fails
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0">Restart=always
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0"># Restart the service after 3 seconds if it fails
@@ -1580,11 +1580,11 @@ Note: We replace &lt;code>&amp;lt;number&amp;gt;&lt;/code> with our noted number
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Memory: 382.3M
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> CPU: 5.063s
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> CGroup: /system.slice/cosmovisor.service
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ├─34791 /usr/local/bin/cosmovisor run start --home /opt/aya &lt;span style="color:#1bc5e0">&amp;#34;&amp;amp;&amp;gt;&amp;gt;/opt/aya/logs/aya.log&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> └─34796 /opt/aya/cosmovisor/genesis/bin/ayad start --home /opt/aya &lt;span style="color:#1bc5e0">&amp;#34;&amp;amp;&amp;gt;&amp;gt;/opt/aya/logs/aya.log&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ├─34791 /usr/local/bin/cosmovisor run start --home /opt/aya
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> └─34796 /opt/aya/cosmovisor/genesis/bin/ayad start --home /opt/aya
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Mar &lt;span style="color:#c5a3ff">01&lt;/span> 04:06:05 localhost systemd&lt;span style="color:#ffb8d1">[&lt;/span>1&lt;span style="color:#ffb8d1">]&lt;/span>: Started Aya Node.
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Mar &lt;span style="color:#c5a3ff">01&lt;/span> 04:06:05 localhost cosmovisor&lt;span style="color:#ffb8d1">[&lt;/span>34791&lt;span style="color:#ffb8d1">]&lt;/span>: 4:06AM INF running app args&lt;span style="color:#ffb8d1">=[&lt;/span>&lt;span style="color:#1bc5e0">&amp;#34;start&amp;#34;&lt;/span>,&lt;span style="color:#1bc5e0">&amp;#34;--home&amp;#34;&lt;/span>,&lt;span style="color:#1bc5e0">&amp;#34;/opt/aya&amp;#34;&lt;/span>,&lt;span style="color:#1bc5e0">&amp;#34;\u0026\u003e\u003e/opt/aya/logs/aya.log&amp;#34;&lt;/span>&lt;span style="color:#ffb8d1">]&lt;/span> module&lt;span style="color:#ffb8d1">=&lt;/span>cosmovisor path&lt;span style="color:#ffb8d1">=&lt;/span>/opt/aya/cosmovisor/genesis/bin/ayad&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Mar &lt;span style="color:#c5a3ff">01&lt;/span> 04:06:05 localhost cosmovisor&lt;span style="color:#ffb8d1">[&lt;/span>34791&lt;span style="color:#ffb8d1">]&lt;/span>: 4:06AM INF running app args&lt;span style="color:#ffb8d1">=[&lt;/span>&lt;span style="color:#1bc5e0">&amp;#34;start&amp;#34;&lt;/span>,&lt;span style="color:#1bc5e0">&amp;#34;--home&amp;#34;&lt;/span>,&lt;span style="color:#1bc5e0">&amp;#34;/opt/aya&amp;#34;&lt;/span>&lt;span style="color:#ffb8d1">]&lt;/span> module&lt;span style="color:#ffb8d1">=&lt;/span>cosmovisor path&lt;span style="color:#ffb8d1">=&lt;/span>/opt/aya/cosmovisor/genesis/bin/ayad&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;/p>
 &lt;p>Some details will be different to the above example, but this should be the general layout. The important point is that it should say &amp;lsquo;active (running)&amp;rsquo; in green.&lt;/p>
