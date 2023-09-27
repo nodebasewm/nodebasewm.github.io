@@ -509,11 +509,11 @@ Now, with that warning out of the way, we shall proceed with the guide!
         Memory: 382.3M
             CPU: 5.063s
         CGroup: /system.slice/cosmovisor.service
-                ├─34791 /usr/local/bin/cosmovisor run start --home /opt/aya "&>>/opt/aya/logs/aya.log"
-                └─34796 /opt/aya/cosmovisor/genesis/bin/ayad start --home /opt/aya "&>>/opt/aya/logs/aya.log"
+                ├─34791 /usr/local/bin/cosmovisor run start --home /opt/aya
+                └─34796 /opt/aya/cosmovisor/genesis/bin/ayad start --home /opt/aya
 
     Mar 01 04:06:05 localhost systemd[1]: Started Aya Node.
-    Mar 01 04:06:05 localhost cosmovisor[34791]: 4:06AM INF running app args=["start","--home","/opt/aya","\u0026\u003e\u003e/opt/aya/logs/aya.log"] module=cosmovisor path=/opt/aya/cosmovisor/genesis/bin/ayad
+    Mar 01 04:06:05 localhost cosmovisor[34791]: 4:06AM INF running app args=["start","--home","/opt/aya"] module=cosmovisor path=/opt/aya/cosmovisor/genesis/bin/ayad
     {{< /highlight>}}
 
     Some details will be different to the above example, but this should be the general layout. The important point is that it should say 'active (running)' in green.
