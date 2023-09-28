@@ -211,7 +211,7 @@ Now we need to prepare our **Sentry Nodes** for connection from our Validator.
     * Add our Validator's Node ID, Private IP address, and Port number to receive connections from our Sentry Node to **persistent_peers**. Making sure **not** to remove the existing World Mobile peers.
     {{< highlight bash "linenos=table,style=witchhazel" >}}
     # Comma separated list of nodes to keep persistent connections to
-    persistent_peers = "692f6bb765ed3170db4fb5f5dfd27c54503d52d3@peer1-501.worldmobilelabs.com:26656,d1da4b1ad17ea35cf8c1713959b430a95743afcd@peer2-501.worldmobilelabs.com:26656,<Validator Node ID>@<Validator.Node.Private.IP>:26656"
+    persistent_peers = "d7e64a6fc57019d04c989f59c2c643ee1133d99c@peer1-501.worldmobilelabs.com:26656,d1da4b1ad17ea35cf8c1713959b430a95743afcd@peer2-501.worldmobilelabs.com:26656,<Validator Node ID>@<Validator.Node.Private.IP>:26656"
     {{< /highlight>}}
     > Note: We replace ```<Validator Node ID>``` with our separately copied Validator Node ID from above and ```<Validator.Node.Private.IP>``` with our Validator Node's IP at this point, removing the surrounding <>
 
@@ -302,11 +302,11 @@ Now we need to prepare our **Sentry Nodes** for connection from our Validator.
          Memory: 568.5M
             CPU: 9.121s
          CGroup: /system.slice/cosmovisor.service
-                 ├─122758 /usr/local/bin/cosmovisor run start --home /opt/aya "&>>/opt/aya/logs/aya.log"
-                 └─122764 /opt/aya/cosmovisor/genesis/bin/ayad start --home /opt/aya "&>>/opt/aya/logs/aya.log"
+                 ├─122758 /usr/local/bin/cosmovisor run start --home /opt/aya 
+                 └─122764 /opt/aya/cosmovisor/genesis/bin/ayad start --home /opt/aya
 
     Mar 15 16:27:02 wmt-sentry1 systemd[1]: Started Aya Node.
-    Mar 15 16:27:02 wmt-sentry1 cosmovisor[122758]: 4:27PM INF running app args=["start","--home","/opt/aya","\u0026\u003e\u003e/opt/aya/logs/aya.log"] module=cosmovisor path=/opt/aya/cosmovisor/genesis/bin/ayad
+    Mar 15 16:27:02 wmt-sentry1 cosmovisor[122758]: 4:27PM INF running app args=["start","--home","/opt/aya"] module=cosmovisor path=/opt/aya/cosmovisor/genesis/bin/ayad
     Mar 15 16:27:08 wmt-sentry1 cosmovisor[122764]: 4:27PM ERR Error dialing peer err="dial tcp <Validator.Node.Private.IP>:26656: connect: connection refused" module=p2p
     {{< /highlight>}}
     
@@ -411,12 +411,24 @@ We can now to return to our Valdiator Node to complete the rest of its set up.
     # specified in this config (e.g. 0.25token1;0.0001token2).
     minimum-gas-prices = "0uswmt"
     {{< /highlight>}}
+    * Change the API Configuration section **enable** option to be **enable = true** instead of **false**
+    {{< highlight bash "linenos=table,style=witchhazel" >}}
+    [api]
+
+    # Enable defines if the API server should be enabled.
+    enable = true
+    {{< /highlight>}}
+    * Change the API Configuration section **address** option to be **"tcp://127.0.0.1:1317"** instead of **"tcp://0.0.0.0:1317"**
+    {{< highlight bash "linenos=table,style=witchhazel" >}}
+    # Address defines the API server to listen on.
+    address = "tcp://127.0.0.1:1317"
+    {{< /highlight>}}
 
     At this point the editing work to our **app.toml** file is done, and it can now be saved with these changes. 
 
     To save the app.toml file within nano editor we press **ctrl+x** and then **press y**, followed by **enter**. This will save the file with the same filename as before.
 
-18. Now we need to export some environment variables to get our system ready to run our Validator Node for the first time. 
+19. Now we need to export some environment variables to get our system ready to run our Validator Node for the first time. 
 
     We do this by entering the following group of commands
     
@@ -429,7 +441,7 @@ We can now to return to our Valdiator Node to complete the rest of its set up.
     ulimit -Sn 4096
     {{< /highlight>}}
 
-19. Before proceeding to start up our Valdiator Node for the first time we will need to install some live monitoring software to see what it is doing once active. 
+20. Before proceeding to start up our Valdiator Node for the first time we will need to install some live monitoring software to see what it is doing once active. 
 
     We do this by entering the following group of commands
     
@@ -442,7 +454,7 @@ We can now to return to our Valdiator Node to complete the rest of its set up.
     rm ayaview.zip
     {{< /highlight>}}
 
-20. We will also quickly add some new Firewall Rules to our Server to **only** allow Incoming connections from our already configured Sentry Node's to come into our Validator Node once it has started. 
+21. We will also quickly add some new Firewall Rules to our Server to **only** allow Incoming connections from our already configured Sentry Node's to come into our Validator Node once it has started. 
 
     What command we need to enter to do this will depend on how our Server is set up to handle Firewall Rules. 
 
@@ -463,7 +475,7 @@ We can now to return to our Valdiator Node to complete the rest of its set up.
 
     If we haven't yet set up our Firewall Rules at all, we can follow the steps laid out over at [Firewall Configuration](/docs/configuration/firewall/) to do this.
 
-21. Now we shall set up some variables that will be used in the next step to allow us to quickly manually start up our Validator, and let it begin its statesync process.
+22. Now we shall set up some variables that will be used in the next step to allow us to quickly manually start up our Validator, and let it begin its statesync process.
 
     We do this by entering the following group of commands
 
@@ -477,7 +489,7 @@ We can now to return to our Valdiator Node to complete the rest of its set up.
     RPC_PEER_2="<Sentry.Node2.Private.IP>"
     {{< /highlight>}}
 
-22. With the Firewall Rules added, and our Sentry Nodes' Private IP addresses set, we are now going to start up our Valdiator Node for the first time, manually. 
+23. With the Firewall Rules added, and our Sentry Nodes' Private IP addresses set, we are now going to start up our Valdiator Node for the first time, manually. 
 
     > Note: Later we will be setting up a service file to have our Node automatically restart on Server reboot, or following a crash. For now though we will proceed manually.
 
@@ -508,7 +520,7 @@ We can now to return to our Valdiator Node to complete the rest of its set up.
 
     We have now started our Node software for the first time!
 
-23. Now we shall proceed to monitoring it.
+24. Now we shall proceed to monitoring it.
 
     We do this by entering the following group of commands
 
@@ -555,7 +567,7 @@ We can now to return to our Valdiator Node to complete the rest of its set up.
 
     >Note: This **config.toml** file edit above should only be completed once we are SURE that our Node is up to date with the current state of the Chain. We DO NOT make this edit before our Node has fully synced to the current Block Height ayaview, and is adding a new Block around every 5-6 seconds. 
 
-24. At present, our Node should be running along nicely in the background and keeping up to date with the current state of the Chain, but we still have to complete some more steps before we have fully completed our Valdiator Node's initial set up. 
+25. At present, our Node should be running along nicely in the background and keeping up to date with the current state of the Chain, but we still have to complete some more steps before we have fully completed our Valdiator Node's initial set up. 
 
     First we to ensure that we have saved all of our Node's important data, needed for future reference both by tools and by us.
 
@@ -578,7 +590,7 @@ We can now to return to our Valdiator Node to complete the rest of its set up.
 
     This will save our Validator Node's data to the filename registration.json in the **/opt/aya** directory.
   
-25. Next we want to set up some symbolic links for the 'ayad' and 'cosmovisor' binaries so that their specific commands can be called from anywhere on our Node's filesystem.
+26. Next we want to set up some symbolic links for the 'ayad' and 'cosmovisor' binaries so that their specific commands can be called from anywhere on our Node's filesystem.
 
     We do this by entering the following group of commands
     {{< highlight bash "linenos=table,style=witchhazel" >}}
@@ -586,13 +598,13 @@ We can now to return to our Valdiator Node to complete the rest of its set up.
     sudo ln -s $aya_home/cosmovisor/cosmovisor /usr/local/bin/cosmovisor >/dev/null 2>&1
     {{< /highlight>}}
 
-26. And finally, we want to create a systemd service file that will allow our Node to automatically start on a reboot of our Server and to automatically attempt to restart itself on any crashes.
+27. And finally, we want to create a systemd service file that will allow our Node to automatically start on a reboot of our Server and to automatically attempt to restart itself on any crashes.
 
     We do this by entering the following group of commands
 
     {{< highlight bash "linenos=table,style=witchhazel" >}}
     sudo tee /etc/systemd/system/cosmovisor.service > /dev/null <<EOF
-    # Start the 'cosmovisor' daemon and append any output to the 'aya.log' file
+    # Start the 'cosmovisor' daemon 
     # Create a Systemd service file for the 'cosmovisor' daemon
     [Unit]
     Description=Aya Node
@@ -600,8 +612,8 @@ We can now to return to our Valdiator Node to complete the rest of its set up.
 
     [Service]
     User=$USER
-    # Start the 'cosmovisor' daemon with the 'run start' command and write output to 'aya.log' file
-    ExecStart=$(which cosmovisor) run start --home "${aya_home}" &>>"${aya_home}/logs/aya.log"
+    # Start the 'cosmovisor' daemon with the 'run start' command and write output to journalctl
+    ExecStart=$(which cosmovisor) run start --home "${aya_home}"
     # Restart the service if it fails
     Restart=always
     # Restart the service after 3 seconds if it fails
@@ -624,7 +636,7 @@ We can now to return to our Valdiator Node to complete the rest of its set up.
 
     This will have added a new service file to our Server under the path /etc/systemd/system named cosmovisor.service. This service file is what will be called when the Server reboots, or if our Node crashes.
 
-27. With the service now created, we now need to enable it for future use.
+28. With the service now created, we now need to enable it for future use.
 
     We do this by entering the following group of commands
 
@@ -651,7 +663,7 @@ We can now to return to our Valdiator Node to complete the rest of its set up.
 
     If we see this, we know we have successfully installed our Aya Node Service. 
 
-28. All that remains now, is to close down our first run of our Node and to restart it using this newly installed Service instead of manually launching our Node as before.
+29. All that remains now, is to close down our first run of our Node and to restart it using this newly installed Service instead of manually launching our Node as before.
 
     To do this, we need to identify what the current process number of our still running first run Node is. 
 
@@ -708,16 +720,16 @@ We can now to return to our Valdiator Node to complete the rest of its set up.
         Memory: 382.3M
             CPU: 5.063s
         CGroup: /system.slice/cosmovisor.service
-                ├─34791 /usr/local/bin/cosmovisor run start --home /opt/aya "&>>/opt/aya/logs/aya.log"
-                └─34796 /opt/aya/cosmovisor/genesis/bin/ayad start --home /opt/aya "&>>/opt/aya/logs/aya.log"
+                ├─34791 /usr/local/bin/cosmovisor run start --home /opt/aya
+                └─34796 /opt/aya/cosmovisor/genesis/bin/ayad start --home /opt/aya 
 
     Mar 01 04:06:05 localhost systemd[1]: Started Aya Node.
-    Mar 01 04:06:05 localhost cosmovisor[34791]: 4:06AM INF running app args=["start","--home","/opt/aya","\u0026\u003e\u003e/opt/aya/logs/aya.log"] module=cosmovisor path=/opt/aya/cosmovisor/genesis/bin/ayad
+    Mar 01 04:06:05 localhost cosmovisor[34791]: 4:06AM INF running app args=["start","--home","/opt/aya"] module=cosmovisor path=/opt/aya/cosmovisor/genesis/bin/ayad
     {{< /highlight>}}
 
     Some details will be different to the above example, but this should be the general layout. The important point is that it should say 'active (running)' in green.
 
-29. We can now confirm everything is continuing to sync from the Blockchain by going back to our ayaview console and watching to see if the Block Height is still slowly ticking upwards as before.
+30. We can now confirm everything is continuing to sync from the Blockchain by going back to our ayaview console and watching to see if the Block Height is still slowly ticking upwards as before.
 
     We do this by entering the following group of commands
     {{< highlight bash "linenos=table,style=witchhazel" >}}
