@@ -157,7 +157,7 @@ Now, with that warning out of the way, we shall proceed with the guide!
     * Set the public nodes supplied by World Mobile, that provide a statesync of historical Blockchain Data to our new Sentry Node, as persistent_peers
     {{< highlight bash "linenos=table,style=witchhazel" >}}
     # Comma separated list of nodes to keep persistent connections to
-    persistent_peers = "d7e64a6fc57019d04c989f59c2c643ee1133d99c@peer1-501.worldmobilelabs.com:26656,d1da4b1ad17ea35cf8c1713959b430a95743afcd@peer2-501.worldmobilelabs.com:26656"
+    persistent_peers = "692f6bb765ed3170db4fb5f5dfd27c54503d52d3@peer1-501.worldmobilelabs.com:26656,d1da4b1ad17ea35cf8c1713959b430a95743afcd@peer2-501.worldmobilelabs.com:26656"
     {{< /highlight>}}
 
     * Set the public seed node supplied by World Mobile, that helps keep your Sentry Node's P2P address book file up to date, as a seed in **seeds**
