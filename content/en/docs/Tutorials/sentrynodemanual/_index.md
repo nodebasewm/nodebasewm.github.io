@@ -275,12 +275,12 @@ Now, with that warning out of the way, we shall proceed with the guide!
 
     {{< highlight bash "linenos=table,style=witchhazel" >}}
     INTERVAL=15000
-    LATEST_HEIGHT=$(curl -s "http://peer1-501.worldmobilelabs.com:36657/block" | jq -r .result.block.header.height)
+    LATEST_HEIGHT=$(curl -s "http://peer1-501.worldmobilelabs.com:26657/block" | jq -r .result.block.header.height)
     BLOCK_HEIGHT=$((($((LATEST_HEIGHT / INTERVAL)) - 1) * INTERVAL + $((INTERVAL / 2))))
-    TRUST_HASH=$(curl -s "http://peer1-501.worldmobilelabs.com:36657/block?height=${BLOCK_HEIGHT}" | jq -r .result.block_id.hash)
+    TRUST_HASH=$(curl -s "http://peer1-501.worldmobilelabs.com:26657/block?height=${BLOCK_HEIGHT}" | jq -r .result.block_id.hash)
 
     # Set available RPC servers (at least two) required for light client snapshot verification
-    sed -i -E "s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"http://peer1-501.worldmobilelabs.com:36657,http://peer2-501.worldmobilelabs.com:26657\"|" "${aya_home}"/config/config.toml
+    sed -i -E "s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"http://peer1-501.worldmobilelabs.com:26657,http://peer2-501.worldmobilelabs.com:26657\"|" "${aya_home}"/config/config.toml
     # Set "safe" trusted block height
     sed -i -E "s|^(trust_height[[:space:]]+=[[:space:]]+).*$|\1$BLOCK_HEIGHT|" "${aya_home}"/config/config.toml
     # Set "qsafe" trusted block hash
