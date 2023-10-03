@@ -418,11 +418,6 @@ We can now to return to our Valdiator Node to complete the rest of its set up.
     # Enable defines if the API server should be enabled.
     enable = true
     {{< /highlight>}}
-    * Change the API Configuration section **address** option to be **"tcp://127.0.0.1:1317"** instead of **"tcp://0.0.0.0:1317"**
-    {{< highlight bash "linenos=table,style=witchhazel" >}}
-    # Address defines the API server to listen on.
-    address = "tcp://127.0.0.1:1317"
-    {{< /highlight>}}
 
     At this point the editing work to our **app.toml** file is done, and it can now be saved with these changes. 
 
