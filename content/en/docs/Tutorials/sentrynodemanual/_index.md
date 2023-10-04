@@ -196,7 +196,7 @@ Now, with that warning out of the way, we shall proceed with the guide!
     * Replace GRPC port to not overlap with standard Prometheus port, replacing 9090 with 29090
     {{< highlight bash "linenos=table,style=witchhazel" >}}
     # Address defines the gRPC server address to bind to.
-    address = "0.0.0.0:29090"
+    address = "localhost:29090"
     {{< /highlight>}}
     * make sure the gas price units for our network to be 0uswmt
     {{< highlight bash "linenos=table,style=witchhazel" >}}
