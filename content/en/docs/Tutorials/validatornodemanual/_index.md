@@ -402,7 +402,7 @@ We can now to return to our Valdiator Node to complete the rest of its set up.
     * Replace GRPC port to not overlap with standard Prometheus port, replacing 9090 with 29090
     {{< highlight bash "linenos=table,style=witchhazel" >}}
     # Address defines the gRPC server address to bind to.
-    address = "0.0.0.0:29090"
+    address = "localhost:29090"
     {{< /highlight>}}
     * Make sure that the gas price units for our network are set to be 0uswmt
     {{< highlight bash "linenos=table,style=witchhazel" >}}
