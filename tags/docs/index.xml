@@ -844,13 +844,20 @@ a moderator in the WorldMobile telegram groups to request the access form.&lt;/p
 &lt;nav id="TableOfContents">
 &lt;ul>
 &lt;li>&lt;a href="#introduction">Introduction&lt;/a>&lt;/li>
-&lt;li>&lt;a href="#overview">Overview&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#ayaview">AyaView&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#validators">Validators&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="#sorting-validator-view">Sorting Validator View&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#filter-validator-view">Filter Validator View&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="#peers-display">Peers Display&lt;/a>&lt;/li>
 &lt;li>&lt;a href="#installation-instructions">Installation Instructions&lt;/a>&lt;/li>
 &lt;li>&lt;a href="#configuration">Configuration&lt;/a>
 &lt;ul>
 &lt;li>&lt;a href="#ayaview-on-sentry-node">Ayaview on Sentry Node&lt;/a>&lt;/li>
 &lt;li>&lt;a href="#ayaview-on-validator-node">Ayaview on Validator Node&lt;/a>&lt;/li>
-&lt;li>&lt;a href="#grpcrpc-ports">GRPC/RPC Ports&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#grpcrpcapi-ports">GRPC/RPC/API Ports&lt;/a>&lt;/li>
 &lt;li>&lt;a href="#system-update-interval">System update Interval&lt;/a>&lt;/li>
 &lt;li>&lt;a href="#config-file">Config-File&lt;/a>&lt;/li>
 &lt;/ul>
@@ -864,26 +871,58 @@ based on Grafana-Prometheus for light-weight direct monitoring.&lt;/p>
 &lt;p>It has a very intuitive console view, written entirely in Golang for performance.
 Ayaview monitors your validator status and blocks produced on chain, as also system metrics and peer information.&lt;/p>
 &lt;p>It can be run entirely standalone, started/stopped as many times you want without affecting your node.&lt;/p>
-&lt;h1 id="overview">Overview&lt;/h1>
+&lt;h1 id="ayaview">AyaView&lt;/h1>
 &lt;p>Ayaview provides node status display of your node. Uptime / peers / blocks proposed and system metrics.&lt;/p>
-&lt;figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 910px">
-&lt;img class="card-img-top" src="/docs/tools/ayaview/ayaview_hu82d75ec0e1b6a4be34b0a16311ef1d97_51770_900x600_fit_catmullrom_3.png" width="900" height="393">
+&lt;figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 857px">
+&lt;img class="card-img-top" src="/docs/tools/ayaview/ayaview_hue8afbc298a9034a57464cf8ba1578008_84423_900x600_fit_catmullrom_3.png" width="847" height="512">
 &lt;figcaption class="card-body px-0 pt-2 pb-0">
 &lt;p class="card-text">
 &lt;small class="text-muted">&lt;br/>picture&lt;/small>&lt;/p>
 &lt;/figcaption>
 &lt;/figure>
-&lt;p>You can also view validator information by pressing the key &amp;lsquo;v&amp;rsquo;. This gives you an overview of all active/non-active validators with their voting power.&lt;/p>
+&lt;h1 id="validators">Validators&lt;/h1>
+&lt;p>The validator view display active validators and their current status.
+The information displayed is&lt;/p>
+&lt;ol>
+&lt;li>Moniker and address&lt;/li>
+&lt;li>MissedBlocks : How many blocks missed in slashing window&lt;/li>
+&lt;li>CCF : Checks if validator is on the Cardano ChainFollower list&lt;/li>
+&lt;li>Tokens: How many delegated tokens&lt;/li>
+&lt;li>Power: Voting power&lt;/li>
+&lt;li>State: Signing state&lt;/li>
+&lt;li>Commission: Commission rate set on this validator&lt;/li>
+&lt;/ol>
 &lt;figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 910px">
-&lt;img class="card-img-top" src="/docs/tools/ayaview/validators_hu9ab4178bc710c2298be65d6b1b228517_56860_900x600_fit_catmullrom_3.png" width="900" height="518">
+&lt;img class="card-img-top" src="/docs/tools/ayaview/validators_hua15308325df2568c74ded31805f08dc3_150678_900x600_fit_catmullrom_3.png" width="900" height="548">
 &lt;figcaption class="card-body px-0 pt-2 pb-0">
 &lt;p class="card-text">
 &lt;small class="text-muted">&lt;br/>picture&lt;/small>&lt;/p>
 &lt;/figcaption>
 &lt;/figure>
+&lt;p>Additionally, the view supports filtering and sorting.&lt;/p>
+&lt;figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 910px">
+&lt;img class="card-img-top" src="/docs/tools/ayaview/filtersort_hu6e4c426ddda2c24cbea0afc9e9460c93_40112_900x600_fit_catmullrom_3.png" width="900" height="211">
+&lt;figcaption class="card-body px-0 pt-2 pb-0">
+&lt;p class="card-text">
+&lt;small class="text-muted">&lt;br/>picture&lt;/small>&lt;/p>
+&lt;/figcaption>
+&lt;/figure>
+&lt;h2 id="sorting-validator-view">Sorting Validator View&lt;/h2>
+&lt;p>&lt;strong>Press the key &amp;rsquo;s&amp;rsquo;&lt;/strong> to sort on different columns and order. By repeating
+pressing the &amp;rsquo;s&amp;rsquo; key you will be able to cycle through different sort options,
+display in the upper right corner&lt;/p>
+&lt;h2 id="filter-validator-view">Filter Validator View&lt;/h2>
+&lt;p>Wildcard filtering is also added. The filter implements glob based style filtering (similar to file path filters on command line)&lt;/p>
+&lt;p>&lt;strong>By pressing the key &amp;lsquo;f&amp;rsquo;&lt;/strong> you enter the filter node, and you can start typing your filter,
+display in the upper right corner, The section will be highhlighted in yellow.
+And the filter is applied while typing in real-time updates. Because the filter captures the input, you need to press the ESC button to end filter setup, so you can go back and change the tab display&lt;/p>
+&lt;ul>
+&lt;li>Important: Only use the filtering patterns &amp;lsquo;*&amp;rsquo; and &amp;lsquo;?&amp;rsquo;. The filter currently doesnt support [abc] and [a-z] style filters&lt;/li>
+&lt;/ul>
+&lt;h1 id="peers-display">Peers Display&lt;/h1>
 &lt;p>A powerful feature of ayaview is to show peer connections by pressing the key &amp;lsquo;p&amp;rsquo;. This will show you all peer connections with their latency and location. Also a live view of the P2P connection details are shown when selecting a peer, like transaction speed/s.&lt;/p>
-&lt;figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 901px">
-&lt;img class="card-img-top" src="/docs/tools/ayaview/peers_hu67dec3207b1db01beabd77dfa98c52a9_109310_900x600_fit_catmullrom_3.png" width="891" height="600">
+&lt;figure class="card rounded p-2 td-post-card mb-4 mt-4" style="max-width: 887px">
+&lt;img class="card-img-top" src="/docs/tools/ayaview/peers_hu4322e6fd5dce3c51d615bd598b70dddf_67947_900x600_fit_catmullrom_3.png" width="877" height="600">
 &lt;figcaption class="card-body px-0 pt-2 pb-0">
 &lt;p class="card-text">
 &lt;small class="text-muted">&lt;br/>picture&lt;/small>&lt;/p>
@@ -915,10 +954,11 @@ you can start ayaview in any open terminal window.&lt;/p>
 &lt;p>A configuration file is provided, which must be used in the following conditions:&lt;/p>
 &lt;ul>
 &lt;li>You run ayaview on a sentry but want to see node status of your validator. (blocks signed/proposed )&lt;/li>
-&lt;li>You changed the default ports of grpc (29090) or rpc (25567).&lt;/li>
+&lt;li>You changed the default ports of grpc (29090) or rpc (25567) or api (1317)&lt;/li>
 &lt;li>You want the change the default update interval for system metrics&lt;/li>
+&lt;li>You want to have a default filter applied to validators&lt;/li>
 &lt;/ul>
-&lt;p>Call ayaview as follows&lt;/p>
+&lt;p>Use ayaview with config file :&lt;/p>
 &lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -927,19 +967,15 @@ you can start ayaview in any open terminal window.&lt;/p>
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>.&lt;span style="color:#ffb8d1">/&lt;/span>ayaview &lt;span style="color:#ffb8d1">--&lt;/span>config config.toml&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>
-&lt;p>If you run ayaview on your validator, it will automatically discover your validator node and connect to
-it.&lt;/p>
+&lt;p>If you run ayaview on your validator, it will automatically discover your validator node and connect to it.&lt;/p>
 &lt;h1 id="configuration">Configuration&lt;/h1>
-&lt;p>The configuration of ayaview is done through a &lt;strong>config.toml&lt;/strong> configuration file.
-A default config file is delivered part of the installation.&lt;/p>
+&lt;p>The configuration of ayaview is done through a &lt;strong>config.toml&lt;/strong> configuration file. A default config file is delivered part of the installation.&lt;/p>
 &lt;div class="alert alert-primary" role="alert">
 &lt;h4 class="alert-heading">Note&lt;/h4>
 This is &lt;strong>NOT&lt;/strong> the same config.toml as the &lt;em>aya config.toml&lt;/em>. Ayaview has its own config.toml file, which is part of the zip package.
 &lt;/div>
 &lt;h2 id="ayaview-on-sentry-node">Ayaview on Sentry Node&lt;/h2>
-&lt;p>If your run ayaview on a sentry node, you will only see chain activity such as blocks and chai n events.&lt;/p>
-&lt;p>If you want to see the validator node status information this sentry is pointing to,
-you will have to pass a config.toml file to ayaview.&lt;/p>
+&lt;p>If your run ayaview on a sentry node, you will only see chain activity such as blocks and chain events. If you want to see the validator node status information this sentry is pointing to, you will have to pass a config.toml file to ayaview. Ayaview will clearly display on the Home tab if your node is a validator or a sentry node.&lt;/p>
 &lt;p>You can use the config.toml delivered as part of ayaview.zip.
 Edit the value of &lt;strong>validator&lt;/strong> in the config.toml with the address of your validator node.&lt;/p>
 &lt;p>This address is the &lt;strong>ayavalop&lt;/strong> BECH32 notation of your validator node.
@@ -957,13 +993,14 @@ It must start with the ayavalop prefix, any other BECH32 notation will &lt;stron
 &lt;h2 id="ayaview-on-validator-node">Ayaview on Validator Node&lt;/h2>
 &lt;p>When running ayaview on a validator node, it will now detect that your node is a validator,
 and configure itself automatically without the need of a config file.&lt;/p>
-&lt;p>So no configuration file is needed, unless off course you intent to observe a different node,
-or changed ports.&lt;/p>
-&lt;h2 id="grpcrpc-ports">GRPC/RPC Ports&lt;/h2>
+&lt;p>So no configuration file is needed, unless off course you intent to observe a different node, or changed ports.&lt;/p>
+&lt;h2 id="grpcrpcapi-ports">GRPC/RPC/API Ports&lt;/h2>
 &lt;p>If you changed the default port of your node&amp;rsquo;s GRPC (29090) or RPC endpoint (26657), you will have to also change the grpc-address or rpc-address in the config file and pass the config file to ayaview.&lt;/p>
+&lt;p>The API part (default 1317) is needed to query WorldMobile specific APIs,
+such as the chainfollower information. YOu will have to enable this API in
+the ayad configuration app.toml under [api] section.&lt;/p>
 &lt;h2 id="system-update-interval">System update Interval&lt;/h2>
-&lt;p>Optionally, you can control the interval to update system metrics and node status. Block and consensus
-updates are updated real-time.&lt;/p>
+&lt;p>Optionally, you can control the interval to update system metrics and node status. Block and consensus updates are updated real-time.&lt;/p>
 &lt;h2 id="config-file">Config-File&lt;/h2>
 &lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -998,12 +1035,20 @@ updates are updated real-time.&lt;/p>
 &lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
 &lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
 &lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
+&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010">#&lt;/span> Bech prefixes &lt;span style="color:#c2ffdf">for&lt;/span> network.
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>bech&lt;span style="color:#ffb8d1">-&lt;/span>prefix = &lt;span style="color:#1bc5e0">&amp;#34;aya&amp;#34;&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010">#&lt;/span>validator to watch FILL&lt;span style="color:#ffb8d1">-&lt;/span>IN
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010">#&lt;/span>validator to watch
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>validator=&lt;span style="color:#1bc5e0">&amp;#34;&amp;#34;&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010">#&lt;/span> If a network has specific bech prefixes &lt;span style="color:#c2ffdf">for&lt;/span> validator and &lt;span style="color:#c2ffdf">for&lt;/span> consensus node
@@ -1016,21 +1061,29 @@ updates are updated real-time.&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010">#&lt;/span> system update interval, in seconds. Defaults to &lt;span style="color:#c5a3ff">3&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>interval = &lt;span style="color:#c5a3ff">3&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010">#&lt;/span> Node config.
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>[node]
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010">#&lt;/span> gRPC node address to get signing info and validators info from, defaults to localhost:&lt;span style="color:#c5a3ff">9090&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>grpc&lt;span style="color:#ffb8d1">-&lt;/span>address = &lt;span style="color:#1bc5e0">&amp;#34;localhost:29090&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010">#&lt;/span> Tendermint RPC node to get block info from. Defaults to http:&lt;span style="color:#b0bec5">//localhost:26657.
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#b0bec5">&lt;/span>rpc&lt;span style="color:#ffb8d1">-&lt;/span>address = &lt;span style="color:#1bc5e0">&amp;#34;localhost:26657&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010">#&lt;/span> &lt;span style="color:#c2ffdf">default&lt;/span> filter &lt;span style="color:#c2ffdf">for&lt;/span> validators display Default is no&lt;span style="color:#ffb8d1">-&lt;/span>filtering
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>filter = &lt;span style="color:#1bc5e0">&amp;#34;&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010">#&lt;/span> Endpoint config.
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>[[Endpoint]]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>name = &lt;span style="color:#1bc5e0">&amp;#34;endpoint-2&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>url = &lt;span style="color:#1bc5e0">&amp;#34;localhost&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010">#&lt;/span> gRPC node address to get signing info and validators info from, defaults to &lt;span style="color:#c5a3ff">29090&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>grpc_port = &lt;span style="color:#1bc5e0">&amp;#34;29090&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010">#&lt;/span> Tendermint RPC port to get block info from. Defaults to &lt;span style="color:#c5a3ff">26657.&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>rpc_port = &lt;span style="color:#1bc5e0">&amp;#34;26657&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010">#&lt;/span> API config port &lt;span style="color:#c2ffdf">for&lt;/span> REST API, to enable edit app.toml of ayad
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010">#&lt;/span> and &lt;span style="color:#c2ffdf">go&lt;/span> to [api] section and change enable to &lt;span style="color:#c2ffdf">true&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>rest_port = &lt;span style="color:#1bc5e0">&amp;#34;1317&amp;#34;&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010">#&lt;/span> Logging config.
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>[log]
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010">#&lt;/span> Log level. Defaults to &lt;span style="color:#960050;background-color:#1e0010">&amp;#39;&lt;/span>info&lt;span style="color:#960050;background-color:#1e0010">&amp;#39;&lt;/span>, you can set it to &lt;span style="color:#960050;background-color:#1e0010">&amp;#39;&lt;/span>debug&lt;span style="color:#960050;background-color:#1e0010">&amp;#39;&lt;/span> or even &lt;span style="color:#960050;background-color:#1e0010">&amp;#39;&lt;/span>trace&lt;span style="color:#960050;background-color:#1e0010">&amp;#39;&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010">#&lt;/span> to make it more verbose.
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>level = &lt;span style="color:#1bc5e0">&amp;#34;info&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>level = &lt;span style="color:#1bc5e0">&amp;#34;disabled&amp;#34;&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010">#&lt;/span> Log all output in JSON except &lt;span style="color:#c2ffdf">for&lt;/span> fatal errors, useful &lt;span style="color:#c2ffdf">if&lt;/span> you are using
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010">#&lt;/span> logging aggregation solutions such as ELK stack.
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>json = &lt;span style="color:#c2ffdf">true&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>json = &lt;span style="color:#c2ffdf">false&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div></description></item><item><title>Docs: Sentry Node Installation</title><link>/docs/getting-started/sentrynode/</link><pubDate>Mon, 13 Feb 2023 00:00:00 +0000</pubDate><guid>/docs/getting-started/sentrynode/</guid><description>
 &lt;div class="toc">
