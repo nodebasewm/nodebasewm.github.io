@@ -157,7 +157,7 @@ Now, with that warning out of the way, we shall proceed with the guide!
     * Set the public nodes supplied by World Mobile, that provide a statesync of historical Blockchain Data to our new Sentry Node, as persistent_peers
     {{< highlight bash "linenos=table,style=witchhazel" >}}
     # Comma separated list of nodes to keep persistent connections to
-    persistent_peers = "d7e64a6fc57019d04c989f59c2c643ee1133d99c@peer1-501.worldmobilelabs.com:26656,d1da4b1ad17ea35cf8c1713959b430a95743afcd@peer2-501.worldmobilelabs.com:26656"
+    persistent_peers = "692f6bb765ed3170db4fb5f5dfd27c54503d52d3@peer1-501.worldmobilelabs.com:26656,d1da4b1ad17ea35cf8c1713959b430a95743afcd@peer2-501.worldmobilelabs.com:26656"
     {{< /highlight>}}
 
     * Set the public seed node supplied by World Mobile, that helps keep your Sentry Node's P2P address book file up to date, as a seed in **seeds**
@@ -196,7 +196,7 @@ Now, with that warning out of the way, we shall proceed with the guide!
     * Replace GRPC port to not overlap with standard Prometheus port, replacing 9090 with 29090
     {{< highlight bash "linenos=table,style=witchhazel" >}}
     # Address defines the gRPC server address to bind to.
-    address = "0.0.0.0:29090"
+    address = "localhost:29090"
     {{< /highlight>}}
     * make sure the gas price units for our network to be 0uswmt
     {{< highlight bash "linenos=table,style=witchhazel" >}}
@@ -212,12 +212,6 @@ Now, with that warning out of the way, we shall proceed with the guide!
     # Enable defines if the API server should be enabled.
     enable = true
     {{< /highlight>}}
-    * Change the API Configuration section **address** option to be **"tcp://127.0.0.1:1317"** instead of **"tcp://0.0.0.0:1317"**
-    {{< highlight bash "linenos=table,style=witchhazel" >}}
-    # Address defines the API server to listen on.
-    address = "tcp://127.0.0.1:1317"
-    {{< /highlight>}}
-
 
     At this point the initial editing work to our **app.toml** file is done, and it can now be saved with these changes. 
 
@@ -275,12 +269,12 @@ Now, with that warning out of the way, we shall proceed with the guide!
 
     {{< highlight bash "linenos=table,style=witchhazel" >}}
     INTERVAL=15000
-    LATEST_HEIGHT=$(curl -s "http://peer1-501.worldmobilelabs.com:36657/block" | jq -r .result.block.header.height)
+    LATEST_HEIGHT=$(curl -s "http://peer1-501.worldmobilelabs.com:26657/block" | jq -r .result.block.header.height)
     BLOCK_HEIGHT=$((($((LATEST_HEIGHT / INTERVAL)) - 1) * INTERVAL + $((INTERVAL / 2))))
-    TRUST_HASH=$(curl -s "http://peer1-501.worldmobilelabs.com:36657/block?height=${BLOCK_HEIGHT}" | jq -r .result.block_id.hash)
+    TRUST_HASH=$(curl -s "http://peer1-501.worldmobilelabs.com:26657/block?height=${BLOCK_HEIGHT}" | jq -r .result.block_id.hash)
 
     # Set available RPC servers (at least two) required for light client snapshot verification
-    sed -i -E "s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"http://peer1-501.worldmobilelabs.com:36657,http://peer2-501.worldmobilelabs.com:26657\"|" "${aya_home}"/config/config.toml
+    sed -i -E "s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"http://peer1-501.worldmobilelabs.com:26657,http://peer2-501.worldmobilelabs.com:26657\"|" "${aya_home}"/config/config.toml
     # Set "safe" trusted block height
     sed -i -E "s|^(trust_height[[:space:]]+=[[:space:]]+).*$|\1$BLOCK_HEIGHT|" "${aya_home}"/config/config.toml
     # Set "qsafe" trusted block hash
