@@ -838,7 +838,7 @@ So, we shall now proceed to doing this.
     {"height":"0","txhash":"<Transaction Hash containing capital letters and numbers>","codespace":"","code":0,"data":"","raw_log":"[]","logs":[],"info":"","gas_wanted":"0","gas_used":"0","tx":null,"timestamp":"","events":[]}
     {{< /highlight>}}
 
-29. Now we now need to go and see if our Validator has been successfully Registered on the Aya Blockchain Network by opening our browser and going to https://wmt-explorer.com/Testnet
+29. Now we now need to go and see if our Validator has been successfully Registered on the Aya Blockchain Network by opening our browser and going to https://wmt-explorer.com/AyaChain 
 
     Once there we need to look at the 'New joined EarthNode Validators' section and check to see if the Monkier we gave our EarthNode Stake Pool has appeared in the list. 
 
