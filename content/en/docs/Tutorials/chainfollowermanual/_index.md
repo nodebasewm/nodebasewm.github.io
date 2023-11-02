@@ -227,7 +227,7 @@ So, we shall now proceed to doing this.
 
 12. Before proceeding to the next step, we need to wait long enough so that the 1st Registration step fully completed as expected. We are waiting for the Transaction that was just posted to the Aya Blockchain to make its way to a fully Minted Block, and to form a part of that Block's list of Transactions. 
 
-    We can look to see if and when this Transaction has made it to the Aya Blockchain by going to https://wmt-explorer.com/Testnet.
+    We can look to see if and when this Transaction has made it to the Aya Blockchain by going to https://wmt-explorer.com/AyaChain.
 
     Once there we need to look at the ‘Latest Transactions’ section and check to see if the 'MsgSetValAcc' Transaction we just sent has appeared on the Blockchain History.
 
@@ -265,7 +265,7 @@ So, we shall now proceed to doing this.
 
 14. Before proceeding to the next step, we need to wait long enough so that the 2nd Registration step fully completed as expected. We are waiting for the Transaction that was just posted to the Aya Blockchain to make its way to a fully Minted Block, and to form a part of that Block's list of Transactions. 
 
-    We can look to see if and when this Transaction has made it to the Aya Blockchain by going to https://wmt-explorer.com/Testnet.
+    We can look to see if and when this Transaction has made it to the Aya Blockchain by going to https://wmt-explorer.com/AyaChain.
 
     Once there we need to look at the ‘Latest Transactions’ section and check to see if the 'MsgSendRoot' Transaction we just sent has appeared on the Blockchain History.
 
