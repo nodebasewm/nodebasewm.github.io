@@ -2459,7 +2459,7 @@ c) By clicking on the Connect Wallet Button on the site EarthNode Registration s
 &lt;/li>
 &lt;li>
 &lt;p>Before proceeding to the next step, we need to wait long enough so that the 1st Registration step fully completed as expected. We are waiting for the Transaction that was just posted to the Aya Blockchain to make its way to a fully Minted Block, and to form a part of that Block&amp;rsquo;s list of Transactions.&lt;/p>
-&lt;p>We can look to see if and when this Transaction has made it to the Aya Blockchain by going to &lt;a href="https://wmt-explorer.com/Testnet">https://wmt-explorer.com/Testnet&lt;/a>.&lt;/p>
+&lt;p>We can look to see if and when this Transaction has made it to the Aya Blockchain by going to &lt;a href="https://wmt-explorer.com/AyaChain">https://wmt-explorer.com/AyaChain&lt;/a>.&lt;/p>
 &lt;p>Once there we need to look at the ‘Latest Transactions’ section and check to see if the &amp;lsquo;MsgSetValAcc&amp;rsquo; Transaction we just sent has appeared on the Blockchain History.&lt;/p>
 &lt;p>When we see it appear, we can then move on to the next step.&lt;/p>
 &lt;/li>
@@ -2514,7 +2514,7 @@ c) By clicking on the Connect Wallet Button on the site EarthNode Registration s
 &lt;/li>
 &lt;li>
 &lt;p>Before proceeding to the next step, we need to wait long enough so that the 2nd Registration step fully completed as expected. We are waiting for the Transaction that was just posted to the Aya Blockchain to make its way to a fully Minted Block, and to form a part of that Block&amp;rsquo;s list of Transactions.&lt;/p>
-&lt;p>We can look to see if and when this Transaction has made it to the Aya Blockchain by going to &lt;a href="https://wmt-explorer.com/Testnet">https://wmt-explorer.com/Testnet&lt;/a>.&lt;/p>
+&lt;p>We can look to see if and when this Transaction has made it to the Aya Blockchain by going to &lt;a href="https://wmt-explorer.com/AyaChain">https://wmt-explorer.com/AyaChain&lt;/a>.&lt;/p>
 &lt;p>Once there we need to look at the ‘Latest Transactions’ section and check to see if the &amp;lsquo;MsgSendRoot&amp;rsquo; Transaction we just sent has appeared on the Blockchain History.&lt;/p>
 &lt;/li>
 &lt;li>
