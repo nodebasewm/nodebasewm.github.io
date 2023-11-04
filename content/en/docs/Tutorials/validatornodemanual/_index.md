@@ -382,7 +382,7 @@ We can now to return to our Valdiator Node to complete the rest of its set up.
 
     To save the **config.toml** file within nano editor we press **ctrl+x** and then **press y**, followed by **enter**. This will save the file with the same filename as before.
 
-    18. Next we need to make some initial changes to the **app.toml** file contents for our Validator Node. 
+    Next we need to make some initial changes to the **app.toml** file contents for our Validator Node. 
 
     Luckily, the app.toml file we need to edit is in the same directory as config.toml. 
 
