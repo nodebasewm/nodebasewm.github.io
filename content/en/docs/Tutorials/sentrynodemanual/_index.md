@@ -35,27 +35,28 @@ Now, with that warning out of the way, we shall proceed with the guide!
     mkdir -p /opt/aya/config
     {{< /highlight>}} 
 
-2. Next we set some environment variables so that further installation steps can be simplified.
+2. Next we set up our Node's Aya Network Chain ID *(depending on which Chain ID this Node will be running on)*
 
-    We do this by entering the following group of commands
+    We do this by entering the **one of** the following commands
+
+    > Note: For the moment there is only **one** Chain ID for World Mobile Aya Chain Networks available publicly, but this will be changing soon and, as a result, there will be more than the single Chain ID option below to choose from. For now though, the single Chain ID option available is listed below.
+
+    *For Aya Network Public Testnet:* 
+
     {{< highlight bash "linenos=table,style=witchhazel" >}}
     CHAIN_ID="aya_preview_501"
-    aya_home=/opt/aya
-    cosmovisor_logfile=/opt/aya/logs/cosmovisor.log
-    sentry_setup_json=/opt/aya/sentry.json
-    bootstrap_node=true
     {{< /highlight>}}
 
-3. Now we set up our Node's Moniker (a friendly name for our Node to help identify it) 
+4. Now we set up our Node's Moniker (a friendly name for our Node to help identify it) 
 
     We do this by entering the following command    
     {{< highlight bash "linenos=table,style=witchhazel" >}}
     moniker='node'
     {{< /highlight>}}
-    > Note: ```'node'``` is an **optional** default Moniker we can use to create some 'security by obscurity' on the Aya Blockchain Network, by not having our **publicly listed** Sentry Node named **in any way** that can be linked back to the name of our ENO. If a custom public Moniker is preferred, however, We can replace ```'node'``` with our own chosen name at this point, keeping the ''s in place.
+    > Note: ```'node'``` is an **optional** default Moniker we can use to create some *'security by obscurity'* on the Aya Blockchain Network, by not having our **publicly listed** Sentry Node named **in any way** that can be linked back to the name of our ENO. If a custom public Moniker is preferred, however, We can replace ```'node'``` with our own chosen name at this point, keeping the ''s in place.
 
 
-4. Now we install a required prerequisite package (jq) for the successful completion of installation steps.
+5. Now we install a required prerequisite package (jq) for the successful completion of installation steps.
 
     We do this by entering the following command
     {{< highlight bash "linenos=table,style=witchhazel" >}}
@@ -63,7 +64,7 @@ Now, with that warning out of the way, we shall proceed with the guide!
     sudo apt-get -q install jq -y
     {{< /highlight>}}
 
-5. Now we create an installation directory for the EarthNode installation files, navigate to it, download the installer zip file, install the unzip command (if not already installed to our OS), and extract the earthnode_installer archive.
+6. Now we create an installation directory for the EarthNode installation files, navigate to it, download the installer zip file, install the unzip command (if not already installed to our OS), and extract the earthnode_installer archive.
 
     We do this by entering the following group of commands
     {{< highlight bash "linenos=table,style=witchhazel" >}}
@@ -75,7 +76,7 @@ Now, with that warning out of the way, we shall proceed with the guide!
     rm aya_preview_501_installer_2023_09_04.zip
     {{< /highlight>}}
  
-6. Now we confirm that the included binaries for ayad and cosmovisor match their release_checksums values as provided by World Mobile. Check that the output of both commands match one another. 
+7. Now we confirm that the included binaries for ayad and cosmovisor match their release_checksums values as provided by World Mobile. Check that the output of both commands match one another. 
 
     We do this by entering the following group of commands
     {{< highlight bash "linenos=table,style=witchhazel" >}}
@@ -83,7 +84,7 @@ Now, with that warning out of the way, we shall proceed with the guide!
     cat release_checksums 
     {{< /highlight>}}
 
-7. Following this confirmation step, we copy the ayad and cosmovisor binary files to their home locations for use in future operations.
+8. Following this confirmation step, we copy the ayad and cosmovisor binary files to their home locations for use in future operations.
 
     We do this by entering the following group of commands
     {{< highlight bash "linenos=table,style=witchhazel" >}}
@@ -91,7 +92,7 @@ Now, with that warning out of the way, we shall proceed with the guide!
     cp ~/earthnode_installer/cosmovisor /opt/aya/cosmovisor/cosmovisor
     {{< /highlight>}}
 
-8. Now we initialise ayad to create all of the required configuration and set up files needed for running the cosmovisor and ayad binaries. 
+9. Now we initialise ayad to create all of the required configuration and set up files needed for running the cosmovisor and ayad binaries. 
 
     We do this by entering the following command
     {{< highlight bash "linenos=table,style=witchhazel" >}}
@@ -100,14 +101,14 @@ Now, with that warning out of the way, we shall proceed with the guide!
 
     We have now populated the /opt/aya directory and its subdirectories with the necessary files to configure our Node. 
 
-9. Next we copy across the genesis.json file used to kickstart the aya_preview_501 Blockchain Connection.
+10. Next we copy across the genesis.json file used to kickstart the aya_preview_501 Blockchain Connection.
 
     We do this by entering the following command
     {{< highlight bash "linenos=table,style=witchhazel" >}}
     cp ~/earthnode_installer/genesis.json /opt/aya/config/genesis.json
     {{< /highlight>}}
 
-10. Before running our Sentry Node for the first time there are some initial configuration changes that need to be made to allow for smooth operation and connection the to aya_preview_501 Blockchain, and to ensure that connections between our own ENO Infrastructure's Nodes remain robust. 
+11. Before running our Sentry Node for the first time there are some initial configuration changes that need to be made to allow for smooth operation and connection the to aya_preview_501 Blockchain, and to ensure that connections between our own ENO Infrastructure's Nodes remain robust. 
 
     So now we navigate to the aya config folder and open the config.toml file for our Sentry Node to make these changes.
 
@@ -284,7 +285,7 @@ Now, with that warning out of the way, we shall proceed with the guide!
     sed -i -E "s|^(trust_period[[:space:]]+=[[:space:]]+).*$|\1\"302h0m0s\"|" /opt/aya/config/config.toml
 
     cd ~/earthnode_installer
-    "${aya_home}"/cosmovisor/cosmovisor run start --home /opt/aya &>>"${cosmovisor_logfile}" &
+    "${aya_home}"/cosmovisor/cosmovisor run start --home /opt/aya &>>/opt/aya/logs/cosmovisor.log &
     {{< /highlight>}}
 
     We have now started our Node software for the first time!
@@ -370,7 +371,7 @@ Now, with that warning out of the way, we shall proceed with the guide!
     --arg key1 'validator_address' \
     --arg value1 "$validator_address" \
     '. | .[$key0]=$value0 | .[$key1]=$value1'  \
-    <<<'{}' | tee $sentry_setup_json
+    <<<'{}' | tee /opt/aya/sentry.json
     {{< /highlight>}}
 
     This will save our Sentry Node's data to the filename sentry.json in the **/opt/aya** directory.
