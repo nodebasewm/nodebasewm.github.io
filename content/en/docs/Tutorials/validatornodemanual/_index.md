@@ -51,6 +51,8 @@ Now, with this introduction, and its various warnings, out of the way, we shall 
 
     We do this by entering the following group of commands
 
+    > Note: There is **no need** to replace ```"${USER}:${USER}"``` below with your own username, as ```${USER}``` is a **system variable** that will **always be** the currently logged on user. Which, in this case, **should be** user ```wmt```.
+
     {{< highlight bash "linenos=table,style=witchhazel" >}}
     sudo mkdir -p /opt/aya
     sudo chown "${USER}:${USER}" /opt/aya
@@ -60,16 +62,16 @@ Now, with this introduction, and its various warnings, out of the way, we shall 
     mkdir -p /opt/aya/config
     {{< /highlight>}}
 
-2. Next we set some environment variables so that further installation steps can be simplified.
+2. Next we set up our Node's Aya Network Chain ID *(depending on which Chain ID this Node will be running on)*
 
-    We do this by entering the following group of commands
+    We do this by entering the **one of** the following commands
+
+    > Note: For the moment there is only **one** Chain ID for World Mobile Aya Chain Networks available publicly, but this will be changing soon and, as a result, there will be more than the single Chain ID option below to choose from. For now though, the single Chain ID option available is listed below.
+
+    *For Aya Network Public Testnet:* 
 
     {{< highlight bash "linenos=table,style=witchhazel" >}}
     CHAIN_ID="aya_preview_501"
-    aya_home=/opt/aya
-    cosmovisor_logfile=${aya_home}/logs/cosmovisor.log
-    en_registration_json=${aya_home}/registration.json
-    accountfile=${aya_home}/account
     {{< /highlight>}}
 
 3. Now we set up our Node's Account name (a friendly name for Our Operator Wallet Address that will be used to run our EarthNode Stake Pool) and Moniker (a friendly name for our Validator Node that will appear On-Chain for people to Delegate to). We will also save our Account name to a file for future reference. 
@@ -79,7 +81,7 @@ Now, with this introduction, and its various warnings, out of the way, we shall 
     {{< highlight bash "linenos=table,style=witchhazel" >}}
     account='<account>'
     moniker='<moniker>'
-    echo "$account" > "$accountfile"
+    echo "$account" > /opt/aya/account
     {{< /highlight>}}
     > Note: We replace ```<account>``` and ```<moniker>``` with our own chosen names at this point, removing the surrounding <> 
     >They **can** be the same name.
@@ -118,15 +120,15 @@ Now, with this introduction, and its various warnings, out of the way, we shall 
 
     We do this by entering the following group of commands
     {{< highlight bash "linenos=table,style=witchhazel" >}}
-    cp ~/earthnode_installer/ayad "${aya_home}"/cosmovisor/genesis/bin/ayad
-    cp ~/earthnode_installer/cosmovisor "${aya_home}"/cosmovisor/cosmovisor
+    cp ~/earthnode_installer/ayad /opt/aya/cosmovisor/genesis/bin/ayad
+    cp ~/earthnode_installer/cosmovisor /opt/aya/cosmovisor/cosmovisor
     {{< /highlight>}}
 
 8. Now we initialise ayad to create all of the required configuration and set up files needed for running the cosmovisor and ayad binaries. 
 
     We do this by entering the following command
     {{< highlight bash "linenos=table,style=witchhazel" >}}
-    ./ayad init "${moniker}" --chain-id $CHAIN_ID --home ${aya_home}
+    ./ayad init "${moniker}" --chain-id $CHAIN_ID --home /opt/aya
     {{< /highlight>}}
 
     We have now populated the /opt/aya directory and its subdirectories with the necessary files to configure our Node. 
@@ -136,7 +138,7 @@ Now, with this introduction, and its various warnings, out of the way, we shall 
     We do this by entering the following command
 
     {{< highlight bash "linenos=table,style=witchhazel" >}}
-    cp ~/earthnode_installer/genesis.json "${aya_home}"/config/genesis.json
+    cp ~/earthnode_installer/genesis.json /opt/aya/config/genesis.json
     {{< /highlight>}}
 
 10. Now we are going to create a new Operator Account, and display its Seed Phrase.  
@@ -147,7 +149,7 @@ Now, with this introduction, and its various warnings, out of the way, we shall 
 
     {{< highlight bash "linenos=table,style=witchhazel" >}}
     # Create a new operator account and store the JSON output in the 'operator_json' variable
-    operator_json=$(./ayad keys add "${account}" --output json --home ${aya_home})
+    operator_json=$(./ayad keys add "${account}" --output json --home /opt/aya)
 
     # Extract the address from the 'operator_json' variable and store it in the 'operator_address' variable
     operator_address=$(echo "$operator_json" | jq '.address' | sed 's/\"//g')
@@ -164,7 +166,7 @@ Now, with this introduction, and its various warnings, out of the way, we shall 
     We do this by entering the following command
 
     {{< highlight bash "linenos=table,style=witchhazel" >}}
-    ./ayad tendermint show-node-id --home $aya_home
+    ./ayad tendermint show-node-id --home /opt/aya
     {{< /highlight>}}
 
     > Note: At this point we want to copy and paste the output of this command to a separate, temporary, text file on our machine for use in the **Sentry Node** section of this guide. Which is starting now. 
@@ -207,13 +209,6 @@ Now we need to prepare our **Sentry Nodes** for connection from our Validator.
     > We can undo any mistakes we've made while working inside nano by pressing alt+u
 
     We now make the necessary changes to this file as follows
-
-    * Add our Validator's Node ID, Private IP address, and Port number to receive connections from our Sentry Node to **persistent_peers**. Making sure **not** to remove the existing World Mobile peers.
-    {{< highlight bash "linenos=table,style=witchhazel" >}}
-    # Comma separated list of nodes to keep persistent connections to
-    persistent_peers = "d7e64a6fc57019d04c989f59c2c643ee1133d99c@peer1-501.worldmobilelabs.com:26656,d1da4b1ad17ea35cf8c1713959b430a95743afcd@peer2-501.worldmobilelabs.com:26656,<Validator Node ID>@<Validator.Node.Private.IP>:26656"
-    {{< /highlight>}}
-    > Note: We replace ```<Validator Node ID>``` with our separately copied Validator Node ID from above and ```<Validator.Node.Private.IP>``` with our Validator Node's IP at this point, removing the surrounding <>
 
     * Add our Validator's Node ID to **unconditional_peer_ids**  
     {{< highlight bash "linenos=table,style=witchhazel" >}}
@@ -361,7 +356,7 @@ We can now to return to our Valdiator Node to complete the rest of its set up.
     * Change the **persistent_peers_max_dial_period** option to be **persistent_peers_max_dial_period = "30s"** instead of **"0s"**
     {{< highlight bash "linenos=table,style=witchhazel" >}}
     # Maximum pause when redialing a persistent peer (if zero, exponential backoff is used)
-    persistent_peers_max_dial_period = "30s"
+    persistent_peers_max_dial_period = "10s"
     {{< /highlight>}}
 
     * Set the **log_level** to **"error"** instead of **"info"** 
@@ -429,8 +424,8 @@ We can now to return to our Valdiator Node to complete the rest of its set up.
     
     {{< highlight bash "linenos=table,style=witchhazel" >}}
     export DAEMON_NAME=ayad
-    export DAEMON_HOME="${aya_home}"
-    export DAEMON_DATA_BACKUP_DIR="${aya_home}"/backup
+    export DAEMON_HOME=/opt/aya
+    export DAEMON_DATA_BACKUP_DIR=/opt/aya/backup
     export DAEMON_RESTART_AFTER_UPGRADE=true
     export DAEMON_ALLOW_DOWNLOAD_BINARIES=true
     ulimit -Sn 4096
@@ -449,28 +444,7 @@ We can now to return to our Valdiator Node to complete the rest of its set up.
     rm ayaview.zip
     {{< /highlight>}}
 
-21. We will also quickly add some new Firewall Rules to our Server to **only** allow Incoming connections from our already configured Sentry Node's to come into our Validator Node once it has started. 
-
-    What command we need to enter to do this will depend on how our Server is set up to handle Firewall Rules. 
-
-    If our Server is using **ufw** to handle Firewall Rules (most likely for most installs) we need to enter the following command to accept Incoming connections over Port 26656 (a Node's default Port)
-
-    {{< highlight bash "linenos=table,style=witchhazel" >}}
-    sudo ufw allow from <Sentry.Node1.Private.IP> to any port 26656 proto tcp
-    sudo ufw allow from <Sentry.Node2.Private.IP> to any port 26656 proto tcp
-    {{< /highlight>}}
-
-    If our Server is using iptables to handle Firewall Rules we need to enter the following group of commands to accept Incoming connections over Port 26656 (a Node's default Port)
-
-    {{< highlight bash "linenos=table,style=witchhazel" >}}
-    sudo iptables -I INPUT -p tcp -s <Sentry.Node1.Private.IP> --dport 26656 -j ACCEPT
-    sudo iptables -I INPUT -p tcp -s <Sentry.Node2.Private.IP> --dport 26656 -j ACCEPT
-    sudo service iptables save
-    {{< /highlight>}}
-
-    If we haven't yet set up our Firewall Rules at all, we can follow the steps laid out over at [Firewall Configuration](/docs/configuration/firewall/) to do this.
-
-22. Now we shall set up some variables that will be used in the next step to allow us to quickly manually start up our Validator, and let it begin its statesync process.
+21. Now we shall set up some variables that will be used in the next step to allow us to quickly manually start up our Validator, and let it begin its statesync process.
 
     We do this by entering the following group of commands
 
@@ -484,7 +458,7 @@ We can now to return to our Valdiator Node to complete the rest of its set up.
     RPC_PEER_2="<Sentry.Node2.Private.IP>"
     {{< /highlight>}}
 
-23. With the Firewall Rules added, and our Sentry Nodes' Private IP addresses set, we are now going to start up our Valdiator Node for the first time, manually. 
+22. With the Firewall Rules added, and our Sentry Nodes' Private IP addresses set, we are now going to start up our Valdiator Node for the first time, manually. 
 
     > Note: Later we will be setting up a service file to have our Node automatically restart on Server reboot, or following a crash. For now though we will proceed manually.
 
@@ -501,16 +475,16 @@ We can now to return to our Valdiator Node to complete the rest of its set up.
     TRUST_HASH=$(curl -s ""${RPC_PEER_1}":26657/block?height=${BLOCK_HEIGHT}" | jq -r .result.block_id.hash)
 
     # Set available RPC servers (at least two) required for light client snapshot verification
-    sed -i -E "s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\""${RPC_PEER_1}":26657,"${RPC_PEER_2}":26657\"|" "${aya_home}"/config/config.toml
+    sed -i -E "s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\""${RPC_PEER_1}":26657,"${RPC_PEER_2}":26657\"|" /opt/aya/config/config.toml
     # Set "safe" trusted block height
-    sed -i -E "s|^(trust_height[[:space:]]+=[[:space:]]+).*$|\1$BLOCK_HEIGHT|" "${aya_home}"/config/config.toml
+    sed -i -E "s|^(trust_height[[:space:]]+=[[:space:]]+).*$|\1$BLOCK_HEIGHT|" /opt/aya/config/config.toml
     # Set "qsafe" trusted block hash
-    sed -i -E "s|^(trust_hash[[:space:]]+=[[:space:]]+).*$|\1\"$TRUST_HASH\"|" "${aya_home}"/config/config.toml
+    sed -i -E "s|^(trust_hash[[:space:]]+=[[:space:]]+).*$|\1\"$TRUST_HASH\"|" /opt/aya/config/config.toml
     # Set trust period, should be ~2/3 unbonding time (3 weeks for preview network)
-    sed -i -E "s|^(trust_period[[:space:]]+=[[:space:]]+).*$|\1\"302h0m0s\"|" "${aya_home}"/config/config.toml
+    sed -i -E "s|^(trust_period[[:space:]]+=[[:space:]]+).*$|\1\"302h0m0s\"|" /opt/aya/config/config.toml
 
     cd ~/earthnode_installer
-    "${aya_home}"/cosmovisor/cosmovisor run start --home ${aya_home} &>>"${cosmovisor_logfile}" &
+    /opt/aya/cosmovisor/cosmovisor run start --home /opt/aya &>>/opt/aya/logs/cosmovisor.log &
     {{< /highlight>}}
 
     We have now started our Node software for the first time!
@@ -570,7 +544,7 @@ We can now to return to our Valdiator Node to complete the rest of its set up.
     {{< highlight bash "linenos=table,style=witchhazel" >}}
     cd ~/earthnode_installer
     # Get the address of the validator
-    validator_address=$(./ayad tendermint show-address --home ${aya_home})
+    validator_address=$(./ayad tendermint show-address --home /opt/aya)
 
     # Use 'jq' to create a JSON object with the 'moniker', 'operator_address' and 'validator_address' fields
     jq --arg key0 'moniker' \
@@ -580,7 +554,7 @@ We can now to return to our Valdiator Node to complete the rest of its set up.
        --arg key2 'validator_address' \
        --arg value2 "$validator_address" \
        '. | .[$key0]=$value0 | .[$key1]=$value1 | .[$key2]=$value2' \
-     <<<'{}' | tee $en_registration_json    
+     <<<'{}' | tee /opt/aya/registration.json  
      {{< /highlight>}}
 
     This will save our Validator Node's data to the filename registration.json in the **/opt/aya** directory.
@@ -589,8 +563,8 @@ We can now to return to our Valdiator Node to complete the rest of its set up.
 
     We do this by entering the following group of commands
     {{< highlight bash "linenos=table,style=witchhazel" >}}
-    sudo ln -s $aya_home/cosmovisor/current/bin/ayad /usr/local/bin/ayad >/dev/null 2>&1
-    sudo ln -s $aya_home/cosmovisor/cosmovisor /usr/local/bin/cosmovisor >/dev/null 2>&1
+    sudo ln -s /opt/aya/cosmovisor/current/bin/ayad /usr/local/bin/ayad >/dev/null 2>&1
+    sudo ln -s /opt/aya/cosmovisor/cosmovisor /usr/local/bin/cosmovisor >/dev/null 2>&1
     {{< /highlight>}}
 
 27. And finally, we want to create a systemd service file that will allow our Node to automatically start on a reboot of our Server and to automatically attempt to restart itself on any crashes.
@@ -608,7 +582,7 @@ We can now to return to our Valdiator Node to complete the rest of its set up.
     [Service]
     User=$USER
     # Start the 'cosmovisor' daemon with the 'run start' command and write output to journalctl
-    ExecStart=$(which cosmovisor) run start --home "${aya_home}"
+    ExecStart=$(which cosmovisor) run start --home /opt/aya"
     # Restart the service if it fails
     Restart=always
     # Restart the service after 3 seconds if it fails
@@ -618,8 +592,8 @@ We can now to return to our Valdiator Node to complete the rest of its set up.
 
     # Set environment variables for data backups, automatic downloading of binaries, and automatic restarts after upgrades
     Environment="DAEMON_NAME=ayad"
-    Environment="DAEMON_HOME=${aya_home}"
-    Environment="DAEMON_DATA_BACKUP_DIR=${aya_home}/backup"
+    Environment="DAEMON_HOME=/opt/aya"
+    Environment="DAEMON_DATA_BACKUP_DIR=/opt/aya/backup"
     Environment="DAEMON_ALLOW_DOWNLOAD_BINARIES=true"
     Environment="DAEMON_RESTART_AFTER_UPGRADE=true"
 
@@ -792,7 +766,7 @@ So, we shall now proceed to doing this.
     We do this by entering the following command
 
     {{< highlight bash "linenos=table,style=witchhazel" >}}
-    ayad query bank balances <our Operator Address> --home $aya_home
+    ayad query bank balances <our Operator Address> --home /opt/aya
     {{< /highlight>}}
 
     > Note: We replace ```<our Operator Address>``` with the full operator_address detail that begins with *aya1* from the information we obtained for EarthNode Registration in step 32, removing the surrounding <>
@@ -817,7 +791,7 @@ So, we shall now proceed to doing this.
     {{< highlight bash "linenos=table,style=witchhazel" >}}
     ayad tx staking create-validator \
       --amount=1uswmt \
-      --pubkey="$(ayad tendermint show-validator --home ${aya_home})" \
+      --pubkey="$(ayad tendermint show-validator --home /opt/aya)" \
       --moniker="$moniker" \
       --chain-id="$CHAIN_ID" \
       --commission-rate="0.10" \
@@ -825,7 +799,7 @@ So, we shall now proceed to doing this.
       --commission-max-change-rate="0.01" \
       --min-self-delegation="1" \
       --from="$account" \
-      --home ${aya_home} \
+      --home /opt/aya \
       --output json \
       --yes 
     {{< /highlight>}}
