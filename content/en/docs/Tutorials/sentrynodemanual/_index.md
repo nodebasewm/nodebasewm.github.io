@@ -285,7 +285,7 @@ Now, with that warning out of the way, we shall proceed with the guide!
     sed -i -E "s|^(trust_period[[:space:]]+=[[:space:]]+).*$|\1\"302h0m0s\"|" /opt/aya/config/config.toml
 
     cd ~/earthnode_installer
-    "${aya_home}"/cosmovisor/cosmovisor run start --home /opt/aya &>>/opt/aya/logs/cosmovisor.log &
+    /opt/aya/cosmovisor/cosmovisor run start --home /opt/aya &>>/opt/aya/logs/cosmovisor.log &
     {{< /highlight>}}
 
     We have now started our Node software for the first time!
