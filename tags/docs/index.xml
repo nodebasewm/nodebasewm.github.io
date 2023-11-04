@@ -43,24 +43,20 @@ a moderator in the WorldMobile telegram groups to request the access form.&lt;/p
 &lt;/div>&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>Next we set some environment variables so that further installation steps can be simplified.&lt;/p>
-&lt;p>We do this by entering the following group of commands
+&lt;p>Next we set up our Node&amp;rsquo;s Aya Network Chain ID &lt;em>(depending on which Chain ID this Node will be running on)&lt;/em>&lt;/p>
+&lt;p>We do this by entering the &lt;strong>one of&lt;/strong> the following commands&lt;/p>
+&lt;blockquote>
+&lt;p>Note: For the moment there is only &lt;strong>one&lt;/strong> Chain ID for World Mobile Aya Chain Networks available publicly, but this will be changing soon and, as a result, there will be more than the single Chain ID option below to choose from. For now though, the single Chain ID option available is listed below.&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;em>For Aya Network Public Testnet:&lt;/em>&lt;/p>
 &lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>CHAIN_ID&lt;span style="color:#ffb8d1">=&lt;/span>&lt;span style="color:#1bc5e0">&amp;#34;aya_preview_501&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>aya_home&lt;span style="color:#ffb8d1">=&lt;/span>/opt/aya
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cosmovisor_logfile&lt;span style="color:#ffb8d1">=&lt;/span>/opt/aya/logs/cosmovisor.log
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sentry_setup_json&lt;span style="color:#ffb8d1">=&lt;/span>/opt/aya/sentry.json
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>bootstrap_node&lt;span style="color:#ffb8d1">=&lt;/span>true&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>CHAIN_ID&lt;span style="color:#ffb8d1">=&lt;/span>&lt;span style="color:#1bc5e0">&amp;#34;aya_preview_501&amp;#34;&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;/p>
+&lt;/div>
 &lt;/li>
 &lt;li>
 &lt;p>Now we set up our Node&amp;rsquo;s Moniker (a friendly name for our Node to help identify it)&lt;/p>
@@ -74,7 +70,7 @@ a moderator in the WorldMobile telegram groups to request the access form.&lt;/p
 &lt;/div>
 &lt;/div>&lt;/p>
 &lt;blockquote>
-&lt;p>Note: &lt;code>'node'&lt;/code> is an &lt;strong>optional&lt;/strong> default Moniker we can use to create some &amp;lsquo;security by obscurity&amp;rsquo; on the Aya Blockchain Network, by not having our &lt;strong>publicly listed&lt;/strong> Sentry Node named &lt;strong>in any way&lt;/strong> that can be linked back to the name of our ENO. If a custom public Moniker is preferred, however, We can replace &lt;code>'node'&lt;/code> with our own chosen name at this point, keeping the &amp;lsquo;&amp;rsquo;s in place.&lt;/p>
+&lt;p>Note: &lt;code>'node'&lt;/code> is an &lt;strong>optional&lt;/strong> default Moniker we can use to create some &lt;em>&amp;lsquo;security by obscurity&amp;rsquo;&lt;/em> on the Aya Blockchain Network, by not having our &lt;strong>publicly listed&lt;/strong> Sentry Node named &lt;strong>in any way&lt;/strong> that can be linked back to the name of our ENO. If a custom public Moniker is preferred, however, We can replace &lt;code>'node'&lt;/code> with our own chosen name at this point, keeping the &amp;lsquo;&amp;rsquo;s in place.&lt;/p>
 &lt;/blockquote>
 &lt;/li>
 &lt;li>
@@ -465,7 +461,7 @@ a moderator in the WorldMobile telegram groups to request the access form.&lt;/p
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sed -i -E &lt;span style="color:#1bc5e0">&amp;#34;s|^(trust_period[[:space:]]+=[[:space:]]+).*&lt;/span>$&lt;span style="color:#1bc5e0">|\1\&amp;#34;302h0m0s\&amp;#34;|&amp;#34;&lt;/span> /opt/aya/config/config.toml
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cd ~/earthnode_installer
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0">&amp;#34;&lt;/span>&lt;span style="color:#1bc5e0">${&lt;/span>aya_home&lt;span style="color:#1bc5e0">}&lt;/span>&lt;span style="color:#1bc5e0">&amp;#34;&lt;/span>/cosmovisor/cosmovisor run start --home /opt/aya &amp;amp;&amp;gt;&amp;gt;&lt;span style="color:#1bc5e0">&amp;#34;&lt;/span>&lt;span style="color:#1bc5e0">${&lt;/span>cosmovisor_logfile&lt;span style="color:#1bc5e0">}&lt;/span>&lt;span style="color:#1bc5e0">&amp;#34;&lt;/span> &amp;amp;&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0">&amp;#34;&lt;/span>&lt;span style="color:#1bc5e0">${&lt;/span>aya_home&lt;span style="color:#1bc5e0">}&lt;/span>&lt;span style="color:#1bc5e0">&amp;#34;&lt;/span>/cosmovisor/cosmovisor run start --home /opt/aya &amp;amp;&amp;gt;&amp;gt;/opt/aya/logs/cosmovisor.log &amp;amp;&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>
 &lt;p>We have now started our Node software for the first time!&lt;/p>
@@ -591,7 +587,7 @@ a moderator in the WorldMobile telegram groups to request the access form.&lt;/p
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0">&lt;/span>--arg key1 &lt;span style="color:#1bc5e0">&amp;#39;validator_address&amp;#39;&lt;/span> &lt;span style="color:#1bc5e0">\
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0">&lt;/span>--arg value1 &lt;span style="color:#1bc5e0">&amp;#34;&lt;/span>$validator_address&lt;span style="color:#1bc5e0">&amp;#34;&lt;/span> &lt;span style="color:#1bc5e0">\
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0">&lt;/span>&lt;span style="color:#1bc5e0">&amp;#39;. | .[$key0]=$value0 | .[$key1]=$value1&amp;#39;&lt;/span> &lt;span style="color:#1bc5e0">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0">&lt;/span>&lt;span style="color:#ffb8d1">&amp;lt;&amp;lt;&amp;lt;&lt;/span>&lt;span style="color:#1bc5e0">&amp;#39;{}&amp;#39;&lt;/span> | tee $sentry_setup_json&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0">&lt;/span>&lt;span style="color:#ffb8d1">&amp;lt;&amp;lt;&amp;lt;&lt;/span>&lt;span style="color:#1bc5e0">&amp;#39;{}&amp;#39;&lt;/span> | tee /opt/aya/sentry.json&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;/p>
 &lt;p>This will save our Sentry Node&amp;rsquo;s data to the filename sentry.json in the &lt;strong>/opt/aya&lt;/strong> directory.&lt;/p>
