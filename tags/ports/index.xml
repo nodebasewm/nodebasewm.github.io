@@ -3,7 +3,7 @@
 &lt;ul>
 &lt;li>&lt;strong>26656&lt;/strong>
 &lt;ul>
-&lt;li>pnp networking port to connect to the tendermint network&lt;/li>
+&lt;li>pnp networking port to connect to the consensus network&lt;/li>
 &lt;li>On a validator this port needs to be exposed to sentry nodes&lt;/li>
 &lt;li>On a sentry node this port needs to be exposed to the open internet&lt;/li>
 &lt;li>This is the port validators and sentries use to communicate to each other&lt;/li>
@@ -13,7 +13,7 @@
 &lt;ul>
 &lt;li>&lt;strong>26657&lt;/strong>
 &lt;ul>
-&lt;li>Tendermint RPC port.&lt;/li>
+&lt;li>Consensus RPC port.&lt;/li>
 &lt;li>Some tools, example querying tools, use this port to query blockchain status.&lt;/li>
 &lt;li>You should not directly expose this port.&lt;/li>
 &lt;li>This should be shielded from the open internet.&lt;/li>
@@ -41,7 +41,7 @@
 &lt;li>&lt;a href="https://github.com/tendermint/tendermint/blob/master/docs/nodes/metrics.md">Prometheus&lt;/a> stats server&lt;/li>
 &lt;li>System stats about the ayad process&lt;/li>
 &lt;li>Needs to be enabled in the config file&lt;/li>
-&lt;li>This should be shielded from the open internet&lt;/li>
+&lt;li>This should be shielded from the open internet, unless you want monitor your validator consensus metrics&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;li>&lt;strong>1317&lt;/strong>

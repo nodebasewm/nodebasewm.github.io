@@ -210,7 +210,7 @@ But ideally, the installation of a validator should be done with relay setup in 
 &lt;ul>
 &lt;li>&lt;strong>26656&lt;/strong>
 &lt;ul>
-&lt;li>pnp networking port to connect to the tendermint network&lt;/li>
+&lt;li>pnp networking port to connect to the consensus network&lt;/li>
 &lt;li>On a validator this port needs to be exposed to sentry nodes&lt;/li>
 &lt;li>On a sentry node this port needs to be exposed to the open internet&lt;/li>
 &lt;li>This is the port validators and sentries use to communicate to each other&lt;/li>
@@ -220,7 +220,7 @@ But ideally, the installation of a validator should be done with relay setup in 
 &lt;ul>
 &lt;li>&lt;strong>26657&lt;/strong>
 &lt;ul>
-&lt;li>Tendermint RPC port.&lt;/li>
+&lt;li>Consensus RPC port.&lt;/li>
 &lt;li>Some tools, example querying tools, use this port to query blockchain status.&lt;/li>
 &lt;li>You should not directly expose this port.&lt;/li>
 &lt;li>This should be shielded from the open internet.&lt;/li>
@@ -248,7 +248,7 @@ But ideally, the installation of a validator should be done with relay setup in 
 &lt;li>&lt;a href="https://github.com/tendermint/tendermint/blob/master/docs/nodes/metrics.md">Prometheus&lt;/a> stats server&lt;/li>
 &lt;li>System stats about the ayad process&lt;/li>
 &lt;li>Needs to be enabled in the config file&lt;/li>
-&lt;li>This should be shielded from the open internet&lt;/li>
+&lt;li>This should be shielded from the open internet, unless you want monitor your validator consensus metrics&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;li>&lt;strong>1317&lt;/strong>
@@ -314,8 +314,8 @@ For ports 1317 and 26657, you way want to use them as a RESTful endpoint by prox
 &lt;/li>
 &lt;/ol></description></item><item><title>Docs: Firewall Settings</title><link>/docs/configuration/firewall/</link><pubDate>Wed, 08 Feb 2023 00:00:00 +0000</pubDate><guid>/docs/configuration/firewall/</guid><description>
 &lt;p>These instructions assume a Validator-Sentry architecture.&lt;/p>
-&lt;h2 id="validator-node">Validator Node&lt;/h2>
-&lt;p>Apply these firewall settings on your validator node&lt;/p>
+&lt;h2 id="sentry-node">Sentry Node&lt;/h2>
+&lt;p>Apply these firewall settings on your sentry node&lt;/p>
 &lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -326,13 +326,18 @@ For ports 1317 and 26657, you way want to use them as a RESTful endpoint by prox
 &lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>sudo ufw &lt;span style="color:#ff79c6">default&lt;/span> deny incoming
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo ufw &lt;span style="color:#ff79c6">default&lt;/span> allow outgoing
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo ufw allow proto tcp from any to any port &lt;span style="color:#bd93f9">22&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo ufw allow from &amp;lt;sentry&lt;span style="color:#ff79c6">-&lt;/span>ip&amp;gt; to any port &lt;span style="color:#bd93f9">26656&lt;/span> proto tcp&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo ufw allow proto tcp from &amp;lt;IP&amp;gt; to any port &lt;span style="color:#bd93f9">22&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo ufw allow from any to any port &lt;span style="color:#bd93f9">26656&lt;/span> proto tcp&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>
-&lt;p>This allows ssh login, you can change &lt;strong>any&lt;/strong> to an &lt;strong>IP-address&lt;/strong> for higher security,&lt;/p>
-&lt;p>Only the sentry nodes can talk to the validator.
-Repeat for each sentry node you have, the allow from sentry-ip to port 26656. If you have &lt;code>prometheus=true&lt;/code> metrics logging enabled in the &lt;strong>config.toml&lt;/strong>, you should allow the prometheus listen port as well.&lt;/p>
+&lt;p>Since the sentry node has &lt;strong>pex&lt;/strong> enabled, connections from any machine to the p2p port (26656) needs to be allowed,
+so that other nodes can talk to the sentry for p2p communication of consensus messages.&lt;/p>
+&lt;p>The firewall settings above only allows ssh login from the given machine with IP-address &lt;strong>IP&lt;/strong>,
+which should be the client machine you want to login from. This is good practice and limits the attack vector on your server.&lt;/p>
+&lt;blockquote>
+&lt;p>Note that with a proper VPN solution, such as tailscale, this specific firewall rule can be entirely omitted,
+giving you the highest level of security.&lt;/p>
+&lt;/blockquote>
 &lt;p>When done&lt;/p>
 &lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -348,24 +353,38 @@ Repeat for each sentry node you have, the allow from sentry-ip to port 26656. If
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo ufw status&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>
-&lt;h2 id="sentry-node">Sentry Node&lt;/h2>
-&lt;p>Apply these firewall settings on your sentry node&lt;/p>
+&lt;h2 id="validator-node">Validator Node&lt;/h2>
+&lt;p>Apply these firewall settings on your validator node&lt;/p>
 &lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 &lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 &lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>sudo ufw &lt;span style="color:#ff79c6">default&lt;/span> deny incoming
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo ufw &lt;span style="color:#ff79c6">default&lt;/span> allow outgoing
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo ufw allow proto tcp from any to any port &lt;span style="color:#bd93f9">22&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo ufw allow from any to any port &lt;span style="color:#bd93f9">26656&lt;/span> proto tcp&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo ufw allow proto tcp from &amp;lt;IP&amp;gt; to any port &lt;span style="color:#bd93f9">22&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>
-&lt;p>Since the sentry node has pex enabled, connections to the p2p port (26656) need to be allowed, so that
-other nodes can talk to the sentry.&lt;/p>
+&lt;p>The validator firewall will be configured to make &lt;strong>only outgoing p2p connections&lt;/strong> to the sentry nodes.
+Only allowing outgoing p2p connections to the sentry nodes further limits the attack vector on your validator node,
+since we don&amp;rsquo;t have to open the p2p port. See the manual setup guide on how to configure the sentry/validator correctly for this.&lt;/p>
+&lt;p>The firewall settings above only allows ssh login from the given machine with the give IP-address &lt;strong>IP&lt;/strong>,
+which should be the client machine you want to login from.This is good practice and limits the attack vector on your server.&lt;/p>
+&lt;blockquote>
+&lt;p>Note that with a proper VPN solution, such as tailscale, this specific firewall rule can be entirely omitted, giving you the highest level of security.&lt;/p>
+&lt;/blockquote>
+&lt;p>If you have &lt;code>prometheus=true&lt;/code> metrics logging enabled in the &lt;strong>config.toml&lt;/strong>, you should allow the prometheus listen port as well.&lt;/p>
+&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>sudo ufw allow proto tcp from &amp;lt;IP&amp;gt; to any port &lt;span style="color:#bd93f9">26600&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>
+&lt;p>where &lt;strong>IP&lt;/strong> is the address of your prometheus server.&lt;/p>
 &lt;p>When done&lt;/p>
 &lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
@@ -382,7 +401,8 @@ other nodes can talk to the sentry.&lt;/p>
 &lt;/div>
 &lt;/div>
 &lt;h2 id="grafana">Grafana&lt;/h2>
-&lt;p>Addtional services can be opened such as grafana as follows.
+&lt;p>Additional services can be opened such as grafana as follows. I don&amp;rsquo;t recommend to run your grafana server on the same machine as your validator.
+This should be discouraged.&lt;/p>
 &lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -390,7 +410,7 @@ other nodes can talk to the sentry.&lt;/p>
 &lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>sudo ufw allow from any to any port &lt;span style="color:#bd93f9">3000&lt;/span> proto tcp&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;/p>
+&lt;/div>
 &lt;p>When done&lt;/p>
 &lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
