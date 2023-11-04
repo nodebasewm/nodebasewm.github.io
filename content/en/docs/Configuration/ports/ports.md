@@ -11,12 +11,12 @@ description: >
 
 By default the follow ports are used by **aya**
 * **26656**
-  - pnp networking port to connect to the tendermint network
+  - pnp networking port to connect to the consensus network
   - On a validator this port needs to be exposed to sentry nodes
   - On a sentry node this port needs to be exposed to the open internet
   - This is the port validators and sentries use to communicate to each other
 - **26657** 
-  - Tendermint RPC port.
+  - Consensus RPC port.
   - Some tools, example querying tools, use this port to query blockchain status.
   - You should not directly expose this port. 
   - This should be shielded from the open internet. 
@@ -35,7 +35,7 @@ Some optional ports that might be used by **aya** are as follows
     - [Prometheus](https://github.com/tendermint/tendermint/blob/master/docs/nodes/metrics.md) stats server
     - System stats about the ayad process
     - Needs to be enabled in the config file
-    - This should be shielded from the open internet
+    - This should be shielded from the open internet, unless you want monitor your validator consensus metrics
   - **1317**
     - The REST server 
     - for automated management of anything you can do with the CLI
