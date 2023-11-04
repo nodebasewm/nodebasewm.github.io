@@ -11,7 +11,10 @@
 &lt;ol>
 &lt;li>
 &lt;p>Logged in as user wmt we first start by making the base directory structure for World Mobile&amp;rsquo;s ayad and Cosmovisor binaries that are to be installed on our Node.&lt;/p>
-&lt;p>We do this by entering the following group of commands
+&lt;p>We do this by entering the following group of commands&lt;/p>
+&lt;blockquote>
+&lt;p>Note: There is &lt;strong>no need&lt;/strong> to replace &lt;code>&amp;quot;${USER}:${USER}&amp;quot;&lt;/code> below with your own username, as &lt;code>${USER}&lt;/code> is a &lt;strong>system variable&lt;/strong> that will &lt;strong>always be&lt;/strong> the currently logged on user. Which, in this case, &lt;strong>should be&lt;/strong> user &lt;code>wmt&lt;/code>.&lt;/p>
+&lt;/blockquote>
 &lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -29,7 +32,7 @@
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>mkdir -p /opt/aya/logs
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>mkdir -p /opt/aya/config&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;/p>
+&lt;/div>
 &lt;/li>
 &lt;li>
 &lt;p>Next we set up our Node&amp;rsquo;s Aya Network Chain ID &lt;em>(depending on which Chain ID this Node will be running on)&lt;/em>&lt;/p>
