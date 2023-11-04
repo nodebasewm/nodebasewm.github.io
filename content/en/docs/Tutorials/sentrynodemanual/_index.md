@@ -56,7 +56,7 @@ Now, with that warning out of the way, we shall proceed with the guide!
     {{< highlight bash "linenos=table,style=witchhazel" >}}
     moniker='node'
     {{< /highlight>}}
-    > Note: ```'node'``` is an **optional** default Moniker we can use to create some *'security by obscurity'* on the Aya Blockchain Network, by not having our **publicly listed** Sentry Node named **in any way** that can be linked back to the name of our ENO. If a custom public Moniker is preferred, however, We can replace ```'node'``` with our own chosen name at this point, keeping the ''s in place.
+    > Note: ```'node'``` is an **optional** default Moniker we can use to create some *'security by obscurity'* on the Aya Blockchain Network, by **NOT** having our **publicly listed** Sentry Node be named **in any way** that can be linked back to the name of our ENO. If a custom public Moniker is preferred, however, We can replace ```'node'``` with our own chosen name at this point, keeping the``` ''```s in place.
 
 
 5. Now we install a required prerequisite package (jq) for the successful completion of installation steps.
