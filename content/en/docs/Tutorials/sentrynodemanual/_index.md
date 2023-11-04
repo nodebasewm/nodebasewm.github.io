@@ -41,8 +41,8 @@ Now, with that warning out of the way, we shall proceed with the guide!
     {{< highlight bash "linenos=table,style=witchhazel" >}}
     CHAIN_ID="aya_preview_501"
     aya_home=/opt/aya
-    cosmovisor_logfile=${aya_home}/logs/cosmovisor.log
-    sentry_setup_json=${aya_home}/sentry.json
+    cosmovisor_logfile=/opt/aya/logs/cosmovisor.log
+    sentry_setup_json=/opt/aya/sentry.json
     bootstrap_node=true
     {{< /highlight>}}
 
@@ -50,15 +50,16 @@ Now, with that warning out of the way, we shall proceed with the guide!
 
     We do this by entering the following command    
     {{< highlight bash "linenos=table,style=witchhazel" >}}
-    moniker='<moniker>'
+    moniker='node'
     {{< /highlight>}}
-    > Note: We replace ```<moniker>``` with our own chosen name at this point, removing the surrounding <>
+    > Note: ```'node'``` is an **optional** default Moniker we can use to create some 'security by obscurity' on the Aya Blockchain Network, by not having our **publicly listed** Sentry Node named **in any way** that can be linked back to the name of our ENO. If a custom public Moniker is preferred, however, We can replace ```'node'``` with our own chosen name at this point, keeping the ''s in place.
 
 
 4. Now we install a required prerequisite package (jq) for the successful completion of installation steps.
 
     We do this by entering the following command
     {{< highlight bash "linenos=table,style=witchhazel" >}}
+    sudo apt update
     sudo apt-get -q install jq -y
     {{< /highlight>}}
 
@@ -86,15 +87,15 @@ Now, with that warning out of the way, we shall proceed with the guide!
 
     We do this by entering the following group of commands
     {{< highlight bash "linenos=table,style=witchhazel" >}}
-    cp ~/earthnode_installer/ayad "${aya_home}"/cosmovisor/genesis/bin/ayad
-    cp ~/earthnode_installer/cosmovisor "${aya_home}"/cosmovisor/cosmovisor
+    cp ~/earthnode_installer/ayad /opt/aya/cosmovisor/genesis/bin/ayad
+    cp ~/earthnode_installer/cosmovisor /opt/aya/cosmovisor/cosmovisor
     {{< /highlight>}}
 
 8. Now we initialise ayad to create all of the required configuration and set up files needed for running the cosmovisor and ayad binaries. 
 
     We do this by entering the following command
     {{< highlight bash "linenos=table,style=witchhazel" >}}
-    ./ayad init "${moniker}" --chain-id $CHAIN_ID --home ${aya_home}
+    ./ayad init "${moniker}" --chain-id $CHAIN_ID --home /opt/aya
     {{< /highlight>}}
 
     We have now populated the /opt/aya directory and its subdirectories with the necessary files to configure our Node. 
@@ -103,7 +104,7 @@ Now, with that warning out of the way, we shall proceed with the guide!
 
     We do this by entering the following command
     {{< highlight bash "linenos=table,style=witchhazel" >}}
-    cp ~/earthnode_installer/genesis.json "${aya_home}"/config/genesis.json
+    cp ~/earthnode_installer/genesis.json /opt/aya/config/genesis.json
     {{< /highlight>}}
 
 10. Before running our Sentry Node for the first time there are some initial configuration changes that need to be made to allow for smooth operation and connection the to aya_preview_501 Blockchain, and to ensure that connections between our own ENO Infrastructure's Nodes remain robust. 
@@ -222,8 +223,8 @@ Now, with that warning out of the way, we shall proceed with the guide!
     We do this by entering the following group of commands
     {{< highlight bash "linenos=table,style=witchhazel" >}}
     export DAEMON_NAME=ayad
-    export DAEMON_HOME="${aya_home}"
-    export DAEMON_DATA_BACKUP_DIR="${aya_home}"/backup
+    export DAEMON_HOME=/opt/aya
+    export DAEMON_DATA_BACKUP_DIR=/opt/aya/backup
     export DAEMON_RESTART_AFTER_UPGRADE=true
     export DAEMON_ALLOW_DOWNLOAD_BINARIES=true
     ulimit -Sn 4096
@@ -274,16 +275,16 @@ Now, with that warning out of the way, we shall proceed with the guide!
     TRUST_HASH=$(curl -s "http://peer1-501.worldmobilelabs.com:26657/block?height=${BLOCK_HEIGHT}" | jq -r .result.block_id.hash)
 
     # Set available RPC servers (at least two) required for light client snapshot verification
-    sed -i -E "s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"http://peer1-501.worldmobilelabs.com:26657,http://peer2-501.worldmobilelabs.com:26657\"|" "${aya_home}"/config/config.toml
+    sed -i -E "s|^(rpc_servers[[:space:]]+=[[:space:]]+).*$|\1\"http://peer1-501.worldmobilelabs.com:26657,http://peer2-501.worldmobilelabs.com:26657\"|" /opt/aya/config/config.toml
     # Set "safe" trusted block height
-    sed -i -E "s|^(trust_height[[:space:]]+=[[:space:]]+).*$|\1$BLOCK_HEIGHT|" "${aya_home}"/config/config.toml
+    sed -i -E "s|^(trust_height[[:space:]]+=[[:space:]]+).*$|\1$BLOCK_HEIGHT|" /opt/aya/config/config.toml
     # Set "qsafe" trusted block hash
-    sed -i -E "s|^(trust_hash[[:space:]]+=[[:space:]]+).*$|\1\"$TRUST_HASH\"|" "${aya_home}"/config/config.toml
+    sed -i -E "s|^(trust_hash[[:space:]]+=[[:space:]]+).*$|\1\"$TRUST_HASH\"|" /opt/aya/config/config.toml
     # Set trust period, should be ~2/3 unbonding time (3 weeks for preview network)
-    sed -i -E "s|^(trust_period[[:space:]]+=[[:space:]]+).*$|\1\"302h0m0s\"|" "${aya_home}"/config/config.toml
+    sed -i -E "s|^(trust_period[[:space:]]+=[[:space:]]+).*$|\1\"302h0m0s\"|" /opt/aya/config/config.toml
 
     cd ~/earthnode_installer
-    "${aya_home}"/cosmovisor/cosmovisor run start --home ${aya_home} &>>"${cosmovisor_logfile}" &
+    "${aya_home}"/cosmovisor/cosmovisor run start --home /opt/aya &>>"${cosmovisor_logfile}" &
     {{< /highlight>}}
 
     We have now started our Node software for the first time!
@@ -362,7 +363,7 @@ Now, with that warning out of the way, we shall proceed with the guide!
     {{< highlight bash "linenos=table,style=witchhazel" >}}
     cd ~/earthnode_installer
     # Get the address of the validator
-    validator_address=$(./ayad tendermint show-address --home ${aya_home})
+    validator_address=$(./ayad tendermint show-address --home /opt/aya)
     # Use 'jq' to create a JSON object with the 'moniker', 'operator_address' and 'validator_address' fields
     jq --arg key0 'moniker' \
     --arg value0 "$moniker" \
@@ -378,8 +379,8 @@ Now, with that warning out of the way, we shall proceed with the guide!
 
     We do this by entering the following group of commands
     {{< highlight bash "linenos=table,style=witchhazel" >}}
-    sudo ln -s $aya_home/cosmovisor/current/bin/ayad /usr/local/bin/ayad >/dev/null 2>&1
-    sudo ln -s $aya_home/cosmovisor/cosmovisor /usr/local/bin/cosmovisor >/dev/null 2>&1
+    sudo ln -s /opt/aya/cosmovisor/current/bin/ayad /usr/local/bin/ayad >/dev/null 2>&1
+    sudo ln -s /opt/aya/cosmovisor/cosmovisor /usr/local/bin/cosmovisor >/dev/null 2>&1
     {{< /highlight>}}
 
 20. And finally, we want to create a systemd service file that will allow our Node to automatically start on a reboot of our Server and to automatically attempt to restart itself on any crashes.
@@ -396,7 +397,7 @@ Now, with that warning out of the way, we shall proceed with the guide!
     [Service]
     User=$USER
     # Start the 'cosmovisor' daemon with the 'run start' command and write output to journalctl
-    ExecStart=$(which cosmovisor) run start --home "${aya_home}"
+    ExecStart=$(which cosmovisor) run start --home /opt/aya
     # Restart the service if it fails
     Restart=always
     # Restart the service after 3 seconds if it fails
@@ -406,8 +407,8 @@ Now, with that warning out of the way, we shall proceed with the guide!
 
     # Set environment variables for data backups, automatic downloading of binaries, and automatic restarts after upgrades
     Environment="DAEMON_NAME=ayad"
-    Environment="DAEMON_HOME=${aya_home}"
-    Environment="DAEMON_DATA_BACKUP_DIR=${aya_home}/backup"
+    Environment="DAEMON_HOME=/opt/aya"
+    Environment="DAEMON_DATA_BACKUP_DIR=/opt/aya/backup"
     Environment="DAEMON_ALLOW_DOWNLOAD_BINARIES=true"
     Environment="DAEMON_RESTART_AFTER_UPGRADE=true"
 
