@@ -382,7 +382,7 @@ We can now to return to our Valdiator Node to complete the rest of its set up.
 
     To save the **config.toml** file within nano editor we press **ctrl+x** and then **press y**, followed by **enter**. This will save the file with the same filename as before.
 
-    Next we need to make some initial changes to the **app.toml** file contents for our Validator Node. 
+    18. Next we need to make some initial changes to the **app.toml** file contents for our Validator Node. 
 
     Luckily, the app.toml file we need to edit is in the same directory as config.toml. 
 
@@ -458,7 +458,17 @@ We can now to return to our Valdiator Node to complete the rest of its set up.
     RPC_PEER_2="<Sentry.Node2.Private.IP>"
     {{< /highlight>}}
 
-22. With the Firewall Rules added, and our Sentry Nodes' Private IP addresses set, we are now going to start up our Valdiator Node for the first time, manually. 
+22. At this point, before running our Node Software for the first time, we are going to check that our Firewall Rules are set up to match the recommended settings over at https://nodebasewm.github.io/docs/configuration/firewall
+
+    We can check our Node's **current** settings match by entering the following command
+
+    {{< highlight bash "linenos=table,style=witchhazel" >}}
+    sudo ufw status numbered
+    {{< /highlight>}}
+
+    If they match we can carry on with the guide. If not, we will follow the **Validator** Firewall setup steps on the Firewall settings page and **then** continue with the guide.
+
+24. With the Firewall Rules now verified or added, and our Sentry Nodes' Private IP addresses set, we are now going to start up our Valdiator Node for the first time, manually. 
 
     > Note: Later we will be setting up a service file to have our Node automatically restart on Server reboot, or following a crash. For now though we will proceed manually.
 
@@ -489,7 +499,7 @@ We can now to return to our Valdiator Node to complete the rest of its set up.
 
     We have now started our Node software for the first time!
 
-24. Now we shall proceed to monitoring it.
+25. Now we shall proceed to monitoring it.
 
     We do this by entering the following group of commands
 
@@ -536,7 +546,7 @@ We can now to return to our Valdiator Node to complete the rest of its set up.
 
     >Note: This **config.toml** file edit above should only be completed once we are SURE that our Node is up to date with the current state of the Chain. We DO NOT make this edit before our Node has fully synced to the current Block Height ayaview, and is adding a new Block around every 5-6 seconds. 
 
-25. At present, our Node should be running along nicely in the background and keeping up to date with the current state of the Chain, but we still have to complete some more steps before we have fully completed our Valdiator Node's initial set up. 
+26. At present, our Node should be running along nicely in the background and keeping up to date with the current state of the Chain, but we still have to complete some more steps before we have fully completed our Valdiator Node's initial set up. 
 
     First we to ensure that we have saved all of our Node's important data, needed for future reference both by tools and by us.
 
@@ -559,7 +569,7 @@ We can now to return to our Valdiator Node to complete the rest of its set up.
 
     This will save our Validator Node's data to the filename registration.json in the **/opt/aya** directory.
   
-26. Next we want to set up some symbolic links for the 'ayad' and 'cosmovisor' binaries so that their specific commands can be called from anywhere on our Node's filesystem.
+27. Next we want to set up some symbolic links for the 'ayad' and 'cosmovisor' binaries so that their specific commands can be called from anywhere on our Node's filesystem.
 
     We do this by entering the following group of commands
     {{< highlight bash "linenos=table,style=witchhazel" >}}
@@ -567,7 +577,7 @@ We can now to return to our Valdiator Node to complete the rest of its set up.
     sudo ln -s /opt/aya/cosmovisor/cosmovisor /usr/local/bin/cosmovisor >/dev/null 2>&1
     {{< /highlight>}}
 
-27. And finally, we want to create a systemd service file that will allow our Node to automatically start on a reboot of our Server and to automatically attempt to restart itself on any crashes.
+28. And finally, we want to create a systemd service file that will allow our Node to automatically start on a reboot of our Server and to automatically attempt to restart itself on any crashes.
 
     We do this by entering the following group of commands
 
@@ -605,7 +615,7 @@ We can now to return to our Valdiator Node to complete the rest of its set up.
 
     This will have added a new service file to our Server under the path /etc/systemd/system named cosmovisor.service. This service file is what will be called when the Server reboots, or if our Node crashes.
 
-28. With the service now created, we now need to enable it for future use.
+29. With the service now created, we now need to enable it for future use.
 
     We do this by entering the following group of commands
 
@@ -632,7 +642,7 @@ We can now to return to our Valdiator Node to complete the rest of its set up.
 
     If we see this, we know we have successfully installed our Aya Node Service. 
 
-29. All that remains now, is to close down our first run of our Node and to restart it using this newly installed Service instead of manually launching our Node as before.
+30. All that remains now, is to close down our first run of our Node and to restart it using this newly installed Service instead of manually launching our Node as before.
 
     To do this, we need to identify what the current process number of our still running first run Node is. 
 
@@ -698,7 +708,7 @@ We can now to return to our Valdiator Node to complete the rest of its set up.
 
     Some details will be different to the above example, but this should be the general layout. The important point is that it should say 'active (running)' in green.
 
-30. We can now confirm everything is continuing to sync from the Blockchain by going back to our ayaview console and watching to see if the Block Height is still slowly ticking upwards as before.
+31. We can now confirm everything is continuing to sync from the Blockchain by going back to our ayaview console and watching to see if the Block Height is still slowly ticking upwards as before.
 
     We do this by entering the following group of commands
     {{< highlight bash "linenos=table,style=witchhazel" >}}
