@@ -458,7 +458,7 @@ We can now to return to our Valdiator Node to complete the rest of its set up.
     RPC_PEER_2="<Sentry.Node2.Private.IP>"
     {{< /highlight>}}
 
-22. At this point, before running our Node Software for the first time, we are going to check that our Firewall Rules are set up to match the recommended settings over at https://nodebasewm.github.io/docs/configuration/firewall
+22. At this point, before running our Node Software for the first time, we are going to check that our Firewall Rules are set up to match the recommended settings laid out over at [Firewall Settings](/docs/configuration/firewall/)
 
     We can check our Node's **current** settings match by entering the following command
 
