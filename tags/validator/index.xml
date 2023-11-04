@@ -1040,9 +1040,7 @@ They &lt;strong>can&lt;/strong> be the same name.&lt;/p>
 &lt;/blockquote>
 &lt;p>At this point the initial editing work to our &lt;strong>config.toml&lt;/strong> file is done, and it can now be saved with these changes.&lt;/p>
 &lt;p>To save the &lt;strong>config.toml&lt;/strong> file within nano editor we press &lt;strong>ctrl+x&lt;/strong> and then &lt;strong>press y&lt;/strong>, followed by &lt;strong>enter&lt;/strong>. This will save the file with the same filename as before.&lt;/p>
-&lt;ol start="18">
-&lt;li>Next we need to make some initial changes to the &lt;strong>app.toml&lt;/strong> file contents for our Validator Node.&lt;/li>
-&lt;/ol>
+&lt;p>Next we need to make some initial changes to the &lt;strong>app.toml&lt;/strong> file contents for our Validator Node.&lt;/p>
 &lt;p>Luckily, the app.toml file we need to edit is in the same directory as config.toml.&lt;/p>
 &lt;p>So we do this by entering the following command&lt;/p>
 &lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
