@@ -73,7 +73,7 @@ a moderator in the WorldMobile telegram groups to request the access form.&lt;/p
 &lt;/div>
 &lt;/div>&lt;/p>
 &lt;blockquote>
-&lt;p>Note: &lt;code>'node'&lt;/code> is an &lt;strong>optional&lt;/strong> default Moniker we can use to create some &lt;em>&amp;lsquo;security by obscurity&amp;rsquo;&lt;/em> on the Aya Blockchain Network, by not having our &lt;strong>publicly listed&lt;/strong> Sentry Node named &lt;strong>in any way&lt;/strong> that can be linked back to the name of our ENO. If a custom public Moniker is preferred, however, We can replace &lt;code>'node'&lt;/code> with our own chosen name at this point, keeping the &amp;lsquo;&amp;rsquo;s in place.&lt;/p>
+&lt;p>Note: &lt;code>'node'&lt;/code> is an &lt;strong>optional&lt;/strong> default Moniker we can use to create some &lt;em>&amp;lsquo;security by obscurity&amp;rsquo;&lt;/em> on the Aya Blockchain Network, by &lt;strong>NOT&lt;/strong> having our &lt;strong>publicly listed&lt;/strong> Sentry Node be named &lt;strong>in any way&lt;/strong> that can be linked back to the name of our ENO. If a custom public Moniker is preferred, however, We can replace &lt;code>'node'&lt;/code> with our own chosen name at this point, keeping the&lt;code> ''&lt;/code>s in place.&lt;/p>
 &lt;/blockquote>
 &lt;/li>
 &lt;li>
