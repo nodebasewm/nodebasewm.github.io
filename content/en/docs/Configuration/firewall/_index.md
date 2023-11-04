@@ -80,10 +80,10 @@ sudo ufw status
 ## Grafana
 
 Additional services can be opened such as grafana as follows. I don't recommend to run your grafana server on the same machine as your validator. 
-This should be discouraged.
+This should be discouraged. Grafana typically uses port 3000.
 
 {{< highlight go "linenos=table,style=dracula" >}}
-sudo ufw allow from any to any port 3000 proto tcp
+sudo ufw allow proto tcp from <IP> to any port 3000
 {{< /highlight>}}
 
 When done
@@ -98,6 +98,6 @@ sudo ufw status
 
 ## Prometheus
 
-If you use Prometheus metrics, you should consult with the metrics exporter tool which port it uses for exporting
+If you want to use Prometheus metrics, you should consult with the metrics exporter tool which port it uses for exporting
 metrics. Prometheus specific setup recommendations and installation instructions  will be released shortly,
 when the nodebase releases its nodebase monitoring service.
