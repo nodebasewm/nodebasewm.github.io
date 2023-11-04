@@ -461,7 +461,7 @@ a moderator in the WorldMobile telegram groups to request the access form.&lt;/p
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sed -i -E &lt;span style="color:#1bc5e0">&amp;#34;s|^(trust_period[[:space:]]+=[[:space:]]+).*&lt;/span>$&lt;span style="color:#1bc5e0">|\1\&amp;#34;302h0m0s\&amp;#34;|&amp;#34;&lt;/span> /opt/aya/config/config.toml
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cd ~/earthnode_installer
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0">&amp;#34;&lt;/span>&lt;span style="color:#1bc5e0">${&lt;/span>aya_home&lt;span style="color:#1bc5e0">}&lt;/span>&lt;span style="color:#1bc5e0">&amp;#34;&lt;/span>/cosmovisor/cosmovisor run start --home /opt/aya &amp;amp;&amp;gt;&amp;gt;/opt/aya/logs/cosmovisor.log &amp;amp;&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>/opt/aya/cosmovisor/cosmovisor run start --home /opt/aya &amp;amp;&amp;gt;&amp;gt;/opt/aya/logs/cosmovisor.log &amp;amp;&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>
 &lt;p>We have now started our Node software for the first time!&lt;/p>
