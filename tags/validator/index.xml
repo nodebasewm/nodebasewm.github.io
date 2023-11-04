@@ -502,6 +502,9 @@ when the nodebase releases its nodebase monitoring service.&lt;/p></description>
 &lt;li>
 &lt;p>Logged in as user wmt we first start by making the base directory structure for World Mobile&amp;rsquo;s ayad and Cosmovisor binaries that are to be installed on our Node.&lt;/p>
 &lt;p>We do this by entering the following group of commands&lt;/p>
+&lt;blockquote>
+&lt;p>Note: There is &lt;strong>no need&lt;/strong> to replace &lt;code>&amp;quot;${USER}:${USER}&amp;quot;&lt;/code> below with your own username, as &lt;code>${USER}&lt;/code> is a &lt;strong>system variable&lt;/strong> that will &lt;strong>always be&lt;/strong> the currently logged on user. Which, in this case, &lt;strong>should be&lt;/strong> user &lt;code>wmt&lt;/code>.&lt;/p>
+&lt;/blockquote>
 &lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
@@ -522,22 +525,18 @@ when the nodebase releases its nodebase monitoring service.&lt;/p></description>
 &lt;/div>
 &lt;/li>
 &lt;li>
-&lt;p>Next we set some environment variables so that further installation steps can be simplified.&lt;/p>
-&lt;p>We do this by entering the following group of commands&lt;/p>
+&lt;p>Next we set up our Node&amp;rsquo;s Aya Network Chain ID &lt;em>(depending on which Chain ID this Node will be running on)&lt;/em>&lt;/p>
+&lt;p>We do this by entering the &lt;strong>one of&lt;/strong> the following commands&lt;/p>
+&lt;blockquote>
+&lt;p>Note: For the moment there is only &lt;strong>one&lt;/strong> Chain ID for World Mobile Aya Chain Networks available publicly, but this will be changing soon and, as a result, there will be more than the single Chain ID option below to choose from. For now though, the single Chain ID option available is listed below.&lt;/p>
+&lt;/blockquote>
+&lt;p>&lt;em>For Aya Network Public Testnet:&lt;/em>&lt;/p>
 &lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
-&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>CHAIN_ID&lt;span style="color:#ffb8d1">=&lt;/span>&lt;span style="color:#1bc5e0">&amp;#34;aya_preview_501&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>aya_home&lt;span style="color:#ffb8d1">=&lt;/span>/opt/aya
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cosmovisor_logfile&lt;span style="color:#ffb8d1">=&lt;/span>&lt;span style="color:#1bc5e0">${&lt;/span>aya_home&lt;span style="color:#1bc5e0">}&lt;/span>/logs/cosmovisor.log
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>en_registration_json&lt;span style="color:#ffb8d1">=&lt;/span>&lt;span style="color:#1bc5e0">${&lt;/span>aya_home&lt;span style="color:#1bc5e0">}&lt;/span>/registration.json
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>accountfile&lt;span style="color:#ffb8d1">=&lt;/span>&lt;span style="color:#1bc5e0">${&lt;/span>aya_home&lt;span style="color:#1bc5e0">}&lt;/span>/account&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>CHAIN_ID&lt;span style="color:#ffb8d1">=&lt;/span>&lt;span style="color:#1bc5e0">&amp;#34;aya_preview_501&amp;#34;&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>
 &lt;/li>
@@ -553,7 +552,7 @@ when the nodebase releases its nodebase monitoring service.&lt;/p></description>
 &lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>account&lt;span style="color:#ffb8d1">=&lt;/span>&lt;span style="color:#1bc5e0">&amp;#39;&amp;lt;account&amp;gt;&amp;#39;&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>moniker&lt;span style="color:#ffb8d1">=&lt;/span>&lt;span style="color:#1bc5e0">&amp;#39;&amp;lt;moniker&amp;gt;&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>echo &lt;span style="color:#1bc5e0">&amp;#34;&lt;/span>$account&lt;span style="color:#1bc5e0">&amp;#34;&lt;/span> &amp;gt; &lt;span style="color:#1bc5e0">&amp;#34;&lt;/span>$accountfile&lt;span style="color:#1bc5e0">&amp;#34;&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>echo &lt;span style="color:#1bc5e0">&amp;#34;&lt;/span>$account&lt;span style="color:#1bc5e0">&amp;#34;&lt;/span> &amp;gt; /opt/aya/account&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>
 &lt;blockquote>
@@ -620,8 +619,8 @@ They &lt;strong>can&lt;/strong> be the same name.&lt;/p>
 &lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>cp ~/earthnode_installer/ayad &lt;span style="color:#1bc5e0">&amp;#34;&lt;/span>&lt;span style="color:#1bc5e0">${&lt;/span>aya_home&lt;span style="color:#1bc5e0">}&lt;/span>&lt;span style="color:#1bc5e0">&amp;#34;&lt;/span>/cosmovisor/genesis/bin/ayad
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cp ~/earthnode_installer/cosmovisor &lt;span style="color:#1bc5e0">&amp;#34;&lt;/span>&lt;span style="color:#1bc5e0">${&lt;/span>aya_home&lt;span style="color:#1bc5e0">}&lt;/span>&lt;span style="color:#1bc5e0">&amp;#34;&lt;/span>/cosmovisor/cosmovisor&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>cp ~/earthnode_installer/ayad /opt/aya/cosmovisor/genesis/bin/ayad
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cp ~/earthnode_installer/cosmovisor /opt/aya/cosmovisor/cosmovisor&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;/p>
 &lt;/li>
@@ -633,7 +632,7 @@ They &lt;strong>can&lt;/strong> be the same name.&lt;/p>
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>./ayad init &lt;span style="color:#1bc5e0">&amp;#34;&lt;/span>&lt;span style="color:#1bc5e0">${&lt;/span>moniker&lt;span style="color:#1bc5e0">}&lt;/span>&lt;span style="color:#1bc5e0">&amp;#34;&lt;/span> --chain-id $CHAIN_ID --home &lt;span style="color:#1bc5e0">${&lt;/span>aya_home&lt;span style="color:#1bc5e0">}&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>./ayad init &lt;span style="color:#1bc5e0">&amp;#34;&lt;/span>&lt;span style="color:#1bc5e0">${&lt;/span>moniker&lt;span style="color:#1bc5e0">}&lt;/span>&lt;span style="color:#1bc5e0">&amp;#34;&lt;/span> --chain-id $CHAIN_ID --home /opt/aya&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;/p>
 &lt;p>We have now populated the /opt/aya directory and its subdirectories with the necessary files to configure our Node.&lt;/p>
@@ -646,7 +645,7 @@ They &lt;strong>can&lt;/strong> be the same name.&lt;/p>
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>cp ~/earthnode_installer/genesis.json &lt;span style="color:#1bc5e0">&amp;#34;&lt;/span>&lt;span style="color:#1bc5e0">${&lt;/span>aya_home&lt;span style="color:#1bc5e0">}&lt;/span>&lt;span style="color:#1bc5e0">&amp;#34;&lt;/span>/config/genesis.json&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>cp ~/earthnode_installer/genesis.json /opt/aya/config/genesis.json&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>
 &lt;/li>
@@ -670,7 +669,7 @@ They &lt;strong>can&lt;/strong> be the same name.&lt;/p>
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#b0bec5"># Create a new operator account and store the JSON output in the &amp;#39;operator_json&amp;#39; variable&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>operator_json&lt;span style="color:#ffb8d1">=&lt;/span>&lt;span style="color:#c2ffdf">$(&lt;/span>./ayad keys add &lt;span style="color:#1bc5e0">&amp;#34;&lt;/span>&lt;span style="color:#1bc5e0">${&lt;/span>account&lt;span style="color:#1bc5e0">}&lt;/span>&lt;span style="color:#1bc5e0">&amp;#34;&lt;/span> --output json --home &lt;span style="color:#1bc5e0">${&lt;/span>aya_home&lt;span style="color:#1bc5e0">}&lt;/span>&lt;span style="color:#c2ffdf">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>operator_json&lt;span style="color:#ffb8d1">=&lt;/span>&lt;span style="color:#c2ffdf">$(&lt;/span>./ayad keys add &lt;span style="color:#1bc5e0">&amp;#34;&lt;/span>&lt;span style="color:#1bc5e0">${&lt;/span>account&lt;span style="color:#1bc5e0">}&lt;/span>&lt;span style="color:#1bc5e0">&amp;#34;&lt;/span> --output json --home /opt/aya&lt;span style="color:#c2ffdf">)&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#b0bec5"># Extract the address from the &amp;#39;operator_json&amp;#39; variable and store it in the &amp;#39;operator_address&amp;#39; variable&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>operator_address&lt;span style="color:#ffb8d1">=&lt;/span>&lt;span style="color:#c2ffdf">$(&lt;/span>echo &lt;span style="color:#1bc5e0">&amp;#34;&lt;/span>$operator_json&lt;span style="color:#1bc5e0">&amp;#34;&lt;/span> | jq &lt;span style="color:#1bc5e0">&amp;#39;.address&amp;#39;&lt;/span> | sed &lt;span style="color:#1bc5e0">&amp;#39;s/\&amp;#34;//g&amp;#39;&lt;/span>&lt;span style="color:#c2ffdf">)&lt;/span>
@@ -692,7 +691,7 @@ They &lt;strong>can&lt;/strong> be the same name.&lt;/p>
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>./ayad tendermint show-node-id --home $aya_home&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>./ayad tendermint show-node-id --home /opt/aya&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>
 &lt;blockquote>
@@ -743,22 +742,6 @@ They &lt;strong>can&lt;/strong> be the same name.&lt;/p>
 &lt;p>We can undo any mistakes we&amp;rsquo;ve made while working inside nano by pressing alt+u&lt;/p>
 &lt;/blockquote>
 &lt;p>We now make the necessary changes to this file as follows&lt;/p>
-&lt;ul>
-&lt;li>Add our Validator&amp;rsquo;s Node ID, Private IP address, and Port number to receive connections from our Sentry Node to &lt;strong>persistent_peers&lt;/strong>. Making sure &lt;strong>not&lt;/strong> to remove the existing World Mobile peers.
-&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#b0bec5"># Comma separated list of nodes to keep persistent connections to&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>persistent_peers &lt;span style="color:#ffb8d1">=&lt;/span> &lt;span style="color:#1bc5e0">&amp;#34;d7e64a6fc57019d04c989f59c2c643ee1133d99c@peer1-501.worldmobilelabs.com:26656,d1da4b1ad17ea35cf8c1713959b430a95743afcd@peer2-501.worldmobilelabs.com:26656,&amp;lt;Validator Node ID&amp;gt;@&amp;lt;Validator.Node.Private.IP&amp;gt;:26656&amp;#34;&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>&lt;/li>
-&lt;/ul>
-&lt;blockquote>
-&lt;p>Note: We replace &lt;code>&amp;lt;Validator Node ID&amp;gt;&lt;/code> with our separately copied Validator Node ID from above and &lt;code>&amp;lt;Validator.Node.Private.IP&amp;gt;&lt;/code> with our Validator Node&amp;rsquo;s IP at this point, removing the surrounding &amp;lt;&amp;gt;&lt;/p>
-&lt;/blockquote>
 &lt;ul>
 &lt;li>Add our Validator&amp;rsquo;s Node ID to &lt;strong>unconditional_peer_ids&lt;/strong>&lt;br>
 &lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
@@ -1007,7 +990,7 @@ They &lt;strong>can&lt;/strong> be the same name.&lt;/p>
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#b0bec5"># Maximum pause when redialing a persistent peer (if zero, exponential backoff is used)&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>persistent_peers_max_dial_period &lt;span style="color:#ffb8d1">=&lt;/span> &lt;span style="color:#1bc5e0">&amp;#34;30s&amp;#34;&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>persistent_peers_max_dial_period &lt;span style="color:#ffb8d1">=&lt;/span> &lt;span style="color:#1bc5e0">&amp;#34;10s&amp;#34;&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;/p>
 &lt;/li>
@@ -1129,8 +1112,8 @@ They &lt;strong>can&lt;/strong> be the same name.&lt;/p>
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>export DAEMON_NAME&lt;span style="color:#ffb8d1">=&lt;/span>ayad
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>export DAEMON_HOME&lt;span style="color:#ffb8d1">=&lt;/span>&lt;span style="color:#1bc5e0">&amp;#34;&lt;/span>&lt;span style="color:#1bc5e0">${&lt;/span>aya_home&lt;span style="color:#1bc5e0">}&lt;/span>&lt;span style="color:#1bc5e0">&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>export DAEMON_DATA_BACKUP_DIR&lt;span style="color:#ffb8d1">=&lt;/span>&lt;span style="color:#1bc5e0">&amp;#34;&lt;/span>&lt;span style="color:#1bc5e0">${&lt;/span>aya_home&lt;span style="color:#1bc5e0">}&lt;/span>&lt;span style="color:#1bc5e0">&amp;#34;&lt;/span>/backup
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>export DAEMON_HOME&lt;span style="color:#ffb8d1">=&lt;/span>/opt/aya
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>export DAEMON_DATA_BACKUP_DIR&lt;span style="color:#ffb8d1">=&lt;/span>/opt/aya/backup
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>export DAEMON_RESTART_AFTER_UPGRADE&lt;span style="color:#ffb8d1">=&lt;/span>true
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>export DAEMON_ALLOW_DOWNLOAD_BINARIES&lt;span style="color:#ffb8d1">=&lt;/span>true
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>ulimit -Sn &lt;span style="color:#c5a3ff">4096&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
@@ -1158,35 +1141,6 @@ They &lt;strong>can&lt;/strong> be the same name.&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>rm ayaview.zip&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>
-&lt;/li>
-&lt;li>
-&lt;p>We will also quickly add some new Firewall Rules to our Server to &lt;strong>only&lt;/strong> allow Incoming connections from our already configured Sentry Node&amp;rsquo;s to come into our Validator Node once it has started.&lt;/p>
-&lt;p>What command we need to enter to do this will depend on how our Server is set up to handle Firewall Rules.&lt;/p>
-&lt;p>If our Server is using &lt;strong>ufw&lt;/strong> to handle Firewall Rules (most likely for most installs) we need to enter the following command to accept Incoming connections over Port 26656 (a Node&amp;rsquo;s default Port)&lt;/p>
-&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo ufw allow from &amp;lt;Sentry.Node1.Private.IP&amp;gt; to any port &lt;span style="color:#c5a3ff">26656&lt;/span> proto tcp
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo ufw allow from &amp;lt;Sentry.Node2.Private.IP&amp;gt; to any port &lt;span style="color:#c5a3ff">26656&lt;/span> proto tcp&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>
-&lt;p>If our Server is using iptables to handle Firewall Rules we need to enter the following group of commands to accept Incoming connections over Port 26656 (a Node&amp;rsquo;s default Port)&lt;/p>
-&lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
-&lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
-&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
-&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
-&lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
-&lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo iptables -I INPUT -p tcp -s &amp;lt;Sentry.Node1.Private.IP&amp;gt; --dport &lt;span style="color:#c5a3ff">26656&lt;/span> -j ACCEPT
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo iptables -I INPUT -p tcp -s &amp;lt;Sentry.Node2.Private.IP&amp;gt; --dport &lt;span style="color:#c5a3ff">26656&lt;/span> -j ACCEPT
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo service iptables save&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
-&lt;/div>
-&lt;/div>
-&lt;p>If we haven&amp;rsquo;t yet set up our Firewall Rules at all, we can follow the steps laid out over at &lt;a href="/docs/configuration/firewall/">Firewall Configuration&lt;/a> to do this.&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>Now we shall set up some variables that will be used in the next step to allow us to quickly manually start up our Validator, and let it begin its statesync process.&lt;/p>
@@ -1242,16 +1196,16 @@ They &lt;strong>can&lt;/strong> be the same name.&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>TRUST_HASH&lt;span style="color:#ffb8d1">=&lt;/span>&lt;span style="color:#c2ffdf">$(&lt;/span>curl -s &lt;span style="color:#1bc5e0">&amp;#34;&amp;#34;&lt;/span>&lt;span style="color:#1bc5e0">${&lt;/span>RPC_PEER_1&lt;span style="color:#1bc5e0">}&lt;/span>&lt;span style="color:#1bc5e0">&amp;#34;:26657/block?height=&lt;/span>&lt;span style="color:#1bc5e0">${&lt;/span>BLOCK_HEIGHT&lt;span style="color:#1bc5e0">}&lt;/span>&lt;span style="color:#1bc5e0">&amp;#34;&lt;/span> | jq -r .result.block_id.hash&lt;span style="color:#c2ffdf">)&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#b0bec5"># Set available RPC servers (at least two) required for light client snapshot verification&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sed -i -E &lt;span style="color:#1bc5e0">&amp;#34;s|^(rpc_servers[[:space:]]+=[[:space:]]+).*&lt;/span>$&lt;span style="color:#1bc5e0">|\1\&amp;#34;&amp;#34;&lt;/span>&lt;span style="color:#1bc5e0">${&lt;/span>RPC_PEER_1&lt;span style="color:#1bc5e0">}&lt;/span>&lt;span style="color:#1bc5e0">&amp;#34;:26657,&amp;#34;&lt;/span>&lt;span style="color:#1bc5e0">${&lt;/span>RPC_PEER_2&lt;span style="color:#1bc5e0">}&lt;/span>&lt;span style="color:#1bc5e0">&amp;#34;:26657\&amp;#34;|&amp;#34;&lt;/span> &lt;span style="color:#1bc5e0">&amp;#34;&lt;/span>&lt;span style="color:#1bc5e0">${&lt;/span>aya_home&lt;span style="color:#1bc5e0">}&lt;/span>&lt;span style="color:#1bc5e0">&amp;#34;&lt;/span>/config/config.toml
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sed -i -E &lt;span style="color:#1bc5e0">&amp;#34;s|^(rpc_servers[[:space:]]+=[[:space:]]+).*&lt;/span>$&lt;span style="color:#1bc5e0">|\1\&amp;#34;&amp;#34;&lt;/span>&lt;span style="color:#1bc5e0">${&lt;/span>RPC_PEER_1&lt;span style="color:#1bc5e0">}&lt;/span>&lt;span style="color:#1bc5e0">&amp;#34;:26657,&amp;#34;&lt;/span>&lt;span style="color:#1bc5e0">${&lt;/span>RPC_PEER_2&lt;span style="color:#1bc5e0">}&lt;/span>&lt;span style="color:#1bc5e0">&amp;#34;:26657\&amp;#34;|&amp;#34;&lt;/span> /opt/aya/config/config.toml
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#b0bec5"># Set &amp;#34;safe&amp;#34; trusted block height&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sed -i -E &lt;span style="color:#1bc5e0">&amp;#34;s|^(trust_height[[:space:]]+=[[:space:]]+).*&lt;/span>$&lt;span style="color:#1bc5e0">|\1&lt;/span>$BLOCK_HEIGHT&lt;span style="color:#1bc5e0">|&amp;#34;&lt;/span> &lt;span style="color:#1bc5e0">&amp;#34;&lt;/span>&lt;span style="color:#1bc5e0">${&lt;/span>aya_home&lt;span style="color:#1bc5e0">}&lt;/span>&lt;span style="color:#1bc5e0">&amp;#34;&lt;/span>/config/config.toml
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sed -i -E &lt;span style="color:#1bc5e0">&amp;#34;s|^(trust_height[[:space:]]+=[[:space:]]+).*&lt;/span>$&lt;span style="color:#1bc5e0">|\1&lt;/span>$BLOCK_HEIGHT&lt;span style="color:#1bc5e0">|&amp;#34;&lt;/span> /opt/aya/config/config.toml
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#b0bec5"># Set &amp;#34;qsafe&amp;#34; trusted block hash&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sed -i -E &lt;span style="color:#1bc5e0">&amp;#34;s|^(trust_hash[[:space:]]+=[[:space:]]+).*&lt;/span>$&lt;span style="color:#1bc5e0">|\1\&amp;#34;&lt;/span>$TRUST_HASH&lt;span style="color:#1bc5e0">\&amp;#34;|&amp;#34;&lt;/span> &lt;span style="color:#1bc5e0">&amp;#34;&lt;/span>&lt;span style="color:#1bc5e0">${&lt;/span>aya_home&lt;span style="color:#1bc5e0">}&lt;/span>&lt;span style="color:#1bc5e0">&amp;#34;&lt;/span>/config/config.toml
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sed -i -E &lt;span style="color:#1bc5e0">&amp;#34;s|^(trust_hash[[:space:]]+=[[:space:]]+).*&lt;/span>$&lt;span style="color:#1bc5e0">|\1\&amp;#34;&lt;/span>$TRUST_HASH&lt;span style="color:#1bc5e0">\&amp;#34;|&amp;#34;&lt;/span> /opt/aya/config/config.toml
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#b0bec5"># Set trust period, should be ~2/3 unbonding time (3 weeks for preview network)&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sed -i -E &lt;span style="color:#1bc5e0">&amp;#34;s|^(trust_period[[:space:]]+=[[:space:]]+).*&lt;/span>$&lt;span style="color:#1bc5e0">|\1\&amp;#34;302h0m0s\&amp;#34;|&amp;#34;&lt;/span> &lt;span style="color:#1bc5e0">&amp;#34;&lt;/span>&lt;span style="color:#1bc5e0">${&lt;/span>aya_home&lt;span style="color:#1bc5e0">}&lt;/span>&lt;span style="color:#1bc5e0">&amp;#34;&lt;/span>/config/config.toml
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sed -i -E &lt;span style="color:#1bc5e0">&amp;#34;s|^(trust_period[[:space:]]+=[[:space:]]+).*&lt;/span>$&lt;span style="color:#1bc5e0">|\1\&amp;#34;302h0m0s\&amp;#34;|&amp;#34;&lt;/span> /opt/aya/config/config.toml
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cd ~/earthnode_installer
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0">&amp;#34;&lt;/span>&lt;span style="color:#1bc5e0">${&lt;/span>aya_home&lt;span style="color:#1bc5e0">}&lt;/span>&lt;span style="color:#1bc5e0">&amp;#34;&lt;/span>/cosmovisor/cosmovisor run start --home &lt;span style="color:#1bc5e0">${&lt;/span>aya_home&lt;span style="color:#1bc5e0">}&lt;/span> &amp;amp;&amp;gt;&amp;gt;&lt;span style="color:#1bc5e0">&amp;#34;&lt;/span>&lt;span style="color:#1bc5e0">${&lt;/span>cosmovisor_logfile&lt;span style="color:#1bc5e0">}&lt;/span>&lt;span style="color:#1bc5e0">&amp;#34;&lt;/span> &amp;amp;&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>/opt/aya/cosmovisor/cosmovisor run start --home /opt/aya &amp;amp;&amp;gt;&amp;gt;/opt/aya/logs/cosmovisor.log &amp;amp;&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>
 &lt;p>We have now started our Node software for the first time!&lt;/p>
@@ -1344,7 +1298,7 @@ They &lt;strong>can&lt;/strong> be the same name.&lt;/p>
 &lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>cd ~/earthnode_installer
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#b0bec5"># Get the address of the validator&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>validator_address&lt;span style="color:#ffb8d1">=&lt;/span>&lt;span style="color:#c2ffdf">$(&lt;/span>./ayad tendermint show-address --home &lt;span style="color:#1bc5e0">${&lt;/span>aya_home&lt;span style="color:#1bc5e0">}&lt;/span>&lt;span style="color:#c2ffdf">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>validator_address&lt;span style="color:#ffb8d1">=&lt;/span>&lt;span style="color:#c2ffdf">$(&lt;/span>./ayad tendermint show-address --home /opt/aya&lt;span style="color:#c2ffdf">)&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#b0bec5"># Use &amp;#39;jq&amp;#39; to create a JSON object with the &amp;#39;moniker&amp;#39;, &amp;#39;operator_address&amp;#39; and &amp;#39;validator_address&amp;#39; fields&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>jq --arg key0 &lt;span style="color:#1bc5e0">&amp;#39;moniker&amp;#39;&lt;/span> &lt;span style="color:#1bc5e0">\
@@ -1354,7 +1308,7 @@ They &lt;strong>can&lt;/strong> be the same name.&lt;/p>
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0">&lt;/span> --arg key2 &lt;span style="color:#1bc5e0">&amp;#39;validator_address&amp;#39;&lt;/span> &lt;span style="color:#1bc5e0">\
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0">&lt;/span> --arg value2 &lt;span style="color:#1bc5e0">&amp;#34;&lt;/span>$validator_address&lt;span style="color:#1bc5e0">&amp;#34;&lt;/span> &lt;span style="color:#1bc5e0">\
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0">&lt;/span> &lt;span style="color:#1bc5e0">&amp;#39;. | .[$key0]=$value0 | .[$key1]=$value1 | .[$key2]=$value2&amp;#39;&lt;/span> &lt;span style="color:#1bc5e0">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0">&lt;/span> &lt;span style="color:#ffb8d1">&amp;lt;&amp;lt;&amp;lt;&lt;/span>&lt;span style="color:#1bc5e0">&amp;#39;{}&amp;#39;&lt;/span> | tee $en_registration_json
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0">&lt;/span> &lt;span style="color:#ffb8d1">&amp;lt;&amp;lt;&amp;lt;&lt;/span>&lt;span style="color:#1bc5e0">&amp;#39;{}&amp;#39;&lt;/span> | tee /opt/aya/registration.json
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;/p>
@@ -1369,8 +1323,8 @@ They &lt;strong>can&lt;/strong> be the same name.&lt;/p>
 &lt;/span>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo ln -s $aya_home/cosmovisor/current/bin/ayad /usr/local/bin/ayad &amp;gt;/dev/null 2&amp;gt;&amp;amp;&lt;span style="color:#c5a3ff">1&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo ln -s $aya_home/cosmovisor/cosmovisor /usr/local/bin/cosmovisor &amp;gt;/dev/null 2&amp;gt;&amp;amp;&lt;span style="color:#c5a3ff">1&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>sudo ln -s /opt/aya/cosmovisor/current/bin/ayad /usr/local/bin/ayad &amp;gt;/dev/null 2&amp;gt;&amp;amp;&lt;span style="color:#c5a3ff">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo ln -s /opt/aya/cosmovisor/cosmovisor /usr/local/bin/cosmovisor &amp;gt;/dev/null 2&amp;gt;&amp;amp;&lt;span style="color:#c5a3ff">1&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;/p>
 &lt;/li>
@@ -1420,7 +1374,7 @@ They &lt;strong>can&lt;/strong> be the same name.&lt;/p>
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0">[Service]
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0">User=$USER
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0"># Start the &amp;#39;cosmovisor&amp;#39; daemon with the &amp;#39;run start&amp;#39; command and write output to journalctl
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0">ExecStart=$(which cosmovisor) run start --home &amp;#34;${aya_home}&amp;#34;
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0">ExecStart=$(which cosmovisor) run start --home /opt/aya&amp;#34;
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0"># Restart the service if it fails
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0">Restart=always
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0"># Restart the service after 3 seconds if it fails
@@ -1430,8 +1384,8 @@ They &lt;strong>can&lt;/strong> be the same name.&lt;/p>
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0">
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0"># Set environment variables for data backups, automatic downloading of binaries, and automatic restarts after upgrades
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0">Environment=&amp;#34;DAEMON_NAME=ayad&amp;#34;
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0">Environment=&amp;#34;DAEMON_HOME=${aya_home}&amp;#34;
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0">Environment=&amp;#34;DAEMON_DATA_BACKUP_DIR=${aya_home}/backup&amp;#34;
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0">Environment=&amp;#34;DAEMON_HOME=/opt/aya&amp;#34;
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0">Environment=&amp;#34;DAEMON_DATA_BACKUP_DIR=/opt/aya/backup&amp;#34;
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0">Environment=&amp;#34;DAEMON_ALLOW_DOWNLOAD_BINARIES=true&amp;#34;
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0">Environment=&amp;#34;DAEMON_RESTART_AFTER_UPGRADE=true&amp;#34;
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0">
@@ -1673,7 +1627,7 @@ c) By clicking on the Connect Wallet Button on the site EarthNode Registration s
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>ayad query bank balances &amp;lt;our Operator Address&amp;gt; --home $aya_home&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>ayad query bank balances &amp;lt;our Operator Address&amp;gt; --home /opt/aya&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>
 &lt;blockquote>
@@ -1724,7 +1678,7 @@ c) By clicking on the Connect Wallet Button on the site EarthNode Registration s
 &lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>ayad tx staking create-validator &lt;span style="color:#1bc5e0">\
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0">&lt;/span> --amount&lt;span style="color:#ffb8d1">=&lt;/span>1uswmt &lt;span style="color:#1bc5e0">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0">&lt;/span> --pubkey&lt;span style="color:#ffb8d1">=&lt;/span>&lt;span style="color:#1bc5e0">&amp;#34;&lt;/span>&lt;span style="color:#c2ffdf">$(&lt;/span>ayad tendermint show-validator --home &lt;span style="color:#1bc5e0">${&lt;/span>aya_home&lt;span style="color:#1bc5e0">}&lt;/span>&lt;span style="color:#c2ffdf">)&lt;/span>&lt;span style="color:#1bc5e0">&amp;#34;&lt;/span> &lt;span style="color:#1bc5e0">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0">&lt;/span> --pubkey&lt;span style="color:#ffb8d1">=&lt;/span>&lt;span style="color:#1bc5e0">&amp;#34;&lt;/span>&lt;span style="color:#c2ffdf">$(&lt;/span>ayad tendermint show-validator --home /opt/aya&lt;span style="color:#c2ffdf">)&lt;/span>&lt;span style="color:#1bc5e0">&amp;#34;&lt;/span> &lt;span style="color:#1bc5e0">\
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0">&lt;/span> --moniker&lt;span style="color:#ffb8d1">=&lt;/span>&lt;span style="color:#1bc5e0">&amp;#34;&lt;/span>$moniker&lt;span style="color:#1bc5e0">&amp;#34;&lt;/span> &lt;span style="color:#1bc5e0">\
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0">&lt;/span> --chain-id&lt;span style="color:#ffb8d1">=&lt;/span>&lt;span style="color:#1bc5e0">&amp;#34;&lt;/span>$CHAIN_ID&lt;span style="color:#1bc5e0">&amp;#34;&lt;/span> &lt;span style="color:#1bc5e0">\
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0">&lt;/span> --commission-rate&lt;span style="color:#ffb8d1">=&lt;/span>&lt;span style="color:#1bc5e0">&amp;#34;0.10&amp;#34;&lt;/span> &lt;span style="color:#1bc5e0">\
@@ -1732,7 +1686,7 @@ c) By clicking on the Connect Wallet Button on the site EarthNode Registration s
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0">&lt;/span> --commission-max-change-rate&lt;span style="color:#ffb8d1">=&lt;/span>&lt;span style="color:#1bc5e0">&amp;#34;0.01&amp;#34;&lt;/span> &lt;span style="color:#1bc5e0">\
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0">&lt;/span> --min-self-delegation&lt;span style="color:#ffb8d1">=&lt;/span>&lt;span style="color:#1bc5e0">&amp;#34;1&amp;#34;&lt;/span> &lt;span style="color:#1bc5e0">\
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0">&lt;/span> --from&lt;span style="color:#ffb8d1">=&lt;/span>&lt;span style="color:#1bc5e0">&amp;#34;&lt;/span>$account&lt;span style="color:#1bc5e0">&amp;#34;&lt;/span> &lt;span style="color:#1bc5e0">\
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0">&lt;/span> --home &lt;span style="color:#1bc5e0">${&lt;/span>aya_home&lt;span style="color:#1bc5e0">}&lt;/span> &lt;span style="color:#1bc5e0">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0">&lt;/span> --home /opt/aya &lt;span style="color:#1bc5e0">\
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0">&lt;/span> --output json &lt;span style="color:#1bc5e0">\
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#1bc5e0">&lt;/span> --yes &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
