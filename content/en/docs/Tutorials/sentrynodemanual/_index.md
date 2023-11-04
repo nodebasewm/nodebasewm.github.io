@@ -263,7 +263,7 @@ Now, with that warning out of the way, we shall proceed with the guide!
     sudo service iptables save
     {{< /highlight>}}
 
-    If we haven't yet set up our Firewall Rules at all, we can follow the steps laid out over at [Firewall Configuration](/docs/configuration/firewall/)  to do this.
+    If we haven't yet set up our Firewall Rules at all, we can follow the steps laid out over at [Firewall Settings](/docs/configuration/firewall/) to do this.
 
 15. With the Firewall Rule added we are now going to start up our Sentry Node for the first time, manually. 
 
