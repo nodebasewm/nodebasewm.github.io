@@ -403,13 +403,13 @@ which should be the client machine you want to login from.This is good practice 
 &lt;/div>
 &lt;h2 id="grafana">Grafana&lt;/h2>
 &lt;p>Additional services can be opened such as grafana as follows. I don&amp;rsquo;t recommend to run your grafana server on the same machine as your validator.
-This should be discouraged.&lt;/p>
+This should be discouraged. Grafana typically uses port 3000.&lt;/p>
 &lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
 &lt;table style="border-spacing:0;padding:0;margin:0;border:0;">&lt;tr>&lt;td style="vertical-align:top;padding:0;margin:0;border:0;">
 &lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code>&lt;span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>sudo ufw allow from any to any port &lt;span style="color:#bd93f9">3000&lt;/span> proto tcp&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>sudo ufw allow proto tcp from &amp;lt;IP&amp;gt; to any port &lt;span style="color:#bd93f9">3000&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>
 &lt;p>When done&lt;/p>
@@ -428,6 +428,6 @@ This should be discouraged.&lt;/p>
 &lt;/div>
 &lt;/div>
 &lt;h2 id="prometheus">Prometheus&lt;/h2>
-&lt;p>If you use Prometheus metrics, you should consult with the metrics exporter tool which port it uses for exporting
+&lt;p>If you want to use Prometheus metrics, you should consult with the metrics exporter tool which port it uses for exporting
 metrics. Prometheus specific setup recommendations and installation instructions will be released shortly,
 when the nodebase releases its nodebase monitoring service.&lt;/p></description></item></channel></rss>
