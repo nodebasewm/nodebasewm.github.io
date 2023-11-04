@@ -407,7 +407,7 @@
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>sudo service iptables save&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>
-&lt;p>If we haven&amp;rsquo;t yet set up our Firewall Rules at all, we can follow the steps laid out over at &lt;a href="/docs/configuration/firewall/">Firewall Configuration&lt;/a> to do this.&lt;/p>
+&lt;p>If we haven&amp;rsquo;t yet set up our Firewall Rules at all, we can follow the steps laid out over at &lt;a href="/docs/configuration/firewall/">Firewall Settings&lt;/a> to do this.&lt;/p>
 &lt;/li>
 &lt;li>
 &lt;p>With the Firewall Rule added we are now going to start up our Sentry Node for the first time, manually.&lt;/p>
