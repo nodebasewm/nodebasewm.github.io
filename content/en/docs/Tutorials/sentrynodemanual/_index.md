@@ -26,6 +26,9 @@ Now, with that warning out of the way, we shall proceed with the guide!
 1. Logged in as user wmt we first start by making the base directory structure for World Mobile's ayad and Cosmovisor binaries that are to be installed on our Node.
 
     We do this by entering the following group of commands
+
+    > Note: There is **no need** to replace ```"${USER}:${USER}"``` below with your own username, as ```${USER}``` is a **system variable** that will **always be** the currently logged on user. Which, in this case, **should be** user ```wmt```.
+    
     {{< highlight bash "linenos=table,style=witchhazel" >}}
     sudo mkdir -p /opt/aya
     sudo chown "${USER}:${USER}" /opt/aya
@@ -35,7 +38,7 @@ Now, with that warning out of the way, we shall proceed with the guide!
     mkdir -p /opt/aya/config
     {{< /highlight>}} 
 
-2. Next we set up our Node's Aya Network Chain ID *(depending on which Chain ID this Node will be running on)*
+3. Next we set up our Node's Aya Network Chain ID *(depending on which Chain ID this Node will be running on)*
 
     We do this by entering the **one of** the following commands
 
