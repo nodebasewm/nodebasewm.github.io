@@ -353,7 +353,7 @@ We can now to return to our Valdiator Node to complete the rest of its set up.
     addr_book_strict = false
     {{< /highlight>}}
 
-    * Change the **persistent_peers_max_dial_period** option to be **persistent_peers_max_dial_period = "30s"** instead of **"0s"**
+    * Change the **persistent_peers_max_dial_period** option to be **persistent_peers_max_dial_period = "10s"** instead of **"0s"**
     {{< highlight bash "linenos=table,style=witchhazel" >}}
     # Maximum pause when redialing a persistent peer (if zero, exponential backoff is used)
     persistent_peers_max_dial_period = "10s"
