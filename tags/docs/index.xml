@@ -1486,8 +1486,7 @@ so that other nodes can talk to the sentry for p2p communication of consensus me
 &lt;p>The firewall settings above only allows ssh login from the given machine with IP-address &lt;strong>IP&lt;/strong>,
 which should be the client machine you want to login from. This is good practice and limits the attack vector on your server.&lt;/p>
 &lt;blockquote>
-&lt;p>Note that with a proper VPN solution, such as tailscale, this specific firewall rule can be entirely omitted,
-giving you the highest level of security.&lt;/p>
+&lt;p>Note that with a proper VPN solution, such as tailscale, this specific firewall rule can also be omitted, giving you the highest level of security. Tailscale can handle SSH login through its ACL access rules.&lt;/p>
 &lt;/blockquote>
 &lt;p>When done&lt;/p>
 &lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
@@ -1524,7 +1523,7 @@ since we don&amp;rsquo;t have to open the p2p port. See the manual setup guide o
 &lt;p>The firewall settings above only allows ssh login from the given machine with the give IP-address &lt;strong>IP&lt;/strong>,
 which should be the client machine you want to login from.This is good practice and limits the attack vector on your server.&lt;/p>
 &lt;blockquote>
-&lt;p>Note that with a proper VPN solution, such as tailscale, this specific firewall rule can be entirely omitted, giving you the highest level of security.&lt;/p>
+&lt;p>Note that with a proper VPN solution, such as tailscale, this specific firewall rule can also be omitted, giving you the highest level of security. Tailscale can handle SSH login through its ACL access rules.&lt;/p>
 &lt;/blockquote>
 &lt;p>If you have &lt;code>prometheus=true&lt;/code> metrics logging enabled in the &lt;strong>config.toml&lt;/strong>, you should allow the prometheus listen port as well.&lt;/p>
 &lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
