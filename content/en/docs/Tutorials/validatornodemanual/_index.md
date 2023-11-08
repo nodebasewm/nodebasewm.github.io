@@ -592,7 +592,7 @@ We can now to return to our Valdiator Node to complete the rest of its set up.
     [Service]
     User=$USER
     # Start the 'cosmovisor' daemon with the 'run start' command and write output to journalctl
-    ExecStart=$(which cosmovisor) run start --home /opt/aya"
+    ExecStart=$(which cosmovisor) run start --home /opt/aya
     # Restart the service if it fails
     Restart=always
     # Restart the service after 3 seconds if it fails
