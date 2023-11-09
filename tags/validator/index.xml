@@ -1663,7 +1663,7 @@ c) By clicking on the Connect Wallet Button on the site EarthNode Registration s
 &lt;/div>
 &lt;/div>
 &lt;blockquote>
-&lt;p>Note: We replace &lt;code>&amp;lt;our Operator Address&amp;gt;&lt;/code> with the full operator_address detail that begins with &lt;em>aya1&lt;/em> from the information we obtained for EarthNode Registration in step 32, removing the surrounding &amp;lt;&amp;gt;&lt;/p>
+&lt;p>Note: We replace &lt;code>&amp;lt;our Operator Address&amp;gt;&lt;/code> with the full operator_address detail that begins with &lt;em>aya1&lt;/em> from the information we obtained for EarthNode Registration in step 30, removing the surrounding &amp;lt;&amp;gt;&lt;/p>
 &lt;/blockquote>
 &lt;p>If Registration on the Cardano Blockchain side has been successful, this command should give us the following output&lt;/p>
 &lt;div class="highlight">&lt;div style="color:#f8f8f2;background-color:#433e56;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
