@@ -779,7 +779,7 @@ So, we shall now proceed to doing this.
     ayad query bank balances <our Operator Address> --home /opt/aya
     {{< /highlight>}}
 
-    > Note: We replace ```<our Operator Address>``` with the full operator_address detail that begins with *aya1* from the information we obtained for EarthNode Registration in step 32, removing the surrounding <>
+    > Note: We replace ```<our Operator Address>``` with the full operator_address detail that begins with *aya1* from the information we obtained for EarthNode Registration in step 30, removing the surrounding <>
 
     If Registration on the Cardano Blockchain side has been successful, this command should give us the following output
 
