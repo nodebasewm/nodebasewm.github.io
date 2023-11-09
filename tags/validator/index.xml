@@ -1639,7 +1639,7 @@ c) By clicking on the Connect Wallet Button on the site EarthNode Registration s
 &lt;p>Next we make sure we have RegisterEarthNode selected under the &lt;strong>Select Transaction Type:&lt;/strong> Dropdown Menu.&lt;/p>
 &lt;/li>
 &lt;li>
-&lt;p>And now we need to paste in the previously copied information, obtained during step 32 above, into the &lt;strong>Paste Installation Script Output:&lt;/strong> Box and press the &lt;strong>Build Transaction&lt;/strong> Button.&lt;/p>
+&lt;p>And now we need to paste in the previously copied information, obtained during step 30 above, into the &lt;strong>Paste Installation Script Output:&lt;/strong> Box and press the &lt;strong>Build Transaction&lt;/strong> Button.&lt;/p>
 &lt;blockquote>
 &lt;p>Note: We will now be asked for our Preview Testnet Wallet&amp;rsquo;s Spending Password at this point in order to Authorise the Registration Transaction to be Posted On-Chain on the Cardano Preview Testnet Newtork.&lt;/p>
 &lt;/blockquote>
