@@ -827,7 +827,7 @@
 &lt;p>Which means it hasn&amp;rsquo;t yet got to fulfil its true purpose in life just yet (much like many of us).&lt;/p>
 &lt;p>So, to fix this, we will tackle connecting our newly set up Sentry Node to our EarthNode Validator, as well as any other running Sentry Nodes in our Infrastructure, in a separate guide.&lt;/p>
 &lt;p>For now though, we can simply bask in the glory of setting up a well running Sentry Node!&lt;/p>
-&lt;/blockquote></description></item><item><title>Docs: 2. Validator Node Manual Installation</title><link>/docs/tutorials/validatornodemanual/</link><pubDate>Wed, 15 Mar 2023 00:00:00 +0000</pubDate><guid>/docs/tutorials/validatornodemanual/</guid><description>
+&lt;/blockquote></description></item><item><title>Docs: 2. Validator Node Manual Installation</title><link>/docs/tutorials/publictestnet/validatornodemanual/</link><pubDate>Wed, 15 Mar 2023 00:00:00 +0000</pubDate><guid>/docs/tutorials/publictestnet/validatornodemanual/</guid><description>
 &lt;p>&lt;strong>Written by Nodebase Team member &lt;a href="https://twitter.com/intertreeJK">intertree (Johnny Kelly)&lt;/a>&lt;/strong>&lt;/p>
 &lt;h1 id="introduction">Introduction&lt;/h1>
 &lt;p>The following guide will take you through all manual steps to be taken to have a fully running Validator Node. Taking you through how attach it to your prevously installed Sentry Nodes, and how to register your EarthNode Stake Pool via both an On-Chain &lt;strong>ENNFT&lt;/strong> Registration Transaction on the Cardano Network as well as an On-Chain &lt;strong>Validator&lt;/strong> Registration Transaction on the Aya Network.&lt;/p>

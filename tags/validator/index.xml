@@ -491,7 +491,7 @@ This should be discouraged. Grafana typically uses port 3000.&lt;/p>
 &lt;h2 id="prometheus">Prometheus&lt;/h2>
 &lt;p>If you want to use Prometheus metrics, you should consult with the metrics exporter tool which port it uses for exporting
 metrics. Prometheus specific setup recommendations and installation instructions will be released shortly,
-when the nodebase releases its nodebase monitoring service.&lt;/p></description></item><item><title>Docs: 2. Validator Node Manual Installation</title><link>/docs/tutorials/validatornodemanual/</link><pubDate>Wed, 15 Mar 2023 00:00:00 +0000</pubDate><guid>/docs/tutorials/validatornodemanual/</guid><description>
+when the nodebase releases its nodebase monitoring service.&lt;/p></description></item><item><title>Docs: 2. Validator Node Manual Installation</title><link>/docs/tutorials/publictestnet/validatornodemanual/</link><pubDate>Wed, 15 Mar 2023 00:00:00 +0000</pubDate><guid>/docs/tutorials/publictestnet/validatornodemanual/</guid><description>
 &lt;p>&lt;strong>Written by Nodebase Team member &lt;a href="https://twitter.com/intertreeJK">intertree (Johnny Kelly)&lt;/a>&lt;/strong>&lt;/p>
 &lt;h1 id="introduction">Introduction&lt;/h1>
 &lt;p>The following guide will take you through all manual steps to be taken to have a fully running Validator Node. Taking you through how attach it to your prevously installed Sentry Nodes, and how to register your EarthNode Stake Pool via both an On-Chain &lt;strong>ENNFT&lt;/strong> Registration Transaction on the Cardano Network as well as an On-Chain &lt;strong>Validator&lt;/strong> Registration Transaction on the Aya Network.&lt;/p>
