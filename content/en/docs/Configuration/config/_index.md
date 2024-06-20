@@ -15,7 +15,7 @@ description: >
 
 The validator will only talk to the Sentry nodes that are provided. While sentry nodes have the ability to talk to the validator node on the private channel and talk to public nodes elsewhere on the internet. When initializing nodes there are six parameters in the config.toml which are important
 
-* **pex**: boolean value. It tursn the peer exchange reactor (gossip protocol) on or off in a node. When **<code>pex=false</code>**, only the list of nodes in the <code>persistent_peers</code> list are available for connection.
+* **pex**: boolean value. It turns the peer exchange reactor (gossip protocol) on or off in a node. When **<code>pex=false</code>**, only the list of nodes in the <code>persistent_peers</code> list are available for connection.
 * **persistent_peers**: commma separated list of [**nodeid@ip:port**](#nodeids) values that define a list of peers that expected to be online at all times and the node is expected to be able to connect to them. If some nodes are not available, they will be skipped and later retried for a while, before completely dropping them. If no nodes are available from the list and **<code>pex=false</code>**, then the node will not be able to join the network.
 * **private_peer_ids**: comma-separated list of nodeid values, that should not be gossiped at all times. This setting tells which nodes should not be handed out to others
 * **add_book_strict**: Turn this off if some of the nodes are on a LAN IP. If off, non routable IP address, like addressed on a private network can be added to the address book.
