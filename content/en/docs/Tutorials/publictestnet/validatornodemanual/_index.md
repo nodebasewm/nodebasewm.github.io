@@ -592,7 +592,7 @@ We can now to return to our Valdiator Node to complete the rest of its set up.
     [Service]
     User=$USER
     # Start the 'cosmovisor' daemon with the 'run start' command and write output to journalctl
-    ExecStart=$(which cosmovisor) run start --home /opt/aya"
+    ExecStart=$(which cosmovisor) run start --home /opt/aya
     # Restart the service if it fails
     Restart=always
     # Restart the service after 3 seconds if it fails
@@ -761,7 +761,7 @@ So, we shall now proceed to doing this.
 
 34. Next we make sure we have RegisterEarthNode selected under the **Select Transaction Type:** Dropdown Menu. 
 
-35. And now we need to paste in the previously copied information, obtained during step 32 above, into the **Paste Installation Script Output:** Box and press the **Build Transaction** Button.
+35. And now we need to paste in the previously copied information, obtained during step 30 above, into the **Paste Installation Script Output:** Box and press the **Build Transaction** Button.
 
     > Note: We will now be asked for our Preview Testnet Wallet's Spending Password at this point in order to Authorise the Registration Transaction to be Posted On-Chain on the Cardano Preview Testnet Newtork.
 
@@ -779,7 +779,7 @@ So, we shall now proceed to doing this.
     ayad query bank balances <our Operator Address> --home /opt/aya
     {{< /highlight>}}
 
-    > Note: We replace ```<our Operator Address>``` with the full operator_address detail that begins with *aya1* from the information we obtained for EarthNode Registration in step 32, removing the surrounding <>
+    > Note: We replace ```<our Operator Address>``` with the full operator_address detail that begins with *aya1* from the information we obtained for EarthNode Registration in step 30, removing the surrounding <>
 
     If Registration on the Cardano Blockchain side has been successful, this command should give us the following output
 
